@@ -1,4 +1,4 @@
-# Team 25 Week X Update Meeting
+# Team 25 [Topic] Meeting
 
 **Location:** (Zoom, etc)
 
