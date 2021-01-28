@@ -34,8 +34,8 @@ Layout Pomodoro Timer design/features and assign loose roles.
 
 ## Decisions
 * Pomodoro Timer Features
- * Automatic break timer
- * web app
+ * Automatic break timer - timer sounds an alarm  
+ * Web app
  * Define timer break lengths
  * Make different settings for different user preferences
  
