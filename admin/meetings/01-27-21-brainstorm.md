@@ -15,6 +15,7 @@ Layout Pomodoro Timer design/features and assign loose roles.
 
 ## Tasks
 * Finish the brainstorming of the timer this week
+* Start next week's objectives
 
 ### Unresolved Tasks/Updates from last week
 * Brainstorm features/layout for Pomodoro timer - unresolved
@@ -28,15 +29,62 @@ Layout Pomodoro Timer design/features and assign loose roles.
   * Figure out what some people are not very experienced in
   
 ### Undiscussed Tasks
-* Thinking about the users
-  * What do they want/expect
-* Theme/Mood
+None. The group talked about many features the timer could and should have.
 
 ## Decisions
 * Pomodoro Timer Features
- * Automatic break timer - timer sounds an alarm  
- * Web app
- * Define timer break lengths
- * Make different settings for different user preferences
+  * Break timer
+  * To-do List
+    * Task Name & Pomo Name
+    * Create tasks
+      * Limit number of pomos
+    * Show completed tasks and pomos
+  * Show how much time is left
+    * Create Labels for the timer
+  * Reset Button - restarts the timer
+* User Experience
+  * Should improve productivity
+    * Better use of Time
+    * Better Focus
+    * Better Habbits
+  * Minimize distractions
+    * Simple visuals
+    * Not too much clutter on screen
+  * Make it easy to navigate
  
-**End time:** TBD
+### Undecided Decisions
+* How the timer will look
+  * Dial
+  * Count Down
+    * Minutes & Seconds VS Just Minutes
+* Features
+  * Buttons, Pop-ups
+* Define timer break lengths
+* Varying time breaks
+* Web app
+* Settings tab 
+  * Make different settings for different user preferences
+  * Show a list of Themes
+    * Dark, Light, Mountain, etc.
+  
+    
+### Planned Features  
+* Settings
+  * Set how long till a break
+  * Set how long the break lasts
+  * Set whether timer ends with a sound or buzz
+  * Set how the timer looks  
+    * Dial
+    * Countdown
+      * Minutes & seconds VS just Minutes
+    * Progress Bar 
+  * Explain what a Pomodoro Timer is and how to use it
+    * A question mark button?
+* Mobile Support?
+* Extensions?
+* End button/label
+* Show completed tasks
+  * Number of expected pomos VS completed pomos
+
+
+**End time:** 9:00PM PST
