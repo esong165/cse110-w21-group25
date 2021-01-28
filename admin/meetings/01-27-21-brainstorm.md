@@ -83,9 +83,10 @@ None. The group talked about many features the timer could and should have.
 * Mobile Support?
 * Extensions?
 * End button/label
-* Show completed tasks
-  * Number of expected pomos VS completed pomos
-* Show task history
-
+* Tasks
+  * Show completed tasks
+    * Number of expected pomos VS completed pomos
+  * Show failes tasks
+  * Show task history
 
 **End time:** 9:00PM PST
