@@ -1,17 +1,17 @@
 #site-header {
-    text-align: center;
+  text-align: center;
 }
 
 #popup {
-    text-align: center;
-    visibility: hidden;
+  text-align: center;
+  visibility: hidden;
 }
 
 #popup-button {
-    display: flex;
-    justify-content: center; 
+  display: flex;
+  justify-content: center;
 }
 
 #nav {
-    text-align: center;
+  text-align: center;
 }
