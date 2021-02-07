@@ -18,7 +18,7 @@ To counteract this we use the Pomodoro timer a Interval timer where the user tak
  2. Create simple application that facilitates the ability to work smarter
  3. Reduce mental fatigue of the customer
  4. Make Big Brain
- 
+  
  We want to create a Pomodoro Timer to create the biggest, brightest, and hugest minds in the world. But taking into account the time limitations we have to consider what we can accomplish in this time frame. Our goal for this quarter is to get the basic implementation of the Pomodoro timer down, and a task list.
   
  We hope that by the end of the quarter we will have created a timer that gets brains biggest, hugest, brightest.
