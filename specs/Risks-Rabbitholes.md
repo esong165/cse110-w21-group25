@@ -1,4 +1,4 @@
-## Risks and Rabbit Holes:
+# Risks and Rabbit Holes:
 
 When creating an application like this, it is always necessary to clear or state any rabbit holes/risks that are associated.
 
