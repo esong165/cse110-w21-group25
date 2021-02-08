@@ -23,14 +23,14 @@
 - Manager meeting (coding check-in)
 
 ## Week 8: Beta Sprint
-### Goal: Implement more difficult features (planned: data collection)
+### Goal: Implement more time-consuming features (planned: data collection)
 - Continue development, reassign tasks depending on progress
 - Do more rigorous testing than unit tests
 - Implement quality of life/accessibility features
 - Manager meeting (progress check-in)
 
 ## Week 9: Beta Sprint (continued)
-### Goal: Implement more difficult features (planned: data collection)
+### Goal: Continue implementing more time-consuming
 - Continue development, reassign tasks depending on progress
 - Do more rigorous testing than unit tests
 - Implement quality of life/accessibility features
