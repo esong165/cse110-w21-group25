@@ -15,9 +15,9 @@ jobs:
       - name: Build
         uses: andstor/jsdoc-action@v1
         with:
-          output_dir: "./doc/"
+          source_dir: ./source
           recurse: true
-          template: minami
+          output_dir: ./out
           front_page: ./doc/JSDoc.md
       
       - uses: actions/checkout@v2
