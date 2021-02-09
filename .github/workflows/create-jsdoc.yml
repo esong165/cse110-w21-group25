@@ -18,6 +18,18 @@ jobs:
           source_dir: ./src
           output_dir: ./doc
           recurse: true
-          config_file: conf.json
+          config_file: conf.js
           template: minami
           front_page: JSDoc.md
+          
+  build:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - uses: actions/checkout@v1
+      - name: Upload JSDoc to Wiki
+        uses: SwiftDotOrg/github-wiki-publish-action@v1
+        with:
+          path: "Documentation"
+        env:
+          GH_PERSONAL_ACCESS_TOKEN: ${{secrets.GH_PERSONAL_ACCESS_TOKEN}}      
