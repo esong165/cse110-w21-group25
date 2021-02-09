@@ -1,0 +1,5 @@
+{
+  "scripts": {
+    "docs": "jsdoc2md source/*.js > JSDoc.md"
+  }
+}
