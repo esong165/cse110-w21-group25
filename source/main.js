@@ -1,5 +1,5 @@
 /**
- * @file Manages the button press on the page.
+ * @file Manages button clicks on the page.
  */
 
 const btn = document.getElementById('btn')
