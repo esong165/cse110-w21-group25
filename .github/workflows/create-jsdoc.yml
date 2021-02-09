@@ -21,8 +21,8 @@ jobs:
           
       - name: Build docs
         run: |
-            npm install jsdoc-to-markdown
-            jsdoc2md source/*.js > JSDoc.md  
+            npm install --save-dev jsdoc-to-markdown
+            npm run jsdoc2md source/*.js > JSDoc.md  
       
       - name: Upload JSDoc to Wiki
         uses: SwiftDocOrg/github-wiki-publish-action@v1
