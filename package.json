@@ -1,5 +1,5 @@
 {
   "scripts": {
-    "docs": "jsdoc2md source/*.js > JSDoc.md"
+    "docs": "jsdoc2md source/*.js > ./docs/JSDoc.md"
   }
 }
