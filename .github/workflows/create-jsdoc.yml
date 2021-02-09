@@ -13,11 +13,11 @@ jobs:
         uses: actions/checkout@v2
 
       - name: Build
-        uses: andstor/jsdoc-action@v1
+        uses: andstor/jsdoc-action@v1.2.0
         with:
           source_dir: ./source
           recurse: true
-          output_dir: ./out
+          output_dir: ./doc
           front_page: ./doc/JSDoc.md
       
       - uses: actions/checkout@v2
