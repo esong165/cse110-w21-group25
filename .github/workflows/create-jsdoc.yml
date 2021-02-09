@@ -12,18 +12,25 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v2
 
-      - name: Build
+      - name: Build docs
         uses: andstor/jsdoc-action@v1.2.0
         with:
-          source_dir: "./source" 
-          recurse: "true" 
+          source_dir: ./source
+          output_dir: ./docs  
+          recurse: true
       
-      - uses: actions/checkout@v2
+      - name: Add to Repo
+        run: |
+          git config --local user.email "esong165@gmail.com"
+          git config --local user.name "esong165"
+          git add .
+          git commit -m "Add JSDoc"
+          git push
         
-      - name: Upload JSDoc to Wiki
+      - name: Upload to Wiki
         uses: SwiftDocOrg/github-wiki-publish-action@v1
         with:
-          path: "./out"
+          path: "./docs"
         env:
           GH_PERSONAL_ACCESS_TOKEN: ${{secrets.GH_PERSONAL_ACCESS_TOKEN}}
      
