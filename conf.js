@@ -1,5 +1,5 @@
-'use strict';
+'use strict'
 
 module.exports = {
-  "plugins": ["plugins/markdown"]
+  plugins: ['plugins/markdown']
 }
