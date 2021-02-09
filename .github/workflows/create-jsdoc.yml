@@ -28,7 +28,7 @@ jobs:
     steps:
       - uses: actions/checkout@v1
       - name: Upload JSDoc to Wiki
-        uses: SwiftDotOrg/github-wiki-publish-action@v1
+        uses: SwiftDocOrg/github-wiki-publish-action@v1
         with:
           path: "Documentation"
         env:
