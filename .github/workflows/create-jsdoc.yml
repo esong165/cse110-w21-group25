@@ -15,10 +15,10 @@ jobs:
       - name: Build
         uses: andstor/jsdoc-action@v1.2.0
         with:
-          source_dir: ./source
+          source_dir: "./source"
           recurse: true
-          output_dir: ./doc
-          front_page: ./doc/JSDoc.md
+          output_dir: "./doc"
+          front_page: "./doc/JSDoc.md"
       
       - uses: actions/checkout@v2
         
