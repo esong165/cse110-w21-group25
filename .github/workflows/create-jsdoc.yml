@@ -26,13 +26,14 @@ jobs:
           git fetch
           git checkout documentation
           git add .
-          git commit -m "Add JSDoc"
+          git commit -m "Added JSDoc"
           git push
         
-      - name: Upload to Wiki
-        uses: SwiftDocOrg/github-wiki-publish-action@v1
+      - name: Upload to Pages
+        uses: ./
         with:
-          path: "./docs"
-        env:
-          GH_PERSONAL_ACCESS_TOKEN: ${{secrets.GH_PERSONAL_ACCESS_TOKEN}}
+          username: ${{ secrets.USERNAME }}
+          password: ${{ secrets.GH_PERSONAL_ACCESS_TOKEN }}
+          remote_url: https://github.com/esong165/cse110-w21-group25.git
+          target_branch: main
      
