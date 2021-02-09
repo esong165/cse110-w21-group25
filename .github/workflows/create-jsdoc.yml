@@ -18,12 +18,12 @@ jobs:
           source_dir: ./source
           output_dir: ./docs  
           recurse: true
-      
-      - name: Convert to md
-      - run: |
+          
+      - name: Build docs
+        run: |
             npm install --save-dev jsdoc-to-markdown
             jsdoc2md source/*.js > JSDoc.md  
-        
+      
       - name: Upload JSDoc to Wiki
         uses: SwiftDocOrg/github-wiki-publish-action@v1
         with:
