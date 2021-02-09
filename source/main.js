@@ -1,3 +1,7 @@
+/**
+ * @file Manages the button press on the page.
+ */
+
 const btn = document.getElementById('btn')
 btn.addEventListener('click', changeVisibility)
 
