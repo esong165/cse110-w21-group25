@@ -23,6 +23,7 @@ jobs:
         run: |
           git config --local user.email "esong165@gmail.com"
           git config --local user.name "esong165"
+          git fetch
           git checkout documentation
           git add .
           git commit -m "Add JSDoc"
