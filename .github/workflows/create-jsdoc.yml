@@ -15,8 +15,8 @@ jobs:
       - name: Build
         uses: andstor/jsdoc-action@v1.2.0
         with:
-          source_dir: /cse110-w21-group25/source/
-          front_page: ./doc/JSDoc.md
+          source_dir: ./source
+          front_page: ./README.md
       
       - uses: actions/checkout@v2
         
