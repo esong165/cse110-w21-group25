@@ -15,8 +15,8 @@ jobs:
       - name: Build
         uses: andstor/jsdoc-action@v1
         with:
-          source_dir: source
-          output_dir: doc
+          source_dir: "."
+          output_dir: "./doc"
           recurse: true
           config_file: conf.js
           template: minami
