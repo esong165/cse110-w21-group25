@@ -1,9 +1,5 @@
-/**
- * @file Manages button clicks on the page.
- */
-
-const btn = document.getElementById('btn');
-btn.addEventListener('click', changeVisibility);
+const btn = document.getElementById('btn')
+btn.addEventListener('click', changeVisibility)
 
 /**
  * A function to change visibility of a popup.
