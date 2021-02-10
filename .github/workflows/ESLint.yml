@@ -1,0 +1,18 @@
+name: ESLint
+
+# Triggers the workflow on push
+on: push
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      # Checks-out code
+      - uses: actions/checkout@v2
+
+      # Lints code with ESLint
+      - name: Lint code
+        run: |
+          npm install --global eslint
+          eslint ./source --ext .js
