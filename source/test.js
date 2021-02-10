@@ -9,3 +9,4 @@ function testFunc(x, y){
 }
 
 testFunc(1,2);
+
