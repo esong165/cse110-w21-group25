@@ -9,21 +9,17 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
     steps:
+      # Checks out code base
       - name: Checkout code
         uses: actions/checkout@v2
-
-      - name: Build docs
-        uses: andstor/jsdoc-action@v1.2.0
-        with:
-          source_dir: ./source
-          output_dir: ./docs  
-          recurse: true
-          
+      
+      # Builds JSDoc in md form
       - name: Build docs
         run: |
             npm install jsdoc-to-markdown
             npm run docs
       
+      # Uploads JSDoc to Wiki page
       - name: Upload JSDoc to Wiki
         uses: SwiftDocOrg/github-wiki-publish-action@v1
         with:
