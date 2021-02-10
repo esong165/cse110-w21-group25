@@ -11,8 +11,10 @@ jobs:
       # Checks-out code
       - uses: actions/checkout@v2
 
-      # Lints code with ESLint
-      - name: Lint code
-        run: |
-          yarn
-          eslint "./source" --ext .js
+      # Installs ESLint
+      - name: Install modules
+        run: yarn
+      
+      # Runs ESLint
+      - name: Run ESLint
+        run: eslint "./source" --ext .js
