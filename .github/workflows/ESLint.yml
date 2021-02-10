@@ -14,5 +14,5 @@ jobs:
       # Lints code with ESLint
       - name: Lint code
         run: |
-          npm install --global eslint
+          npm install eslint
           eslint ./source --ext .js
