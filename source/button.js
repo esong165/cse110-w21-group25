@@ -1,7 +1,3 @@
-/**
- * @file Manages button clicks on the page.
- */
-
 const btn = document.getElementById('btn')
 btn.addEventListener('click', changeVisibility)
 
