@@ -21,7 +21,7 @@ Define tasks for first sprint and create a backlog, as well as finish up CI/CD p
 
 ### Current Tasks
 * Add Jest - Eric Song - over the weekend
-* Add codeclimate - Eric Song - this weekend 
+* Add codeclimate - Eric Song - this weekend
 * CSS - Jaslina (lead)
   * Blocked until HTML is done
 * Refactor system diagrams
@@ -47,13 +47,12 @@ Define tasks for first sprint and create a backlog, as well as finish up CI/CD p
 * GitHub Super Linter for linting
 * JSDoc for documentation
 * Jest for unit testing
-* MVP - timer w/ 1 buttton, task being displayed, task list 
+* MVP - timer w/ 1 buttton, task being displayed, task list
 * Task list - select current task, add/remove tasks, mark as done, assign # of pomodoros
 * Timer - single button - start timer/breaks, fail task if you decide to stop at any point, timer counting down (update display), timer alerts on completion (sound is high priority, but not necessary for MVP)
 * Each group will add the basic HTML to their component
 * Use Sprint 1 MVP design as guide for HTML structure (can have different CSS/style)
 * Assigned tasks -- may switch someone else to CSS
 * tabs vs. spaces -- chose tabs
-* 
 
 **End time:** 8:55 PM
