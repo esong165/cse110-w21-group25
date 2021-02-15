@@ -31,16 +31,23 @@
 
         <div id="task-list">
             <h3>Upcoming Tasks:</h3>
-            <ul id="tasks-container">
-                <li>Sample task 1</li>
-                <li>Sample task 2</li>
-            </ul>
+
+            <ul id="tasks-container"></ul>
+            
+            <form id="add-task-container">
+                <label>Task name:</label>
+                <input type="text" id="new-task-name">
+                <label>Estimated pomodoros:</label>
+                <input type="number" id="new-task-count" value='1' min='1'>
+                <input type="submit" id="add-task-btn" onclick="addTask(event)" value="Add Task"></button>
+            </form>
         </div>
 
-        <button id="task-button">Open Task List</button> 
+        <button id="tasklist-btn">Open Task List</button> 
     </main>
 
     <script src="./main.js"></script>
+    <script src="./task-item.js"></script>
 </body>
 
 </html>

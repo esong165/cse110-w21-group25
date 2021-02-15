@@ -7,15 +7,18 @@ class TaskItem extends HTMLElement {
         let task = document.createElement('li');
         task.setAttribute('class', 'task');
 
-        let removeTaskButton = document.createElement('button');
-        removeTaskButton.setAttribute('onclick', 'removeTask(taskId)');
-        removeTaskButton.textContent = 'Remove';
-        task.appendChild(removeTaskButton);
+        let name = document.createElement('span');
+        name.innerHTML = 'Task name: ';
+        task.appendChild(name);
 
-        /* 
-            A task will also have innerHTML/textContent representing the name
-            of the task and an attribute to track the estimated pomo count.
-        */ 
+        let count = document.createElement('span');
+        count.innerHTML = 'Estimated pomodoros: ';
+        task.appendChild(count);
+
+        let removeTaskButton = document.createElement('button');
+        //removeTaskButton.setAttribute('onclick', 'removeTask(taskId)');
+        removeTaskButton.innerHTML = 'Remove';
+        task.appendChild(removeTaskButton);
         
         shadow.appendChild(task);
 
@@ -23,11 +26,13 @@ class TaskItem extends HTMLElement {
 
         /* 
         style.textContent = `
-
+            .task > button {}
+            visibility: visible;
         `;
-        */
+        
 
         shadow.appendChild(style);
+        */  
     }
 }
 
