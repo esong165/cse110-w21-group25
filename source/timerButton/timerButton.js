@@ -1,6 +1,5 @@
 
 document.getElementById('timer-btn').addEventListener('click', function () {
-  const longBreakCycle = 3
 
   // This keeps track of the current number of cycles
   const numCycles = parseInt(window.localStorage.getItem('cycles'))
@@ -32,7 +31,7 @@ document.getElementById('timer-btn').addEventListener('click', function () {
       const newCycle = numCycles + 1
       window.localStorage.setItem('cycles', newCycle)
 
-      if (numCycles % longBreakCycle === 0) {
+      if (numCycles % 3 === 0) {
         /*
                 Set timer to 10 minutes
                 Start Countdown
