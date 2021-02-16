@@ -2,10 +2,10 @@
 
 
 document.getElementById('timer-btn').addEventListener('click', function () {
-  console.log('okue')
+  const longBreakCycle = 3
 
   // This keeps track of the current number of cycles
-  const numCycles = parseInt(window.localStorage.getItem('cycles'))
+  let numCycles = parseInt(window.localStorage.getItem('cycles'))
 
   // Get the current time of the timer
   const currentTime = document.getElementById('time')
@@ -13,7 +13,7 @@ document.getElementById('timer-btn').addEventListener('click', function () {
   const onTask = window.localStorage.getItem('onTask')
 
   // Timer hasnt begun yet
-  if (numCycles === null || onTask === null || (numCycles == 0 && onTask == 'false')) {
+  if (numCycles === null || onTask === null || (numCycles === 0 && onTask === 'false')) {
     /* call the timer starter function **HERE** */
 
     window.localStorage.setItem('cycles', '0')
@@ -53,13 +53,11 @@ document.getElementById('timer-btn').addEventListener('click', function () {
 
     window.localStorage.setItem('onTask', 'false')
   } else if (onTask === 'false') {
-
     /*
         Set timer to 25 minutes
         Start Countdown
         **HERE**
         */
-
   }
 })
 
@@ -67,7 +65,7 @@ document.getElementById('Time').addEventListener('change', function () {
 
   const longBreakCycle = 3
   const currentTime = document.getElementById('Time')
-  const numCycles = parseInt(localStorage.getItem('cycles'))
+  const numCycles = parseInt(window.localStorage.getItem('cycles'))
   const onTask = window.localStorage.getItem('onTask')
 
   if (currentTime === 0) {
