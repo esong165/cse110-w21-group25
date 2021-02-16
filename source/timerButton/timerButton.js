@@ -1,11 +1,9 @@
 
-
-
 document.getElementById('timer-btn').addEventListener('click', function () {
   const longBreakCycle = 3
 
   // This keeps track of the current number of cycles
-  let numCycles = parseInt(window.localStorage.getItem('cycles'))
+  const numCycles = parseInt(window.localStorage.getItem('cycles'))
 
   // Get the current time of the timer
   const currentTime = document.getElementById('time')
@@ -62,7 +60,6 @@ document.getElementById('timer-btn').addEventListener('click', function () {
 })
 
 document.getElementById('Time').addEventListener('change', function () {
-
   const longBreakCycle = 3
   const currentTime = document.getElementById('Time')
   const numCycles = parseInt(window.localStorage.getItem('cycles'))
