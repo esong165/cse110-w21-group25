@@ -8,7 +8,7 @@ body {
   justify-items: center;
   width: 98vw;
 }
- 
+
 main {
   display: grid;
   height: 100%;
@@ -26,14 +26,14 @@ main {
   margin: 20px auto 0 auto;
   transition: 0.1s ease all;
   width: 100px;
-  }
+}
 
 #timer-btn:hover {
   cursor: pointer;
   background-color: #aaa;
   transition: 0.1s ease all;
 }
-  
+
 #timer-btn-container {
   display: grid;
   justify-items: center;

@@ -1,29 +1,29 @@
 
-const longBreakCycle = 3
+
 
 document.getElementById('timer-btn').addEventListener('click', function () {
   console.log('okue')
 
   // This keeps track of the current number of cycles
-  const numCycles = parseInt(localStorage.getItem('cycles'))
+  const numCycles = parseInt(window.localStorage.getItem('cycles'))
 
   // Get the current time of the timer
   const currentTime = document.getElementById('time')
 
-  const onTask = localStorage.getItem('onTask')
+  const onTask = window.localStorage.getItem('onTask')
 
   // Timer hasnt begun yet
-  if (numCycles == null || onTask == null || (numCycles == 0 && onTask == 'false')) {
+  if (numCycles === null || onTask === null || (numCycles == 0 && onTask == 'false')) {
     /* call the timer starter function **HERE** */
 
-    localStorage.setItem('cycles', '0')
+    window.localStorage.setItem('cycles', '0')
 
     // Need to id to the one in the html
     document.getElementById('timer-btn').textContent = 'Fail Task'
 
-    localStorage.setItem('onTask', 'true')
-  } else if (onTask == 'true') {
-    if (currentTime != 0) {
+    window.localStorage.setItem('onTask', 'true')
+  } else if (onTask === 'true') {
+    if (currentTime !== 0) {
       /*
         Set Timer interval to 25
         **HERE**
@@ -32,9 +32,9 @@ document.getElementById('timer-btn').addEventListener('click', function () {
       document.getElementById('timer-btn').textContent = 'Start Pomo'
     } else {
       const newCycle = numCycles + 1
-      localStorage.setItem('cycles', newCycle)
+      window.localStorage.setItem('cycles', newCycle)
 
-      if (numCycles % longBreakCycle == 0) {
+      if (numCycles % longBreakCycle === 0) {
         /*
                 Set timer to 10 minutes
                 Start Countdown
@@ -51,8 +51,8 @@ document.getElementById('timer-btn').addEventListener('click', function () {
       }
     }
 
-    localStorage.setItem('onTask', 'false')
-  } else if (onTask == 'false') {
+    window.localStorage.setItem('onTask', 'false')
+  } else if (onTask === 'false') {
 
     /*
         Set timer to 25 minutes
@@ -64,15 +64,17 @@ document.getElementById('timer-btn').addEventListener('click', function () {
 })
 
 document.getElementById('Time').addEventListener('change', function () {
+
+  const longBreakCycle = 3
   const currentTime = document.getElementById('Time')
   const numCycles = parseInt(localStorage.getItem('cycles'))
-  const onTask = localStorage.getItem('onTask')
+  const onTask = window.localStorage.getItem('onTask')
 
-  if (currentTime == 0) {
-    if (onTask == 'false') {
+  if (currentTime === 0) {
+    if (onTask === 'false') {
       document.getElementById('timer-btn').textContent = 'Start Pomo'
     } else {
-      if (numCycles % longBreakCycle == 0) {
+      if (numCycles % longBreakCycle === 0) {
         document.getElementById('timer-btn').textContent = 'Start Long Break'
       } else {
         document.getElementById('timer-btn').textContent = 'Start Short Break'
