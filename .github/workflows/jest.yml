@@ -13,4 +13,4 @@ jobs:
       run: npm install jest
       # Run Jest unit tests
     - name: Run tests
-      run: npm test /source/.*test.js
+      run: npm test /source/*.js
