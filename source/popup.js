@@ -1,5 +1,8 @@
-const popup_button = document.getElementById('popup-button');
-popup_button.addEventListener('click', changeVisibility);
+"use strict";
+
+window.addEventListener('DOMContentLoaded', () => {
+	document.getElementById('popup-button').addEventListener('click', changeVisibility);
+});
 
 /**
  * Changes visibility of a popup.
