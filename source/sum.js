@@ -8,4 +8,4 @@ function testFunc(x, y) {
   return x + y;
 }
 
-module.exports = sum;
+module.exports = testFunc;
