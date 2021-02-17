@@ -1,25 +1,39 @@
-'use strict';
-
 let timer;
 
-class Timer {
+/**
+ * All things timer.
+ */
+export default class Timer {
+	/**
+	 * Constructs the timer with a default remaining time of 25 minutes.
+	 */
 	constructor() {
-		// in ms
 		this.$remaining = 25 * 60 * 1000;
 	}
 
+	/**
+	 * Gets the remaining time.
+	 */
 	get remaining() {
 		return this.$remaining;
 	}
 
 	/**
 	 * Sets the remaining time.
-	 * @param {Number} ms - the remaining time, in miliseconds.
+	 * @param {Number} time - the remaining time, in miliseconds
 	 */
-	set remaining(ms) {
-		this.$remaining = ms;
+	set remaining(time) {
+		this.$remaining = time;
+		document.getElementById('time-remaining').textContent = this.$format(time);
+	}
+
+	/**
+	 * Formats the given time to the form of mm:ss.
+	 * @param {Number} time - the time, in miliseconds, to format
+	 */
+	$format(time) {
 		const date = new Date(0);
-		date.setMilliseconds(this.$remaining);
+		date.setMilliseconds(time);
 		const isoDate = date.toISOString();
 		let formatted;
 		if (isoDate.length === 24) {
@@ -27,18 +41,10 @@ class Timer {
 		} else {
 			formatted = isoDate.substr(17, 5);
 		}
-		document.getElementById('time-remaining').textContent = formatted;
+		return formatted;
 	}
 }
 
 document.addEventListener('DOMContentLoaded', () => {
 	timer = new Timer();
-});
-
-// demo
-document.addEventListener('DOMContentLoaded', () => {
-	timer.remaining = (10 * 60 + 31.9) * 1000; // 10:31
-	setTimeout(() => {
-		timer.remaining = (100000000000 * 60 + 29.1) * 1000;
-	}, 1000); // 40:29
 });
