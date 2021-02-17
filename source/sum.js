@@ -4,7 +4,7 @@
  * @param {number} y - The second number to be added.
  * @returns {number} - The sum of x and y.
  */
-function testFunc(x, y) {
+function sum(x, y) {
   return x + y;
 }
 
