@@ -8,4 +8,4 @@ function testFunc(x, y) {
   return x + y;
 }
 
-testFunc(1, 2);
+module.exports = test;
