@@ -1,5 +1,6 @@
 {
   "scripts": {
     "docs": "jsdoc2md source/*.js > ./docs/JSDoc.md"
+    "test": "jest"
   }
 }
