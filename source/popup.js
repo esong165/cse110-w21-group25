@@ -1,4 +1,4 @@
-"use strict";
+'use strict';
 
 window.addEventListener('DOMContentLoaded', () => {
 	document.getElementById('popup-button').addEventListener('click', changeVisibility);
