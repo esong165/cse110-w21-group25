@@ -1,0 +1,17 @@
+#site-header {
+  text-align: center;
+}
+
+#popup {
+  text-align: center;
+  visibility: hidden;
+}
+
+#popup-button {
+  display: flex;
+  justify-content: center;
+}
+
+#nav {
+  text-align: center;
+}
