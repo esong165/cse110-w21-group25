@@ -1,0 +1,34 @@
+<!DOCCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+p {
+  text-align: center;
+  font-size: 60px;
+  margin-top: 0px;
+}
+</style>
+</head>
+<body>
+
+<h3>Pomodoro Timer (All fields must be filled. If none apply to your time, input 0).</h3>
+
+<form>
+	<label for="hrs">Enter how many hours into the timer:</label>
+	<input type="number" id="hrs" name="hrs" min="0" max="24">
+	<label for="mins">Enter how many minutes into the timer:</label>
+	<input type="number" id="mins" name="mins" min="0" max="60">
+	<label for="secs">Enter how many seconds into the timer:</label>
+	<input type="number" id="secs" name="secs" min="0" max="60">
+</form>
+
+<button onclick="myFunction()">Start Timer!</button>
+
+<p id="time"></p>
+
+<script src="timer.js"></script>
+
+</body>
+</html>
+
