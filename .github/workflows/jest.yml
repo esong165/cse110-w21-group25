@@ -10,7 +10,7 @@ jobs:
     - uses: actions/checkout@v2
       # Install Jest
     - name: Install modules
-      run: yarn
+      run: npm install jest
       # Run Jest unit tests
     - name: Run tests
       run: npm test
