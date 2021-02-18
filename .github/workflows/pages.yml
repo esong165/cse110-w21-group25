@@ -22,5 +22,9 @@ jobs:
 
       # Deploys /source to GitHub Pages 
       - name: Deploy /source to GitHub Pages
+        # Create local GitHub pages branch containing split output folder
+        # Force push of gh-pages branch to remote gh-pages branch, then deletes local gh-pages
         run: |
-          git subtree push --prefix source origin gh-pages
+          git subtree split --prefix source -b gh-pages
+          git push -f origin gh-pages:gh-pages
+          git branch -D gh-pages
