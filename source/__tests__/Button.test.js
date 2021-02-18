@@ -6,7 +6,7 @@ test('Initial change', () => {
 	const theButton = document.getElementById('pomoButton');
 	const theTimer = document.getElementById('time');
 
-	Button('pomoButton','time');
+	const button = new Button('pomoButton','time');
 	theButton.click();
 	expect(theButton.textContent).toBe('Fail Task');
 	
