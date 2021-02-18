@@ -122,9 +122,9 @@ function doneTask(event){
     taskId = taskStr.substring(11, taskStr.length-2);
     removeTask(taskId);
 
-    //reset tasks
-    document.getElementById("current-task").innerHTML ="Current Task: Default";
-    document.getElementById("num-pomos").innerHTML ="# of Pomos: 1";
+    //reset tasks now done in removeTask
+    //document.getElementById("current-task").innerHTML ="Current Task: Default";
+    //document.getElementById("num-pomos").innerHTML ="# of Pomos: 1";
 
 }
 
@@ -148,12 +148,29 @@ function selectTask(taskId){
 }
 
 function removeTask(taskId){
-    if (document.getElementById("current-task").innerHTML == taskId)
+    taskStr = document.getElementById("current-task").innerHTML;
+    taskContainer = document.getElementById('tasks-container');
+
+    taskContainer.removeChild(document.getElementById(taskId));
+
+    if (taskStr.substring(11, taskStr.length-2) == taskId)
     {
-        document.getElementById("current-task").innerHTML = "Default Task";
+        //Goes to the next task automatically
+        if(taskContainer.hasChildNodes()){ 
+
+            let task = taskContainer.getElementsByTagName("task-item")[0];
+            selectTask(task.id);
+        }
+        else{
+            //when there is no tasks left in list
+            document.getElementById("current-task").innerHTML = "Task name: Default Task";
+            document.getElementById("num-pomos").innerHTML = "# of Pomos: 1";
+            let selectedTask = ["Task name: Default Task", "# of Pomos: 1" ];
+        }
+        
         
     }
-    document.getElementById('tasks-container').removeChild(document.getElementById(taskId));
+    
 
     //remove task in local storage as map 
     /*
@@ -175,5 +192,5 @@ return arr.filter(function(ele){
 });
 }
     
-//populateTaskList(); Throws TaskItem not defined
+populateTaskList();
 document.getElementById('tasklist-btn').addEventListener('click', manageTaskList);
