@@ -21,8 +21,8 @@ Find out where everyone is at, make progress regarding Jest, and figure out what
 
 ### Current Tasks
 * Finish GitHub tasks - Andrew, Tom, Eric, Yuchen
-  * Finish Timer Prototype 
-    * Countdown and Alarm - Andrew 
+  * Finish Timer Prototype
+    * Countdown and Alarm - Andrew
     * Cycle Tracking - Tom
     * Jest - Eric
     * Button control - Yuchen
