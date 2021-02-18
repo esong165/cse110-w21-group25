@@ -23,6 +23,8 @@ jobs:
       # Deploys /source to GitHub Pages 
       - name: Deploy /source to GitHub Pages
         run: |
+          git config --global user.name "esong165"
+          git config --global user.email "eysong@ucsd.edu"
           git add source
           git commit -m "Source subtree commit"
           git subtree push --prefix source origin gh-pages
