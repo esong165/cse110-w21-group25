@@ -25,6 +25,4 @@ jobs:
         # Create local GitHub pages branch containing split output folder
         # Force push of gh-pages branch to remote gh-pages branch, then deletes local gh-pages
         run: |
-          git subtree split --prefix source -b gh-pages
-          git push -f origin gh-pages:gh-pages
-          git branch -D gh-pages
+          git push origin `git subtree split --prefix source master`:gh-pages --force
