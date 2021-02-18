@@ -1,7 +1,7 @@
 
 test('Initial change', () => {
 	document.body.innerHTML = '<button id = "pomoButton">Start Pomo</button><div id ="time">25:00</div>';
-	require('../Button.js');
+	require('../button.js');
 
 	const theButton = document.getElementById('pomoButton');
 	const theTimer = document.getElementById('time');
