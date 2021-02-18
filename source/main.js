@@ -175,5 +175,5 @@ return arr.filter(function(ele){
 });
 }
     
-//populateTaskList(); Throws TaskItem not defined
+populateTaskList();
 document.getElementById('tasklist-btn').addEventListener('click', manageTaskList);
