@@ -60,21 +60,3 @@ function startCounter(){
 	document.getElementById("inputArea").style.display="none";	
 	document.getElementById("startTimer").style.display="none";	
 }
-
-/*
-window.onload=function(){
-	var myInput=document.createElement("input");
-	myInput.setAttribute("type","text");
-	myInput.setAttribute("id","minutes");
-		
-	var myButton=document.createElement("input");
-	myButton.setAttribute("type","button");
-	myButton.setAttribute("value","Start Timer");
-		
-	myButton.onclick=function(){
-		startCounter();					
-	}
-	document.getElementById("inputArea").appendChild(myInput);
-	document.getElementById("inputArea").appendChild(myButton);	
-}
-*/
