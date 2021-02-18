@@ -19,6 +19,7 @@ test('Initial change', () => {
 	const theTimer = document.getElementById('time');
 
 	const button = new Button('pomoButton','time');
+	theButton.click();
 	theTimer.textContent = '0:00';
 	expect(theButton.textContent).toBe('Short Break');
 	
