@@ -55,7 +55,7 @@ export default class Button {
 			}
 		});
 
-		document.getElementById(clockId).addEventListener('change', function() {
+		setInterval(function() {
 			const currentTime = document.getElementById(clockId).textContent;
 
 			if (currentTime === '0:00') {
@@ -71,6 +71,6 @@ export default class Button {
 					document.getElementById(buttonId).disabled = false;
 				}
 			}
-		});
+		}, 1000);
 	}
 }

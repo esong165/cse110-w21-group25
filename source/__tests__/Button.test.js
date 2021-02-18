@@ -21,6 +21,9 @@ test('Initial change', () => {
 	const button = new Button('pomoButton','time');
 	theButton.click();
 	theTimer.textContent = '0:00';
-	expect(theButton.textContent).toBe('Short Break');
+	setTimeout(function(){
+		expect(theButton.textContent).toBe('Start Short Break');
+	}, 4000);
+	
 	
 });
