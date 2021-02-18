@@ -1,6 +1,6 @@
 'use strict';
 
-export class Button {
+export default class Button {
 	constructor(buttonId, clockId) {
 		let cycleCount = 0;
 		let onTask = false;
