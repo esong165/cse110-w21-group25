@@ -26,6 +26,7 @@ jobs:
           git subtree split --prefix source -b gh-pages
           git checkout gh-pages
           git rm *.test.js
+          git commit --author="eysong <eysong@ucsd.edu>" -m "Removed tests"
           git checkout main
           git push -f origin gh-pages:gh-pages
           git branch -D gh-pages
