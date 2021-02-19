@@ -69,12 +69,10 @@ function addTask(event) {
     event.preventDefault();
     let name = document.getElementById('new-task-name');
     let count = document.getElementById('new-task-count');
-    
 
-    if(name.value === '' || document.getElementById(name.value) !== null) {
+    if (name.value === '' || document.getElementById(name.value) !== null || !count.checkValidity()) {
         alert('Invalid task input or task already added');
-    }
-    else{
+    } else {
         //function() {selectTask(name.value)}, function() {removeTask(name.value)}
         let task = new TaskItem(name.value, count.value);
         task.id = name.value;
