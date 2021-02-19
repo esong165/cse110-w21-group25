@@ -38,8 +38,7 @@ plugins:
 ###########
 # Extends #
 ###########
-extends: 
-  'eslint:recommended'
+extends: eslint:recommended
 
 #########
 # Rules #
