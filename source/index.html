@@ -2,14 +2,13 @@
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Pomodoro Timer</title>
-  <link rel="stylesheet" href="./main.css">
+	<meta charset="UTF-8" />
+	<title>Pomodoro Timer</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<link rel="stylesheet" href="./main.css" />
 </head>
 
 <body>
-
     <header>
         <h1 id="site-header">
             Tomato
@@ -25,13 +24,14 @@
             </button>
         </div>
 
-        <div id="timer-display">
-            
+        <section id="timer-display">
+          <p id="time-remaining">25:00</p>
+        </section>
+
+        <button id="timer-button"></button>
+        <div>
+          <button id="popup-button">Click</button>
         </div>
-
-        <button id="timer-button">
-
-        </button>
 
         <div id="task-list">
             <h3>Task Name:               Estimated pomodoros:</h3>
@@ -51,7 +51,6 @@
     </main>
     <script src="./task-item.js"></script>
     <script src="./main.js"></script>
-    
+	  <script src="./timer.js" type="module"></script>
 </body>
-
 </html>

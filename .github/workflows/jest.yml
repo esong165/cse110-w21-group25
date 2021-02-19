@@ -1,0 +1,16 @@
+name: Run Jest
+
+# Runs on pushes
+on: push
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      # Checks out code
+    - uses: actions/checkout@v2
+      # Install Jest
+    - name: Install modules
+      run: npm install jest babel-jest @babel/core @babel/preset-env
+      # Run Jest unit tests
+    - name: Run tests
+      run: npm test
