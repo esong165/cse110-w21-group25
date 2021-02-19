@@ -24,5 +24,6 @@ jobs:
       - name: Deploy source to GitHub Pages
         run: |
           git subtree split --prefix source -b gh-pages
+          git checkout gh-pages
           git push -f origin gh-pages:gh-pages
           git branch -D gh-pages
