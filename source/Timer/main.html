@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+<title></title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <style>
 p {
@@ -14,7 +15,7 @@ p {
 
 <h3 id="rules">Pomodoro Timer (All fields must be filled. If none apply to your time, input 0).</h3>
 
-<form id="inputArea">
+<form id="input-area">
 	<label for="minutes">Enter how many minutes into the timer:</label>
 	<input type="number" id="minutes" name="minutes" min="0" max="60">
 	<label for="seconds">Enter how many seconds into the timer:</label>
@@ -25,9 +26,9 @@ p {
 
 <audio id="alarm" src="./air-horn.mp3"></audio>
 
-<button id="startTimer">Start Timer!</button>
+<button id="start-timer">Start Timer!</button>
 
-<p id="time"></p>
+<p id="time-diplay"></p>
 
 <script src="./timer.js"></script>
 
