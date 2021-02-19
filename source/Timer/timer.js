@@ -1,15 +1,15 @@
 var myMinutes;
 var mySeconds;
 var intervalHandle;
-document.getElementById('startTimer').addEventListener('click', startCounter);
+document.getElementById('start-timer').addEventListener('click', startCounter);
 
 function resetPage(){
-	document.getElementById("inputArea").style.display="block";		
+	document.getElementById("input-area").style.display="block";		
 	document.getElementById("rules").style.display="block";
-	document.getElementById("startTimer").style.display="block";	
+	document.getElementById("start-timer").style.display="block";	
 }
 function tick(){
-	var timeDisplay=document.getElementById("time");
+	var timeDisplay=document.getElementById("time-display");
 		
 	var min=myMinutes;
 	var sec=mySeconds;
@@ -57,6 +57,6 @@ function startCounter(){
 	intervalHandle=setInterval(tick, 1000);
 		
 	document.getElementById("rules").style.display="none";
-	document.getElementById("inputArea").style.display="none";	
-	document.getElementById("startTimer").style.display="none";	
+	document.getElementById("input-area").style.display="none";	
+	document.getElementById("start-timer").style.display="none";	
 }
