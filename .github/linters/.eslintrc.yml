@@ -24,13 +24,7 @@ globals:
 ###############
 # Parser vars #
 ###############
-parser: '@babel/eslint-parser'
-
-###########
-# Plugins #
-###########
-plugins:
-  - '@typescript-eslint'
+parser: babel-eslint
 
 ###########
 # Extends #
