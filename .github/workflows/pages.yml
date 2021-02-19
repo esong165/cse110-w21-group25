@@ -20,7 +20,9 @@ jobs:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v2
 
-      # Deploys /source to GitHub Pages 
-      - name: Deploy /source to GitHub Pages
+      # Deploys source to GitHub Pages 
+      - name: Deploy source to GitHub Pages
         run: |
-          git subtree push --prefix source origin gh-pages --force
+          git subtree split --prefix source -b gh-pages
+          git push -f origin gh-pages:gh-pages
+          git branch -D gh-pages
