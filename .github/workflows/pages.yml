@@ -23,4 +23,4 @@ jobs:
       # Deploys /source to GitHub Pages 
       - name: Deploy /source to GitHub Pages
         run: |
-          git subtree push --prefix source origin gh-pages
+          git subtree push --prefix source origin gh-pages --force
