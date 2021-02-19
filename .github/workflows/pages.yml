@@ -25,7 +25,7 @@ jobs:
         run: |
           git subtree split --prefix source -b gh-pages
           git checkout gh-pages
-          find sources -name *.test.js -type f -delete
+          find -name *.test.js -type f -delete
           git checkout main
           git push -f origin gh-pages:gh-pages
           git branch -D gh-pages
