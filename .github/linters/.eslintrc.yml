@@ -43,7 +43,7 @@ extends: standard
 # Rules #
 #########
 rules: {
-  "no-tabs": false,
+  "no-tabs": 0,
   "semi": ["error", "always"],
   "indent": ["error", "tab"],
   "space-before-function-paren": ["error", "never"],
