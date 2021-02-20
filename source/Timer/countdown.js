@@ -28,28 +28,26 @@ export default class Timer {
 
 	set tick() {
 		const timeDisplay = document.getElementById('time');
-		let min = this.myMinutes;
-		let sec = this.mySeconds;
-		if (sec < 10) {
-			sec = '0' + sec;
+		if (this.mySeconds < 10) {
+			this.mySeconds = '0' + this.mySeconds;
 		}
-		if (min === 0) {
-			min = '00';
+		if (this.myMinutes === 0) {
+			this.myMinutes = '00';
 		}
-		else if (min < 10) {
-			min = '0' + min;
+		else if (this.myMinutes < 10) {
+			this.myMinutes = '0' + this.myMinutes;
 		}
-		const message = min.toString() + ':' + sec;
+		const message = this.myMinutes.toString() + ':' + this.mySeconds;
 		timeDisplay.innerHTML = message;
-		if (mySeconds === 0 && myMinutes !== 0) {
-			myMinutes--;
-			mySeconds = 60;
+		if (this.mySeconds === 0 && this.myMinutes !== 0) {
+			this.myMinutes--;
+			this.mySeconds = 60;
 		}
-		else if (mySeconds === 0) {
+		else if (this.mySeconds === 0) {
 			document.getElementById('alarm').play();
 			clearInterval(intervalHandle);
 		}
-		mySeconds--;
+		this.mySeconds--;
 	}
 }
 document.addEventListener('DOMContentLoaded', () => {
