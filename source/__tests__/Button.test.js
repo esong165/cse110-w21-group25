@@ -42,4 +42,16 @@ describe('button tests', () => {
 
 	});
 
+	test('long break', () => {
+
+		theButton.click();
+		theTimer.textContent = '0:00';
+
+		for(let i = 0; i < 8; i++)
+		setTimeout(function(){theButton.click();}, 2000);
+
+		expect(theButton.textContent).toBe('Start Long Break');
+
+	});
+
 });
