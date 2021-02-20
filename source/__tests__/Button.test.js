@@ -51,7 +51,7 @@ describe('button tests', () => {
 		setTimeout(function(){theButton.click();}, 4000);
 		}
 
-		expect(theButton.textContent).toBe('Start Long Break');
+		setTimeout(function(){expect(theButton.textContent).toBe('Start Long Break')}, 100000);
 
 	});
 

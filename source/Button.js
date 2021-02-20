@@ -71,6 +71,7 @@ export default class Button {
 
 					document.getElementById(buttonId).disabled = false;
 				}
+				
 			}
 		}, 1000);
 	}
