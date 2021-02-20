@@ -7,6 +7,7 @@ export default class Timer {
 		this.myMinutes = document.getElementById('minutes').value;
 		this.mySeconds = document.getElementById('seconds').value;
 	}
+	
 	set startCounter() {
 		if (isNaN(this.myMinutes)) {
 			alert('Type a valid number please');
@@ -15,19 +16,18 @@ export default class Timer {
 		if (isNaN(this.mySeconds)) {
 			alert('Type a valid number please');
 			return;
-		}	
+		}
 		if (this.mySeconds == null) {
 			this.mySeconds = 0;
 		}
-	
 		intervalHandle = setInterval(tick, 1000);
-			
 		document.getElementById('rules').style.display = 'none';
-		document.getElementById('inputArea').style.display = 'none';	
-		document.getElementById('startTimer').style.display = 'none';	
+		document.getElementById('inputArea').style.display = 'none';
+		document.getElementById('startTimer').style.display = 'none';
 	}
+	
 	set tick() {
-		let timeDisplay = document.getElementById('time');	
+		const timeDisplay = document.getElementById('time');
 		let min = myMinutes;
 		let sec = mySeconds;
 		if (sec < 10) {
@@ -39,7 +39,7 @@ export default class Timer {
 		else if (min < 10) {
 			min = '0' + min;
 		}
-		let message = min.toString() + ':' + sec;	
+		const message = min.toString() + ':' + sec;
 		timeDisplay.innerHTML = message;
 		if (mySeconds === 0 && myMinutes !== 0) {
 			myMinutes--;
