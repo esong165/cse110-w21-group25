@@ -15,7 +15,7 @@ export default class CountDown {
 		if (this.mySeconds < 10) {
 			this.mySeconds = '0' + this.mySeconds;
 		}
-		if (this.myMinutes == 0) {
+		if (this.myMinutes === 0) {
 			this.myMinutes = '00';
 		}
 		else if (this.myMinutes < 10) {
@@ -23,7 +23,7 @@ export default class CountDown {
 		}
 		var message = this.myMinutes.toString() + ':' + this.mySeconds;
 		timeDisplay.innerHTML = message;
-		if(this.mySeconds === 0 && this.myMinutes !==0) 
+		if(this.mySeconds === 0 && this.myMinutes !== 0) 
 			this.myMinutes--;
 			this.mySeconds = 60;
 		}
