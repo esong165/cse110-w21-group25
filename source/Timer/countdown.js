@@ -1,8 +1,5 @@
-let myMinutes;
-let mySeconds;
-let intervalHandle;
 let timer;
-export default class Timer {
+export default class Countdown {
 	constructor() {
 		this.myMinutes = document.getElementById('minutes').value;
 		this.mySeconds = document.getElementById('seconds').value;
@@ -20,7 +17,7 @@ export default class Timer {
 		if (this.mySeconds == null) {
 			this.mySeconds = 0;
 		}
-		intervalHandle = setInterval(tick, 1000);
+		this.intervalHandle = setInterval(tick, 1000);
 		document.getElementById('rules').style.display = 'none';
 		document.getElementById('inputArea').style.display = 'none';
 		document.getElementById('startTimer').style.display = 'none';
@@ -51,5 +48,5 @@ export default class Timer {
 	}
 }
 document.addEventListener('DOMContentLoaded', () => {
-	timer = new Timer();
+	timer = new Countdown();
 });
