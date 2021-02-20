@@ -50,7 +50,10 @@ describe('button tests', () => {
 		theTimer.textContent = '0:00';
 
 		for(let i = 0; i < 3; i++){
-		setTimeout(function(){theButton.click();}, 4000);
+		setTimeout(function(){
+			theTimer.textContent = '0:00';
+			theButton.click();
+		}, 4000);
 		}
 
 		setTimeout(function(){expect(theButton.textContent).toBe('dasklfjhasklfadsh')}, 100000);
