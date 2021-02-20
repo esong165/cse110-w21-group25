@@ -56,7 +56,7 @@ export default class Timer {
 			
 		var message=min.toString() + ':' + sec;
 			
-		timeDisplay.innerHTM L= message;
+		timeDisplay.innerHTML = message;
 			
 		if(mySeconds === 0 && myMinutes != 0)
 		{
