@@ -47,8 +47,8 @@ describe('button tests', () => {
 		theButton.click();
 		theTimer.textContent = '0:00';
 
-		for(let i = 0; i < 8; i++){
-		setTimeout(function(){theButton.click();}, 2000);
+		for(let i = 0; i < 7; i++){
+		setTimeout(function(){theButton.click();}, 4000);
 		}
 
 		expect(theButton.textContent).toBe('Start Long Break');
