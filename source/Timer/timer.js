@@ -21,7 +21,7 @@ export default class CountDown {
 		else if (this.myMinutes < 10) {
 			this.myMinutes = '0' + this.myMinutes;
 		}
-		let message = this.myMinutes.toString() + ':' + this.mySeconds;
+		const message = this.myMinutes.toString() + ':' + this.mySeconds;
 		timeDisplay.innerHTML = message;
 		if (this.mySeconds === 0 && this.myMinutes !== 0) {
 			this.myMinutes--;
@@ -30,7 +30,6 @@ export default class CountDown {
 		else if (this.mySeconds === 0) {
 			document.getElementById('alarm').play();
 			clearInterval(intervalHandle);
-			resetPage();
 		}
 		this.mySeconds--;
 	}
