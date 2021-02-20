@@ -52,6 +52,7 @@ export default class Button {
 				Start Countdown
 				**HERE**
 				*/
+				onTask = true;
 			}
 		});
 
