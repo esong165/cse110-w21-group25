@@ -21,12 +21,15 @@ describe('button tests', () => {
 
 	test('ShortBreak', () => {
 
+		jest.useFakeTimers();
+
 		theButton.click();
 		theTimer.textContent = '0:00';
 		setTimeout(function(){
 			expect(theButton.textContent).toBe('Start Short Break');
 		}, 4000);
 	
+		jest.runAllTimers(6000);
 	
 	});
 
@@ -42,7 +45,7 @@ describe('button tests', () => {
 
 	});
 
-	test('long break', () => {
+	/*test('long break', () => {
 
 		jest.useFakeTimers();
 
@@ -61,6 +64,6 @@ describe('button tests', () => {
 
 		jest.runAllTimers(120000);
 
-	});
+	});*/
 
 });

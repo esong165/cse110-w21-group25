@@ -57,6 +57,7 @@ export default class Button {
 		});
 
 		setInterval(function() {
+			console.log('do i get in here');
 			const currentTime = document.getElementById(clockId).textContent;
 
 			if (currentTime === '0:00') {
