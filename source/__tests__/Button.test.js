@@ -53,6 +53,7 @@ describe('button tests', () => {
 		setTimeout(function(){
 			theTimer.textContent = '0:00';
 			theButton.click();
+			console.log(theButton.textContent);
 		}, 4000);
 		}
 
