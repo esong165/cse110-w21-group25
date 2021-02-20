@@ -3,10 +3,10 @@ import Button from '../Button.js';
 beforeEach(() => {
 	document.body.innerHTML = '<button id = "pomoButton">Start Pomo</button><div id ="time">25:00</div>';
 
-	const theButton = document.getElementById('pomoButton');
-	const theTimer = document.getElementById('time');
+	var theButton = document.getElementById('pomoButton');
+	var theTimer = document.getElementById('time');
 
-	const button = new Button('pomoButton','time');
+	var button = new Button('pomoButton','time');
   });
 
 test('Initial change', () => {
