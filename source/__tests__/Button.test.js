@@ -44,6 +44,8 @@ describe('button tests', () => {
 
 	test('long break', () => {
 
+		jest.useFakeTimers();
+
 		theButton.click();
 		theTimer.textContent = '0:00';
 
@@ -52,6 +54,8 @@ describe('button tests', () => {
 		}
 
 		setTimeout(function(){expect(theButton.textContent).toBe('dasklfjhasklfadsh')}, 100000);
+
+		jest.runAllTimers(120000);
 
 	});
 
