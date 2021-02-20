@@ -26,6 +26,7 @@ export default class Button {
 					document.getElementById(buttonId).textContent = 'Start Pomo';
 				} else if (document.getElementById(buttonId).textContent === 'Start Pomo') {
 					document.getElementById(buttonId).textContent = 'Fail Task';
+					onTask = true;
 				} else {
 					cycleCount++;
 					if (cycleCount % 3 === 0) {
@@ -52,7 +53,6 @@ export default class Button {
 				Start Countdown
 				**HERE**
 				*/
-				onTask = true;
 			}
 		});
 
