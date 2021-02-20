@@ -23,11 +23,11 @@ export default class CountDown {
 		}
 		let message = this.myMinutes.toString() + ':' + this.mySeconds;
 		timeDisplay.innerHTML = message;
-		if (this.mySeconds === 0 && this.myMinutes !== 0) 
+		if (this.mySeconds === 0 && this.myMinutes !== 0) {
 			this.myMinutes--;
 			this.mySeconds = 60;
 		}
-		else if (this.mySeconds === 0) 
+		else if (this.mySeconds === 0) {
 			document.getElementById('alarm').play();
 			clearInterval(intervalHandle);
 			resetPage();
