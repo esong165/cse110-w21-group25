@@ -4,8 +4,8 @@ export default class Button {
 	constructor(buttonId, clockId) {
 		this.buttonId = buttonId;
 		this.clockId = clockId;
-		let cycleCount = 0;
-		let onTask = false;
+		this.cycleCount = 0;
+		this.onTask = false;
 		document.getElementById(buttonId).addEventListener('click', function() {
 		// Get the current time of the timer
 			const currentTime = document.getElementById(clockId).textContent;
@@ -67,10 +67,10 @@ export default class Button {
 		const currentTime = document.getElementById(this.clockId).textContent;
 
 		if (currentTime === '0:00') {
-			if (onTask === false) {
+			if (this.onTask === false) {
 				document.getElementById(this.buttonId).textContent = 'Start Pomo';
 			} else {
-				if (cycleCount % 3 === 0) {
+				if (this.cycleCount % 3 === 0) {
 					document.getElementById(this.buttonId).textContent = 'Start Long Break';
 				} else {
 					document.getElementById(this.buttonId).textContent = 'Start Short Break';
