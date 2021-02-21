@@ -23,7 +23,7 @@ describe('button tests', () => {
 
 		theButton.click();
 		theTimer.textContent = '0:00';
-		theButton.updateButton();
+		button.updateButton();
 		expect(theButton.textContent).toBe('Start Short Break');
 	
 	});
