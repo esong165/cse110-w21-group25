@@ -56,24 +56,27 @@ export default class Button {
 			}
 		});
 
-		setInterval(function() {
-			console.log('do i get in here');
-			const currentTime = document.getElementById(clockId).textContent;
+		
+	}
 
-			if (currentTime === '0:00') {
-				if (onTask === false) {
-					document.getElementById(buttonId).textContent = 'Start Pomo';
+
+	updateButton(){
+		console.log('do i get in here');
+		const currentTime = document.getElementById(clockId).textContent;
+
+		if (currentTime === '0:00') {
+			if (onTask === false) {
+				document.getElementById(buttonId).textContent = 'Start Pomo';
+			} else {
+				if (cycleCount % 3 === 0) {
+					document.getElementById(buttonId).textContent = 'Start Long Break';
 				} else {
-					if (cycleCount % 3 === 0) {
-						document.getElementById(buttonId).textContent = 'Start Long Break';
-					} else {
-						document.getElementById(buttonId).textContent = 'Start Short Break';
-					}
-
-					document.getElementById(buttonId).disabled = false;
+					document.getElementById(buttonId).textContent = 'Start Short Break';
 				}
-				
+
+				document.getElementById(buttonId).disabled = false;
 			}
-		}, 1000);
+			
+		}
 	}
 }

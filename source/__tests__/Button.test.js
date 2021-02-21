@@ -21,18 +21,13 @@ describe('button tests', () => {
 
 	test('ShortBreak', () => {
 
-		jest.useFakeTimers();
-
 		theButton.click();
 		theTimer.textContent = '0:00';
-		setTimeout(function(){
-			expect(theButton.textContent).toBe('Start Short Break');
-		}, 4000);
-	
-		jest.runAllTimers(6000);
+		theButton.updateButton();
+		expect(theButton.textContent).toBe('Start Short Break');
 	
 	});
-
+/*
 	test('new Pomo', () => {
 
 		theButton.click();
@@ -44,7 +39,7 @@ describe('button tests', () => {
 		}, 4000);
 
 	});
-
+*/
 	/*test('long break', () => {
 
 		jest.useFakeTimers();
