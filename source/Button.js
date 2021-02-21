@@ -13,16 +13,16 @@ export default class Button {
 	}
 
 	startButton(){
-		document.getElementById(this.buttonId).addEventListener('click', function() {
+		document.getElementById('pomoButton').addEventListener('click', function() {
 			// Get the current time of the timer
-				const currentTime = document.getElementById(this.clockId).textContent;
+				const currentTime = document.getElementById('time').textContent;
 	
 				// Timer hasnt begun yet
 				if (this.cycleCount === 0 && this.onTask === false) {
 					/* call the timer starter function **HERE** */
 	
 					// Need to id to the one in the html
-					document.getElementById(this.buttonId).textContent = 'Fail Task';
+					document.getElementById('pomoButton').textContent = 'Fail Task';
 	
 					this.onTask = true;
 				} else if (this.onTask === true) {
@@ -32,9 +32,9 @@ export default class Button {
 					**HERE**
 					*/
 	
-						document.getElementById(this.buttonId).textContent = 'Start Pomo';
-					} else if (document.getElementById(this.buttonId).textContent === 'Start Pomo') {
-						document.getElementById(this.buttonId).textContent = 'Fail Task';
+						document.getElementById('pomoButton').textContent = 'Start Pomo';
+					} else if (document.getElementById('pomoButton').textContent === 'Start Pomo') {
+						document.getElementById('pomoButton').textContent = 'Fail Task';
 						this.onTask = true;
 					} else {
 						this.cycleCount++;
@@ -44,14 +44,14 @@ export default class Button {
 							Start Countdown
 							**HERE**
 							*/
-							document.getElementById(this.buttonId).disabled = true;
+							document.getElementById('pomoButton').disabled = true;
 						} else {
 							/*
 							Set timer to 5 minutes
 							Start countdown
 							**HERE**
 							*/
-							document.getElementById(this.buttonId).disabled = true;
+							document.getElementById('pomoButton').disabled = true;
 						}
 					}
 	
