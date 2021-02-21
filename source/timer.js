@@ -103,7 +103,6 @@ function startCounter() {
 	intervalHandle = setInterval(tick, 1000);
 	document.getElementById('input-area').style.display = 'none';
 	document.getElementById('rules').style.display = 'none';
-	document.getElementById('start-timer').style.display = 'none';
 }
 
 document.getElementById('timer-button').addEventListener('click', startCounter);
