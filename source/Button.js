@@ -11,14 +11,14 @@ export default class Button {
 			const currentTime = document.getElementById(clockId).textContent;
 
 			// Timer hasnt begun yet
-			if (cycleCount === 0 && onTask === false) {
+			if (this.cycleCount === 0 && this.onTask === false) {
 				/* call the timer starter function **HERE** */
 
 				// Need to id to the one in the html
 				document.getElementById(buttonId).textContent = 'Fail Task';
 
-				onTask = true;
-			} else if (onTask === true) {
+				this.onTask = true;
+			} else if (this.onTask === true) {
 				if (currentTime !== '0:00') {
 				/*
 				Set Timer interval to 25
@@ -28,10 +28,10 @@ export default class Button {
 					document.getElementById(buttonId).textContent = 'Start Pomo';
 				} else if (document.getElementById(buttonId).textContent === 'Start Pomo') {
 					document.getElementById(buttonId).textContent = 'Fail Task';
-					onTask = true;
+					this.onTask = true;
 				} else {
-					cycleCount++;
-					if (cycleCount % 3 === 0) {
+					this.cycleCount++;
+					if (this.cycleCount % 3 === 0) {
 						/*
 						Set timer to 10 minutes
 						Start Countdown
@@ -48,8 +48,8 @@ export default class Button {
 					}
 				}
 
-				onTask = false;
-			} else if (onTask === false) {
+				this.onTask = false;
+			} else if (this.onTask === false) {
 				/*
 				Set timer to 25 minutes
 				Start Countdown
