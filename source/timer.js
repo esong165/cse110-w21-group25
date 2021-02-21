@@ -51,8 +51,7 @@ document.addEventListener('DOMContentLoaded', () => {
 let intervalHandle;
 let myMinutes;
 let mySeconds;
-let start = document.getElementById('timer-button');
-start.addEventListener('click', startCounter);
+document.getElementById('timer-button').addEventListener('click', startCounter);
 
 /**
  * Once the count down is done, timer is reset to the previous page
