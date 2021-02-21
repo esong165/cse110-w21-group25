@@ -1,6 +1,10 @@
 'use strict';
 
 export default class Button {
+	buttonId;
+	clockId;
+	cycleCount;
+	onTask;
 	constructor(buttonId, clockId) {
 		this.buttonId = buttonId;
 		this.clockId = clockId;
