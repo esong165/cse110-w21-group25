@@ -2,6 +2,8 @@
 
 export default class Button {
 	constructor(buttonId, clockId) {
+		this.buttonId = buttonId;
+		this.clockId = clockId;
 		let cycleCount = 0;
 		let onTask = false;
 		document.getElementById(buttonId).addEventListener('click', function() {
@@ -62,19 +64,19 @@ export default class Button {
 
 	updateButton(){
 		console.log('do i get in here');
-		const currentTime = document.getElementById(clockId).textContent;
+		const currentTime = document.getElementById(this.clockId).textContent;
 
 		if (currentTime === '0:00') {
 			if (onTask === false) {
-				document.getElementById(buttonId).textContent = 'Start Pomo';
+				document.getElementById(this.buttonId).textContent = 'Start Pomo';
 			} else {
 				if (cycleCount % 3 === 0) {
-					document.getElementById(buttonId).textContent = 'Start Long Break';
+					document.getElementById(this.buttonId).textContent = 'Start Long Break';
 				} else {
-					document.getElementById(buttonId).textContent = 'Start Short Break';
+					document.getElementById(this.buttonId).textContent = 'Start Short Break';
 				}
 
-				document.getElementById(buttonId).disabled = false;
+				document.getElementById(this.buttonId).disabled = false;
 			}
 			
 		}
