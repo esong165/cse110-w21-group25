@@ -18,7 +18,7 @@ export default class Button {
 				const currentTime = document.getElementById('time').textContent;
 	
 				// Timer hasnt begun yet
-				if (this.cycleCount === 0 && this.onTask === false) {
+				if (cycleCount === 0 && onTask === false) {
 					/* call the timer starter function **HERE** */
 	
 					// Need to id to the one in the html
