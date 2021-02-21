@@ -19,8 +19,8 @@
         <div id="current-task-container">
             <h3 id="current-task">Current Task: Default</h3>
             <h3 id="num-pomos"># of Pomos: 1</h3>
-            <button id="done-button" onclick="doneTask(event)" type="submit" value="Done With Task" >
-            Done
+            <button id="done-button" type="submit" value="Done With Task" >
+                Done
             </button>
         </div>
 
@@ -36,21 +36,22 @@
         <div id="task-list">
             <h3>Task Name:               Estimated pomodoros:</h3>
 
-            <ul id="tasks-container"></ul>
+            <ul id="tasks-container" is="task-list"></ul>
             
             <form id="add-task-container">
                 <label>Task name:</label>
                 <input type="text" id="new-task-name" maxlength="30">
                 <label>Estimated pomodoros:</label>
                 <input type="number" id="new-task-count" value='1' min='1' max='99'>
-                <input type="submit" id="add-task-btn" onclick="addTask(event)" value="Add Task"></button>
+                <input type="submit" id="add-task-btn" value="Add Task">
             </form>
         </div>
 
-        <button id="tasklist-btn">Default Task</button> 
+        <button id="tasklist-btn">Open Task List</button> 
     </main>
     <script src="./task-item.js"></script>
+    <script src="./timer.js" type="module"></script>
+    <script src="./tasklist.js"></script>
     <script src="./main.js"></script>
-	  <script src="./timer.js" type="module"></script>
 </body>
 </html>
