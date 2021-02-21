@@ -58,6 +58,7 @@ let mySeconds;
 function resetPage() {
 	document.getElementById('input-area').style.display = 'block';
 	document.getElementById('rules').style.display = 'block';
+	document.getElementById('timer-button').style.display = 'block';
 }
 
 /**
@@ -103,6 +104,7 @@ function startCounter() {
 	intervalHandle = setInterval(tick, 1000);
 	document.getElementById('input-area').style.display = 'none';
 	document.getElementById('rules').style.display = 'none';
+	document.getElementById('timer-button').style.display = 'none';
 }
 
 document.getElementById('timer-button').addEventListener('click', startCounter);
