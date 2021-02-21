@@ -72,8 +72,7 @@ function tick() {
 	}
 	if (myMinutes === 0) {
 		myMinutes = '00';
-	}
-	else if (myMinutes < 10) {
+	} else if (myMinutes < 10) {
 		myMinutes = '0' + myMinutes;
 	}
 	const message = myMinutes.toString() + ':' + mySeconds;
@@ -81,11 +80,10 @@ function tick() {
 	if (mySeconds === 0 && myMinutes !== 0) {
 		myMinutes--;
 		mySeconds = 60;
-	}
-	else if (mySeconds === 0) {
+	} else if (mySeconds === 0) {
 		document.getElementById('alarm').play();
 		clearInterval(intervalHandle);
-		resetPage;
+		resetPage();
 	}
 	mySeconds--;
 }
@@ -111,4 +109,3 @@ function startCounter() {
 }
 
 document.getElementById('timer-button').addEventListener('click', startCounter);
-
