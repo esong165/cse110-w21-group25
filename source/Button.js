@@ -1,10 +1,6 @@
 'use strict';
 
 export default class Button {
-	buttonId;
-	clockId;
-	cycleCount;
-	onTask;
 	constructor(buttonId, clockId) {
 		this.buttonId = buttonId;
 		this.clockId = clockId;
@@ -13,16 +9,20 @@ export default class Button {
 	}
 
 	startButton(){
-		document.getElementById('pomoButton').addEventListener('click', function() {
+		document.getElementById(this.buttonId).addEventListener('click', function() {
 			// Get the current time of the timer
 				const currentTime = document.getElementById('time').textContent;
+				console.log(this.buttonId);
+				console.log(this.clockId);
+				console.log(this.cycleCount);
+				console.log(this.onTask);
 	
 				// Timer hasnt begun yet
-				if (cycleCount === 0 && onTask === false) {
+				if (this.cycleCount === 0 && this.onTask === false) {
 					/* call the timer starter function **HERE** */
 	
 					// Need to id to the one in the html
-					document.getElementById('pomoButton').textContent = 'Fail Task';
+					document.getElementById(this.buttonId).textContent = 'Fail Task';
 	
 					this.onTask = true;
 				} else if (this.onTask === true) {
@@ -32,9 +32,9 @@ export default class Button {
 					**HERE**
 					*/
 	
-						document.getElementById('pomoButton').textContent = 'Start Pomo';
-					} else if (document.getElementById('pomoButton').textContent === 'Start Pomo') {
-						document.getElementById('pomoButton').textContent = 'Fail Task';
+						document.getElementById(this.buttonId).textContent = 'Start Pomo';
+					} else if (document.getElementById(this.buttonId).textContent === 'Start Pomo') {
+						document.getElementById(this.buttonId).textContent = 'Fail Task';
 						this.onTask = true;
 					} else {
 						this.cycleCount++;
@@ -44,14 +44,14 @@ export default class Button {
 							Start Countdown
 							**HERE**
 							*/
-							document.getElementById('pomoButton').disabled = true;
+							document.getElementById(this.buttonId).disabled = true;
 						} else {
 							/*
 							Set timer to 5 minutes
 							Start countdown
 							**HERE**
 							*/
-							document.getElementById('pomoButton').disabled = true;
+							document.getElementById(this.buttonId).disabled = true;
 						}
 					}
 	
@@ -68,7 +68,7 @@ export default class Button {
 
 
 	updateButton(){
-		console.log('do i get in here');
+		
 		const currentTime = document.getElementById(this.clockId).textContent;
 
 		if (currentTime === '0:00') {

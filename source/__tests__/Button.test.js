@@ -19,7 +19,7 @@ describe('button tests', () => {
 		expect(theButton.textContent).toBe('Fail Task');
 	
 	});
-
+/*
 	test('ShortBreak', () => {
 
 		theButton.click();
@@ -27,7 +27,7 @@ describe('button tests', () => {
 		button.updateButton();
 		expect(theButton.textContent).toBe('Start Short Break');
 	
-	});
+	});*/
 /*
 	test('new Pomo', () => {
 
