@@ -48,7 +48,7 @@ export default class Timer {
 document.addEventListener('DOMContentLoaded', () => {
 	timer = new Timer();
 });
-
+/*
 let intervalHandle;
 let myMinutes;
 let mySeconds;
@@ -111,4 +111,4 @@ function startCounter() {
 }
 
 document.getElementById('timer-button').addEventListener('click', startCounter);
-
+*/

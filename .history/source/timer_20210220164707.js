@@ -56,6 +56,7 @@ let mySeconds;
 /**
  * Once the count down is done, timer is reset to the previous page
  */
+/*
 function resetPage() {
 	document.getElementById('input-area').style.display = 'block';
 	document.getElementById('rules').style.display = 'block';
@@ -65,6 +66,7 @@ function resetPage() {
 /**
  * Function for showing the time after each second
  */
+
 function tick() {
 	const timeDisplay = document.getElementById('time-remaining');
 	if (mySeconds < 10) {

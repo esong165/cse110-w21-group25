@@ -48,23 +48,25 @@ export default class Timer {
 document.addEventListener('DOMContentLoaded', () => {
 	timer = new Timer();
 });
-
+/*
 let intervalHandle;
 let myMinutes;
 let mySeconds;
-
+*/
 /**
  * Once the count down is done, timer is reset to the previous page
  */
+/*
 function resetPage() {
 	document.getElementById('input-area').style.display = 'block';
 	document.getElementById('rules').style.display = 'block';
 	document.getElementById('start-timer').style.display = 'block';
 }
-
+*/
 /**
  * Function for showing the time after each second
  */
+/*
 function tick() {
 	const timeDisplay = document.getElementById('time-remaining');
 	if (mySeconds < 10) {
@@ -89,10 +91,11 @@ function tick() {
 	}
 	mySeconds--;
 }
-
+*/
 /**
  * Function starts when the button is clicked and takes in the minute and second input
  */
+/*
 function startCounter() {
 	myMinutes = document.getElementById('minutes').value;
 	mySeconds = document.getElementById('seconds').value;
@@ -109,6 +112,6 @@ function startCounter() {
 	document.getElementById('rules').style.display = 'none';
 	document.getElementById('start-timer').style.display = 'none';
 }
-
-document.getElementById('timer-button').addEventListener('click', startCounter);
+*/
+//document.getElementById('timer-button').addEventListener('click', startCounter);
 
