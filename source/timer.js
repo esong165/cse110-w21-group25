@@ -46,15 +46,15 @@ export default class Timer {
 document.addEventListener('DOMContentLoaded', () => {
 	if (window.app === undefined) window.app = {};
 	window.app.timer = new Timer();
+	document.getElementById('timer-button').addEventListener('click', startCounter);
 });
 
 let intervalHandle;
 let myMinutes;
 let mySeconds;
-document.getElementById('timer-button').addEventListener('click', startCounter);
 
 /**
- * Once the count down is done, timer is reset to the previous page
+ * Once the count down is done, timer is reset to the previous page.
  */
 function resetPage() {
 	document.getElementById('input-area').style.display = 'block';
@@ -63,7 +63,7 @@ function resetPage() {
 }
 
 /**
- * Function for showing the time after each second
+ * Shows the time after each second.
  */
 function tick() {
 	const timeDisplay = document.getElementById('time-remaining');
