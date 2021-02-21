@@ -1,5 +1,3 @@
-let timer;
-
 /**
  * All things timer.
  */
@@ -46,7 +44,8 @@ export default class Timer {
 }
 
 document.addEventListener('DOMContentLoaded', () => {
-	timer = new Timer();
+	if (window.app === undefined) window.app = {};
+	window.app.timer = new Timer();
 });
 
 let intervalHandle;
@@ -59,7 +58,6 @@ let mySeconds;
 function resetPage() {
 	document.getElementById('input-area').style.display = 'block';
 	document.getElementById('rules').style.display = 'block';
-	document.getElementById('start-timer').style.display = 'block';
 }
 
 /**
