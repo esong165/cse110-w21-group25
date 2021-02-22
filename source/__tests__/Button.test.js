@@ -24,7 +24,7 @@ describe('button tests', () => {
 
 		theButton.click();
 		theTimer.textContent = '0:00';
-		button.updateButton('pomoButton', 'time', 0, true);
+		button.updateButton('pomoButton', 'time', 1, true);
 		expect(theButton.textContent).toBe('Start Short Break');
 	
 	});
