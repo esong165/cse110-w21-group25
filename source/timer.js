@@ -1,50 +1,51 @@
-let timer;
+//from branch task-list
 
-/**
- * All things timer.
- */
-export default class Timer {
-	/**
-	 * Constructs the timer with a default remaining time of 25 minutes.
-	 */
-	constructor() {
-		this.$remaining = 25 * 60 * 1000;
-	}
+class TaskItem extends HTMLElement {
+    constructor(taskName, pomoCount) {
+        super();
 
-	/**
-	 * Gets the remaining time.
-	 */
-	get remaining() {
-		return this.$remaining;
-	}
 
-	/**
-	 * Sets the remaining time.
-	 * @param {Number} time - the remaining time, in miliseconds
-	 */
-	set remaining(time) {
-		this.$remaining = time;
-		document.getElementById('time-remaining').textContent = this.$format(time);
-	}
+        let shadow = this.attachShadow({mode: 'open'});
 
-	/**
-	 * Formats the given time to the form of mm:ss.
-	 * @param {Number} time - the time, in miliseconds, to format
-	 */
-	$format(time) {
-		const date = new Date(0);
-		date.setMilliseconds(time);
-		const isoDate = date.toISOString();
-		let formatted;
-		if (isoDate.length === 24) {
-			formatted = isoDate.substr(14, 5);
-		} else {
-			formatted = isoDate.substr(17, 5);
-		}
-		return formatted;
-	}
+        let task = document.createElement('li');
+        task.setAttribute('class', 'task');
+
+        // Set name of task
+        let name = document.createElement('span');
+        name.innerHTML = 'Task name: ';
+        name.innerHTML += taskName + ', ';
+        task.appendChild(name);
+
+        // Set estimated pomodoros
+        let count = document.createElement('span');
+        count.innerHTML = 'Estimated pomodoros: ';
+        count.innerHTML += pomoCount;
+        task.appendChild(count);
+
+        // Select task button note: considering making this a radio option or making the text a clickable button
+        let selectTaskButton = document.createElement('button');
+        selectTaskButton.innerHTML = 'Select';
+        task.appendChild(selectTaskButton);
+        
+        // Remove task button
+        let removeTaskButton = document.createElement('button');
+        removeTaskButton.innerHTML = 'Remove';
+        task.appendChild(removeTaskButton);
+        
+        
+
+        shadow.appendChild(task);
+
+        /*
+        let style = document.createElement('style');
+ 
+        style.textContent = `
+            .task > button {}
+            visibility: visible;
+        `;
+        
+        shadow.appendChild(style);
+        */  
+    }
 }
-
-document.addEventListener('DOMContentLoaded', () => {
-	timer = new Timer();
-});
+customElements.define('task-item', TaskItem);
