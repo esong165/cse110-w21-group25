@@ -44,10 +44,9 @@ export default class Timer {
 	}
 
 	$startCounter() {
-		console.log(this.$remaining);
 		this.$intervalId = setInterval(() => {
 			this.$remaining -= 1000;
-			//console.log(this.$remaining);
+			console.log(this.$remaining);
 			if (this.$remaining === 0) {
 				cancelInterval(this.$intervalId);
 				document.getElementById('alarm').play();

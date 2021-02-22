@@ -6,8 +6,7 @@ export default class Timer {
 	 * Constructs the timer with a default remaining time of 25 minutes.
 	 */
 	constructor() {
-		//const myMinutes = document.getElementById('minutes');
-		this.$remaining = 5 * 1000;
+		this.$remaining = 25 * 60 * 1000;
 	}
 
 	/**
@@ -42,44 +41,30 @@ export default class Timer {
 		}
 		return formatted;
 	}
-
-	$startCounter() {
-		console.log(this.$remaining);
-		this.$intervalId = setInterval(() => {
-			this.$remaining -= 1000;
-			//console.log(this.$remaining);
-			if (this.$remaining === 0) {
-				cancelInterval(this.$intervalId);
-				document.getElementById('alarm').play();
-			}
-		}, 1000);
-	}
 }
 
 document.addEventListener('DOMContentLoaded', () => {
 	if (window.app === undefined) window.app = {};
 	window.app.timer = new Timer();
-	document.getElementById('timer-button').addEventListener('click', window.app.timer.$startCounter);
+	document.getElementById('timer-button').addEventListener('click', startCounter);
 });
-/*
+
 let intervalHandle;
 let myMinutes;
 let mySeconds;
-*/
+
 /**
  * Once the count down is done, timer is reset to the previous page.
  */
-/*
 function resetPage() {
 	document.getElementById('input-area').style.display = 'block';
 	document.getElementById('rules').style.display = 'block';
 	document.getElementById('timer-button').style.display = 'block';
 }
-*/
+
 /**
  * Shows the time after each second.
  */
-/*
 function tick() {
 	const timeDisplay = document.getElementById('time-remaining');
 	if (mySeconds < 10) {
@@ -102,11 +87,10 @@ function tick() {
 	}
 	mySeconds--;
 }
-*/
+
 /**
  * Function starts when the button is clicked and takes in the minute and second input
  */
-/*
 function startCounter() {
 	myMinutes = document.getElementById('minutes').value;
 	mySeconds = document.getElementById('seconds').value;
@@ -123,4 +107,3 @@ function startCounter() {
 	document.getElementById('rules').style.display = 'none';
 	document.getElementById('timer-button').style.display = 'none';
 }
-*/

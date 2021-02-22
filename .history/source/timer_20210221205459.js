@@ -7,7 +7,7 @@ export default class Timer {
 	 */
 	constructor() {
 		//const myMinutes = document.getElementById('minutes');
-		this.$remaining = 5 * 1000;
+		this.$remaining = 25 * 60 * 1000;
 	}
 
 	/**
@@ -44,15 +44,13 @@ export default class Timer {
 	}
 
 	$startCounter() {
-		console.log(this.$remaining);
 		this.$intervalId = setInterval(() => {
 			this.$remaining -= 1000;
-			//console.log(this.$remaining);
 			if (this.$remaining === 0) {
 				cancelInterval(this.$intervalId);
-				document.getElementById('alarm').play();
 			}
 		}, 1000);
+		document.getElementById('alarm').play();
 	}
 }
 

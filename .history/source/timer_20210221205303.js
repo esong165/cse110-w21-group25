@@ -6,8 +6,8 @@ export default class Timer {
 	 * Constructs the timer with a default remaining time of 25 minutes.
 	 */
 	constructor() {
-		//const myMinutes = document.getElementById('minutes');
-		this.$remaining = 5 * 1000;
+		const myMinutes = document.getElementById('minutes');
+		this.$remaining = myMinutes * 60 * 1000;
 	}
 
 	/**
@@ -44,22 +44,20 @@ export default class Timer {
 	}
 
 	$startCounter() {
-		console.log(this.$remaining);
 		this.$intervalId = setInterval(() => {
 			this.$remaining -= 1000;
-			//console.log(this.$remaining);
 			if (this.$remaining === 0) {
 				cancelInterval(this.$intervalId);
-				document.getElementById('alarm').play();
 			}
 		}, 1000);
+		document.getElementById('alarm').play();
 	}
 }
 
 document.addEventListener('DOMContentLoaded', () => {
 	if (window.app === undefined) window.app = {};
 	window.app.timer = new Timer();
-	document.getElementById('timer-button').addEventListener('click', window.app.timer.$startCounter);
+	document.getElementById('timer-button').addEventListener('click', startCounter);
 });
 /*
 let intervalHandle;
