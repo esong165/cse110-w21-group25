@@ -4,78 +4,73 @@ export default class Button {
 	constructor(buttonId, clockId) {
 		this.buttonId = buttonId;
 		this.clockId = clockId;
-		this.cycleCount = 0;
-		this.onTask = false;
-	}
+		let cycleCount = 0;
+		let onTask = false;
+		document.getElementById(buttonId).addEventListener('click', function() {
+		// Get the current time of the timer
+			const currentTime = document.getElementById(clockId).textContent;
 
-	startButton(){
-		document.getElementById(this.buttonId).addEventListener('click', function() {
-			// Get the current time of the timer
-				const currentTime = document.getElementById('time').textContent;
-				console.log(this.buttonId);
-				console.log(this.clockId);
-				console.log(this.cycleCount);
-				console.log(this.onTask);
-	
-				// Timer hasnt begun yet
-				if (this.cycleCount === 0 && this.onTask === false) {
-					/* call the timer starter function **HERE** */
-	
-					// Need to id to the one in the html
-					document.getElementById(this.buttonId).textContent = 'Fail Task';
-	
-					this.onTask = true;
-				} else if (this.onTask === true) {
-					if (currentTime !== '0:00') {
-					/*
-					Set Timer interval to 25
-					**HERE**
-					*/
-	
-						document.getElementById(this.buttonId).textContent = 'Start Pomo';
-					} else if (document.getElementById(this.buttonId).textContent === 'Start Pomo') {
-						document.getElementById(this.buttonId).textContent = 'Fail Task';
-						this.onTask = true;
+			// Timer hasnt begun yet
+			if (cycleCount === 0 && onTask === false) {
+				/* call the timer starter function **HERE** */
+
+				// Need to id to the one in the html
+				document.getElementById(buttonId).textContent = 'Fail Task';
+
+				onTask = true;
+			} else if (onTask === true) {
+				if (currentTime !== '0:00') {
+				/*
+				Set Timer interval to 25
+				**HERE**
+				*/
+
+					document.getElementById(buttonId).textContent = 'Start Pomo';
+				} else if (document.getElementById(buttonId).textContent === 'Start Pomo') {
+					document.getElementById(buttonId).textContent = 'Fail Task';
+					onTask = true;
+				} else {
+					cycleCount++;
+					if (cycleCount % 3 === 0) {
+						/*
+						Set timer to 10 minutes
+						Start Countdown
+						**HERE**
+						*/
+						document.getElementById(buttonId).disabled = true;
 					} else {
-						this.cycleCount++;
-						if (this.cycleCount % 3 === 0) {
-							/*
-							Set timer to 10 minutes
-							Start Countdown
-							**HERE**
-							*/
-							document.getElementById(this.buttonId).disabled = true;
-						} else {
-							/*
-							Set timer to 5 minutes
-							Start countdown
-							**HERE**
-							*/
-							document.getElementById(this.buttonId).disabled = true;
-						}
+						/*
+						Set timer to 5 minutes
+						Start countdown
+						**HERE**
+						*/
+						document.getElementById(buttonId).disabled = true;
 					}
-	
-					this.onTask = false;
-				} else if (this.onTask === false) {
-					/*
-					Set timer to 25 minutes
-					Start Countdown
-					**HERE**
-					*/
 				}
-			});
+
+				onTask = false;
+			} else if (onTask === false) {
+				/*
+				Set timer to 25 minutes
+				Start Countdown
+				**HERE**
+				*/
+			}
+		});
+
+		
 	}
 
 
 	updateButton(){
-		
+		console.log('do i get in here');
 		const currentTime = document.getElementById(this.clockId).textContent;
 
 		if (currentTime === '0:00') {
-			if (this.onTask === false) {
+			if (onTask === false) {
 				document.getElementById(this.buttonId).textContent = 'Start Pomo';
 			} else {
-				if (this.cycleCount % 3 === 0) {
+				if (cycleCount % 3 === 0) {
 					document.getElementById(this.buttonId).textContent = 'Start Long Break';
 				} else {
 					document.getElementById(this.buttonId).textContent = 'Start Short Break';
