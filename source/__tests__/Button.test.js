@@ -10,7 +10,7 @@ describe('button tests', () => {
 		theTimer = document.getElementById('time');
 
 		button = new Button('pomoButton','time');
-		button.startButton();
+	
  	 });
 
 	test('Initial change', () => {
