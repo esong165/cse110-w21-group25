@@ -19,47 +19,39 @@ describe('button tests', () => {
 		expect(theButton.textContent).toBe('Fail Task');
 	
 	});
-/*
+
 	test('ShortBreak', () => {
 
 		theButton.click();
 		theTimer.textContent = '0:00';
-		button.updateButton();
+		button.updateButton('pomoButton', 'time', 0, true);
 		expect(theButton.textContent).toBe('Start Short Break');
 	
-	});*/
-/*
+	});
+
 	test('new Pomo', () => {
 
 		theButton.click();
 		theTimer.textContent = '0:00';
-		setTimeout(function(){
-			expect(theButton.textContent).toBe('Start Short Break');
-			theButton.click();
-			expect(theButton.textContent).toBe('Start Pomo');
-		}, 4000);
+		button.updateButton('pomoButton', 'time', 0, true);
+		theButton.click();
+		button.updateButton('pomoButton', 'time', 1, false);
+		theButton.click();
+		expect(theButton.textContent).toBe('Start Pomo');
+		
 
 	});
-*/
-	/*test('long break', () => {
+
+	test('long break', () => {
 
 		jest.useFakeTimers();
 
 		theButton.click();
 		theTimer.textContent = '0:00';
+		button.updateButton('pomoButton', 'time', 3, true);
+		expect(theButton.textContent).toBe('Start Long Break');
+	
 
-		for(let i = 0; i < 3; i++){
-		setTimeout(function(){
-			theTimer.textContent = '0:00';
-			theButton.click();
-			console.log(theButton.textContent);
-		}, 4000);
-		}
-
-		setTimeout(function(){expect(theButton.textContent).toBe('dasklfjhasklfadsh')}, 100000);
-
-		jest.runAllTimers(120000);
-
-	});*/
+	});
 
 });
