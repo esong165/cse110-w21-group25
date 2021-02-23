@@ -1,4 +1,4 @@
-class Tasklist extends HTMLUListElement {
+export default class Tasklist extends HTMLUListElement {
 
     /**
      * Constructs the Tasklist with a default tasklist and selected task, or 
