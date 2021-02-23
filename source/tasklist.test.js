@@ -20,8 +20,8 @@ test('Constructor Test', () => {
 test('Basic Add Tasks', () => {
 	const tasklist = new Tasklist();
 	let length = 10;
-	addedTaskName =[];
-	addedTaskPomo =[];
+	let addedTaskName =[];
+	let addedTaskPomo =[];
 	for (let j = 0; j < length; j++) {
 		let name;
 		let time;
@@ -61,8 +61,8 @@ test('Remove All Tasks', () => {
 	const tasklist = new Tasklist();
 
 	let length = 10;
-	addedTaskName =[];
-	addedTaskPomo =[];
+	let addedTaskName =[];
+	let addedTaskPomo =[];
 	for (let j = 0; j < length; j++) {
 		let name;
 		let time;
@@ -99,8 +99,8 @@ test('Remove All Tasks', () => {
 
 test('Basic Select Tasks', () => {
 	let length = 10;
-	addedTaskName =[];
-	addedTaskPomo =[];
+	let addedTaskName =[];
+	let addedTaskPomo =[];
 	for (let j = 0; j < length; j++) {
 		let name;
 		let time;
@@ -128,8 +128,8 @@ test('Select and Remove Tasks', () => {
 
 	// length should be even
 	let length = 10;
-	addedTaskName =[];
-	addedTaskPomo =[];
+	let addedTaskName =[];
+	let addedTaskPomo =[];
 	for (let j = 0; j < length; j++) {
 		let name;
 		let time;
