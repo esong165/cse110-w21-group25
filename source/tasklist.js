@@ -54,6 +54,12 @@ class Tasklist extends HTMLUListElement {
      * @param {Number} count - the estimated number of pomodoro cycles
      */
     addTask(name, count) {
+
+        // Validity checking (WIP)
+        if(name.trim() === '') {
+            alert('Please enter a valid task name.');
+            return;
+        }
         let task = new TaskItem(name, count);
         task.id = name;
 
@@ -70,12 +76,17 @@ class Tasklist extends HTMLUListElement {
         taskNameNum.push(name);
         taskNameNum.push(count);
 
-        // Check if task is already in tasklist -- probably better way to check this
+        // Validity checking (WIP)
         if(!JSON.stringify(taskItemArr).includes(JSON.stringify(taskNameNum))){
             taskItemArr.push(taskNameNum);
             this.$tasks.push(taskNameNum);
             this.appendChild(task);
+        } else {
+            alert('Task is already in tasklist.');
+            return;
         }
+
+        // This could probably just go in the if block above
         localStorage.setItem("taskItemArr", JSON.stringify(taskItemArr));
     }
 
@@ -126,6 +137,7 @@ class Tasklist extends HTMLUListElement {
         if (currTaskId === taskId) {
             // Select the next task if there are any left in list
             if(taskContainer.hasChildNodes()) { 
+                console.log(this.$tasks);
                 document.getElementById('tasks-container').selectTask(this.$tasks[0][0]);
             } else {
                 // Update displays and $selected to defaults if there are no tasks left in list
