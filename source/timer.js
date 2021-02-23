@@ -49,7 +49,7 @@ export default class Timer {
 			this.$remaining -= 1000;
 			//console.log(this.$remaining);
 			if (this.$remaining === 0) {
-				cancelInterval(this.$intervalId);
+				clearInterval(this.$intervalId);
 				document.getElementById('alarm').play();
 			}
 		}, 1000);
@@ -59,7 +59,9 @@ export default class Timer {
 document.addEventListener('DOMContentLoaded', () => {
 	if (window.app === undefined) window.app = {};
 	window.app.timer = new Timer();
-	document.getElementById('timer-button').addEventListener('click', window.app.timer.$startCounter);
+	document.getElementById('timer-button').addEventListener('click', () => {
+		window.app.timer.$startCounter();
+	});
 });
 /*
 let intervalHandle;
