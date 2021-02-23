@@ -6,7 +6,6 @@ export default class Timer {
 	 * Constructs the timer with a default remaining time of 25 minutes.
 	 */
 	constructor() {
-		//const myMinutes = document.getElementById('minutes');
 		this.$remaining = 5 * 1000;
 	}
 
@@ -44,12 +43,11 @@ export default class Timer {
 	}
 
 	$startCounter() {
-		console.log(this.$remaining);
 		this.$intervalId = setInterval(() => {
 			this.$remaining -= 1000;
-			//console.log(this.$remaining);
 			if (this.$remaining === 0) {
 				clearInterval(this.$intervalId);
+				this.$remaining = 25 * 60 * 1000;
 				document.getElementById('alarm').play();
 			}
 		}, 1000);
@@ -63,66 +61,3 @@ document.addEventListener('DOMContentLoaded', () => {
 		window.app.timer.$startCounter();
 	});
 });
-/*
-let intervalHandle;
-let myMinutes;
-let mySeconds;
-*/
-/**
- * Once the count down is done, timer is reset to the previous page.
- */
-/*
-function resetPage() {
-	document.getElementById('input-area').style.display = 'block';
-	document.getElementById('rules').style.display = 'block';
-	document.getElementById('timer-button').style.display = 'block';
-}
-*/
-/**
- * Shows the time after each second.
- */
-/*
-function tick() {
-	const timeDisplay = document.getElementById('time-remaining');
-	if (mySeconds < 10) {
-		mySeconds = '0' + mySeconds;
-	}
-	if (myMinutes === 0) {
-		myMinutes = '00';
-	} else if (myMinutes < 10) {
-		myMinutes = '0' + myMinutes;
-	}
-	const message = myMinutes.toString() + ':' + mySeconds;
-	timeDisplay.innerHTML = message;
-	if (mySeconds === 0 && myMinutes !== 0) {
-		myMinutes--;
-		mySeconds = 60;
-	} else if (mySeconds === 0) {
-		document.getElementById('alarm').play();
-		clearInterval(intervalHandle);
-		resetPage();
-	}
-	mySeconds--;
-}
-*/
-/**
- * Function starts when the button is clicked and takes in the minute and second input
- */
-/*
-function startCounter() {
-	myMinutes = document.getElementById('minutes').value;
-	mySeconds = document.getElementById('seconds').value;
-	if (isNaN(myMinutes)) {
-		alert('Type a valid number please');
-		return;
-	}
-	if (isNaN(mySeconds)) {
-		alert('Type a valid number please');
-		return;
-	}
-	intervalHandle = setInterval(tick, 1000);
-	document.getElementById('input-area').style.display = 'none';
-	document.getElementById('rules').style.display = 'none';
-	document.getElementById('timer-button').style.display = 'none';
-}
-*/
