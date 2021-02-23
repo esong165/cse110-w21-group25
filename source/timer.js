@@ -6,7 +6,7 @@ export default class Timer {
 	 * Constructs the timer with a default remaining time of 25 minutes.
 	 */
 	constructor() {
-		this.remaining = 5 * 1000;
+		this.remaining = 25 * 60 * 1000;
 		this.$intervalId = null;
 	}
 
@@ -23,14 +23,14 @@ export default class Timer {
 	 */
 	set remaining(time) {
 		this.$remaining = time;
-		document.getElementById('time-remaining').textContent = this.$format(time);
+		document.getElementById('time-remaining').textContent = Timer.$format(time);
 	}
 
 	/**
 	 * Formats the given time to the form of mm:ss.
 	 * @param {Number} time - the time, in miliseconds, to format
 	 */
-	$format(time) {
+	static $format(time) {
 		const date = new Date(0);
 		date.setMilliseconds(time);
 		const isoDate = date.toISOString();
@@ -53,7 +53,7 @@ export default class Timer {
 			if (this.remaining === 0) {
 				clearInterval(this.$intervalId);
 				this.$intervalId = null;
-				this.remaining = 5 * 1000;
+				this.remaining = 25 * 60 * 1000;
 				document.getElementById('alarm').play();
 			}
 		};
