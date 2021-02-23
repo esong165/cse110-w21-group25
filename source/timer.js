@@ -48,7 +48,7 @@ export default class Timer {
 	 */
 	$startCounter() {
 		if (this.$intervalId !== null) return;
-		this.$intervalId = setInterval(() => {
+		const tick = () => {
 			this.$remaining -= 1000;
 			if (this.$remaining === 0) {
 				clearInterval(this.$intervalId);
@@ -56,7 +56,9 @@ export default class Timer {
 				this.$remaining = 5 * 1000;
 				document.getElementById('alarm').play();
 			}
-		}, 1000);
+		};
+		this.$intervalId = setInterval(tick, 1000);
+		tick();
 	}
 }
 
