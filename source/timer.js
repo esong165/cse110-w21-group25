@@ -7,6 +7,7 @@ export default class Timer {
 	 */
 	constructor() {
 		this.$remaining = 5 * 1000;
+		this.$intervalId = null;
 	}
 
 	/**
@@ -42,12 +43,17 @@ export default class Timer {
 		return formatted;
 	}
 
+	/**
+	 * Starts the countdown.  Does nothing if the countdown has already begun.
+	 */
 	$startCounter() {
+		if (this.$intervalId !== null) return;
 		this.$intervalId = setInterval(() => {
 			this.$remaining -= 1000;
 			if (this.$remaining === 0) {
 				clearInterval(this.$intervalId);
-				this.$remaining = 25 * 60 * 1000;
+				this.$intervalId = null;
+				this.$remaining = 5 * 1000;
 				document.getElementById('alarm').play();
 			}
 		}, 1000);
