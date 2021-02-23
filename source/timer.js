@@ -6,7 +6,7 @@ export default class Timer {
 	 * Constructs the timer with a default remaining time of 25 minutes.
 	 */
 	constructor() {
-		this.$remaining = 5 * 1000;
+		this.remaining = 5 * 1000;
 		this.$intervalId = null;
 	}
 
@@ -49,11 +49,11 @@ export default class Timer {
 	$startCounter() {
 		if (this.$intervalId !== null) return;
 		const tick = () => {
-			this.$remaining -= 1000;
-			if (this.$remaining === 0) {
+			this.remaining -= 1000;
+			if (this.remaining === 0) {
 				clearInterval(this.$intervalId);
 				this.$intervalId = null;
-				this.$remaining = 5 * 1000;
+				this.remaining = 5 * 1000;
 				document.getElementById('alarm').play();
 			}
 		};
