@@ -10,13 +10,13 @@ class TaskItem extends HTMLElement {
 
         // Set name of task
         let name = document.createElement('span');
-        name.innerHTML = 'Task name: ';
-        name.innerHTML += taskName + ', ';
+        name.innerHTML = '';
+        name.innerHTML += taskName;
         task.appendChild(name);
 
         // Set estimated pomodoros
         let count = document.createElement('span');
-        count.innerHTML = 'Estimated pomodoros: ';
+        count.innerHTML = '';
         count.innerHTML += pomoCount;
         task.appendChild(count);
 

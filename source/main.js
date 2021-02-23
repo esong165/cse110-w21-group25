@@ -31,7 +31,7 @@ document.addEventListener('DOMContentLoaded', () => {
     let doneButton = document.getElementById('done-button');
     doneButton.addEventListener('click', function() {
         let currTask = document.getElementById('current-task').innerHTML;
-        if(currTask === 'Current Task: Default') return;
-        document.getElementById('tasks-container').removeTask(currTask.substring(11, currTask.length - 2));
+        if(currTask === 'Default') return; // Come back to this in case user wants to have a task named "Default"
+        document.getElementById('tasks-container').removeTask(currTask);
     });
 });

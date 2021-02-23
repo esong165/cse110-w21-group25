@@ -10,7 +10,7 @@ class Tasklist extends HTMLUListElement {
 
         // Initialize $tasks and $selected to default values
         this.$tasks = [];
-        this.$selected = ['Current Task: Default', '# of Pomos: 1'];
+        this.$selected = ['Default', '1'];
 
         // Get values from localStorage and updating $tasks and $selected if these are not null
         let taskItemArr = JSON.parse(localStorage.getItem('taskItemArr'));
@@ -73,7 +73,7 @@ class Tasklist extends HTMLUListElement {
         // Check if task is already in tasklist -- probably better way to check this
         if(!JSON.stringify(taskItemArr).includes(JSON.stringify(taskNameNum))){
             taskItemArr.push(taskNameNum);
-            this.$tasks.push(task);
+            this.$tasks.push(taskNameNum);
             this.appendChild(task);
         }
         localStorage.setItem("taskItemArr", JSON.stringify(taskItemArr));
@@ -114,22 +114,24 @@ class Tasklist extends HTMLUListElement {
 
         /* Edge case check for a bug I could not figure out -- without this line,
             sometimes a task enters the tasklist with undefined, undefined -- 
-            occurs when you add a task, select it, then remove it and refresh */
+            occurs when you add a task, select it, then remove it and refresh 
+            Justin Check how local storage works with select and see what's wrong with case
+            */
         if(JSON.stringify(this.$tasks) == '[{}]') this.$tasks = [];
 
         // Update tasklist display
         taskContainer.removeChild(document.getElementById(taskId));
         
         // If current task is the removed task, move to next task in tasklist or default task
-        if (currTaskId.substring(11, currTaskId.length-2) === taskId) {
+        if (currTaskId === taskId) {
             // Select the next task if there are any left in list
             if(taskContainer.hasChildNodes()) { 
                 document.getElementById('tasks-container').selectTask(this.$tasks[0][0]);
             } else {
                 // Update displays and $selected to defaults if there are no tasks left in list
-                document.getElementById("current-task").innerHTML = "Current Task: Default";
-                document.getElementById("num-pomos").innerHTML = "# of Pomos: 1";
-                this.$selected = ["Current Task: Default", "# of Pomos: 1" ];
+                document.getElementById("current-task").innerHTML = 'Default';
+                document.getElementById("num-pomos").innerHTML = '1';
+                this.$selected = ['Default', '1'];
             }
         }
     
