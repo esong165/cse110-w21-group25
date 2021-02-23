@@ -1,24 +1,23 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
 	<meta charset="UTF-8" />
 	<title>Pomodoro Timer</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 	<link rel="stylesheet" href="./main.css" />
 </head>
-
 <body>
 	<header>
-		<h1 id="site-header">Tomato</h1>
+		<h1 id="site-header">Big Tomato</h1>
 	</header>
 	<main>
+		<h3>Pomodoro Timer</h3>
 		<div id="current-task-container">
 		</div>
 		<section id="timer-display">
 			<p id="time-remaining">25:00</p>
 		</section>
-		<button id="timer-button"></button>
+		<button id="timer-button">Start Pomo</button>
 		<div id="task-list">
 		</div>
 		<div id="popup">
@@ -30,6 +29,7 @@
 		<div>
 			<button id="popup-button">Click</button>
 		</div>
+		<audio id="alarm" src="./air-horn.mp3"></audio>
 	</main>
 	<script src="./timer.js" type="module"></script>
 	<script src="./popup.js"></script>
