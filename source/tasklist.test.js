@@ -112,6 +112,43 @@ test('Add Duplicate Tasks', () => {
 	
 });
 
+test('Remove one Task', () => {
+	localStorage.clear()
+	let tasklist = new Tasklist();
+
+	let length = 3;
+	let addedTaskName =[];
+	let addedTaskPomo =[];
+	for (let j = 0; j < length; j++) {
+		let name="";
+		let time;
+		let characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*()-_=+`~,<.>/?;:\'\"\\[]{}';
+		let nameLength = 4;
+		for (let i = 0; i < nameLength; i++) {
+			name += characters.charAt(Math.floor(Math.random() * characters.length));
+		}
+		addedTaskName.push(name);
+		time = (Math.floor(Math.random() * 99) + 1).toString(10);
+		addedTaskPomo.push(time);
+		tasklist.addTask(name, time);
+	}
+	expect(tasklist.$tasks.length).toBe(addedTaskName.length);
+	
+		//let indexToRemove = Math.floor(Math.random() * addedTaskName.length);
+		let indexToRemove =0;
+		tasklist.remove(addedTaskName[indexToRemove]);
+		addedTaskName.splice(indexToRemove, 1);
+		addedTaskPomo.splice(indexToRemove, 1);
+	
+//	expect(tasklist.$tasks.length).toBe(addedTaskName.length);
+	for(let i = 0; i < tasklist.$tasks.length; i++) {
+		expect(tasklist.$tasks[i][0]).toBe(addedTaskName[i]);
+		expect(tasklist.$tasks[i][1]).toBe(addedTaskPomo[i]);
+	}
+
+});
+
+
 test('Remove All Tasks', () => {
 	localStorage.clear()
 	let tasklist = new Tasklist();
