@@ -59,6 +59,7 @@ document.body.innerHTML = `
 jest.spyOn(window, 'alert').mockImplementation(() => {});
 
 test('Constructor Test', () => {
+	localStorage.clear()
     let tasklist = new Tasklist();
 	let emptyArr =[];
 	let selectedArr = ['Default', '1'];
@@ -67,6 +68,7 @@ test('Constructor Test', () => {
 });
 
 test('Basic Add Tasks', () => {
+	localStorage.clear()
 	let tasklist = new Tasklist();
 	let length = 10;
 	let addedTaskName =[];
@@ -90,9 +92,11 @@ test('Basic Add Tasks', () => {
 		expect(tasklist.$tasks[i][0]).toBe(addedTaskName[i]);
 		expect(tasklist.$tasks[i][1]).toBe(addedTaskPomo[i]);
 	}
+	
 });
 
 test('Add Duplicate Tasks', () => {
+	localStorage.clear()
 	let tasklist = new Tasklist();
 	expect(tasklist.$tasks.length).toBe(0);
 	let name = "Go to the mountain";
@@ -109,6 +113,7 @@ test('Add Duplicate Tasks', () => {
 });
 
 test('Remove All Tasks', () => {
+	localStorage.clear()
 	let tasklist = new Tasklist();
 
 	let length = 10;
@@ -149,6 +154,7 @@ test('Remove All Tasks', () => {
 });
 
 test('Basic Select Tasks', () => {
+	localStorage.clear()
 	let tasklist = new Tasklist();
 	let length = 10;
 	let addedTaskName =[];
@@ -177,6 +183,7 @@ test('Basic Select Tasks', () => {
 
 
 test('Select and Remove Tasks', () => {
+	localStorage.clear()
 	let tasklist = new Tasklist();
 	// length should be even
 	let length = 10;
