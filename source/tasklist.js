@@ -115,10 +115,7 @@ export default class Tasklist extends HTMLUListElement {
      */
     removeTask(taskId){
 
-
-        this.$tasks = this.$tasks.filter(item => item !== taskId);
-
-        //this.$tasks = arrayRemove(this.$tasks, taskId);
+        this.$tasks = arrayRemove(this.$tasks, taskId);
 
         let currTaskId = document.getElementById("current-task").innerHTML;
         let taskContainer = document.getElementById('tasks-container');

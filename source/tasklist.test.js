@@ -117,8 +117,8 @@ test('Remove one Task', () => {
 	let tasklist = new Tasklist();
 
 	let length = 3;
-	let addedTaskName =[];
-	let addedTaskPomo =[];
+	let addedTaskName = [];
+	let addedTaskPomo = [];
 	for (let j = 0; j < length; j++) {
 		let name="";
 		let time;
@@ -134,7 +134,6 @@ test('Remove one Task', () => {
 	}
 	expect(tasklist.$tasks.length).toBe(addedTaskName.length);
 	
-		//let indexToRemove = Math.floor(Math.random() * addedTaskName.length);
 		let indexToRemove = 2;
 		expect(tasklist.$tasks[2][0]).toBe(addedTaskName[2]);
 		tasklist.removeTask(tasklist.$tasks[2][0]);
@@ -151,12 +150,12 @@ test('Remove one Task', () => {
 
 
 test('Remove All Tasks', () => {
-	localStorage.clear()
+	localStorage.clear();
 	let tasklist = new Tasklist();
 
 	let length = 10;
-	let addedTaskName =[];
-	let addedTaskPomo =[];
+	let addedTaskName = [];
+	let addedTaskPomo = [];
 	for (let j = 0; j < length; j++) {
 		let name="";
 		let time;
