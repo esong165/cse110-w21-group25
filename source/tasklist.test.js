@@ -5,6 +5,7 @@
 
  //idea just make the html elements in the test.js
 import Tasklist from './tasklist'
+import TaskItem from './task-item'
 
 document.body.innerHTML = `
     <header>
@@ -59,8 +60,8 @@ test('Constructor Test', () => {
     const tasklist = new Tasklist();
 	let emptyArr =[];
 	let selectedArr = ['Default', '1'];
-	expect((tasklist.$tasks)).toBe(emptyArr);
-	expect((tasklist.$selected)).toBe(selectedArr);
+	expect((tasklist.$tasks)).toEqual(emptyArr);
+	expect((tasklist.$selected)).toEqual(selectedArr);
 });
 
 test('Basic Add Tasks', () => {
