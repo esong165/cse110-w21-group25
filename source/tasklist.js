@@ -114,13 +114,16 @@ export default class Tasklist extends HTMLUListElement {
      * @param {String} taskId - name of task to be removed. 
      */
     removeTask(taskId){
+
+        this.$tasks = arrayRemove(this.$tasks, taskId);
+
         let currTaskId = document.getElementById("current-task").innerHTML;
         let taskContainer = document.getElementById('tasks-container');
     
         let task = document.getElementById(taskId);
 
         // Remove task from $tasks instance variable
-        this.$tasks = arrayRemove(this.$tasks, taskId);
+       
 
         /* Edge case check for a bug I could not figure out -- without this line,
             sometimes a task enters the tasklist with undefined, undefined -- 
