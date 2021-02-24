@@ -5,7 +5,7 @@
 
  //idea just make the html elements in the test.js
 import Tasklist from './tasklist'
-import TaskItem from './task-item'
+
 
 document.body.innerHTML = `
     <header>
@@ -55,6 +55,9 @@ document.body.innerHTML = `
 
 
 `;
+
+const jsdomAlert = window.alert;
+window.alert = jest.fn(); // Dummy implementation for window.alert
 
 test('Constructor Test', () => {
     const tasklist = new Tasklist();
@@ -132,8 +135,8 @@ test('Remove All Tasks', () => {
 	}
 	expect(tasklist.$tasks.length).toBe(addedTasksName.length);
 	for(let i = 0; i < tasklist.$tasks.length; i++) {
-		expect(tasklist.$tasks[i][0]).toBe(addedTasksName[i]);
-		expect(tasklist.$tasks[i][1]).toBe(addedTasksPomo[i]);
+		expect(tasklist.$tasks[i][0]).toBe(addedTaskName[i]);
+		expect(tasklist.$tasks[i][1]).toBe(addedTaskPomo[i]);
 	}
 
 	while(addedTaskName.length > 0) {
@@ -164,7 +167,7 @@ test('Basic Select Tasks', () => {
 	}
 
 	for (let i =0; i < length; i++) {
-		selectTaskIndex = (Math.floor(Math.random() * length));
+		let selectTaskIndex = (Math.floor(Math.random() * length));
 		tasklist.selectTask(addedTaskName[selectedTaskIndex]);
 		expect(tasklist.$selected[0]).toBe(addedTaskName[selectedTaskIndex]);
 		expect(tasklist.$selected[1]).toBe(addedTaskPomo[selectedTaskIndex]);
@@ -219,3 +222,5 @@ test('Select and Remove Tasks', () => {
 		}
 	}
 });
+
+window.alert = jsdomAlert;
