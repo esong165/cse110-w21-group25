@@ -137,7 +137,7 @@ test('Remove one Task', () => {
 		//let indexToRemove = Math.floor(Math.random() * addedTaskName.length);
 		let indexToRemove = 2;
 		expect(tasklist.$tasks[2][0]).toBe(addedTaskName[2]);
-		tasklist.remove(addedTaskName[indexToRemove]);
+		tasklist.removeTask(tasklist.$tasks[2][0]);
 		addedTaskName.pop();
 		addedTaskPomo.pop();
 	
@@ -174,7 +174,7 @@ test('Remove All Tasks', () => {
 	while(addedTaskName.length > length / 2) {
 		//let indexToRemove = Math.floor(Math.random() * addedTaskName.length);
 		let indexToRemove =0;
-		tasklist.remove(addedTaskName[indexToRemove]);
+		tasklist.removeTask(addedTaskName[indexToRemove]);
 		addedTaskName.splice(indexToRemove, 1);
 		addedTaskPomo.splice(indexToRemove, 1);
 	}
@@ -185,7 +185,7 @@ test('Remove All Tasks', () => {
 	}
 
 	while(addedTaskName.length > 0) {
-		tasklist.remove(addedTaskName[0]);
+		tasklist.removeTask(addedTaskName[0]);
 		addedTaskName.splice(0, 1);
 		addedTaskPomo.splice(0, 1);
 	}
