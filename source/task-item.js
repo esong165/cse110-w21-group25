@@ -1,4 +1,4 @@
-class TaskItem extends HTMLElement {
+export default class TaskItem extends HTMLElement {
     constructor(taskName, pomoCount) {
         super();
 
