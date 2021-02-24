@@ -2,35 +2,32 @@ export default class TaskItem extends HTMLElement {
 	constructor(taskName, pomoCount) {
 		super();
 
+		const shadow = this.attachShadow({ mode: 'open' });
 
-		let shadow = this.attachShadow({mode: 'open'});
-
-		let task = document.createElement('li');
+		const task = document.createElement('li');
 		task.setAttribute('class', 'task');
 
 		// Set name of task
-		let name = document.createElement('span');
+		const name = document.createElement('span');
 		name.innerHTML = '';
 		name.innerHTML += taskName;
 		task.appendChild(name);
 
 		// Set estimated pomodoros
-		let count = document.createElement('span');
+		const count = document.createElement('span');
 		count.innerHTML = '';
 		count.innerHTML += pomoCount;
 		task.appendChild(count);
 
 		// Select task button note: considering making this a radio option or making the text a clickable button
-		let selectTaskButton = document.createElement('button');
+		const selectTaskButton = document.createElement('button');
 		selectTaskButton.innerHTML = 'Select';
 		task.appendChild(selectTaskButton);
-		
+
 		// Remove task button
-		let removeTaskButton = document.createElement('button');
+		const removeTaskButton = document.createElement('button');
 		removeTaskButton.innerHTML = 'Remove';
 		task.appendChild(removeTaskButton);
-		
-		
 
 		shadow.appendChild(task);
 
@@ -41,10 +38,9 @@ export default class TaskItem extends HTMLElement {
 			.task > button {}
 			visibility: visible;
 		`;
-		
 
 		shadow.appendChild(style);
-		*/  
+		*/
 	}
 }
 customElements.define('task-item', TaskItem);
