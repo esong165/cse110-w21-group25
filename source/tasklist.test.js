@@ -1,5 +1,7 @@
 import Tasklist from './tasklist'
-
+/**
+ * @jest-environment jsdom
+ */
 /*
 Example test
 
@@ -98,6 +100,7 @@ test('Remove All Tasks', () => {
 });
 
 test('Basic Select Tasks', () => {
+	const tasklist = new Tasklist();
 	let length = 10;
 	let addedTaskName =[];
 	let addedTaskPomo =[];
@@ -125,7 +128,7 @@ test('Basic Select Tasks', () => {
 
 
 test('Select and Remove Tasks', () => {
-
+	const tasklist = new Tasklist();
 	// length should be even
 	let length = 10;
 	let addedTaskName =[];
