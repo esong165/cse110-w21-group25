@@ -35,7 +35,7 @@ document.body.innerHTML = `
         <div id="task-list">
             <h3>Task Name:               Estimated pomodoros:</h3>
 
-            <ul id="tasks-container" is="task-list"></ul>
+            
             
             <form id="add-task-container">
                 <label>Task name:</label>
