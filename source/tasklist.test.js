@@ -59,7 +59,7 @@ document.body.innerHTML = `
 jest.spyOn(window, 'alert').mockImplementation(() => {});
 
 test('Constructor Test', () => {
-    const tasklist = new Tasklist();
+    let tasklist = new Tasklist();
 	let emptyArr =[];
 	let selectedArr = ['Default', '1'];
 	expect((tasklist.$tasks)).toEqual(emptyArr);
@@ -67,7 +67,7 @@ test('Constructor Test', () => {
 });
 
 test('Basic Add Tasks', () => {
-	const tasklist = new Tasklist();
+	let tasklist = new Tasklist();
 	let length = 10;
 	let addedTaskName =[];
 	let addedTaskPomo =[];
@@ -93,7 +93,7 @@ test('Basic Add Tasks', () => {
 });
 
 test('Add Duplicate Tasks', () => {
-	const tasklist = new Tasklist();
+	let tasklist = new Tasklist();
 	expect(tasklist.$tasks.length).toBe(0);
 	let name = "Go to the mountain";
 	let time = 30;
@@ -109,7 +109,7 @@ test('Add Duplicate Tasks', () => {
 });
 
 test('Remove All Tasks', () => {
-	const tasklist = new Tasklist();
+	let tasklist = new Tasklist();
 
 	let length = 10;
 	let addedTaskName =[];
@@ -149,7 +149,7 @@ test('Remove All Tasks', () => {
 });
 
 test('Basic Select Tasks', () => {
-	const tasklist = new Tasklist();
+	let tasklist = new Tasklist();
 	let length = 10;
 	let addedTaskName =[];
 	let addedTaskPomo =[];
@@ -177,7 +177,7 @@ test('Basic Select Tasks', () => {
 
 
 test('Select and Remove Tasks', () => {
-	const tasklist = new Tasklist();
+	let tasklist = new Tasklist();
 	// length should be even
 	let length = 10;
 	let addedTaskName =[];
