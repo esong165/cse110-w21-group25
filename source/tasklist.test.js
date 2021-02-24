@@ -1,7 +1,59 @@
 /**
  * @jest-environment jsdom
  */
+
+
+ //idea just make the html elements in the test.js
 import Tasklist from './tasklist'
+
+document.body.innerHTML = `
+    <header>
+        <h1 id="site-header">
+            Tomato
+        </h1>
+    </header>
+    
+    <main>
+        <div id="current-task-container">
+            <h3 id="current-task">Default</h3>
+            <h3 id="num-pomos">1</h3>
+            <button id="done-button" type="submit" value="Done With Task" >
+                Done
+            </button>
+        </div>
+
+        <section id="timer-display">
+          <p id="time-remaining">25:00</p>
+        </section>
+
+        <button id="timer-button"></button>
+        <div>
+          <button id="popup-button">Click</button>
+        </div>
+
+        <div id="task-list">
+            <h3>Task Name:               Estimated pomodoros:</h3>
+
+            <ul id="tasks-container" is="task-list"></ul>
+            
+            <form id="add-task-container">
+                <label>Task name:</label>
+                <input type="text" id="new-task-name" maxlength="30">
+                <label>Estimated pomodoros:</label>
+                <input type="number" id="new-task-count" value='1' min='1' max='99'>
+                <input type="submit" id="add-task-btn" value="Add Task">
+            </form>
+        </div>
+
+        <button id="tasklist-btn">Open Task List</button> 
+    </main>
+    <script src="./task-item.js"></script>
+    <script src="./timer.js" type="module"></script>
+    <script src="./tasklist.js"></script>
+    <script src="./main.js"></script>
+
+
+`;
 
 test('Constructor Test', () => {
     const tasklist = new Tasklist();
