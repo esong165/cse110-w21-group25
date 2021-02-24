@@ -56,8 +56,7 @@ document.body.innerHTML = `
 
 `;
 
-const jsdomAlert = window.alert;
-window.alert = jest.fn(); // Dummy implementation for window.alert
+jest.spyOn(window, 'alert').mockImplementation(() => {});
 
 test('Constructor Test', () => {
     const tasklist = new Tasklist();
@@ -133,7 +132,7 @@ test('Remove All Tasks', () => {
 		addedTaskName.splice(indexToRemove, 1);
 		addedTaskPomo.splice(indexToRemove, 1);
 	}
-	expect(tasklist.$tasks.length).toBe(addedTasksName.length);
+	expect(tasklist.$tasks.length).toBe(addedTaskName.length);
 	for(let i = 0; i < tasklist.$tasks.length; i++) {
 		expect(tasklist.$tasks[i][0]).toBe(addedTaskName[i]);
 		expect(tasklist.$tasks[i][1]).toBe(addedTaskPomo[i]);
@@ -167,7 +166,7 @@ test('Basic Select Tasks', () => {
 	}
 
 	for (let i =0; i < length; i++) {
-		let selectTaskIndex = (Math.floor(Math.random() * length));
+		let selectedTaskIndex = (Math.floor(Math.random() * length));
 		tasklist.selectTask(addedTaskName[selectedTaskIndex]);
 		expect(tasklist.$selected[0]).toBe(addedTaskName[selectedTaskIndex]);
 		expect(tasklist.$selected[1]).toBe(addedTaskPomo[selectedTaskIndex]);
@@ -196,7 +195,7 @@ test('Select and Remove Tasks', () => {
 	}
 
 	for (let i =0; i < length / 2; i++) {
-		selectTaskIndex = (Math.floor(Math.random() * length));
+		let selectedTaskIndex = (Math.floor(Math.random() * length));
 		tasklist.selectTask(addedTaskName[selectedTaskIndex]);
 		let removeTaskIndex = (Math.floor(Math.random() * length));
 		while(removeTaskIndex === selectedTaskIndex) {
@@ -222,5 +221,3 @@ test('Select and Remove Tasks', () => {
 		}
 	}
 });
-
-window.alert = jsdomAlert;
