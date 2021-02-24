@@ -136,9 +136,10 @@ test('Remove one Task', () => {
 	
 		//let indexToRemove = Math.floor(Math.random() * addedTaskName.length);
 		let indexToRemove = 2;
+		expect(tasklist.$tasks[2][0]).toBe(addedTaskName[2]);
 		tasklist.remove(addedTaskName[indexToRemove]);
-		//addedTaskName.pop();
-		//addedTaskPomo.pop();
+		addedTaskName.pop();
+		addedTaskPomo.pop();
 	
 //	expect(tasklist.$tasks.length).toBe(addedTaskName.length);
 	for(let i = 0; i < tasklist.$tasks.length; i++) {
