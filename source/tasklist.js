@@ -80,7 +80,7 @@ export default class Tasklist extends HTMLUListElement {
         // Validity checking (WIP)
         if(!JSON.stringify(taskItemArr).includes(JSON.stringify(taskNameNum))){
             taskItemArr.push(taskNameNum);
-            this.$tasks.push(taskNameNum);
+            this.$tasks.push([name, count]);
             this.appendChild(task);
         } else {
             alert('Task is already in tasklist.');
