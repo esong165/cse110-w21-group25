@@ -1,4 +1,4 @@
-import TaskItem from './task-item'
+import TaskItem from './task-item';
 export default class Tasklist extends HTMLUListElement {
 
     /**
@@ -132,7 +132,7 @@ export default class Tasklist extends HTMLUListElement {
         if(JSON.stringify(this.$tasks) == '[{}]') this.$tasks = [];
 
         // Update tasklist display
-        taskContainer.removeChild(document.getElementById(taskId));
+        taskContainer.removeChild(task);
         
         // If current task is the removed task, move to next task in tasklist or default task
         if (currTaskId === taskId) {
