@@ -142,7 +142,7 @@ function populateTasks(nameArr, countArr, length, nameLength, tasklist) {
 	}
 }
 
-function checkArrEquals(tasklist, nameArr, countArr, length){
+function checkArrEquals(tasklist, nameArr, countArr, length) {
 	for (let i = 0; i < length; i++) {
 		expect(tasklist.$tasks[i][0]).toBe(nameArr[i]);
 		expect(tasklist.$tasks[i][1]).toBe(countArr[i]);
