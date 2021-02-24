@@ -136,7 +136,10 @@ export default class Tasklist extends HTMLUListElement {
         if(JSON.stringify(this.$tasks) == '[{}]') this.$tasks = [];
 
         // Update tasklist display
-        taskContainer.removeChild(task);
+        if(task != null){
+            taskContainer.removeChild(task);
+        }
+            
         
         // If current task is the removed task, move to next task in tasklist or default task
         if (currTaskId === taskId) {
