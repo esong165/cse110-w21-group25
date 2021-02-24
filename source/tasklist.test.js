@@ -132,7 +132,7 @@ test('Remove All Tasks', () => {
 		addedTaskPomo.push(time);
 		tasklist.addTask(name, time);
 	}
-
+	expect(tasklist.$tasks.length).toBe(addedTaskName.length);
 	while(addedTaskName.length > length / 2) {
 		let indexToRemove = Math.floor(Math.random() * addedTaskName.length);
 		tasklist.remove(addedTaskName[indexToRemove]);
