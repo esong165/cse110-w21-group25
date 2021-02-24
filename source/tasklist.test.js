@@ -48,9 +48,9 @@ document.body.innerHTML = `
 
         <button id="tasklist-btn">Open Task List</button> 
     </main>
-    <script src="./task-item.js"></script>
+    <script src="./task-item.js" type="module"></script>
     <script src="./timer.js" type="module"></script>
-    <script src="./tasklist.js"></script>
+    <script src="./tasklist.js" type="module"></script>
     <script src="./main.js"></script>
 
 
