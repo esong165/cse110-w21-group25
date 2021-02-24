@@ -1,3 +1,4 @@
+import TaskItem from './task-item'
 export default class Tasklist extends HTMLUListElement {
 
     /**
