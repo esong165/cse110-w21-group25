@@ -134,9 +134,9 @@ test('Remove one Task', () => {
 	}
 	expect(tasklist.$tasks.length).toBe(addedTaskName.length);
 	
-		let indexToRemove = 2;
-		expect(tasklist.$tasks[2][0]).toBe(addedTaskName[2]);
-		tasklist.removeTask(tasklist.$tasks[2][0]);
+		let indexToRemove = Math.floor(Math.random() * addedTaskName.length);
+		expect(tasklist.$tasks[indexToRemove][0]).toBe(addedTaskName[indexToRemove]);
+		tasklist.removeTask(tasklist.$tasks[indexToRemove][0]);
 		addedTaskName.pop();
 		addedTaskPomo.pop();
 	
@@ -188,82 +188,4 @@ test('Remove All Tasks', () => {
 		addedTaskPomo.splice(0, 1);
 	}
 	expect(tasklist.$tasks.length).toBe(0);
-});
-
-test('Basic Select Tasks', () => {
-	localStorage.clear()
-	let tasklist = new Tasklist();
-	let length = 10;
-	let addedTaskName =[];
-	let addedTaskPomo =[];
-	for (let j = 0; j < length; j++) {
-		let name="";
-		let time;
-		let characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*()-_=+`~,<.>/?;:\'\"\\[]{}';
-		let nameLength = 4;
-		for (let i = 0; i < nameLength; i++) {
-			name += characters.charAt(Math.floor(Math.random() * characters.length));
-		}
-		addedTaskName.push(name);
-		time = (Math.floor(Math.random() * 99) + 1).toString(10);
-		addedTaskPomo.push(time);
-		tasklist.addTask(name, time);
-	}
-
-	for (let i =0; i < length; i++) {
-		let selectedTaskIndex = (Math.floor(Math.random() * length));
-		tasklist.selectTask(addedTaskName[selectedTaskIndex]);
-		expect(tasklist.$selected[0]).toBe(addedTaskName[selectedTaskIndex]);
-		expect(tasklist.$selected[1]).toBe(addedTaskPomo[selectedTaskIndex]);
-	}
-});
-
-
-test('Select and Remove Tasks', () => {
-	localStorage.clear()
-	let tasklist = new Tasklist();
-	// length should be even
-	let length = 10;
-	let addedTaskName =[];
-	let addedTaskPomo =[];
-	for (let j = 0; j < length; j++) {
-		let name="";
-		let time;
-		let characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*()-_=+`~,<.>/?;:\'\"\\[]{}';
-		let nameLength = 4;
-		for (let i = 0; i < nameLength; i++) {
-			name += characters.charAt(Math.floor(Math.random() * characters.length));
-		}
-		addedTaskName.push(name);
-		time = (Math.floor(Math.random() * 99) + 1).toString(10);
-		addedTaskPomo.push(time);
-		tasklist.addTask(name, time);
-	}
-
-	for (let i =0; i < length / 2; i++) {
-		let selectedTaskIndex = (Math.floor(Math.random() * length));
-		tasklist.selectTask(addedTaskName[selectedTaskIndex]);
-		let removeTaskIndex = (Math.floor(Math.random() * length));
-		while(removeTaskIndex === selectedTaskIndex) {
-			removeTaskIndex = (Math.floor(Math.random() * length));
-		}
-		tasklist.removeTask(addedTaskName[removeTaskIndex]);
-		addedTaskName.splice(removeTaskIndex, 1);
-		addedTaskPomo.splice(removeTaskIndex, 1);
-		if(removeTaskIndex < selectedTaskIndex) selectedTaskIndex--; // decrements in case remove task shifts array index
-		expect(tasklist.$selected[0]).toBe(addedTaskName[selectedTaskIndex]);
-		expect(tasklist.$selected[1]).toBe(addedTaskPomo[selectedTaskIndex]);
-		tasklist.removeTask(addedTaskName[selectedTaskIndex]);
-		addedTaskName.splice(selectedTaskIndex, 1);
-		addedTaskPomo.splice(selectedTaskIndex, 1);
-		selectedTaskIndex = 0;
-		if(addedTaskName.length > 0) {
-			expect(tasklist.$selected[0]).toBe(addedTaskName[selectedTaskIndex]);
-			expect(tasklist.$selected[1]).toBe(addedTaskPomo[selectedTaskIndex]);
-		}
-		else {
-			expect(tasklist.$selected[0]).toBe('Default');
-			expect(tasklist.$selected[1]).toBe('1');
-		}
-	}
 });
