@@ -66,26 +66,10 @@ test('Constructor Test', () => {
 test('Basic Add Tasks', () => {
 	localStorage.clear();
 	const tasklist = new Tasklist();
-	const length = 10;
 	const addedTaskName = [];
 	const addedTaskPomo = [];
-	for (let j = 0; j < length; j++) {
-		let name = '';
-		const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*()-_=+`~,<.>/?;:\'"\\[]{}';
-		const nameLength = 4;
-		for (let i = 0; i < nameLength; i++) {
-			name += characters.charAt(Math.floor(Math.random() * characters.length));
-		}
-		addedTaskName.push(name);
-		const time = (Math.floor(Math.random() * 99) + 1).toString(10);
-		addedTaskPomo.push(time);
-		tasklist.addTask(name, time);
-	}
-
-	for (let i = 0; i < length; i++) {
-		expect(tasklist.$tasks[i][0]).toBe(addedTaskName[i]);
-		expect(tasklist.$tasks[i][1]).toBe(addedTaskPomo[i]);
-	}
+	populateTasks(addedTaskName, addedTaskPomo, 10, 4, tasklist);
+	checkArrEquals(tasklist, addedTaskName, addedTaskPomo, length);
 });
 
 test('Add Duplicate Tasks', () => {
@@ -105,22 +89,9 @@ test('Add Duplicate Tasks', () => {
 test('Remove one Task', () => {
 	localStorage.clear();
 	const tasklist = new Tasklist();
-
-	const length = 3;
 	const addedTaskName = [];
 	const addedTaskPomo = [];
-	for (let j = 0; j < length; j++) {
-		let name = '';
-		const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*()-_=+`~,<.>/?;:\'"\\[]{}';
-		const nameLength = 4;
-		for (let i = 0; i < nameLength; i++) {
-			name += characters.charAt(Math.floor(Math.random() * characters.length));
-		}
-		addedTaskName.push(name);
-		const time = (Math.floor(Math.random() * 99) + 1).toString(10);
-		addedTaskPomo.push(time);
-		tasklist.addTask(name, time);
-	}
+	populateTasks(addedTaskName, addedTaskPomo, 3, 4, tasklist);
 	expect(tasklist.$tasks.length).toBe(addedTaskName.length);
 
 	const indexToRemove = Math.floor(Math.random() * addedTaskName.length);
@@ -130,31 +101,15 @@ test('Remove one Task', () => {
 	addedTaskPomo.pop();
 
 	expect(tasklist.$tasks.length).toBe(addedTaskName.length);
-	for (let i = 0; i < tasklist.$tasks.length; i++) {
-		expect(tasklist.$tasks[i][0]).toBe(addedTaskName[i]);
-		expect(tasklist.$tasks[i][1]).toBe(addedTaskPomo[i]);
-	}
+	checkArrEquals(tasklist, addedTaskName, addedTaskPomo, length);
 });
 
 test('Remove All Tasks', () => {
 	localStorage.clear();
 	const tasklist = new Tasklist();
-
-	const length = 10;
 	const addedTaskName = [];
 	const addedTaskPomo = [];
-	for (let j = 0; j < length; j++) {
-		let name = '';
-		const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*()-_=+`~,<.>/?;:\'"\\[]{}';
-		const nameLength = 4;
-		for (let i = 0; i < nameLength; i++) {
-			name += characters.charAt(Math.floor(Math.random() * characters.length));
-		}
-		addedTaskName.push(name);
-		const time = (Math.floor(Math.random() * 99) + 1).toString(10);
-		addedTaskPomo.push(time);
-		tasklist.addTask(name, time);
-	}
+	populateTasks(addedTaskName, addedTaskPomo, 10, 4, tasklist);
 	expect(tasklist.$tasks.length).toBe(addedTaskName.length);
 	while (addedTaskName.length > length / 2) {
 		const indexToRemove = Math.floor(Math.random() * addedTaskName.length);
@@ -163,10 +118,7 @@ test('Remove All Tasks', () => {
 		addedTaskPomo.splice(indexToRemove, 1);
 	}
 	expect(tasklist.$tasks.length).toBe(addedTaskName.length);
-	for (let i = 0; i < tasklist.$tasks.length; i++) {
-		expect(tasklist.$tasks[i][0]).toBe(addedTaskName[i]);
-		expect(tasklist.$tasks[i][1]).toBe(addedTaskPomo[i]);
-	}
+	checkArrEquals(tasklist, addedTaskName, addedTaskPomo, length);
 
 	while (addedTaskName.length > 0) {
 		tasklist.removeTask(addedTaskName[0]);
@@ -175,3 +127,24 @@ test('Remove All Tasks', () => {
 	}
 	expect(tasklist.$tasks.length).toBe(0);
 });
+
+function populateTasks(nameArr, countArr, length, nameLength, tasklist) {
+	for (let j = 0; j < length; j++) {
+		let name = '';
+		const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*()-_=+`~,<.>/?;:\'"\\[]{}';
+		for (let i = 0; i < nameLength; i++) {
+			name += characters.charAt(Math.floor(Math.random() * characters.length));
+		}
+		nameArr.push(name);
+		const time = (Math.floor(Math.random() * 99) + 1).toString(10);
+		countArr.push(time);
+		tasklist.addTask(name, time);
+	}
+}
+
+function checkArrEquals(tasklist, nameArr, countArr, length){
+	for (let i = 0; i < length; i++) {
+		expect(tasklist.$tasks[i][0]).toBe(nameArr[i]);
+		expect(tasklist.$tasks[i][1]).toBe(countArr[i]);
+	}
+}
