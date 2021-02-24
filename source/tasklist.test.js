@@ -141,7 +141,7 @@ test('Remove one Task', () => {
 		addedTaskName.pop();
 		addedTaskPomo.pop();
 	
-//	expect(tasklist.$tasks.length).toBe(addedTaskName.length);
+	expect(tasklist.$tasks.length).toBe(addedTaskName.length);
 	for(let i = 0; i < tasklist.$tasks.length; i++) {
 		expect(tasklist.$tasks[i][0]).toBe(addedTaskName[i]);
 		expect(tasklist.$tasks[i][1]).toBe(addedTaskPomo[i]);
@@ -172,13 +172,12 @@ test('Remove All Tasks', () => {
 	}
 	expect(tasklist.$tasks.length).toBe(addedTaskName.length);
 	while(addedTaskName.length > length / 2) {
-		//let indexToRemove = Math.floor(Math.random() * addedTaskName.length);
-		let indexToRemove =0;
+		let indexToRemove = Math.floor(Math.random() * addedTaskName.length);
 		tasklist.removeTask(addedTaskName[indexToRemove]);
 		addedTaskName.splice(indexToRemove, 1);
 		addedTaskPomo.splice(indexToRemove, 1);
 	}
-//	expect(tasklist.$tasks.length).toBe(addedTaskName.length);
+	expect(tasklist.$tasks.length).toBe(addedTaskName.length);
 	for(let i = 0; i < tasklist.$tasks.length; i++) {
 		expect(tasklist.$tasks[i][0]).toBe(addedTaskName[i]);
 		expect(tasklist.$tasks[i][1]).toBe(addedTaskPomo[i]);
