@@ -4,7 +4,7 @@
 
 
  //idea just make the html elements in the test.js
-import Tasklist from './tasklist';
+import Tasklist from './tasklist.js';
 
 
 document.body.innerHTML = `

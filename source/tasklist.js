@@ -1,4 +1,4 @@
-// import TaskItem from './task-item';
+ import TaskItem from './task-item.js';
 export default class Tasklist extends HTMLUListElement {
 
     /**
@@ -18,16 +18,11 @@ export default class Tasklist extends HTMLUListElement {
         let selectedArr = JSON.parse(localStorage.getItem('selectedTask'));
         if(taskItemArr !== null) {
             this.$tasks = taskItemArr;
-        } else {
-            localStorage.setItem('taskItemArr', JSON.stringify(this.$tasks));
-        }
+        } 
         if(selectedArr !== null) {
             this.$selected = selectedArr;
             
-        } else {
-            localStorage.setItem('selectedTask', JSON.stringify(this.$selected));
-        }
-
+        } 
         // Update current task display
         document.getElementById('current-task').innerHTML = this.$selected[0];
         document.getElementById('num-pomos').innerHTML = this.$selected[1];
