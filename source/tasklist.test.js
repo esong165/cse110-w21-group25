@@ -74,7 +74,7 @@ test('Basic Add Tasks', () => {
 	let addedTaskName =[];
 	let addedTaskPomo =[];
 	for (let j = 0; j < length; j++) {
-		let name;
+		let name="";
 		let time;
 		let characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*()-_=+`~,<.>/?;:\'\"\\[]{}';
 		let nameLength = 4;
@@ -120,7 +120,7 @@ test('Remove All Tasks', () => {
 	let addedTaskName =[];
 	let addedTaskPomo =[];
 	for (let j = 0; j < length; j++) {
-		let name;
+		let name="";
 		let time;
 		let characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*()-_=+`~,<.>/?;:\'\"\\[]{}';
 		let nameLength = 4;
@@ -160,7 +160,7 @@ test('Basic Select Tasks', () => {
 	let addedTaskName =[];
 	let addedTaskPomo =[];
 	for (let j = 0; j < length; j++) {
-		let name;
+		let name="";
 		let time;
 		let characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*()-_=+`~,<.>/?;:\'\"\\[]{}';
 		let nameLength = 4;
@@ -190,7 +190,7 @@ test('Select and Remove Tasks', () => {
 	let addedTaskName =[];
 	let addedTaskPomo =[];
 	for (let j = 0; j < length; j++) {
-		let name;
+		let name="";
 		let time;
 		let characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*()-_=+`~,<.>/?;:\'\"\\[]{}';
 		let nameLength = 4;
