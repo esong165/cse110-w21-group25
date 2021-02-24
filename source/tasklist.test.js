@@ -94,10 +94,12 @@ test('Basic Add Tasks', () => {
 
 test('Add Duplicate Tasks', () => {
 	const tasklist = new Tasklist();
+	expect(tasklist.$tasks.length).toBe(0);
 	let name = "Go to the mountain";
 	let time = 30;
 	for (let i = 0; i < 5; i++) {
 		tasklist.addTask(name, time);
+
 	}
 	
 	expect(tasklist.$tasks.length).toBe(1);
