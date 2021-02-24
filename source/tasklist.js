@@ -68,6 +68,9 @@ export default class Tasklist extends HTMLUListElement {
 
         // Store task as array of array in local storage -- could refactor into separate method
         let taskItemArr = JSON.parse(localStorage.getItem("taskItemArr"));
+        if(taskItemArr == null){
+            taskItemArr = [];
+        }
         let taskNameNum = [];
         taskNameNum.push(name);
         taskNameNum.push(count);
