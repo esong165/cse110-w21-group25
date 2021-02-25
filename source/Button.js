@@ -63,7 +63,7 @@ export default class Button {
 		}
 	}
 
-	updateButton(){
+	updateButton() {
 		const currentTime = document.getElementById(this.clockId).textContent;
 
 		if (currentTime === '0:00') {
