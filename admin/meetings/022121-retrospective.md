@@ -11,6 +11,7 @@
 **Absent:** None
 
 ## Current Objective
+
 Hold sprint 1 retrospective in adherence to Agile ceremonies
 
 ## Notes
