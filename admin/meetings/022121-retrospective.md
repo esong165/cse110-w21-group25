@@ -18,7 +18,7 @@ Hold sprint 1 retrospective in adherence to Agile ceremonies
 * Testing -- we will work on consistency of testing each feature -- this week was hard-pressed on time for both groups
 * Scope -- more clearly defined issues for facilitating work
 * Subgroups are all somewhat disconnected -- hard to integrate between different groups -- discuss progress more in meetings
-	* Allow for more freedom in what each person is working on -- lower bus factor
+* Allow for more freedom in what each person is working on -- lower bus factor
 * Design/final plan is a bit foggy -- would like to better clarify our overall progress and define goals
 * Lack of unity -- not a lot of shared time even between subgroups
 	* Though it did happen sometimes, and pair programming was effective when it happened
@@ -30,7 +30,7 @@ Hold sprint 1 retrospective in adherence to Agile ceremonies
 * Workflow -- not everyone understands how they work -- ask if in doubt
 * Underestimating time available/time spent -- mention blocks in understanding/implementation earlier
 * Technical understandings -- refer to system diagrams for our code structure
-* No time to get huge :( 
+* No time to get huge :(
 * Pair people with similar schedules together
 * Prioritize PR reviews over producing code
 * Next meeting (or in separate meeting) -- discuss merging of subgroups
