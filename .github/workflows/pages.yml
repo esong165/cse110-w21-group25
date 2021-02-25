@@ -20,6 +20,16 @@ jobs:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v2
 
-      # Deploys /source to GitHub Pages 
-      - name: Deploy /source to GitHub Pages
-        run: git subtree push --prefix source origin gh-pages
+      # Deploys source to GitHub Pages 
+      - name: Deploy source to GitHub Pages
+        run: |
+          git subtree split --prefix source -b gh-pages
+          git checkout gh-pages
+          find . -name "*.test.js" -type f -delete
+          git config --global user.email "eysong@ucsd.edu"
+          git config --global user.name "eysong"
+          git add .
+          git commit -m "Removed tests"
+          git checkout main
+          git push -f origin gh-pages:gh-pages
+          git branch -D gh-pages

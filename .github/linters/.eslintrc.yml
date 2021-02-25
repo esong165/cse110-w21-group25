@@ -24,21 +24,17 @@ globals:
 ###############
 # Parser vars #
 ###############
-parser: '@typescript-eslint/parser'
-parserOptions:
-  ecmaVersion: 2018
-  sourceType: module
+parser: babel-eslint
 
 ###########
-# Plugins #
+# Extends #
 ###########
-plugins:
-  - '@typescript-eslint'
-
+extends: standard
 #########
 # Rules #
 #########
 rules: {
+  "no-tabs": 0,
   "semi": ["error", "always"],
   "indent": ["error", "tab"],
   "space-before-function-paren": ["error", "never"],
