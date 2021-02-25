@@ -25,24 +25,38 @@ describe('button tests', () => {
 		window.app.button.updateButton();
 		expect(theButton.textContent).toBe('Start Short Break');
 	});
-/*
+
 	test('new Pomo', () => {
 		theButton.click();
 		theTimer.textContent = '0:00';
-		button.updateButton('pomoButton', 'time', 0, true);
+		window.app.button.updateButton();
 		theButton.click();
-		button.updateButton('pomoButton', 'time', 1, false);
-		theButton.click();
+		window.app.button.updateButton();
 		expect(theButton.textContent).toBe('Start Pomo');
 
 	});
 
 	test('long break', () => {
-		jest.useFakeTimers();
 		theButton.click();
 		theTimer.textContent = '0:00';
-		button.updateButton('pomoButton', 'time', 3, true);
+		window.app.button.updateButton();
+		theButton.click();
+		window.app.button.updateButton();
+
+		theButton.click();
+		window.app.button.updateButton();
+		theButton.click();
+		window.app.button.updateButton();
+
+		theButton.click();
+		window.app.button.updateButton();
+		theButton.click();
+		window.app.button.updateButton();
+
+		theButton.click();
+		window.app.button.updateButton();
+		
 		expect(theButton.textContent).toBe('Start Long Break');
 	});
-*/
+
 });
