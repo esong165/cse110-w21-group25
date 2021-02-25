@@ -8,7 +8,6 @@ describe('button tests', () => {
 		document.body.innerHTML = '<button id = "pomoButton">Start Pomo</button><div id ="time">25:00</div>';
 		theButton = document.getElementById('pomoButton');
 		theTimer = document.getElementById('time');
-
 		if (window.app === undefined) window.app = {};
 		window.app.button = new Button('pomoButton', 'time');
 		theButton.addEventListener('click', window.app.button.buttonClick());
