@@ -34,7 +34,6 @@ export default class Button {
 					document.getElementById(this.buttonId).textContent = 'Fail Task';
 					this.onTask = false;
 				} else {
-					this.cycleCount++;
 					if (this.cycleCount % 3 === 0) {
 						/*
 						Set timer to 10 minutes
@@ -73,10 +72,11 @@ export default class Button {
 			} else {
 				if (this.cycleCount % 3 === 0 && this.cycleCount !== 0) {
 					document.getElementById(this.buttonId).textContent = 'Start Long Break';
+					this.cycleCount = 0;
 				} else {
 					document.getElementById(this.buttonId).textContent = 'Start Short Break';
+					this.cycleCount++;
 				}
-
 			}
 			document.getElementById(this.buttonId).disabled = false;
 		}

@@ -26,41 +26,4 @@ describe('button tests', () => {
 		expect(theButton.textContent).toBe('Start Short Break');
 	});
 
-	test('new Pomo', () => {
-		theButton.click();
-		theTimer.textContent = '0:00';
-		window.app.button.updateButton();
-		theButton.click();
-		window.app.button.updateButton();
-		expect(theButton.textContent).toBe('Start Pomo');
-
-	});
-
-	test('long break', () => {
-		theTimer.textContent = '0:00';
-
-		theButton.click();
-		window.app.button.updateButton();
-
-		theButton.click();
-		window.app.button.updateButton();
-
-		theButton.click();
-		window.app.button.updateButton();
-
-		theButton.click();
-		window.app.button.updateButton();
-
-		theButton.click();
-		window.app.button.updateButton();
-		
-		theButton.click();
-		window.app.button.updateButton();
-
-		theButton.click();
-		window.app.button.updateButton();
-		
-		expect(theButton.textContent).toBe('Start Long Break');
-	});
-
 });
