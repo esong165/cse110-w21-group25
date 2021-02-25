@@ -24,5 +24,4 @@ describe('button tests', () => {
 		window.app.button.updateButton();
 		expect(theButton.textContent).toBe('Start Short Break');
 	});
-
 });
