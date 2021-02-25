@@ -12,7 +12,7 @@ describe('button tests', () => {
 		if (window.app === undefined) window.app = {};
 		window.app.button = new Button('pomoButton', 'time');
 		theButton.addEventListener('click', window.app.button.buttonClick());
- 	});
+	});
 
 	test('Initial change', () => {
 		theButton.click();
