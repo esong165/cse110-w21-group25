@@ -6,16 +6,20 @@ export default class Button {
 		this.clockId = clockId;
 		this.cycleCount = 0;
 		this.onTask = false;
-		document.getElementById(buttonId).addEventListener('click', function() {
+		this.buttonClick.bind(this);
+		this.updateButton.bind(this);
+	}
+
+	buttonClick(){
 		// Get the current time of the timer
-			const currentTime = document.getElementById(clockId).textContent;
+			const currentTime = document.getElementById(this.clockId).textContent;
 
 			// Timer hasnt begun yet
 			if (this.cycleCount === 0 && this.onTask === false) {
 				/* call the timer starter function **HERE** */
 
 				// Need to id to the one in the html
-				document.getElementById(buttonId).textContent = 'Fail Task';
+				document.getElementById(this.buttonId).textContent = 'Fail Task';
 
 				this.onTask = true;
 			} else if (this.onTask === true) {
@@ -25,26 +29,26 @@ export default class Button {
 				**HERE**
 				*/
 
-					document.getElementById(buttonId).textContent = 'Start Pomo';
-				} else if (document.getElementById(buttonId).textContent === 'Start Pomo') {
-					document.getElementById(buttonId).textContent = 'Fail Task';
-					this.onTask = true;
+					document.getElementById(this.buttonId).textContent = 'Start Pomo';
+				} else if (document.getElementById(this.buttonId).textContent === 'Start Pomo') {
+					document.getElementById(this.buttonId).textContent = 'Fail Task';
+					this.onTask = false;
 				} else {
 					this.cycleCount++;
-					if (cycleCount % 3 === 0) {
+					if (this.cycleCount % 3 === 0) {
 						/*
 						Set timer to 10 minutes
 						Start Countdown
 						**HERE**
 						*/
-						document.getElementById(buttonId).disabled = true;
+						document.getElementById(this.buttonId).disabled = true;
 					} else {
 						/*
 						Set timer to 5 minutes
 						Start countdown
 						**HERE**
 						*/
-						document.getElementById(buttonId).disabled = true;
+						document.getElementById(this.buttonId).disabled = true;
 					}
 				}
 
@@ -56,21 +60,16 @@ export default class Button {
 				**HERE**
 				*/
 			}
-		});
-
-		
 	}
 
-
 	updateButton(){
-		
 		const currentTime = document.getElementById(this.clockId).textContent;
 
 		if (currentTime === '0:00') {
 			if (this.onTask === false) {
 				document.getElementById(this.buttonId).textContent = 'Start Pomo';
 			} else {
-				if (cycleCount % 3 === 0) {
+				if (this.cycleCount % 3 === 0 && this.cycleCount !== 0) {
 					document.getElementById(this.buttonId).textContent = 'Start Long Break';
 				} else {
 					document.getElementById(this.buttonId).textContent = 'Start Short Break';
@@ -78,8 +77,6 @@ export default class Button {
 
 				document.getElementById(this.buttonId).disabled = false;
 			}
-			
 		}
 	}
 }
-
