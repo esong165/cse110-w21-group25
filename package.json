@@ -1,10 +1,5 @@
 {
 
-  "scripts": {
-    "docs": "jsdoc2md source/*.js > ./docs/JSDoc.md",
-    "test": "./node_modules/.bin/jest"
-  }
-
 	"scripts": {
 		"docs": "jsdoc2md source/*.js > ./docs/JSDoc.md",
 		"test": "node --experimental-vm-modules ./node_modules/.bin/jest"
