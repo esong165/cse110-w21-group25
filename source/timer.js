@@ -61,7 +61,7 @@ export default class Timer {
 				this.updateButton();
 				clearInterval(this.$intervalId);
 				this.$intervalId = null;
-				//document.getElementById('alarm').play();
+				// document.getElementById('alarm').play();
 			}
 		};
 		this.$intervalId = setInterval(tick, 1000);
@@ -74,7 +74,7 @@ export default class Timer {
 
 		// Timer hasnt begun yet
 		if (this.cycleCount === 0 && this.onTask === false) {
-			this.remaining = 0.25 * 60 * 1000;
+			this.remaining = 25 * 60 * 1000;
 			this.$startCounter();
 
 			// Need to id to the one in the html
@@ -89,7 +89,7 @@ export default class Timer {
 			*/
 				clearInterval(this.$intervalId);
 				this.$intervalId = null;
-				this.remaining = 0.25 * 60 * 1000;
+				this.remaining = 25 * 60 * 1000;
 				document.getElementById(this.buttonId).textContent = 'Start Pomo';
 			} else {
 				if (this.cycleCount % 4 === 0) {
@@ -98,7 +98,7 @@ export default class Timer {
 					Start Countdown
 					**HERE**
 					*/
-					this.remaining = 0.10 * 60 * 1000;
+					this.remaining = 10 * 60 * 1000;
 					this.$startCounter();
 					document.getElementById(this.buttonId).disabled = true;
 				} else {
@@ -107,7 +107,7 @@ export default class Timer {
 					Start countdown
 					**HERE**
 					*/
-					this.remaining = 0.05 * 60 * 1000;
+					this.remaining = 5 * 60 * 1000;
 					this.$startCounter();
 					document.getElementById(this.buttonId).disabled = true;
 				}
@@ -120,7 +120,7 @@ export default class Timer {
 			Start Countdown
 			**HERE**
 			*/
-			this.remaining = .25 * 60 * 1000;
+			this.remaining = 25 * 60 * 1000;
 			this.$startCounter();
 			this.onTask = true;
 			document.getElementById(this.buttonId).textContent = 'Fail Task';
