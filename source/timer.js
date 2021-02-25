@@ -77,7 +77,7 @@ export default class Timer {
 		// Timer hasnt begun yet
 		if (this.cycleCount === 0 && this.onTask === false) {
 
-			this.remaining = .10 * 60 * 1000;
+			this.remaining = .25 * 60 * 1000;
 			this.$startCounter();
 
 			// Need to id to the one in the html
