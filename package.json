@@ -1,10 +1,10 @@
 {
-<<<<<<< Updated upstream
+
   "scripts": {
     "docs": "jsdoc2md source/*.js > ./docs/JSDoc.md",
     "test": "./node_modules/.bin/jest"
   }
-=======
+
 	"scripts": {
 		"docs": "jsdoc2md source/*.js > ./docs/JSDoc.md",
 		"test": "node --experimental-vm-modules ./node_modules/.bin/jest"
@@ -15,5 +15,4 @@
 		"babel-jest": "^26.6.3",
 		"jest": "^26.6.3"
 	}
->>>>>>> Stashed changes
 }

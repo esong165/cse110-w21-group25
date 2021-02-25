@@ -1,25 +1,40 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>button test</title>
-	<link rel="stylesheet" href="main.css">
+
+
+	<meta charset="UTF-8" />
+	<title>Pomodoro Timer</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<link rel="stylesheet" href="./main.css" />
 </head>
-
-<body>  
-
+<body>
+	<header>
+		<h1 id="site-header">Big Tomato</h1>
+	</header>
 	<main>
-
-		<div id ="time">25:00</div>
-		<div id="timer-btn-container">
-			<button id="timer-btn" type="submit">start pomo</button>
+		<h3>Pomodoro Timer</h3>
+		<div id="current-task-container">
 		</div>
-
+		<section id="timer-display">
+			<p id="time-remaining">25:00</p>
+		</section>
+		<button id="timer-button">Start Pomo</button>
+		<div id="task-list">
+		</div>
+		<div id="popup">
+			<p id="popup-text">Hello, world!</p>
+			<img id="popup-img"
+				src="https://images.freeimages.com/images/large-previews/288/tomatoe-1-1328651.jpg"
+				alt="tomato" width="814" height="543">
+		</div>
+		<div>
+			<button id="popup-button">Click</button>
+		</div>
+		<audio id="alarm" src="./air-horn.mp3"></audio>
 	</main>
-	<script src="Button.js"></script>
-	
-</body>
+	<script src="./timer.js" type="module"></script>
+	<script src="./popup.js"></script>
 
+</body>
 </html>
