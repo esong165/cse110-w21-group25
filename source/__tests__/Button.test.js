@@ -9,10 +9,10 @@ describe('button tests', () => {
 		theButton = document.getElementById('pomoButton');
 		theTimer = document.getElementById('time');
 
-		if(window.app === undefined) window.app = {};
+		if (window.app === undefined) window.app = {};
 		window.app.button = new Button('pomoButton', 'time');
 		theButton.addEventListener('click', window.app.button.buttonClick());
- 	 });
+ 	});
 
 	test('Initial change', () => {
 		theButton.click();
