@@ -1,6 +1,6 @@
 # Team 25 Retrospective Meeting
 
-**Location:** Zoom
+**Location:** Zoom, Retrium
 
 **Date:** 02/21/21, 7:35 PM
 
@@ -37,5 +37,9 @@ Hold sprint 1 retrospective in adherence to Agile ceremonies
 * Overall, communication has been good -- no ghosting
 * Good teamwork between members
 * Make sure we stick to meeting agendas -- don't get caught up on certain things
+
+## Screenshots
+![Radar](../retro_artifacts/Sprint-1-Radar.png)
+![MSG](../retro_artifacts/Sprint-1-MSG.png)
 
 **End time:** 8:25 PM
