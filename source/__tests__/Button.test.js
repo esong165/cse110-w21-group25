@@ -37,19 +37,23 @@ describe('button tests', () => {
 	});
 
 	test('long break', () => {
-		theButton.click();
 		theTimer.textContent = '0:00';
-		window.app.button.updateButton();
+
 		theButton.click();
 		window.app.button.updateButton();
 
 		theButton.click();
 		window.app.button.updateButton();
+
 		theButton.click();
 		window.app.button.updateButton();
 
 		theButton.click();
 		window.app.button.updateButton();
+
+		theButton.click();
+		window.app.button.updateButton();
+		
 		theButton.click();
 		window.app.button.updateButton();
 

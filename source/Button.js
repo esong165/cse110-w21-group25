@@ -59,6 +59,8 @@ export default class Button {
 				Start Countdown
 				**HERE**
 				*/
+				this.onTask = true;
+				document.getElementById(this.buttonId).textContent = 'Fail Task';
 			}
 	}
 
@@ -75,8 +77,8 @@ export default class Button {
 					document.getElementById(this.buttonId).textContent = 'Start Short Break';
 				}
 
-				document.getElementById(this.buttonId).disabled = false;
 			}
+			document.getElementById(this.buttonId).disabled = false;
 		}
 	}
 }
