@@ -39,6 +39,7 @@ Hold sprint 1 retrospective in adherence to Agile ceremonies
 * Make sure we stick to meeting agendas -- don't get caught up on certain things
 
 ## Screenshots
+
 ![Radar](../retro_artifacts/Sprint-1-Radar.png)
 ![MSG](../retro_artifacts/Sprint-1-MSG.png)
 
