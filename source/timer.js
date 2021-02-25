@@ -1,5 +1,3 @@
-let timer;
-
 /**
  * All things timer.
  */
@@ -8,7 +6,8 @@ export default class Timer {
 	 * Constructs the timer with a default remaining time of 25 minutes.
 	 */
 	constructor() {
-		this.$remaining = 25 * 60 * 1000;
+		this.remaining = 25 * 60 * 1000;
+		this.$intervalId = null;
 	}
 
 	/**
@@ -24,14 +23,14 @@ export default class Timer {
 	 */
 	set remaining(time) {
 		this.$remaining = time;
-		document.getElementById('time-remaining').textContent = this.$format(time);
+		document.getElementById('time-remaining').textContent = Timer.$format(time);
 	}
 
 	/**
 	 * Formats the given time to the form of mm:ss.
 	 * @param {Number} time - the time, in miliseconds, to format
 	 */
-	$format(time) {
+	static $format(time) {
 		const date = new Date(0);
 		date.setMilliseconds(time);
 		const isoDate = date.toISOString();
@@ -43,8 +42,30 @@ export default class Timer {
 		}
 		return formatted;
 	}
+
+	/**
+	 * Starts the countdown.  Does nothing if the countdown has already begun.
+	 */
+	$startCounter() {
+		if (this.$intervalId !== null) return;
+		const tick = () => {
+			this.remaining -= 1000;
+			if (this.remaining === 0) {
+				clearInterval(this.$intervalId);
+				this.$intervalId = null;
+				this.remaining = 25 * 60 * 1000;
+				document.getElementById('alarm').play();
+			}
+		};
+		this.$intervalId = setInterval(tick, 1000);
+		tick();
+	}
 }
 
 document.addEventListener('DOMContentLoaded', () => {
-	timer = new Timer();
+	if (window.app === undefined) window.app = {};
+	window.app.timer = new Timer();
+	document.getElementById('timer-button').addEventListener('click', () => {
+		window.app.timer.$startCounter();
+	});
 });
