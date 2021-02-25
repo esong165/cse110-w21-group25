@@ -5,5 +5,5 @@ test('works', () => {
 });
 
 test('large timer format', () => {
-    expect(Timer.$format((100000000000 * 60 + 29.9) * 1000)).toBe('40:29');
+	expect(Timer.$format((100000000000 * 60 + 29.9) * 1000)).toBe('40:29');
 });
