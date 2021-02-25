@@ -25,4 +25,7 @@ Review progress in the first sprint.
 * Sujan - collaborated with Justin on Timer features, debugging Timer control
 * Eric - Task item web component, refactored tasklist into class, debugged CI/CD workflow
 
+## Status
+Our status video can be found [here](../videos/statusvideo1.mp4).
+
 **End time:** 7:30 PM

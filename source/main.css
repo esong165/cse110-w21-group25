@@ -2,16 +2,8 @@
   text-align: center;
 }
 
-#popup {
-  text-align: center;
-  visibility: hidden;
-}
+#task-list {
+  display: none;
 
-#popup-button {
-  display: flex;
-  justify-content: center;
-}
-
-#nav {
-  text-align: center;
+  /* Include some positioning */
 }
