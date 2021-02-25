@@ -61,9 +61,7 @@ export default class Timer {
 				this.updateButton();
 				clearInterval(this.$intervalId);
 				this.$intervalId = null;
-				
 				//document.getElementById('alarm').play();
-				
 			}
 		};
 		this.$intervalId = setInterval(tick, 1000);
@@ -76,8 +74,7 @@ export default class Timer {
 
 		// Timer hasnt begun yet
 		if (this.cycleCount === 0 && this.onTask === false) {
-
-			this.remaining = .25 * 60 * 1000;
+			this.remaining = 0.25 * 60 * 1000;
 			this.$startCounter();
 
 			// Need to id to the one in the html
@@ -85,16 +82,14 @@ export default class Timer {
 
 			this.onTask = true;
 		} else if (this.onTask === true) {
-			if (currentTime !== "00:00") {
+			if (currentTime !== '00:00') {
 			/*
 			Set Timer interval to 25
 			**HERE**
 			*/
 				clearInterval(this.$intervalId);
 				this.$intervalId = null;
-				this.remaining = .25 * 60 * 1000;
-				
-
+				this.remaining = 0.25 * 60 * 1000;
 				document.getElementById(this.buttonId).textContent = 'Start Pomo';
 			} else {
 				if (this.cycleCount % 4 === 0) {
@@ -103,20 +98,18 @@ export default class Timer {
 					Start Countdown
 					**HERE**
 					*/
-					this.remaining = .10 * 60 * 1000;
+					this.remaining = 0.10 * 60 * 1000;
 					this.$startCounter();
 					document.getElementById(this.buttonId).disabled = true;
-					
 				} else {
 					/*
 					Set timer to 5 minutes
 					Start countdown
 					**HERE**
 					*/
-					this.remaining = .05 * 60 * 1000;
+					this.remaining = 0.05 * 60 * 1000;
 					this.$startCounter();
 					document.getElementById(this.buttonId).disabled = true;
-					
 				}
 			}
 
@@ -137,7 +130,7 @@ export default class Timer {
 	updateButton() {
 		const currentTime = document.getElementById(this.clockId).textContent;
 
-		if (currentTime === "00:00") {
+		if (currentTime === '00:00') {
 			if (this.onTask === false) {
 				document.getElementById(this.buttonId).textContent = 'Start Pomo';
 			} else {
@@ -148,12 +141,10 @@ export default class Timer {
 					document.getElementById(this.buttonId).textContent = 'Start Short Break';
 				}
 				this.cycleCount++;
-				
 			}
 			document.getElementById(this.buttonId).disabled = false;
 		}
 	}
-
 }
 
 document.addEventListener('DOMContentLoaded', () => {
