@@ -1,6 +1,6 @@
 import Timer from './timer';
 
-test('small timer format', () => {
+test('works', () => {
 	expect(Timer.$format((10 * 60 + 31.1) * 1000)).toBe('10:31');
 });
 
