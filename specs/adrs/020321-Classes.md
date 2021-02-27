@@ -25,4 +25,3 @@ Chosen options: stats, tasklist, timer, task, settings, because:
 - Button class would be somewhat redundant w/ HTML button
 - Storage/notifications manager is somewhat unnecessary abstraction
 - About page would be static -- doesn't need to be updating/changing
- 

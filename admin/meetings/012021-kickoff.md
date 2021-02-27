@@ -8,10 +8,10 @@
 
 **Present:** Eric Song, Justin Ngyuen, Neel Ayyagari, Jaslina Kochhar, Sujan Rai, Tom Dinh, Yuchen Jing, Ainesh Arumugam, Andrew Chi
 
-**Absent:** None 
+**Absent:** None
 
 ## Current Objective
-Layout Pomodoro Timer design/features and assign loose roles. 
+Layout Pomodoro Timer design/features and assign loose roles.
 
 ## Tasks
 
@@ -36,7 +36,7 @@ Layout Pomodoro Timer design/features and assign loose roles.
   * Short break (5 minutes)
   * Long break (10 minutes - every 4 pomodoros)
   * Task list - task + estimated pomodoros - sets up pomodoros for you
-    * History - past tasks, estimated pomodoros, actual pomodoros 
+    * History - past tasks, estimated pomodoros, actual pomodoros
   * Start button
   * "Clear task" - remove a task from list
 

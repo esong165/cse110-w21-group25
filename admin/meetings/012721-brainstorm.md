@@ -8,20 +8,24 @@
 
 **Present:** Eric Song, Justin Ngyuen, Neel Ayyagari, Jaslina Kochhar, Sujan Rai, Tom Dinh, Andrew Chi, Yuchen Jing, Ainesh Arumugam
 
-**Absent:** 
+**Absent:** None
 
 ## Current Objective
-Layout Pomodoro Timer design/features and assign loose roles. 
+
+Layout Pomodoro Timer design/features and assign loose roles.
 
 ## Tasks
+
 * Finish the brainstorming of the timer this week
 * Start next week's objectives
 
 ### Unresolved Tasks/Updates from last week
+
 * Brainstorm features/layout for Pomodoro timer - unresolved
   * Features first, layout/UI second
 
 ### Current Tasks
+
 * Finish brainstorming the features/layout for the Pomodoro timer
 * Figure out the what is absolutely needed for the timer and what is optional
 * Figure out what role is being assigned to who
@@ -29,9 +33,11 @@ Layout Pomodoro Timer design/features and assign loose roles.
   * Figure out what some people are not very experienced in
   
 ### Undiscussed Tasks
+
 None. The group talked about many features the timer could and should have.
 
 ## Decisions
+
 * Pomodoro Timer Features
   * Break timer
   * To-do List
@@ -51,8 +57,9 @@ None. The group talked about many features the timer could and should have.
     * Simple visuals
     * Not too much clutter on screen
   * Make it easy to navigate
- 
+
 ### Undecided Decisions
+
 * How the timer will look
   * Dial
   * Count Down
@@ -62,13 +69,13 @@ None. The group talked about many features the timer could and should have.
 * Define timer break lengths
 * Varying time breaks
 * Web app
-* Settings tab 
+* Settings tab
   * Make different settings for different user preferences
   * Show a list of Themes
     * Dark, Light, Mountain, etc.
-  
-    
-### Planned Features  
+
+### Planned Features
+
 * Settings
   * Set how long till a break
   * Set how long the break lasts
@@ -77,7 +84,7 @@ None. The group talked about many features the timer could and should have.
     * Dial
     * Countdown
       * Minutes & seconds VS just Minutes
-    * Progress Bar 
+    * Progress Bar
   * Explain what a Pomodoro Timer is and how to use it
     * A question mark button?
 * Mobile Support?

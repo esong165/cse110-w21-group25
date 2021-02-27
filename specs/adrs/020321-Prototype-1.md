@@ -12,11 +12,11 @@ What features should be included?
 * Current Task
 * Task List
 * Settings
-* Statistics 
+* Statistics
 
 ## Decision Outcome
 
 - Timer display, 3 time interval buttons, current task will be implemented because:
   - Core functionality to Pomodoro timer
-- Others will be added as extra features, because: 
+- Others will be added as extra features, because:
   - Unnecessary to core Pomodoro technique, though can perhaps be useful

@@ -30,7 +30,7 @@ Create team pitch, define overarching team goals for this sprint, assign tasks f
 * Justin/Yuchen - System Diagram (C4 Model)
 * Tom/Yuchen - Statement of purpose
 * Neel/Sujan - Risks/rabbit holes
-* CI/CD - Discuss further during staff meeting 
+* CI/CD - Discuss further during staff meeting
 * Deadline for every task - Saturday 11:59 PM (but ideally ASAP)
 
 ### Undiscussed Tasks

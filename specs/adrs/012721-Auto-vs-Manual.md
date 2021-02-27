@@ -7,7 +7,7 @@ Should switching to a break/going through the cycle be manual or automatic?
 
 ## Considered Options
 
-* Automatically go to next part of pomodoro cycle 
+* Automatically go to next part of pomodoro cycle
 * User has to click a button to start the next part of the cycle
 
 ## Decision Outcome
