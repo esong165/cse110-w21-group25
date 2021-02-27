@@ -1,4 +1,4 @@
-# Team 25 Coding Sprint Kickoff Meeting
+# Team 25 Sprint 1 Kickoff Meeting
 
 **Location:** Zoom
 

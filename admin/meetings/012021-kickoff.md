@@ -38,6 +38,6 @@ Layout Pomodoro Timer design/features and assign loose roles.
   * Task list - task + estimated pomodoros - sets up pomodoros for you
     * History - past tasks, estimated pomodoros, actual pomodoros 
   * Start button
-  * "Clear task" - clear remaining pomodoros for task
+  * "Clear task" - remove a task from list
 
 **End time:** 8:30PM PST

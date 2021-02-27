@@ -86,7 +86,7 @@ None. The group talked about many features the timer could and should have.
 * Tasks
   * Show completed tasks
     * Number of expected pomos VS completed pomos
-  * Show failes tasks
+  * Show failed tasks
   * Show task history
 
 **End time:** 9:00PM PST

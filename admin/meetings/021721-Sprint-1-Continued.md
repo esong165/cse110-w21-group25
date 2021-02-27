@@ -1,4 +1,4 @@
-# Team 25 Last(?) Second Sprint Meeting
+# Team 25 Sprint 1 (Continued) Meeting
 
 **Location:** Zoom
 

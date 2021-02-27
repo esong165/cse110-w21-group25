@@ -1,4 +1,4 @@
-# Team 25 Sprint 1 Kickoff Meeting
+# Team 25 Planning Week Meeting
 
 **Location:** Zoom, Miro
 

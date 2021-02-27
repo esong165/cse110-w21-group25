@@ -1,5 +1,8 @@
 # Display During Pomo
 
+Update: Decision updated to display everything, with a navigation bar for the tasklist/stats/timer pages and a separate button for settings.
+ADR for this decision [here](./022421-Invisible-Icons-Vs-Nav-Bar.md).
+
 ## Context and Problem Statement
 
 We want to decide on how much information should be accessible to the user during a Pomodoro session.

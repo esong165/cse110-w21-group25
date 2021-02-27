@@ -1,9 +1,24 @@
+
+/**
+ * A class representing a task item.
+ */
 export default class TaskItem extends HTMLElement {
-	constructor(taskName, pomoCount) {
+
+	/**
+	 * Constructs a task item using the input task name and estimated pomodoro count.
+	 * Sets the current pomodoro count to 0.
+	 * @param {String} taskName - Name of the task.
+	 * @param {Number} pomoCount - Estimated pomodoro count.
+	 * @param {Number} currPomoCount - Number of pomodoro cycles that have been completed with this task.
+	 */
+	constructor(taskName, pomoCount, currPomoCount) {
+		// Required call to super in custom web component
 		super();
 
+		// Initializes shadow DOM
 		const shadow = this.attachShadow({ mode: 'open' });
 
+		// Creates list object representing the task
 		const task = document.createElement('li');
 		task.setAttribute('class', 'task');
 
@@ -19,6 +34,9 @@ export default class TaskItem extends HTMLElement {
 		count.innerHTML += pomoCount;
 		task.appendChild(count);
 
+		// Set current pomodoro count
+		this.currPomos = currPomoCount;
+
 		// Select task button note: considering making this a radio option or making the text a clickable button
 		const selectTaskButton = document.createElement('button');
 		selectTaskButton.innerHTML = 'Select';
@@ -29,6 +47,7 @@ export default class TaskItem extends HTMLElement {
 		removeTaskButton.innerHTML = 'Remove';
 		task.appendChild(removeTaskButton);
 
+		// Add task to shadow DOM
 		shadow.appendChild(task);
 
 		/*

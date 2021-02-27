@@ -32,7 +32,7 @@ Redesign interface and assign tasks for sprint 2.
 * "Done" button -- use check icon (over checkbox, empty box) -- looks clean and intuitive to click on
 * Current pomo count (of session, not task) -- # or "status", and where? => Status, more immediately useful for user
   *  Under timer => More cohesive than bottom of page
-*  Tasklist
+* Tasklist
   *  Number next to task name or in separate "column"? => In separate column -- readability
   *  How to handle long tasks? => hard character limit on task name length
   *  Remove button -- text or icon? => garbage can vector icon

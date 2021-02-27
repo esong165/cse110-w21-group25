@@ -1,4 +1,8 @@
 import TaskItem from './task-item.js';
+
+/**
+ * A class representing a Tasklist.
+ */
 export default class Tasklist extends HTMLUListElement {
 	/**
 	 * Constructs the Tasklist with a default tasklist and selected task, or
@@ -10,7 +14,7 @@ export default class Tasklist extends HTMLUListElement {
 
 		// Initialize $tasks and $selected to default values
 		this.$tasks = [];
-		this.$selected = ['Default', '1'];
+		this.$selected = ['Default', '1', '-1'];
 
 		// Get values from localStorage and updating $tasks and $selected if these are not null
 		const taskItemArr = JSON.parse(localStorage.getItem('taskItemArr'));
@@ -28,7 +32,7 @@ export default class Tasklist extends HTMLUListElement {
 
 		// Update tasklist display
 		for (const task of this.$tasks) {
-			const currTask = new TaskItem(task[0], task[1]);
+			const currTask = new TaskItem(task[0], task[1], task[2]);
 			currTask.id = task[0];
 
 			/* Add select and remove buttons to each task fetched from localStorage
@@ -43,6 +47,14 @@ export default class Tasklist extends HTMLUListElement {
 	}
 
 	/**
+	 * Gets the current selected task as an array.
+	 * @returns {Array} Array containing task name at position 0 and estimated count at position 1.
+	 */
+	getSelected() {
+		return this.$selected;
+	}
+
+	/**
 	 * Add a task to the tasklist.
 	 * @param {String} name - the name of the task
 	 * @param {Number} count - the estimated number of pomodoro cycles
@@ -53,7 +65,7 @@ export default class Tasklist extends HTMLUListElement {
 			alert('Please enter a valid task name.');
 			return;
 		}
-		const task = new TaskItem(name, count);
+		const task = new TaskItem(name, count, 0);
 		task.id = name;
 
 		/* Add select and remove buttons to the task
@@ -68,14 +80,17 @@ export default class Tasklist extends HTMLUListElement {
 		if (taskItemArr == null) {
 			taskItemArr = [];
 		}
-		const taskNameNum = [];
-		taskNameNum.push(name);
-		taskNameNum.push(count);
+
+		// Create array version of the task
+		const taskAsArr = [];
+		taskAsArr.push(name);
+		taskAsArr.push(count);
+		taskAsArr.push(task.currPomos);
 
 		// Validity checking (WIP)
-		if (!JSON.stringify(taskItemArr).includes(JSON.stringify(taskNameNum))) {
-			taskItemArr.push(taskNameNum);
-			this.$tasks.push([name, count]);
+		if (!JSON.stringify(taskItemArr).includes(JSON.stringify(taskAsArr))) {
+			taskItemArr.push(taskAsArr);
+			this.$tasks.push([name, count, task.currPomos]);
 			this.appendChild(task);
 		} else {
 			alert('Task is already in tasklist.');
@@ -100,7 +115,7 @@ export default class Tasklist extends HTMLUListElement {
 		document.getElementById('num-pomos').innerHTML = pomos;
 
 		// Update $selected instance variable
-		this.$selected = [name, pomos];
+		this.$selected = [name, pomos, task.currPomos];
 
 		// Store selected task in local storage
 		localStorage.setItem('selectedTask', JSON.stringify(this.$selected));
@@ -140,7 +155,7 @@ export default class Tasklist extends HTMLUListElement {
 				// Update displays and $selected to defaults if there are no tasks left in list
 				document.getElementById('current-task').innerHTML = 'Default';
 				document.getElementById('num-pomos').innerHTML = '1';
-				this.$selected = ['Default', '1'];
+				this.$selected = ['Default', '1', '-1'];
 			}
 		}
 

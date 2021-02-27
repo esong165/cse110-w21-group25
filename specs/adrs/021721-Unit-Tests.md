@@ -17,4 +17,5 @@ What should we use/how should these be run?
 
 Chosen option: "Jest" and "Run tests via Actions", because:
 - Jest was recommended by Sim
+- Jest was used in labs
 - Running tests locally should be part of the process, but we want to make sure tests are passing when pushing code

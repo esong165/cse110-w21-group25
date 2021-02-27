@@ -1,8 +1,8 @@
-# Assign Tasks
+# Assign Sprint 1 Tasks
 
 ## Context and Problem Statement
 
-We want to create a MVP for sprint 1.
+We want to create a prototype by the end of sprint 1.
 How should we divide up the work?
 
 ## Considered Options

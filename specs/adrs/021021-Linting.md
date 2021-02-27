@@ -15,4 +15,4 @@ What tool should we use for this?
 
 Chosen option: "GitHub Super-Linter", because:
 - Contains linters for html/css/md/js, including ESLint
-- Manual review is inefficient
+- Manual peer review for code style is an inefficient use of time
