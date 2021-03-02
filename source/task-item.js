@@ -1,4 +1,3 @@
-
 /**
  * A class representing a task item.
  */
@@ -20,6 +19,7 @@ export default class TaskItem extends HTMLElement {
 		// Creates list object representing the task
 		const task = document.createElement('li');
 		task.setAttribute('class', 'task');
+		task.setAttribute('draggable', 'true');
 
 		// Set name of task
 		const name = document.createElement('span');
@@ -60,5 +60,16 @@ export default class TaskItem extends HTMLElement {
 		shadow.appendChild(style);
 		*/
 	}
+	drag(event) {
+		console.log('drag');
+	}
+	drop(event) {
+		event.preventDefault();
+		console.log('drop');
+	}
+	allowDrop(event) {
+		event.preventDefault();
+	}
+
 }
 customElements.define('task-item', TaskItem);

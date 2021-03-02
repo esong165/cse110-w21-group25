@@ -43,6 +43,9 @@ export default class Tasklist extends HTMLUListElement {
 				function() { document.getElementById('tasks-container').removeTask(task[0]); });
 
 			document.getElementById('tasks-container').appendChild(currTask);
+			document.getElementById(task[0]).setAttribute('ondragstart', 'drag(event);');
+			document.getElementById(task[0]).setAttribute('ondragover', 'allowDrop(event);');
+			document.getElementById(task[0]).setAttribute('ondrop', 'drop(event);');
 		}
 	}
 
@@ -92,6 +95,9 @@ export default class Tasklist extends HTMLUListElement {
 			taskItemArr.push(taskAsArr);
 			this.$tasks.push([name, count, task.currPomos]);
 			this.appendChild(task);
+			document.getElementById(name).setAttribute('ondragstart', 'drag(event);');
+			document.getElementById(name).setAttribute('ondragover', 'allowDrop(event);');
+			document.getElementById(name).setAttribute('ondrop', 'drop(event);');
 		} else {
 			alert('Task is already in tasklist.');
 			return;
