@@ -1,56 +1,79 @@
 
+/**
+ * A class representing a task item.
+ */
 export default class TaskItem extends HTMLElement {
+	/**
+	 * Constructs a task item using the input task name and estimated pomodoro count.
+	 * Sets the current pomodoro count to 0.
+	 * @param {String} taskName - Name of the task.
+	 * @param {Number} pomoCount - Estimated pomodoro count.
+	 * @param {Number} currPomoCount - Number of pomodoro cycles that have been completed with this task.
+	 */
+	constructor(taskName, pomoCount, currPomoCount) {
+		// Required call to super in custom web component
+		super();
 
-    constructor(taskName, pomoCount) {
-        super();
+		// Initializes shadow DOM
+		const shadow = this.attachShadow({ mode: 'open' });
 
+		// Creates list object representing the task
+		const task = document.createElement('li');
+		task.setAttribute('class', 'task');
+		task.setAttribute('draggable', 'true');
 
-        let shadow = this.attachShadow({mode: 'open'});
+		// Set name of task
+		const name = document.createElement('span');
+		name.innerHTML = '';
+		name.innerHTML += taskName;
+		task.appendChild(name);
 
-        let task = document.createElement('li');
-        task.setAttribute('class', 'task');
+		// Set estimated pomodoros
+		const count = document.createElement('span');
+		count.innerHTML = '';
+		count.innerHTML += pomoCount;
+		task.appendChild(count);
 
-        // Set name of task
-        let name = document.createElement('span');
+		// Set current pomodoro count
+		this.currPomos = currPomoCount;
 
-        name.innerHTML = '';
-        name.innerHTML += taskName;
+		// Select task button note: considering making this a radio option or making the text a clickable button
+		const selectTaskButton = document.createElement('button');
+		selectTaskButton.innerHTML = 'Select';
+		task.appendChild(selectTaskButton);
 
-        task.appendChild(name);
+		// Remove task button
+		const removeTaskButton = document.createElement('button');
+		removeTaskButton.innerHTML = 'Remove';
+		task.appendChild(removeTaskButton);
 
-        // Set estimated pomodoros
-        let count = document.createElement('span');
+		// Add task to shadow DOM
+		shadow.appendChild(task);
 
-        count.innerHTML = '';
-        count.innerHTML += pomoCount;
-        task.appendChild(count);
+		/*
+		let style = document.createElement('style');
 
-        // Select task button note: considering making this a radio option or making the text a clickable button
-        let selectTaskButton = document.createElement('button');
-        selectTaskButton.innerHTML = 'Select';
-        task.appendChild(selectTaskButton);
-        
-        // Remove task button
-        let removeTaskButton = document.createElement('button');
-        removeTaskButton.innerHTML = 'Remove';
-        task.appendChild(removeTaskButton);
-        
-        
+		style.textContent = `
+			.task > button {}
+			visibility: visible;
+		`;
 
-        shadow.appendChild(task);
+		shadow.appendChild(style);
+		*/
+	}
 
-        /*
-        let style = document.createElement('style');
- 
-        style.textContent = `
-            .task > button {}
-            visibility: visible;
-        `;
-        
-        shadow.appendChild(style);
-        */  
-    }
+	drag(event) {
+		console.log('drag');
+	}
+
+	drop(event) {
+		event.preventDefault();
+		console.log('drop');
+	}
+
+	allowDrop(event) {
+		event.preventDefault();
+	}
 }
-
 customElements.define('task-item', TaskItem);
 
