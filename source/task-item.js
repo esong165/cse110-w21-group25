@@ -45,11 +45,11 @@ export default class TaskItem extends HTMLElement {
 		this.currPomos = currPomoCount;
 
 		// Select task button note: considering making this a radio option or making the text a clickable button
-		const selectTaskButton = document.createElement('button');
-		selectTaskButton.innerHTML = 'Select';
-		task.appendChild(selectTaskButton);
+        const selectTaskButton = document.createElement('button');
+        selectTaskButton.innerHTML = taskName;
+        task.appendChild(selectTaskButton);
 
-        let selectPomoButton = document.createElement('button');
+        const selectPomoButton = document.createElement('button');
         selectPomoButton.innerHTML = pomoCount;
         task.appendChild(selectPomoButton);
 
