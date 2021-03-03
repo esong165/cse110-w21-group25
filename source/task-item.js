@@ -60,16 +60,18 @@ export default class TaskItem extends HTMLElement {
 		shadow.appendChild(style);
 		*/
 	}
+
 	drag(event) {
 		console.log('drag');
 	}
+
 	drop(event) {
 		event.preventDefault();
 		console.log('drop');
 	}
+
 	allowDrop(event) {
 		event.preventDefault();
 	}
-
 }
 customElements.define('task-item', TaskItem);

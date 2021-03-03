@@ -170,12 +170,12 @@ export default class Tasklist extends HTMLUListElement {
 		localStorage.setItem('selectedTask', JSON.stringify(this.$selected));
 	}
 
-	updateCurrPomos(taskId){
+	updateCurrPomos(taskId) {
 		const currTaskItem = document.getElementById(taskId);
-		if(currTaskItem !== null){
+		if (currTaskItem !== null) {
 			currTaskItem.currPomos++;
-			for(let i = 0; i < this.$tasks.length; i++) {
-				if(this.$tasks[i][0] == taskId){
+			for (let i = 0; i < this.$tasks.length; i++) {
+				if (this.$tasks[i][0] === taskId) {
 					this.$tasks[i][2]++;
 					localStorage.setItem('taskItemArr', JSON.stringify(this.$tasks));
 					break;
