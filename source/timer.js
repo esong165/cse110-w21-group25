@@ -58,7 +58,7 @@ export default class Timer {
 		const tick = () => {
 			this.remaining -= 1000;
 			if (this.remaining === 0) {
-				if(this.onTask) {
+				if (this.onTask) {
 					// Update currPomos field of current task
 					const currTaskId = document.getElementById('current-task').innerHTML;
 					document.getElementById('tasks-container').updateCurrPomos(currTaskId);
@@ -88,7 +88,7 @@ export default class Timer {
 			this.onTask = true;
 			document.getElementById('tasklist-btn').disabled = true;
 			document.getElementById('task-list').style.display = 'none';
-			document.getElementById('tasklist-btn').innerHTML = "Open Task List";
+			document.getElementById('tasklist-btn').innerHTML = 'Open Task List';
 		} else if (this.onTask === true) {
 			if (currentTime !== '00:00') {
 				// Reset pomodoro timer to work session length
@@ -120,7 +120,7 @@ export default class Timer {
 			document.getElementById(this.buttonId).textContent = 'Fail Task';
 			document.getElementById('tasklist-btn').disabled = true;
 			document.getElementById('task-list').style.display = 'none';
-			document.getElementById('tasklist-btn').innerHTML = "Open Task List";
+			document.getElementById('tasklist-btn').innerHTML = 'Open Task List';
 		}
 	}
 

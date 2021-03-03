@@ -128,7 +128,6 @@ test('Remove All Tasks', () => {
 	}
 	expect(tasklist.$tasks.length).toBe(0);
 });
-*/
 
 function populateTasks(nameArr, countArr, length, nameLength, tasklist) {
 	for (let j = 0; j < length; j++) {
@@ -150,3 +149,4 @@ function checkArrEquals(tasklist, nameArr, countArr, length) {
 		expect(tasklist.$tasks[i][1]).toBe(countArr[i]);
 	}
 }
+*/
