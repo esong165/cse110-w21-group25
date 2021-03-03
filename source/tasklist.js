@@ -43,6 +43,9 @@ export default class Tasklist extends HTMLUListElement {
 				function() { document.getElementById('tasks-container').removeTask(task[0]); });
 
 			document.getElementById('tasks-container').appendChild(currTask);
+			document.getElementById(task[0]).setAttribute('ondragstart', 'drag(event);');
+			document.getElementById(task[0]).setAttribute('ondragover', 'allowDrop(event);');
+			document.getElementById(task[0]).setAttribute('ondrop', 'drop(event);');
 		}
 	}
 
@@ -92,6 +95,9 @@ export default class Tasklist extends HTMLUListElement {
 			taskItemArr.push(taskAsArr);
 			this.$tasks.push([name, count, task.currPomos]);
 			this.appendChild(task);
+			document.getElementById(name).setAttribute('ondragstart', 'drag(event);');
+			document.getElementById(name).setAttribute('ondragover', 'allowDrop(event);');
+			document.getElementById(name).setAttribute('ondrop', 'drop(event);');
 		} else {
 			alert('Task is already in tasklist.');
 			return;
@@ -115,7 +121,7 @@ export default class Tasklist extends HTMLUListElement {
 		document.getElementById('num-pomos').innerHTML = pomos;
 
 		// Update $selected instance variable
-		this.$selected = [name, pomos, task.currPomos];
+		this.$selected = [name, pomos, document.getElementById(taskId).currPomos];
 
 		// Store selected task in local storage
 		localStorage.setItem('selectedTask', JSON.stringify(this.$selected));
@@ -162,6 +168,22 @@ export default class Tasklist extends HTMLUListElement {
 		// Update localStorage with $tasks and $selected
 		localStorage.setItem('taskItemArr', JSON.stringify(this.$tasks));
 		localStorage.setItem('selectedTask', JSON.stringify(this.$selected));
+	}
+
+	updateCurrPomos(taskId) {
+		const currTaskItem = document.getElementById(taskId);
+		if (currTaskItem !== null) {
+			currTaskItem.currPomos++;
+			for (let i = 0; i < this.$tasks.length; i++) {
+				if (this.$tasks[i][0] === taskId) {
+					this.$tasks[i][2]++;
+					localStorage.setItem('taskItemArr', JSON.stringify(this.$tasks));
+					break;
+				}
+			}
+			this.$selected[2]++;
+			localStorage.setItem('selectedTask', JSON.stringify(this.$selected));
+		}
 	}
 }
 

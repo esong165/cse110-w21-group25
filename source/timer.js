@@ -58,6 +58,11 @@ export default class Timer {
 		const tick = () => {
 			this.remaining -= 1000;
 			if (this.remaining === 0) {
+				if (this.onTask) {
+					// Update currPomos field of current task
+					const currTaskId = document.getElementById('current-task').innerHTML;
+					document.getElementById('tasks-container').updateCurrPomos(currTaskId);
+				}
 				this.updateButton();
 				clearInterval(this.$intervalId);
 				this.$intervalId = null;
@@ -81,32 +86,25 @@ export default class Timer {
 			document.getElementById(this.buttonId).textContent = 'Fail Task';
 
 			this.onTask = true;
+			document.getElementById('tasklist-btn').disabled = true;
+			document.getElementById('task-list').style.display = 'none';
+			document.getElementById('tasklist-btn').innerHTML = 'Open Task List';
 		} else if (this.onTask === true) {
 			if (currentTime !== '00:00') {
-			/*
-			Set Timer interval to 25
-			**HERE**
-			*/
+				// Reset pomodoro timer to work session length
 				clearInterval(this.$intervalId);
 				this.$intervalId = null;
 				this.remaining = 25 * 60 * 1000;
 				document.getElementById(this.buttonId).textContent = 'Start Pomo';
+				document.getElementById('tasklist-btn').disabled = false;
 			} else {
 				if (this.cycleCount % 4 === 0) {
-					/*
-					Set timer to 10 minutes
-					Start Countdown
-					**HERE**
-					*/
+					// Start long break
 					this.remaining = 10 * 60 * 1000;
 					this.$startCounter();
 					document.getElementById(this.buttonId).disabled = true;
 				} else {
-					/*
-					Set timer to 5 minutes
-					Start countdown
-					**HERE**
-					*/
+					// Start short break
 					this.remaining = 5 * 60 * 1000;
 					this.$startCounter();
 					document.getElementById(this.buttonId).disabled = true;
@@ -115,15 +113,14 @@ export default class Timer {
 
 			this.onTask = false;
 		} else if (this.onTask === false) {
-			/*
-			Set timer to 25 minutes
-			Start Countdown
-			**HERE**
-			*/
+			// Start work session
 			this.remaining = 25 * 60 * 1000;
 			this.$startCounter();
 			this.onTask = true;
 			document.getElementById(this.buttonId).textContent = 'Fail Task';
+			document.getElementById('tasklist-btn').disabled = true;
+			document.getElementById('task-list').style.display = 'none';
+			document.getElementById('tasklist-btn').innerHTML = 'Open Task List';
 		}
 	}
 
@@ -143,6 +140,7 @@ export default class Timer {
 				this.cycleCount++;
 			}
 			document.getElementById(this.buttonId).disabled = false;
+			document.getElementById('tasklist-btn').disabled = false;
 		}
 	}
 }
