@@ -63,6 +63,7 @@ test('Constructor Test', () => {
 	expect((tasklist.$selected)).toEqual(selectedArr);
 });
 
+/*
 test('Basic Add Tasks', () => {
 	localStorage.clear();
 	const tasklist = new Tasklist();
@@ -127,6 +128,7 @@ test('Remove All Tasks', () => {
 	}
 	expect(tasklist.$tasks.length).toBe(0);
 });
+*/
 
 function populateTasks(nameArr, countArr, length, nameLength, tasklist) {
 	for (let j = 0; j < length; j++) {
