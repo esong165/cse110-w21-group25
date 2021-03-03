@@ -56,7 +56,7 @@ export default class Timer {
 	$startCounter() {
 		if (this.$intervalId !== null) return;
 		const tick = () => {
-			this.remaining -= 1000 * 2.5 * 60;
+			this.remaining -= 1000;
 			if (this.remaining === 0) {
 				if(this.onTask) {
 					// Update currPomos field of current task
