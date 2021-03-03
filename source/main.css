@@ -5,7 +5,8 @@ body {
 
 #site-header {
   text-align: center;
-  font-size: 500%;
+  font-size: 300%;
+  margin-top: -20px;
 }
 
 /* body */
@@ -14,6 +15,7 @@ body {
   /* background-color: rgb(170, 210, 247); long */ 
   background-color: rgb(242, 197, 247); /*pomo*/
   font-family: 'Open Sans', sans-serif;
+  padding-bottom: 100px;
 }
 #site-header {
   text-align: left;
@@ -143,9 +145,18 @@ body {
 }
 
 /* faq*/
-#task-list {
-  display: none;
-  /* Include some positioning */
+#faqBox {
+  display: flex;
+  justify-content: center;
+}
+
+#faq{
+  margin: 0 auto;
+  max-width: 50%;
+}
+
+#faq div{
+  max-width: 100%;
 }
 
 /*settings*/
@@ -174,7 +185,7 @@ body {
 }
 
 #done-button {
-  background-color: rgba(149, 253, 139, 0.932);
+
   text-align: center;
   display: inline-block;
   font-size: 500%;
@@ -204,4 +215,12 @@ table, th, td {
   border: 1px solid black;
   width: 42%;
   text-align: center
+}
+
+.task-item {
+  list-style-type: none;
+}
+
+#tasks-container {
+  text-align: center;
 }

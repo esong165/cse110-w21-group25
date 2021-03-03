@@ -21,19 +21,26 @@ export default class TaskItem extends HTMLElement {
 		const task = document.createElement('li');
 		task.setAttribute('class', 'task');
 		task.setAttribute('draggable', 'true');
+		task.style ="list-style-type:none; ";
 
 		// Set name of task
 		const name = document.createElement('span');
 		name.innerHTML = '';
 		name.innerHTML += taskName;
+		name.style = "display:none;";
 		task.appendChild(name);
 
 		// Set estimated pomodoros
 		const count = document.createElement('span');
 		count.innerHTML = '';
 		count.innerHTML += pomoCount;
+		count.style = "display:none;";
 		task.appendChild(count);
-
+/*
+        let selectTaskButtonData = document.createElement('td');
+        let selectTaskButtonData2 = document.createElement('td');
+        let removeTaskButtonData1 = document.createElement('td');
+*/
 		// Set current pomodoro count
 		this.currPomos = currPomoCount;
 
@@ -41,6 +48,10 @@ export default class TaskItem extends HTMLElement {
 		const selectTaskButton = document.createElement('button');
 		selectTaskButton.innerHTML = 'Select';
 		task.appendChild(selectTaskButton);
+
+        let selectPomoButton = document.createElement('button');
+        selectPomoButton.innerHTML = pomoCount;
+        task.appendChild(selectPomoButton);
 
 		// Remove task button
 		const removeTaskButton = document.createElement('button');

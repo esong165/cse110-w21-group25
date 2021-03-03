@@ -39,8 +39,24 @@ export default class Tasklist extends HTMLUListElement {
 				(Perhaps create new method doing this to be called here and in addTask()) */
 			currTask.shadowRoot.children[0].children[2].addEventListener('click',
 				function() { document.getElementById('tasks-container').selectTask(task[0]); });
-			currTask.shadowRoot.children[0].children[3].addEventListener('click',
-				function() { document.getElementById('tasks-container').removeTask(task[0]); });
+			currTask.shadowRoot.children[0].children[3].addEventListener('click', 
+                function() {document.getElementById('tasks-container').selectTask(task[0])});
+            currTask.shadowRoot.children[0].children[4].addEventListener('click', 
+                function() {document.getElementById('tasks-container').removeTask(task[0])});
+
+           /*
+                var row = table.insertRow(document.getElementById('taskTable').rows.length);
+            var cell1 = row.insertCell(0);
+            var cell2 = row.insertCell(1);
+            var cell3 = row.insertCell(2);
+            
+                
+            cell1.appendChild(currTask.shadowRoot.children[0].children[2]);
+            cell2.appendChild(currTask.shadowRoot.children[0].children[3]);
+            cell3.appendChild(currTask.shadowRoot.children[0].children[4]);
+            
+            document.getElementById('tbodyID').appendChild(currTask);
+            */
 
 			document.getElementById('tasks-container').appendChild(currTask);
 			document.getElementById(task[0]).setAttribute('ondragstart', 'drag(event);');
@@ -125,6 +141,8 @@ export default class Tasklist extends HTMLUListElement {
 
 		// Store selected task in local storage
 		localStorage.setItem('selectedTask', JSON.stringify(this.$selected));
+		//goes to timer page to see task set
+		home();
 	}
 
 	/**
@@ -188,6 +206,28 @@ export default class Tasklist extends HTMLUListElement {
 }
 
 customElements.define('task-list', Tasklist, { extends: 'ul' });
+
+
+function home() {
+    /* add listeners or something to change color for timer */
+    /* hides non timer elements and makes timer elements visible */
+
+    let home = document.getElementById('timer');
+    home.style.display = 'block';    
+    
+    let tasklist = document.getElementById('task-list');
+    tasklist.style.display = 'none';    
+
+    let faq = document.getElementById('faq');
+    faq.style.display = 'none'; 
+
+    let settings = document.getElementById('settings');
+    settings.style.display = 'none'; 
+
+    let stats = document.getElementById('stats');
+    stats.style.display = 'none'; 
+}
+
 
 /**
  * Helper function to remove task from $tasks.
