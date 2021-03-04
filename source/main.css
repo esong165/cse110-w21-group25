@@ -71,11 +71,12 @@ html {
   margin: 0;
 }
 
+/* want to move done buttom more left don't know how*/
 .done-but{
-  height: 40px;
-  width: 40px;
-  padding-left: 20px;
-  margin: -5px;
+  height: 50px;
+  width: 50px;
+  padding-left: 10px;
+  margin: -25px;
   outline: 0;
 }
 

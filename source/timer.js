@@ -83,7 +83,7 @@ export default class Timer {
 			this.$startCounter();
 
 			// Need to id to the one in the html
-			document.getElementById(this.buttonId).textContent = 'Fail Task';
+			document.getElementById(this.buttonId).textContent = 'End Session';
 
 			this.onTask = true;
 			document.getElementById('TaskListBut').disabled = true;
@@ -117,7 +117,7 @@ export default class Timer {
 			this.remaining = 25 * 60 * 1000;
 			this.$startCounter();
 			this.onTask = true;
-			document.getElementById(this.buttonId).textContent = 'Fail Task';
+			document.getElementById(this.buttonId).textContent = 'End Session';
 			document.getElementById('TaskListBut').disabled = true;
 			document.getElementById('task-list').style.display = 'none';
 			document.getElementById('TaskListBut').innerHTML = 'Open Task List';
