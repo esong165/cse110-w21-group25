@@ -15,8 +15,13 @@ body {
   /* background-color: rgb(170, 210, 247); long */ 
   background-color: rgb(242, 197, 247); /*pomo*/
   font-family: 'Open Sans', sans-serif;
-  padding-bottom: 100px;
+  padding-bottom: 0px;
 }
+
+html {
+  overflow-y: scroll;
+}
+
 #site-header {
   text-align: left;
 }
@@ -146,7 +151,7 @@ body {
 
 /* faq*/
 
-#faqBox {
+#faq {
   display: flex;
   justify-content: center;
 }
