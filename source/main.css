@@ -1,8 +1,5 @@
-/* background-color: rgb(184, 236, 184); short */
-/* background-color: rgb(170, 210, 247); long */
-
 body {
-	background-color: rgb(242, 197, 247); /* pomo */
+	background-color: rgb(242, 197, 247); /* pomo, short: 184, 236, 184; long: 170, 210, 247; */
 	font-family: 'Open Sans', sans-serif;
 	padding-bottom: 0;
 }
@@ -63,25 +60,18 @@ html {
 	margin-top: 30px;
 }
 
-#current-task { /* task name (english) */
-	font-size: 250%;
+#current-task {
 	display: inline-block;
+	font-size: 300%;
 	margin: 0;
-}
-
-#done-button {
-	height: 40px;
-	width: 40px;
-	padding-left: 20px;
-	margin: -5px;
-	outline: 0;
+	text-align: center;
 }
 
 #time-remaining {
-	text-align: center;
-	font-size: 125px;
-	margin-top: 10px;
+	font-size: 750%;
 	margin-bottom: 10px;
+	margin-top: 10px;
+	text-align: center;
 }
 
 #mode-message {
@@ -131,15 +121,6 @@ html {
 	size: 20px;
 }
 
-#num-pomos {
-	display: none;
-}
-
-/* stats */
-#task-list {
-	display: none; /* Include some positioning */
-}
-
 #faq {
 	display: flex;
 	justify-content: center;
@@ -154,21 +135,13 @@ html {
 	max-width: 100%;
 }
 
-
-/*settings*/
 #task-list {
-	display: none;
-	/* Include some positioning */
+	display: none; /* Include some positioning */
 }
 
 #navButton {
 	text-align: center;
 	background-color: aquamarine;
-}
-
-#time-remaining {
-	text-align: center;
-	font-size: 750%;
 }
 
 #popup-button {
@@ -181,12 +154,15 @@ html {
 }
 
 #done-button {
-
-	text-align: center;
+	cursor: pointer;
 	display: inline-block;
 	font-size: 500%;
-	cursor: pointer;
-	padding: 20px 20px;
+	height: 40px;
+	margin: -5px;
+	outline: 0;
+	padding-left: 20px;
+	text-align: center;
+	width: 40px;
 }
 
 #popup-button:hover {
@@ -197,17 +173,15 @@ html {
 	background-color: rgb(30, 255, 0);
 }
 
-#current-task {
-	text-align: center;
-	font-size: 300%;
-}
-
 #num-pomos {
-	text-align: center;
+	display: none;
 	font-size: 300%;
+	text-align: center;
 }
 
-table, th, td {
+table,
+th,
+td {
 	border: 1px solid black;
 	width: 42%;
 	text-align: center;
