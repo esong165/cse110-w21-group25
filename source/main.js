@@ -2,6 +2,18 @@
 document.addEventListener('DOMContentLoaded', () => {
 	let datasklist = document.getElementById('tasks-container');
 
+    let taskListButtonStart = document.getElementById('TaskListBut');
+    let homeButtonStart = document.getElementById('HomeBut');
+    let statsButtonStart = document.getElementById('StatsBut');
+    let settingsButtonStart = document.getElementById('SettingsBut');
+    let faqButtonStart = document.getElementById('FAQBut');
+
+    taskListButtonStart.setAttribute('src', 'images/tasklist.png');
+    homeButtonStart.setAttribute('src', 'images/home2.png');
+    statsButtonStart.setAttribute('src', 'images/stats.png');
+    settingsButtonStart.setAttribute('src', 'images/settings.png');
+    faqButtonStart.setAttribute('src', 'images/faq.png');
+
     /* initial load home page */
     let home = document.getElementById('timer');
     home.style.display = 'block';    
@@ -23,6 +35,17 @@ document.addEventListener('DOMContentLoaded', () => {
     taskListButton.addEventListener('click',     function tasklist() {
         /*  hides non tasklist elements and makes tasklist elements visible */
         /* see if we have to do anything to make new tasklist items show appropriately */
+        let taskListButton1 = document.getElementById('TaskListBut');
+        let homeButton1 = document.getElementById('HomeBut');
+        let statsButton1 = document.getElementById('StatsBut');
+        let settingsButton1 = document.getElementById('SettingsBut');
+        let faqButton1 = document.getElementById('FAQBut');
+
+        taskListButton1.setAttribute('src', 'images/tasklist2.png');
+        homeButton1.setAttribute('src', 'images/home.png');
+        statsButton1.setAttribute('src', 'images/stats.png');
+        settingsButton1.setAttribute('src', 'images/settings.png');
+        faqButton1.setAttribute('src', 'images/faq.png');
 
         let home = document.getElementById('timer');
         home.style.display = 'none'; 
@@ -46,6 +69,18 @@ document.addEventListener('DOMContentLoaded', () => {
         /* add listeners or something to change color for timer */
         /* hides non timer elements and makes timer elements visible */
 
+        let taskListButton1 = document.getElementById('TaskListBut');
+        let homeButton1 = document.getElementById('HomeBut');
+        let statsButton1 = document.getElementById('StatsBut');
+        let settingsButton1 = document.getElementById('SettingsBut');
+        let faqButton1 = document.getElementById('FAQBut');
+
+        taskListButton1.setAttribute('src', 'images/tasklist.png');
+        homeButton1.setAttribute('src', 'images/home2.png');
+        statsButton1.setAttribute('src', 'images/stats.png');
+        settingsButton1.setAttribute('src', 'images/settings.png');
+        faqButton1.setAttribute('src', 'images/faq.png');
+
         let home = document.getElementById('timer');
         home.style.display = 'block';    
         
@@ -67,6 +102,18 @@ document.addEventListener('DOMContentLoaded', () => {
     statsButton.addEventListener('click', function stats() {
         /* hides non stats elements and makes stats elements visible */
         
+        let taskListButton1 = document.getElementById('TaskListBut');
+        let homeButton1 = document.getElementById('HomeBut');
+        let statsButton1 = document.getElementById('StatsBut');
+        let settingsButton1 = document.getElementById('SettingsBut');
+        let faqButton1 = document.getElementById('FAQBut');
+
+        taskListButton1.setAttribute('src', 'images/tasklist.png');
+        homeButton1.setAttribute('src', 'images/home.png');
+        statsButton1.setAttribute('src', 'images/stats2.png');
+        settingsButton1.setAttribute('src', 'images/settings.png');
+        faqButton1.setAttribute('src', 'images/faq.png');
+
         let home = document.getElementById('timer');
         home.style.display = 'none';    
         
@@ -87,6 +134,17 @@ document.addEventListener('DOMContentLoaded', () => {
     let faqButton = document.getElementById("FAQBut");
     faqButton.addEventListener('click',     function faq() {
         /* hides non faq elements and makes faq elements visible */
+        let taskListButton1 = document.getElementById('TaskListBut');
+        let homeButton1 = document.getElementById('HomeBut');
+        let statsButton1 = document.getElementById('StatsBut');
+        let settingsButton1 = document.getElementById('SettingsBut');
+        let faqButton1 = document.getElementById('FAQBut');
+
+        taskListButton1.setAttribute('src', 'images/tasklist.png');
+        homeButton1.setAttribute('src', 'images/home.png');
+        statsButton1.setAttribute('src', 'images/stats.png');
+        settingsButton1.setAttribute('src', 'images/settings.png');
+        faqButton1.setAttribute('src', 'images/faq2.png');
 
         let home = document.getElementById('timer');
         home.style.display = 'none';
@@ -108,6 +166,18 @@ document.addEventListener('DOMContentLoaded', () => {
     let settingsButton = document.getElementById("SettingsBut");
     settingsButton.addEventListener('click',  function settings() {
         /* hides non settings elements and makes settings elements visible */
+
+        let taskListButton1 = document.getElementById('TaskListBut');
+        let homeButton1 = document.getElementById('HomeBut');
+        let statsButton1 = document.getElementById('StatsBut');
+        let settingsButton1 = document.getElementById('SettingsBut');
+        let faqButton1 = document.getElementById('FAQBut');
+
+        taskListButton1.setAttribute('src', 'images/tasklist.png');
+        homeButton1.setAttribute('src', 'images/home.png');
+        statsButton1.setAttribute('src', 'images/stats.png');
+        settingsButton1.setAttribute('src', 'images/settings2.png');
+        faqButton1.setAttribute('src', 'images/faq.png');
 
         let home = document.getElementById('timer');
         home.style.display = 'none';
