@@ -1,17 +1,17 @@
-import StatItem from './stat-item.js'
+import StatItem from './stat-item.js';
 
 export default class Statlist extends HTMLUListElement {
 	constructor() {
 		super();
 
 		this.$stats = [];
-		
+
 		const statItemArr = JSON.parse(localStorage.getItem('statItemArr'));
 		if (statItemArr !== null) {
 			this.$stats = statItemArr;
 		}
 
-		for(const stat of this.$stats) {
+		for (const stat of this.$stats) {
 			const current = new StatItem(stat[0], stat[1]);
 
 			document.getElementById('stat-container').prepend(current);
@@ -19,7 +19,7 @@ export default class Statlist extends HTMLUListElement {
 	}
 
 	addStat(name, count) {
-		const stat = new StatItem(name,count);
+		const stat = new StatItem(name, count);
 		stat.id = name;
 
 		let statItemArr = JSON.parse(localStorage.getItem('statItemArr'));
@@ -41,6 +41,5 @@ export default class Statlist extends HTMLUListElement {
 
 		localStorage.setItem('statItemArr', JSON.stringify(statItemArr));
 	}
-
 }
 customElements.define('stat-list', Statlist, { extends: 'ul' });

@@ -1,12 +1,12 @@
 
 export default class StatItem extends HTMLElement {
 	/*
-	* construct stat item 
+	* construct stat item
 	*/
 	constructor(taskName, pomoCount) {
 		super();
-		
-		const shadow = this.attachShadow({mode: 'open'});
+
+		const shadow = this.attachShadow({ mode: 'open' });
 
 		const stat = document.createElement('li');
 		stat.setAttribute('class', 'task');
