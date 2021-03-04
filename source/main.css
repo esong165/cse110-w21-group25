@@ -54,7 +54,7 @@ body {
   text-align: center;
   margin: 0 auto;
   vertical-align: middle;
-  padding-top: 50px;
+  padding-top: 0px;
 }
 
 /* timer */
@@ -145,6 +145,7 @@ body {
 }
 
 /* faq*/
+
 #faqBox {
   display: flex;
   justify-content: center;
@@ -158,6 +159,7 @@ body {
 #faq div{
   max-width: 100%;
 }
+
 
 /*settings*/
 #task-list {
