@@ -2,6 +2,8 @@
 document.addEventListener('DOMContentLoaded', () => {
 	let datasklist = document.getElementById('tasks-container');
 
+
+    /* Changes Color of selected button. Default is home*/
     let taskListButtonStart = document.getElementById('TaskListBut');
     let homeButtonStart = document.getElementById('HomeBut');
     let statsButtonStart = document.getElementById('StatsBut');
@@ -35,6 +37,8 @@ document.addEventListener('DOMContentLoaded', () => {
     taskListButton.addEventListener('click',     function tasklist() {
         /*  hides non tasklist elements and makes tasklist elements visible */
         /* see if we have to do anything to make new tasklist items show appropriately */
+
+        /* Changes Color of selected button. */
         let taskListButton1 = document.getElementById('TaskListBut');
         let homeButton1 = document.getElementById('HomeBut');
         let statsButton1 = document.getElementById('StatsBut');
@@ -68,7 +72,8 @@ document.addEventListener('DOMContentLoaded', () => {
     homeButton.addEventListener('click', function home() {
         /* add listeners or something to change color for timer */
         /* hides non timer elements and makes timer elements visible */
-
+        
+        /* Changes Color of selected button. */
         let taskListButton1 = document.getElementById('TaskListBut');
         let homeButton1 = document.getElementById('HomeBut');
         let statsButton1 = document.getElementById('StatsBut');
@@ -102,6 +107,7 @@ document.addEventListener('DOMContentLoaded', () => {
     statsButton.addEventListener('click', function stats() {
         /* hides non stats elements and makes stats elements visible */
         
+        /* Changes Color of selected button. */
         let taskListButton1 = document.getElementById('TaskListBut');
         let homeButton1 = document.getElementById('HomeBut');
         let statsButton1 = document.getElementById('StatsBut');
@@ -134,6 +140,8 @@ document.addEventListener('DOMContentLoaded', () => {
     let faqButton = document.getElementById("FAQBut");
     faqButton.addEventListener('click',     function faq() {
         /* hides non faq elements and makes faq elements visible */
+ 
+         /* Changes Color of selected button. */
         let taskListButton1 = document.getElementById('TaskListBut');
         let homeButton1 = document.getElementById('HomeBut');
         let statsButton1 = document.getElementById('StatsBut');
@@ -166,7 +174,8 @@ document.addEventListener('DOMContentLoaded', () => {
     let settingsButton = document.getElementById("SettingsBut");
     settingsButton.addEventListener('click',  function settings() {
         /* hides non settings elements and makes settings elements visible */
-
+        
+        /* Changes Color of selected button. */
         let taskListButton1 = document.getElementById('TaskListBut');
         let homeButton1 = document.getElementById('HomeBut');
         let statsButton1 = document.getElementById('StatsBut');
