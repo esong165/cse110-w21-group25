@@ -45,7 +45,7 @@ export default class Tasklist extends HTMLUListElement {
 				function () { document.getElementById('tasks-container').removeTask(task[0]) });
 
 			/*
-				 var row = table.insertRow(document.getElementById('taskTable').rows.length);
+				 var row = table.insertRow(document.getElementById('task-table').rows.length);
 			 var cell1 = row.insertCell(0);
 			 var cell2 = row.insertCell(1);
 			 var cell3 = row.insertCell(2);
@@ -55,7 +55,7 @@ export default class Tasklist extends HTMLUListElement {
 			 cell2.appendChild(currTask.shadowRoot.children[0].children[3]);
 			 cell3.appendChild(currTask.shadowRoot.children[0].children[4]);
 			 
-			 document.getElementById('tbodyID').appendChild(currTask);
+			 document.getElementById('task-table-body').appendChild(currTask);
 			 */
 
 			document.getElementById('tasks-container').appendChild(currTask);

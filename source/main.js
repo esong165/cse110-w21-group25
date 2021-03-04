@@ -23,11 +23,11 @@ document.addEventListener('DOMContentLoaded', () => {
         let stats = document.getElementById('stats');
         stats.style.display = 'none';
 
-        let taskListButtonStart = document.getElementById('TaskListBut');
-        let homeButtonStart = document.getElementById('HomeBut');
-        let statsButtonStart = document.getElementById('StatsBut');
-        let settingsButtonStart = document.getElementById('SettingsBut');
-        let faqButtonStart = document.getElementById('FAQBut');
+        let taskListButtonStart = document.getElementById('task-list-button');
+        let homeButtonStart = document.getElementById('home-button');
+        let statsButtonStart = document.getElementById('stats-button');
+        let settingsButtonStart = document.getElementById('settings-button');
+        let faqButtonStart = document.getElementById('faq-button');
 
         taskListButtonStart.setAttribute('src', 'images/tasklist.png');
         homeButtonStart.setAttribute('src', 'images/home.png');
@@ -40,7 +40,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     /* initial load home page */
     setAllNone();
-    let homeButtonSelect = document.getElementById('HomeBut');
+    let homeButtonSelect = document.getElementById('home-button');
     homeButtonSelect.setAttribute('src', 'images/home2.png');
 
     /* Changes Color of selected button. Default is home*/
@@ -48,14 +48,14 @@ document.addEventListener('DOMContentLoaded', () => {
     home.style.display = 'block';
 
     // If tasklist icon clicked on
-    let taskListButton = document.getElementById('TaskListBut');
+    let taskListButton = document.getElementById('task-list-button');
     taskListButton.addEventListener('click', function tasklist() {
         /*  hides non tasklist elements and makes tasklist elements visible */
         /* see if we have to do anything to make new tasklist items show appropriately */
 
         setAllNone();
         /* Changes Color of selected button. */
-        let tasklistButtonSelect = document.getElementById('TaskListBut');
+        let tasklistButtonSelect = document.getElementById('task-list-button');
         tasklistButtonSelect.setAttribute('src', 'images/tasklist2.png');
         /*shows tasklist */
         let tasklist = document.getElementById('task-list');
@@ -63,14 +63,14 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     // If home icon clicked on
-    let homeButton = document.getElementById("HomeBut");
+    let homeButton = document.getElementById("home-button");
     homeButton.addEventListener('click', function home() {
         /* add listeners or something to change color for timer */
         /* hides non timer elements and makes timer elements visible */
 
         setAllNone();
         /* Changes Color of selected button. */
-        let homeButtonSelect = document.getElementById('HomeBut');
+        let homeButtonSelect = document.getElementById('home-button');
         homeButtonSelect.setAttribute('src', 'images/home2.png');
         /*shows timer */
         let home = document.getElementById('timer');
@@ -78,39 +78,39 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     // If stats icon clicked on
-    let statsButton = document.getElementById("StatsBut");
+    let statsButton = document.getElementById("stats-button");
     statsButton.addEventListener('click', function stats() {
         /* hides non stats elements and makes stats elements visible */
 
         setAllNone();
         /* Changes Color of selected button. */
-        let statsButtonSelect = document.getElementById('StatsBut');
+        let statsButtonSelect = document.getElementById('stats-button');
         statsButtonSelect.setAttribute('src', 'images/stats2.png');
         /*shows settings */
         let stats = document.getElementById('stats');
         stats.style.display = 'block';
     });
 
-    let faqButton = document.getElementById("FAQBut");
+    let faqButton = document.getElementById("faq-button");
     faqButton.addEventListener('click', function faq() {
         /* hides non stats elements and makes stats elements visible */
 
         setAllNone();
         /* Changes Color of selected button. */
-        let faqButtonSelect = document.getElementById('FAQBut');
+        let faqButtonSelect = document.getElementById('faq-button');
         faqButtonSelect.setAttribute('src', 'images/faq2.png');
         /*shows settings */
         let faq = document.getElementById('faq');
         faq.style.display = 'block';
     });
 
-    let settingsButton = document.getElementById("SettingsBut");
+    let settingsButton = document.getElementById("settings-button");
     settingsButton.addEventListener('click', function settings() {
         /* hides non stats elements and makes stats elements visible */
 
         setAllNone();
         /* Changes Color of selected button. */
-        let settingsButtonSelect = document.getElementById('SettingsBut');
+        let settingsButtonSelect = document.getElementById('settings-button');
         settingsButtonSelect.setAttribute('src', 'images/settings2.png');
         /*shows settings */
         let settings = document.getElementById('settings');

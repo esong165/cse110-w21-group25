@@ -20,33 +20,33 @@ html {
 	text-align: left;
 }
 
-.taskbar-but {
+.taskbar-button {
 	height: 50px;
 	width: 50px;
 }
 
 /*nav-buttons*/
-#HomeBut {
+#home-button {
 	padding: 20px;
 	outline: 0;
 }
 
-#StatsBut {
+#stats-button {
 	padding: 20px;
 	outline: 0;
 }
 
-#SettingsBut {
+#settings-button {
 	padding: 20px;
 	outline: 0;
 }
 
-#TaskListBut {
+#task-list-button {
 	padding: 20px;
 	outline: 0;
 }
 
-#FAQBut {
+#faq-button {
 	padding: 20px;
 	outline: 0;
 }
@@ -72,7 +72,7 @@ html {
 	margin: 0;
 }
 
-.done-but {
+#done-button {
 	height: 40px;
 	width: 40px;
 	padding-left: 20px;
@@ -92,7 +92,7 @@ html {
 	font-size: 150%;
 }
 
-#timerButtonContainer {
+#timer-button-container {
 	text-align: center;
 }
 

@@ -32,11 +32,11 @@ document.body.innerHTML = `
     
     <main>
         <div id="task-bar">
-            <input type="image" src="images/home.png" name="Home" class="taskbar-but" id="HomeBut" title="Home" />
-            <input type="image" src="images/tasklist.png" name="TaskList" class="taskbar-but" id="TaskListBut" title="Tasklist" />
-            <input type="image" src="images/stats.png" name="Stats" class="taskbar-but" id="StatsBut" title="Statistics" />
-            <input type="image" src="images/faq.png" name="FAQ" class="taskbar-but" id="FAQBut" title="FAQ" />
-            <input type="image" src="images/settings.png" name="Settings" class="taskbar-but" id="SettingsBut" title="Settings" />    
+            <input type="image" src="images/home.png" name="Home" class="taskbar-button" id="home-button" title="Home" />
+            <input type="image" src="images/tasklist.png" name="TaskList" class="taskbar-button" id="task-list-button" title="Tasklist" />
+            <input type="image" src="images/stats.png" name="Stats" class="taskbar-button" id="stats-button" title="Statistics" />
+            <input type="image" src="images/faq.png" name="FAQ" class="taskbar-button" id="faq-button" title="FAQ" />
+            <input type="image" src="images/settings.png" name="Settings" class="taskbar-button" id="settings-button" title="Settings" />
         </div>
 
         <div id="timer">
@@ -52,7 +52,7 @@ document.body.innerHTML = `
             <p id="mode-message">Long Break in 3 Pomos</p>
             </section>
 
-            <div id="timerButtonContainer">
+            <div id="timer-button-container">
                 <button id="timer-button">Start</button>
             </div>
             <audio id="alarm" src="./air-horn.mp3"></audio>
@@ -71,8 +71,8 @@ document.body.innerHTML = `
                 <input type="submit" id="add-task-btn" value="Add Task">
             </form>
 
-            <table id="taskTable">
-                <tbody id="tbodyID">
+            <table id="task-table">
+                <tbody id="task-table-body">
                     <tr>
                         <th>Task Name: </th>
                         <th>Estimated Pomos: </th> 

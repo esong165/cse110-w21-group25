@@ -14,29 +14,26 @@
 	</header>
 	<main>
 		<nav id="task-bar">
-			<img src="images/home.png" alt="Home" class="taskbar-but" id="HomeBut" title="Home" />
-			<img src="images/tasklist.png" alt="TaskList" class="taskbar-but" id="TaskListBut"
-				title="Tasklist" />
-			<img src="images/stats.png" alt="Stats" class="taskbar-but" id="StatsBut"
-				title="Statistics" />
-			<img src="images/faq.png" alt="FAQ" class="taskbar-but" id="FAQBut" title="FAQ" />
-			<img src="images/settings.png" alt="Settings" class="taskbar-but" id="SettingsBut"
-				title="Settings" />
+			<img src="images/home.png" id="home-button" class="taskbar-button" alt="Home" title="Home" />
+			<img src="images/tasklist.png" id="task-list-button" class="taskbar-button" alt="Task List" title="Task List" />
+			<img src="images/stats.png" id="stats-button" class="taskbar-button" alt="Statistics" title="Statistics" />
+			<img src="images/faq.png" id="faq-button" class="taskbar-button" alt="FAQ" title="FAQ" />
+			<img src="images/settings.png" id="settings-button" class="taskbar-button" alt="Settings" title="Settings" />
 		</nav>
 		<div id="timer">
 			<div id="current-task-container">
 				<p id="current-task">Default Task</p>
-				<img id="done-button" src="images/done.png" class="done-but" title="Finish Task">
+				<img id="done-button" src="images/done.png" alt="Finish Task" title="Finish Task">
 			</div>
 
 			<h3 id="num-pomos">1</h3>
 
-			<section id="timer-display">
+			<div id="timer-display">
 				<p id="time-remaining">25:00</p>
 				<p id="mode-message">Long Break in 3 Pomos</p>
-			</section>
+			</div>
 
-			<div id="timerButtonContainer">
+			<div id="timer-button-container">
 				<button id="timer-button">Start</button>
 			</div>
 			<audio id="alarm" src="./air-horn.mp3"></audio>
@@ -54,8 +51,8 @@
 				<input type="submit" id="add-task-btn" value="Add Task">
 			</form>
 
-			<table id="taskTable">
-				<tbody id="tbodyID">
+			<table id="task-table">
+				<tbody id="task-table-body">
 					<tr>
 						<th>Task Name: </th>
 						<th>Estimated Pomos: </th>
