@@ -1,14 +1,4 @@
 
-body {
-  background-color: #ffebef;
-}
-
-#site-header {
-  text-align: center;
-  font-size: 300%;
-  margin-top: -20px;
-}
-
 /* body */
 body {
   /* background-color: rgb(184, 236, 184); short*/
@@ -16,6 +6,12 @@ body {
   background-color: rgb(242, 197, 247); /*pomo*/
   font-family: 'Open Sans', sans-serif;
   padding-bottom: 0px;
+}
+
+#site-header {
+  text-align: center;
+  font-size: 300%;
+  margin-top: -20px;
 }
 
 html {
