@@ -213,14 +213,13 @@ function home() {
 	stats.style.display = 'none';
 }
 
-
 /**
  * Helper function to remove task from $tasks.
  * @param {*} arr - array to remove from.
  * @param {*} toRemove - element to be removed.
  */
 function arrayRemove(arr, toRemove) {
-	return arr.filter(function (el) {
+	return arr.filter(function(el) {
 		return el[0] !== toRemove;
 	});
 }

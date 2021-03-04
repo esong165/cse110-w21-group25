@@ -59,7 +59,7 @@ document.addEventListener('DOMContentLoaded', () => {
 	});
 
 	// If home icon clicked on
-	const homeButton = document.getElementById("home-button");
+	const homeButton = document.getElementById('home-button');
 	homeButton.addEventListener('click', function home() {
 		/* add listeners or something to change color for timer */
 		/* hides non timer elements and makes timer elements visible */
@@ -74,7 +74,7 @@ document.addEventListener('DOMContentLoaded', () => {
 	});
 
 	// If stats icon clicked on
-	const statsButton = document.getElementById("stats-button");
+	const statsButton = document.getElementById('stats-button');
 	statsButton.addEventListener('click', function stats() {
 		/* hides non stats elements and makes stats elements visible */
 
@@ -87,7 +87,7 @@ document.addEventListener('DOMContentLoaded', () => {
 		stats.style.display = 'block';
 	});
 
-	const faqButton = document.getElementById("faq-button");
+	const faqButton = document.getElementById('faq-button');
 	faqButton.addEventListener('click', function faq() {
 		/* hides non stats elements and makes stats elements visible */
 
