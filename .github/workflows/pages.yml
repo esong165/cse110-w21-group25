@@ -23,6 +23,8 @@ jobs:
       # Deploys source to GitHub Pages 
       - name: Deploy source to GitHub Pages
         run: |
+          find . -maxdepth 1 ! -name 'source' ! -name '.git' -delete
+          find source -maxdepth 1 -exec mv {} . \;
           find . -name '*.test.js' -type f -delete
           git config --global user.email 'DuckDuckWhaleUCSD@github.com'
           git config --global user.name 'DuckDuckWhaleUCSD'
