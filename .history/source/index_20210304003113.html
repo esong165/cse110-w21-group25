@@ -13,7 +13,7 @@
 		<h1 id="site-header">Big Tomato</h1>
 	</header>
 	
-	<main id="homeID" style="display:block">
+	<main>
 		<h3>Pomodoro Timer</h3>
 		<div id="current-task-container">
 			<h3 id="current-task">Default</h3>
@@ -25,7 +25,6 @@
 
 		<section id="timer-display">
 		<p id="time-remaining">25:00</p>
-		<p id="identify" style="display:none">Yes</p>
 		</section>
 		<button id="timer-button">Start Pomo</button>
 
@@ -43,36 +42,9 @@
 
 		<button id="tasklist-btn">Open Task List</button> 
 		<audio id="alarm" src="./air-horn.mp3"></audio>
-
-		<button id="settings-button">Settings Button</button>
-	</main>
-
-	<main id="settingsID" style="display:none">
-		<form>
-			Choose the length of the one pomo:
-			<select id="pomoLength">
-				<option>20:00</option>
-				<option>25:00</option>
-				<option>30:00</option>
-				<option>35:00</option>
-				</select>
-			<br><br>
-		</form>
-	
-		<form>
-			Display seconds:
-			<select id="displaySeconds">
-				<option>Yes</option>
-				<option>No</option>
-				</select>
-			<br><br>
-		</form>
-		<input type="button" id="b1" value="Confirm Selection!">
-		<input type="button" id="b3" value="To Home!">
 	</main>
 
 	<script src="./task-item.js" type="module"></script>
-	<script src="./settings.js" type="module"></script>
 	<script src="./timer.js" type="module"></script>
 	<script src="./tasklist.js" type="module"></script>
 	<script src="./main.js"></script>

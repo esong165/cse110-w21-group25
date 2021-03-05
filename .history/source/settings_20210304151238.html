@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+</head>
+<body>
+    
+    <form id="settingsBreakLength" style="display:none">
+        Choose the length of the break time:
+        <select id="breakLength">
+            <option>5 Minutes</option>
+            <option>10 Minutes</option>
+            <option>15 Minutes</option>
+            <option>20 Minutes</option>
+        </select>
+        <br><br>
+        <input type="button" onclick="getBreakLength()" value="Click Me!">
+    </form>
+
+    <form id="settingsPomoLength" style="display:none">
+        Choose the length of the one pomo:
+        <select id="pomoLength">
+            <option>20 Minutes</option>
+            <option>25 Minutes</option>
+            <option>30 Minutes</option>
+            <option>35 Minutes</option>
+            </select>
+        <br><br>
+        <input type="button" onclick="getPomoLength()" value="Click Me2!">
+    </form>
+
+    <form id="settingsTimerStyle" style="display:none">
+        Display seconds:
+        <select id="displaySeconds">
+            <option>No</option>
+            <option>Yes</option>
+            </select>
+        <br><br>
+        <input type="button" onclick="getTimerStyle()" value="Click Me3!">
+    </form>
+
+    <p id="demo"></p>
+    <p id="demo2"></p>
+    <p id="demo3"></p>
+    <p id="demo"></p>
+
+    <script src="./settings.js" type="module"></script>
+
+</body>
+</html>

@@ -25,7 +25,6 @@
 
 		<section id="timer-display">
 		<p id="time-remaining">25:00</p>
-		<p id="identify" style="display:none">Yes</p>
 		</section>
 		<button id="timer-button">Start Pomo</button>
 
@@ -43,36 +42,37 @@
 
 		<button id="tasklist-btn">Open Task List</button> 
 		<audio id="alarm" src="./air-horn.mp3"></audio>
-
-		<button id="settings-button">Settings Button</button>
 	</main>
 
-	<main id="settingsID" style="display:none">
-		<form>
-			Choose the length of the one pomo:
-			<select id="pomoLength">
-				<option>20:00</option>
-				<option>25:00</option>
-				<option>30:00</option>
-				<option>35:00</option>
-				</select>
+	<main id="homeID" style="display:none">
+		<form id="settingsPomoLength" style="display:none">
+			Choose the length of the break time:
+			<select id="breakLength">
+				<option>5 Minutes</option>
+				<option>10 Minutes</option>
+				<option>15 Minutes</option>
+				<option>20 Minutes</option>
+			</select>
 			<br><br>
+			<input type="button" onclick="getBreakLength()" value="Click Me!">
 		</form>
 	
-		<form>
-			Display seconds:
-			<select id="displaySeconds">
-				<option>Yes</option>
-				<option>No</option>
+		<input type="button" onclick="displaySettings()" value="Display!">
+	
+		<form id="settingsPomoLength" style="display:none">
+			Choose the length of the one pomo:
+			<select id="pomoLength">
+				<option>20 Minutes</option>
+				<option>25 Minutes</option>
+				<option>30 Minutes</option>
+				<option>35 Minutes</option>
 				</select>
 			<br><br>
+			<input type="button" onclick="getPomoLength()" value="Click Me2!">
 		</form>
-		<input type="button" id="b1" value="Confirm Selection!">
-		<input type="button" id="b3" value="To Home!">
-	</main>
+	</main>>
 
 	<script src="./task-item.js" type="module"></script>
-	<script src="./settings.js" type="module"></script>
 	<script src="./timer.js" type="module"></script>
 	<script src="./tasklist.js" type="module"></script>
 	<script src="./main.js"></script>
