@@ -28,8 +28,7 @@ jobs:
           find . -name "*.test.js" -type f -delete
           git config --global user.email "eysong@ucsd.edu"
           git config --global user.name "eysong"
-          git add .
+          git add -A
           git commit -m "Removed tests"
-          git checkout main
           git push -f origin gh-pages:gh-pages
           git branch -D gh-pages
