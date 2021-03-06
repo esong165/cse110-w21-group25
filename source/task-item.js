@@ -1,7 +1,7 @@
 /**
  * A class representing a task item.
  */
- export default class TaskItem extends HTMLElement {
+export default class TaskItem extends HTMLElement {
 	/**
 	 * Constructs a task item using the input task name and estimated pomodoro count.
 	 * Sets the current pomodoro count to 0.
