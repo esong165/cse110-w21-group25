@@ -6,8 +6,11 @@ export default class Settings {
      * Changes the current page to the settings page
      */
     constructor() {
-        document.getElementById('home-id').style.display = 'none';
-        document.getElementById('settings-id').style.display = 'block';
+        document.getElementById('timer').style.display = 'none';
+        document.getElementById('task-list').style.display = 'none';
+        document.getElementById('stats').style.display = 'none';
+        document.getElementById('faq').style.display = 'none';
+        document.getElementById('settings').style.display = 'block';
     }
     
     /**
@@ -30,8 +33,11 @@ export default class Settings {
      * When the user clicks the return home button
      */
     returnHome() {
-        document.getElementById('home-id').style.display = 'block';
-        document.getElementById('settings-id').style.display = 'none';
+        document.getElementById('timer').style.display = 'block';
+        document.getElementById('task-list').style.display = 'block';
+        document.getElementById('stats').style.display = 'block';
+        document.getElementById('faq').style.display = 'block';
+        document.getElementById('settings').style.display = 'none';
     }
 }
 
@@ -41,7 +47,7 @@ document.getElementById('settings-button').addEventListener('click', () => {
         a.getPomoLength();
         a.getTimerStyle();
     });
-    document.getElementById('return-home').addEventListener('click', () => {
+    document.getElementById('home-button').addEventListener('click', () => {
         a.returnHome();
     });
 });
