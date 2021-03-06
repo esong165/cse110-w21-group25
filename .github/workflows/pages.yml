@@ -23,13 +23,11 @@ jobs:
       # Deploys source to GitHub Pages 
       - name: Deploy source to GitHub Pages
         run: |
-          git subtree split --prefix source -b gh-pages
-          git checkout gh-pages
-          find . -name "*.test.js" -type f -delete
-          git config --global user.email "eysong@ucsd.edu"
-          git config --global user.name "eysong"
-          git add .
-          git commit -m "Removed tests"
-          git checkout main
-          git push -f origin gh-pages:gh-pages
-          git branch -D gh-pages
+          find . -maxdepth 1 ! -name 'source' ! -name '.git' -exec rm -rf {} \;
+          find source -maxdepth 1 -exec mv {} . \;
+          find . -name '*.test.js' -type f -delete
+          git config --global user.email 'DuckDuckWhaleUCSD@github.com'
+          git config --global user.name 'DuckDuckWhaleUCSD'
+          git add -A
+          git commit -m 'Deploy: remove tests and deploy to GitHub'
+          git push -f origin main:gh-pages
