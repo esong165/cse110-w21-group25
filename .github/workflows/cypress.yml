@@ -14,5 +14,3 @@ jobs:
         uses: cypress-io/github-action@v2
         with:
           config-file: ./cypress.json
-          start: npm start
-          wait-on: 'http://localhost:8080'
