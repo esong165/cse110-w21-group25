@@ -9,7 +9,7 @@ export default class Settings {
         document.getElementById('home-id').style.display = 'none';
         document.getElementById('settings-id').style.display = 'block';
     }
-    
+
     /**
      * Changes the settings of the appearance of the timer
      */
@@ -17,7 +17,7 @@ export default class Settings {
         const obj = document.getElementById('display-seconds');
         document.getElementById('identify').innerHTML = obj.options[obj.selectedIndex].text;
     }
-    
+
     /**
      * Changes the timer's intervals
      */
@@ -25,7 +25,7 @@ export default class Settings {
         const obj = document.getElementById('pomo-length');
         document.getElementById('time-remaining').innerHTML = obj.options[obj.selectedIndex].text;
     }
-    
+
     /**
      * When the user clicks the return home button
      */
