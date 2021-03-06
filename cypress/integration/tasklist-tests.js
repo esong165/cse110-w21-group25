@@ -9,7 +9,7 @@ describe('Tasklist Tests', () => {
 		cy.get('#new-task-count').clear().type('3');
 		cy.get('#add-task-btn').click();
 		cy.get('#tasks-container').should('have.length', 1);
-		cy.get('#tasks-container', 'includeShadowDom').children('#Simple\ Task').as('task');
+		cy.get('#tasks-container').children('#Simple\ Task').as('task');
 		cy.get('@task').shadow().children().first().children().eq(0).then($el => {
 			expect($el).to.eq('Simple Task');
 		});
