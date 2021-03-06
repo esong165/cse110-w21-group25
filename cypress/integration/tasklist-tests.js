@@ -1,6 +1,6 @@
 describe('Tasklist Tests', () => {
 	beforeEach(() => {
-		cy.visit('https://esong165.github.io/cse110-w21-group25/');
+		cy.visit('http://localhost:8080/source/index.html');
 	});
 
 	it('Add One Task', () => {
