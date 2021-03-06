@@ -1,4 +1,4 @@
 {
   "baseUrl": null,
-  "includeShadowDom": false
+  "includeShadowDom": true
 }
