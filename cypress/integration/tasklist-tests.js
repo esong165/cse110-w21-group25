@@ -1,6 +1,6 @@
 describe('Tasklist Tests', () => {
 	beforeEach(() => {
-		cy.visit('http://127.0.0.1:5500/source/index.html');
+		cy.visit('http://localhost:3000/source/index.html');
 	});
 
 	it('Add One Task', () => {
