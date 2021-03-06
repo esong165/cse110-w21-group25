@@ -1,7 +1,7 @@
 /**
  * A class representing a task item.
  */
- export default class TaskItem extends HTMLElement {
+export default class TaskItem extends HTMLElement {
 	/**
 	 * Constructs a task item using the input task name and estimated pomodoro count.
 	 * Sets the current pomodoro count to 0.
@@ -81,11 +81,10 @@
 			.indexOf(document.getElementById(droppedTask.id));
 		const tasklist = document.getElementById('tasks-container');
 
-		// Insert task before or at the task being dropped on, depending on their relative positions 
+		// Insert task before or at the task being dropped on, depending on their relative positions
 		if (draggedPos > droppedPos) {
 			droppedTask.parentNode.insertBefore(draggedTask, droppedTask);
-		}
-		else if (draggedPos < droppedPos) {
+		} else if (draggedPos < droppedPos) {
 			droppedTask.parentNode.insertBefore(draggedTask, droppedTask.nextSibling);
 		}
 
