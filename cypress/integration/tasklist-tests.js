@@ -13,6 +13,6 @@ describe('Tasklist Tests', () => {
 		cy.get('@task').then($el => { expect($el).to.have.id('Simple Task'); });
 		cy.get('@task').shadow().children().first().children().eq(0).should('have.text', 'Simple Task');
 		cy.get('@task').shadow().children().first().children().eq(1).should('have.text', '3');
-		cy.get('@task').then($el => { expect($el.get(0).currPomos).to.eq(0) });
+		cy.get('@task').then($el => { expect($el.get(0).currPomos).to.eq(0); });
 	});
 });
