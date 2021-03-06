@@ -12,7 +12,7 @@ export default class Settings {
         document.getElementById('faq').style.display = 'none';
         document.getElementById('settings').style.display = 'block';
     }
-    
+
     /**
      * Changes the settings of the appearance of the timer
      */
@@ -20,7 +20,7 @@ export default class Settings {
         const obj = document.getElementById('display-seconds');
         document.getElementById('identify').innerHTML = obj.options[obj.selectedIndex].text;
     }
-    
+
     /**
      * Changes the timer's intervals
      */
@@ -28,14 +28,47 @@ export default class Settings {
         const obj = document.getElementById('pomo-length');
         document.getElementById('time-remaining').innerHTML = obj.options[obj.selectedIndex].text;
     }
-    
+
     /**
      * When the user clicks the return home button
      */
-    returnHome() {
+    toHome() {
         document.getElementById('timer').style.display = 'block';
+        document.getElementById('task-list').style.display = 'none';
+        document.getElementById('stats').style.display = 'none';
+        document.getElementById('faq').style.display = 'none';
+        document.getElementById('settings').style.display = 'none';
+    }
+
+    /**
+     * When the user clicks the return home button
+     */
+    toTaskList() {
+        document.getElementById('timer').style.display = 'none';
         document.getElementById('task-list').style.display = 'block';
+        document.getElementById('stats').style.display = 'none';
+        document.getElementById('faq').style.display = 'none';
+        document.getElementById('settings').style.display = 'none';
+    }
+
+    /**
+     * When the user clicks the return home button
+     */
+    toStats() {
+        document.getElementById('timer').style.display = 'none';
+        document.getElementById('task-list').style.display = 'none';
         document.getElementById('stats').style.display = 'block';
+        document.getElementById('faq').style.display = 'none';
+        document.getElementById('settings').style.display = 'none';
+    }
+
+    /**
+     * When the user clicks the return home button
+     */
+    toFaq() {
+        document.getElementById('timer').style.display = 'none';
+        document.getElementById('task-list').style.display = 'none';
+        document.getElementById('stats').style.display = 'none';
         document.getElementById('faq').style.display = 'block';
         document.getElementById('settings').style.display = 'none';
     }
@@ -48,6 +81,15 @@ document.getElementById('settings-button').addEventListener('click', () => {
         a.getTimerStyle();
     });
     document.getElementById('home-button').addEventListener('click', () => {
-        a.returnHome();
+        a.toHome();
+    });
+    document.getElementById('task-list-button').addEventListener('click', () => {
+        a.toTaskList();
+    });
+    document.getElementById('stats-button').addEventListener('click', () => {
+        a.toStats();
+    });
+    document.getElementById('faq-button').addEventListener('click', () => {
+        a.toFaq();
     });
 });
