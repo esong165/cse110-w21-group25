@@ -99,10 +99,79 @@ html {
 /* task-list */
 #add-task-container {
 	text-align: center;
+	padding-top: 5%;
+	padding-bottom: 10%;
 }
 
 #task-list {
 	display: none; /* Include some positioning */
+	text-align: center;
+
+}
+#table-label{
+	text-align: center;
+}
+/*
+#task-label {
+	position:relative; 
+	left:160px; 
+	top:200px;
+}
+#pomo-label {
+	position:relative; 
+	left:550px; 
+	top:200px;
+}
+*/
+
+#tasks-container {
+	width: 10px;
+	text-align: center;
+	display: table;
+	margin: 0 auto;
+	
+}
+
+#add-task-container {
+	min-width: 700px;
+	margin: 0 auto;
+	text-align: center;
+}
+
+#new-task-name {
+	width: 350px; 
+	height: 50px;
+	margin-right: 50px;
+	padding-top: 10px;
+	font-size: 210%;
+}
+
+#new-task-count {
+	width: 40px; 
+	height: 50px;
+	margin-right: 0px;
+	padding-top: 10px;
+	font-size: 210%;
+	text-align: right;
+}
+
+#add-task-btn {
+	height: 60px;
+	width: 70px;
+
+	font-size: 300%;
+	font-weight: bold;
+	color: white;
+	background-color: black;
+	border-radius: 15px;
+	margin-left: 40px;
+	margin-right: -15px;
+}
+
+#table-label{
+	font-size: 210%;
+	font-family: 'Open Sans', sans-serif;
+	font-weight: bold;
 }
 
 #task-name {
@@ -191,6 +260,46 @@ td {
 	list-style-type: none;
 }
 
-#tasks-container {
-	text-align: center;
+
+
+
+
+/*
+<style>
+li {
+  width: 450px;
+  position: relative;
 }
+
+li:before, li:after {
+  text-align: center;
+  display: block;
+
+  border-bottom: 0;
+  width: 48%;
+}
+
+li:before {
+  
+  text-align: left;
+  border-right: 0;    
+}
+
+li:after {
+  content: 'col2';
+  position: absolute;
+  top: 0;
+  left: 48%;
+  margin-left: 1px;    
+}
+
+  
+span{
+text-align: left;
+  width: 48%;
+  float: left;
+  
+  margin-bottom: -1px;
+}
+</style>
+*/

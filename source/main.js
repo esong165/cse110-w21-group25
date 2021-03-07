@@ -34,14 +34,14 @@ document.addEventListener('DOMContentLoaded', () => {
 		faqButtonStart.setAttribute('src', 'images/faq.png');
 	}
 
-	/* initial load home page */
-	setAllNone();
-	const homeButtonSelect = document.getElementById('home-button');
-	homeButtonSelect.setAttribute('src', 'images/home2.png');
-
-	// Changes Color of selected button. Default is home
-	const home = document.getElementById('timer');
-	home.style.display = 'block';
+		/* initial load home page */
+		setAllNone();
+		const homeButtonSelect = document.getElementById('home-button');
+		homeButtonSelect.setAttribute('src', 'images/home2.png');
+	
+		// Changes Color of selected button. Default is home
+		const home = document.getElementById('timer');
+		home.style.display = 'block';
 
 	// If tasklist icon clicked on
 	const taskListButton = document.getElementById('task-list-button');
@@ -131,4 +131,6 @@ document.addEventListener('DOMContentLoaded', () => {
 		if (currTask === 'Default') return; // Come back to this in case user wants to have a task named "Default"
 		document.getElementById('tasks-container').removeTask(currTask);
 	});
+
+
 });

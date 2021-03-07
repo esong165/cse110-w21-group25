@@ -39,27 +39,21 @@
 			<audio id="alarm" src="./air-horn.mp3"></audio>
 		</div>
 		<div id="task-list">
-			<!-- <h3>Task Name:               Estimated pomodoros:</h3> -->
-
+			<pre id="table-label" >Task Name:                    # Pomo's:        </pre>
+			
 			<ul id="tasks-container" is="task-list"></ul>
 
 			<form id="add-task-container">
-				<label id="task-name">Task name:</label>
-				<input type="text" id="new-task-name" maxlength="30">
-				<label id="est-pomos">Estimated pomodoros:</label>
+				
+				<input type="text" placeholder="New Task Name" id="new-task-name" maxlength="30">
+				
 				<input type="number" id="new-task-count" value="1" min="1" max="99">
-				<input type="submit" id="add-task-btn" value="Add Task">
+				<input type="submit" id="add-task-btn" value="+">
 			</form>
 
-			<table id="task-table">
-				<tbody id="task-table-body">
-					<tr>
-						<th>Task Name: </th>
-						<th>Estimated Pomos: </th>
-						<th>Remove Task: </th>
-					</tr>
-				</tbody>
-			</table>
+			
+
+
 		</div>
 		<div id="stats">
 		</div>

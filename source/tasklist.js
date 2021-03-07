@@ -37,11 +37,13 @@ export default class Tasklist extends HTMLUListElement {
 
 			/* Add select and remove buttons to each task fetched from localStorage
 				(Perhaps create new method doing this to be called here and in addTask()) */
-			currTask.shadowRoot.children[0].children[2].addEventListener('click',
+			currTask.shadowRoot.children[1].children[2].addEventListener('click',
 				function() { document.getElementById('tasks-container').selectTask(task[0]); });
-			currTask.shadowRoot.children[0].children[3].addEventListener('click',
+
+			currTask.shadowRoot.children[1].children[3].addEventListener('click',
 				function() { document.getElementById('tasks-container').selectTask(task[0]); });
-			currTask.shadowRoot.children[0].children[4].addEventListener('click',
+
+			currTask.shadowRoot.children[1].children[4].addEventListener('click',
 				function() { document.getElementById('tasks-container').removeTask(task[0]); });
 
 			document.getElementById('tasks-container').appendChild(currTask);
@@ -75,9 +77,9 @@ export default class Tasklist extends HTMLUListElement {
 
 		/* Add select and remove buttons to the task
 			(Perhaps create new method doing this to be called here and in c-tor) */
-		task.shadowRoot.children[0].children[2].addEventListener('click',
+		task.shadowRoot.children[1].children[2].addEventListener('click',
 			function() { document.getElementById('tasks-container').selectTask(name); });
-		task.shadowRoot.children[0].children[3].addEventListener('click',
+		task.shadowRoot.children[1].children[3].addEventListener('click',
 			function() { document.getElementById('tasks-container').removeTask(name); });
 
 		// Store task as array of array in local storage -- could refactor into separate method
@@ -114,7 +116,7 @@ export default class Tasklist extends HTMLUListElement {
 	 * @param {String} taskId - name of selected task.
 	 */
 	selectTask(taskId) {
-		const task = document.getElementById(taskId).shadowRoot.children[0];
+		const task = document.getElementById(taskId).shadowRoot.children[1];
 		const name = task.children[0].innerHTML;
 		const pomos = task.children[1].innerHTML;
 
