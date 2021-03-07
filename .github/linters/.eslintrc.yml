@@ -30,6 +30,7 @@ parser: babel-eslint
 # Extends #
 ###########
 extends: standard
+
 #########
 # Rules #
 #########
@@ -40,3 +41,13 @@ rules: {
   "space-before-function-paren": ["error", "never"],
   "space-in-parens": ["error", "never"],
 }
+
+#############
+# Overrides #
+#############
+overrides: [{
+  "files": [ "/cypress/*" ],
+  "rules": {
+    "no-undef": "off"
+  }
+}]
