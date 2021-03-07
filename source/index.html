@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
 	<meta charset="UTF-8" />
 	<title>Our Timer</title>
@@ -8,6 +9,7 @@
 	<link rel="preconnect" href="https://fonts.gstatic.com">
 	<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400&display=swap" rel="stylesheet">
 </head>
+
 <body>
 	<header>
 		<h1 id="site-header">Pomodoro Timer</h1>
@@ -15,10 +17,12 @@
 	<main>
 		<nav id="task-bar">
 			<img src="images/home.png" id="home-button" class="taskbar-button" alt="Home" title="Home" />
-			<img src="images/tasklist.png" id="task-list-button" class="taskbar-button" alt="Task List" title="Task List" />
+			<img src="images/tasklist.png" id="task-list-button" class="taskbar-button" alt="Task List"
+				title="Task List" />
 			<img src="images/stats.png" id="stats-button" class="taskbar-button" alt="Statistics" title="Statistics" />
 			<img src="images/faq.png" id="faq-button" class="taskbar-button" alt="FAQ" title="FAQ" />
-			<img src="images/settings.png" id="settings-button" class="taskbar-button" alt="Settings" title="Settings" />
+			<img src="images/settings.png" id="settings-button" class="taskbar-button" alt="Settings"
+				title="Settings" />
 		</nav>
 		<div id="timer">
 			<div id="current-task-container">
@@ -62,6 +66,18 @@
 			</table>
 		</div>
 		<div id="stats">
+			<tbody id="task-table-body">
+				<tr>
+					<th>Total Tasks: </th>
+					<th></th>
+
+				</tr>
+				<tr>
+					<th>Average Pomos: </th>
+					<th></th>
+
+				</tr>
+			</tbody>
 		</div>
 		<div id="settings">
 		</div>
@@ -97,4 +113,5 @@
 	<script src="./tasklist.js" type="module"></script>
 	<script src="./main.js"></script>
 </body>
+
 </html>
