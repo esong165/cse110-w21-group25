@@ -73,7 +73,6 @@ export default class Tasklist extends HTMLUListElement {
 		}
 		const task = new TaskItem(name, count, 0);
 		task.id = '_' + name;
-		console.log(task.id);
 
 		// Add select and remove buttons to the task
 		task.shadowRoot.children[0].children[2].addEventListener('click',
@@ -159,8 +158,6 @@ export default class Tasklist extends HTMLUListElement {
 		if (task != null) {
 			taskContainer.removeChild(task);
 		}
-
-		console.log(currTaskId + ", " + taskId);
 
 		// If current task is the removed task, move to next task in tasklist or default task
 		if (currTaskId === taskId.substring(1)) {
