@@ -33,22 +33,22 @@ export default class Tasklist extends HTMLUListElement {
 		// Update tasklist display
 		for (const task of this.$tasks) {
 			const currTask = new TaskItem(task[0], task[1], task[2]);
-			currTask.id = task[0];
+			currTask.id = '_' + task[0];
 
 			// Add select and remove buttons to each task fetched from localStorage
 			currTask.shadowRoot.children[0].children[2].addEventListener('click',
-				function() { document.getElementById('tasks-container').selectTask(task[0]); });
+				function() { document.getElementById('tasks-container').selectTask(currTask.id); });
 			currTask.shadowRoot.children[0].children[3].addEventListener('click',
-				function() { document.getElementById('tasks-container').selectTask(task[0]); });
+				function() { document.getElementById('tasks-container').selectTask(currTask.id); });
 			currTask.shadowRoot.children[0].children[4].addEventListener('click',
-				function() { document.getElementById('tasks-container').removeTask(task[0]); });
+				function() { document.getElementById('tasks-container').removeTask(currTask.id); });
 
 			document.getElementById('tasks-container').appendChild(currTask);
 
 			// Add drag/drop functionality
-			document.getElementById(task[0]).setAttribute('ondragstart', 'drag(event);');
-			document.getElementById(task[0]).setAttribute('ondragover', 'allowDrop(event);');
-			document.getElementById(task[0]).setAttribute('ondrop', 'drop(event);');
+			document.getElementById(currTask.id).setAttribute('ondragstart', 'drag(event);');
+			document.getElementById(currTask.id).setAttribute('ondragover', 'allowDrop(event);');
+			document.getElementById(currTask.id).setAttribute('ondrop', 'drop(event);');
 		}
 	}
 
@@ -72,13 +72,16 @@ export default class Tasklist extends HTMLUListElement {
 			return;
 		}
 		const task = new TaskItem(name, count, 0);
-		task.id = name;
+		task.id = '_' + name;
+		console.log(task.id);
 
 		// Add select and remove buttons to the task
 		task.shadowRoot.children[0].children[2].addEventListener('click',
-			function() { document.getElementById('tasks-container').selectTask(name); });
+			function() { document.getElementById('tasks-container').selectTask(task.id); });
 		task.shadowRoot.children[0].children[3].addEventListener('click',
-			function() { document.getElementById('tasks-container').removeTask(name); });
+			function() { document.getElementById('tasks-container').selectTask(task.id); });
+		task.shadowRoot.children[0].children[4].addEventListener('click',
+			function() { document.getElementById('tasks-container').removeTask(task.id); });
 
 		// Store task as array of array in local storage -- could refactor into separate method
 		let taskItemArr = JSON.parse(localStorage.getItem('taskItemArr'));
@@ -99,9 +102,9 @@ export default class Tasklist extends HTMLUListElement {
 			this.appendChild(task);
 
 			// Add drag/drop functionality to task
-			document.getElementById(name).setAttribute('ondragstart', 'drag(event);');
-			document.getElementById(name).setAttribute('ondragover', 'allowDrop(event);');
-			document.getElementById(name).setAttribute('ondrop', 'drop(event);');
+			document.getElementById(task.id).setAttribute('ondragstart', 'drag(event);');
+			document.getElementById(task.id).setAttribute('ondragover', 'allowDrop(event);');
+			document.getElementById(task.id).setAttribute('ondrop', 'drop(event);');
 		} else {
 			alert('Task is already in tasklist.');
 			return;
@@ -143,7 +146,7 @@ export default class Tasklist extends HTMLUListElement {
 		const task = document.getElementById(taskId);
 
 		// Remove task from $tasks instance variable
-		this.$tasks = arrayRemove(this.$tasks, taskId);
+		this.$tasks = arrayRemove(this.$tasks, taskId.substring(1));
 
 		/* Edge case check for a bug I could not figure out -- without this line,
 			sometimes a task enters the tasklist with undefined, undefined --
@@ -157,11 +160,14 @@ export default class Tasklist extends HTMLUListElement {
 			taskContainer.removeChild(task);
 		}
 
+		console.log(currTaskId + ", " + taskId);
+
 		// If current task is the removed task, move to next task in tasklist or default task
-		if (currTaskId === taskId) {
+		if (currTaskId === taskId.substring(1)) {
 			// Select the next task if there are any left in list
 			if (taskContainer.hasChildNodes()) {
-				document.getElementById('tasks-container').selectTask(this.$tasks[0][0]);
+				const tasklist = document.getElementById('tasks-container');
+				tasklist.selectTask(tasklist.firstChild.id);
 			} else {
 				// Update displays and $selected to defaults if there are no tasks left in list
 				document.getElementById('current-task').innerHTML = 'Default';
