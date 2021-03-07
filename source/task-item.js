@@ -73,7 +73,7 @@ export default class TaskItem extends HTMLElement {
 		// Enables dropping on this task item
 		event.preventDefault();
 
-		const draggedTask = document.getElementById(event.dataTransfer.getData('text'));
+		const draggedTask = document.getElementById(event.dataTransfer.getData('text/plain'));
 		const droppedTask = document.getElementById(event.target.id);
 		const draggedPos = Array.from(document.getElementById('tasks-container').childNodes)
 			.indexOf(document.getElementById(draggedTask.id));
