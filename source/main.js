@@ -129,6 +129,6 @@ document.addEventListener('DOMContentLoaded', () => {
 	doneButton.addEventListener('click', function() {
 		const currTask = document.getElementById('current-task').innerHTML;
 		if (currTask === 'Default') return; // Come back to this in case user wants to have a task named "Default"
-		document.getElementById('tasks-container').removeTask(currTask);
+		document.getElementById('tasks-container').removeTask('_' + currTask);
 	});
 });
