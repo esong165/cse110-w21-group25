@@ -30,11 +30,9 @@ export default class Timer {
 	 */
 	set remaining(time) {
 		this.$remaining = time;
-		if (window.app.settings.displaySeconds === 'Yes') {
-			document.getElementById('time-remaining').textContent = Timer.$format(time);
-		} else {
-			document.getElementById('time-remaining').textContent = Timer.$formatShort(time);
-		}
+		document.getElementById('time-remaining').textContent = window.app.settings.displaySeconds
+			? Timer.$format(time)
+			: Timer.$formatShort(time);
 	}
 
 	/**

@@ -18,7 +18,7 @@ export default class Settings {
 	 */
 	getTimerStyle() {
 		const obj = document.getElementById('display-seconds');
-		this.displaySeconds = obj.options[obj.selectedIndex].text;
+		this.displaySeconds = obj.options[obj.selectedIndex].text === 'Yes';
 	}
 
 	/**
