@@ -57,12 +57,12 @@ export default class TaskItem extends HTMLElement {
 	}
 
 	/**
-	 * Gets the dragged task's and prepares it to be transferred to the dropped task.
+	 * Gets the dragged task's id and prepares it to be transferred to the dropped task.
 	 * @param {Event} event - Event of task item being dragged.
 	 */
 	drag(event) {
 		// Sets dragged task's ID as data to be transferred
-		event.dataTransfer.setData('text', event.target.id);
+		event.dataTransfer.setData('text/plain', event.target.id);
 	}
 
 	/**
