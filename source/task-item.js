@@ -1,4 +1,3 @@
-
 /**
  * A class representing a task item.
  */
@@ -21,26 +20,21 @@ export default class TaskItem extends HTMLElement {
 		const task = document.createElement('li');
 		task.setAttribute('class', 'task');
 		task.setAttribute('draggable', 'true');
-		task.style = "list-style-type:none; ";
+		task.style = 'list-style-type:none; ';
 
 		// Set name of task
 		const name = document.createElement('span');
 		name.innerHTML = '';
 		name.innerHTML += taskName;
-		name.style = "display:none;";
+		name.style = 'display:none;';
 		task.appendChild(name);
 
 		// Set estimated pomodoros
 		const count = document.createElement('span');
 		count.innerHTML = '';
 		count.innerHTML += pomoCount;
-		count.style = "display:none;";
+		count.style = 'display:none;';
 		task.appendChild(count);
-		/*
-				let selectTaskButtonData = document.createElement('td');
-				let selectTaskButtonData2 = document.createElement('td');
-				let removeTaskButtonData1 = document.createElement('td');
-		*/
 		// Set current pomodoro count
 		this.currPomos = currPomoCount;
 
@@ -60,17 +54,6 @@ export default class TaskItem extends HTMLElement {
 
 		// Add task to shadow DOM
 		shadow.appendChild(task);
-
-		/*
-		let style = document.createElement('style');
-
-		style.textContent = `
-			.task > button {}
-			visibility: visible;
-		`;
-
-		shadow.appendChild(style);
-		*/
 	}
 
 	drag(event) {
@@ -86,4 +69,5 @@ export default class TaskItem extends HTMLElement {
 		event.preventDefault();
 	}
 }
+
 customElements.define('task-item', TaskItem);

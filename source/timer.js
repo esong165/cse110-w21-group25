@@ -86,9 +86,9 @@ export default class Timer {
 			document.getElementById(this.buttonId).textContent = 'End Session';
 
 			this.onTask = true;
-			document.getElementById('TaskListBut').disabled = true;
+			document.getElementById('task-list-button').disabled = true;
 			document.getElementById('task-list').style.display = 'none';
-			document.getElementById('TaskListBut').innerHTML = 'Open Task List';
+			document.getElementById('task-list-button').innerHTML = 'Open Task List';
 		} else if (this.onTask === true) {
 			if (currentTime !== '00:00') {
 				// Reset pomodoro timer to work session length
@@ -96,7 +96,7 @@ export default class Timer {
 				this.$intervalId = null;
 				this.remaining = 25 * 60 * 1000;
 				document.getElementById(this.buttonId).textContent = 'Start Pomo';
-				document.getElementById('TaskListBut').disabled = false;
+				document.getElementById('task-list-button').disabled = false;
 			} else {
 				if (this.cycleCount % 4 === 0) {
 					// Start long break
@@ -117,10 +117,12 @@ export default class Timer {
 			this.remaining = 25 * 60 * 1000;
 			this.$startCounter();
 			this.onTask = true;
+			
 			document.getElementById(this.buttonId).textContent = 'End Session';
-			document.getElementById('TaskListBut').disabled = true;
+			document.getElementById('task-list-button').disabled = true;
+
 			document.getElementById('task-list').style.display = 'none';
-			document.getElementById('TaskListBut').innerHTML = 'Open Task List';
+			document.getElementById('task-list-button').innerHTML = 'Open Task List';
 		}
 	}
 
@@ -140,7 +142,7 @@ export default class Timer {
 				this.cycleCount++;
 			}
 			document.getElementById(this.buttonId).disabled = false;
-			document.getElementById('TaskListBut').disabled = false;
+			document.getElementById('task-list-button').disabled = false;
 		}
 	}
 }

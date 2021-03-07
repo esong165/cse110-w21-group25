@@ -1,230 +1,196 @@
-
-/* body */
 body {
-  /* background-color: rgb(184, 236, 184); short*/
-  /* background-color: rgb(170, 210, 247); long */ 
-  background-color: rgb(242, 197, 247); /*pomo*/
-  font-family: 'Open Sans', sans-serif;
-  padding-bottom: 0px;
+	background-color: rgb(242, 197, 247); /* pomo, short: 184, 236, 184; long: 170, 210, 247; */
+	font-family: 'Open Sans', sans-serif;
+	padding-bottom: 0;
 }
 
 #site-header {
-  text-align: center;
-  font-size: 300%;
-  margin-top: -20px;
+	text-align: center;
+	font-size: 300%;
+	margin-top: -20px;
 }
 
 html {
-  overflow-y: scroll;
+	overflow-y: scroll;
 }
 
-#site-header {
-  text-align: left;
+.taskbar-button {
+	height: 50px;
+	width: 50px;
 }
 
-/* task-bar-but */
-.taskbar-but{
-  height: 50px;
-  width: 50px;
+/* nav-buttons */
+
+#home-button {
+	padding: 20px;
+	outline: 0;
 }
 
-/*nav-buttons*/
-#HomeBut {
-  padding: 20px;
-  outline: 0;
+#stats-button {
+	padding: 20px;
+	outline: 0;
 }
-#StatsBut {
-  padding: 20px;
-  outline: 0;
+
+#settings-button {
+	padding: 20px;
+	outline: 0;
 }
-#SettingsBut {
-  padding: 20px;
-  outline: 0;
+
+#task-list-button {
+	padding: 20px;
+	outline: 0;
 }
-#TaskListBut {
-  padding: 20px;
-  outline: 0;
-}
-#FAQBut {
-  padding: 20px;
-  outline: 0;
+
+#faq-button {
+	padding: 20px;
+	outline: 0;
 }
 
 /* task-bar */
 #task-bar {
-  text-align: center;
-  margin: 0 auto;
-  vertical-align: middle;
-  padding-top: 0px;
+	text-align: center;
+	margin: 0 auto;
+	vertical-align: middle;
+	padding-top: 0;
 }
 
 /* timer */
-#current-task-container{
-  text-align: center;
-  margin-top: 30px;
-}
-
-#current-task { /* task name (english) */
-  /*font-family: 'sans-serif';*/
-  font-size: 250%;
-  display: inline-block;
-  margin: 0;
-}
-
-/* want to move done buttom more left don't know how*/
-.done-but{
-  height: 50px;
-  width: 50px;
-  padding-left: 10px;
-  margin: -25px;
-  outline: 0;
-}
-
-#time-remaining {
-  text-align: center;
-  font-size: 125px;
-  margin-top: 10px;
-  margin-bottom: 10px;
-}
-
-#mode-message {
-  text-align: center;
-  font-size: 150%;
-}
-
-#timerButtonContainer {
-  text-align: center;
-}
-
-#timer-button{
-  border-radius: 12px;
-  font-size: 170%;
-  padding: 2px, 2px, 8px, 8px;
-  width: 300px;
-  height: 60px;
-  outline: 0;
-}
-
-#timer-button:hover {
-  background-color: rgb(207, 207, 207);
-}
-
-
-/* task-list */
-#add-task-container {
-  text-align: center;
-}
-
-#task-list {
-  display: none;
-  /* Include some positioning */
-}
-
-#task-name {
-  text-align: center;
-}
-
-#new-task-name {
-  size: 20px;
-}
-
-#est-pomos {
-  text-align: center;
-}
-
-#new-task-count {
-  size: 20px;
-}
-
-#num-pomos{
-  display: none;
-}
-
-/* stats */
-#task-list {
-  display: none;
-  /* Include some positioning */
-}
-
-/* faq*/
-
-#faq {
-  display: flex;
-  justify-content: center;
-}
-
-#faq{
-  margin: 0 auto;
-  max-width: 50%;
-}
-
-#faq div{
-  max-width: 100%;
-}
-
-
-/*settings*/
-#task-list {
-  display: none;
-  /* Include some positioning */
-}
-
-#navButton {
-  text-align: center;
-  background-color: aquamarine;
-}
-
-#time-remaining {
-  text-align: center;
-  font-size: 750%;
-}
-
-#popup-button {
-  background-color: rgba(247, 108, 108, 0.932);
-  text-align: center;
-  display: inline-block;
-  font-size: 500%;
-  cursor: pointer;
-  padding: 20px 20px;
-}
-
-#done-button {
-
-  text-align: center;
-  display: inline-block;
-  font-size: 500%;
-  cursor: pointer;
-  padding: 20px 20px;
-}
-
-#popup-button:hover{
-  background-color: rgb(255, 0, 0);
-}
-
-#done-button:hover{
-  background-color: rgb(30, 255, 0);
+#current-task-container {
+	text-align: center;
+	margin-top: 30px;
 }
 
 #current-task {
-  text-align: center;
-  font-size: 300%;
+	display: inline-block;
+	font-size: 300%;
+	margin: 0;
+	text-align: center;
+}
+
+#time-remaining {
+	font-size: 750%;
+	margin-bottom: 10px;
+	margin-top: 10px;
+	text-align: center;
+}
+
+#mode-message {
+	text-align: center;
+	font-size: 150%;
+}
+
+#timer-button-container {
+	text-align: center;
+}
+
+#timer-button {
+	border-radius: 12px;
+	font-size: 170%;
+	padding: 2px, 2px, 8px, 8px;
+	width: 300px;
+	height: 60px;
+	outline: 0;
+}
+
+#timer-button:hover {
+	background-color: rgb(207, 207, 207);
+}
+
+/* task-list */
+#add-task-container {
+	text-align: center;
+}
+
+#task-list {
+	display: none; /* Include some positioning */
+}
+
+#task-name {
+	text-align: center;
+}
+
+#new-task-name {
+	size: 20px;
+}
+
+#est-pomos {
+	text-align: center;
+}
+
+#new-task-count {
+	size: 20px;
+}
+
+#faq {
+	display: flex;
+	justify-content: center;
+}
+
+#faq {
+	margin: 0 auto;
+	max-width: 50%;
+}
+
+#faq div {
+	max-width: 100%;
+}
+
+#task-list {
+	display: none; /* Include some positioning */
+}
+
+#navButton {
+	text-align: center;
+	background-color: aquamarine;
+}
+
+#popup-button {
+	background-color: rgba(247, 108, 108, 0.932);
+	text-align: center;
+	display: inline-block;
+	font-size: 500%;
+	cursor: pointer;
+	padding: 20px 20px;
+}
+
+#done-button {
+	cursor: pointer;
+	display: inline-block;
+	font-size: 500%;
+	height: 40px;
+	margin: -5px;
+	outline: 0;
+	padding-left: 20px;
+	text-align: center;
+	width: 40px;
+}
+
+#popup-button:hover {
+	background-color: rgb(255, 0, 0);
+}
+
+#done-button:hover {
+	background-color: rgb(30, 255, 0);
 }
 
 #num-pomos {
-  text-align: center;
-  font-size: 300%;
+	display: none;
+	font-size: 300%;
+	text-align: center;
 }
 
-table, th, td {
-  border: 1px solid black;
-  width: 42%;
-  text-align: center
+table,
+th,
+td {
+	border: 1px solid black;
+	width: 42%;
+	text-align: center;
 }
 
 .task-item {
-  list-style-type: none;
+	list-style-type: none;
 }
 
 #tasks-container {
-  text-align: center;
+	text-align: center;
 }

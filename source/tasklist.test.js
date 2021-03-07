@@ -32,11 +32,11 @@ document.body.innerHTML = `
     
     <main>
         <div id="task-bar">
-            <input type="image" src="images/home.png" name="Home" class="taskbar-but" id="HomeBut" title="Home" />
-            <input type="image" src="images/tasklist.png" name="TaskList" class="taskbar-but" id="TaskListBut" title="Tasklist" />
-            <input type="image" src="images/stats.png" name="Stats" class="taskbar-but" id="StatsBut" title="Statistics" />
-            <input type="image" src="images/faq.png" name="FAQ" class="taskbar-but" id="FAQBut" title="FAQ" />
-            <input type="image" src="images/settings.png" name="Settings" class="taskbar-but" id="SettingsBut" title="Settings" />    
+            <input type="image" src="images/home.png" name="Home" class="taskbar-button" id="home-button" title="Home" />
+            <input type="image" src="images/tasklist.png" name="TaskList" class="taskbar-button" id="task-list-button" title="Tasklist" />
+            <input type="image" src="images/stats.png" name="Stats" class="taskbar-button" id="stats-button" title="Statistics" />
+            <input type="image" src="images/faq.png" name="FAQ" class="taskbar-button" id="faq-button" title="FAQ" />
+            <input type="image" src="images/settings.png" name="Settings" class="taskbar-button" id="settings-button" title="Settings" />
         </div>
 
         <div id="timer">
@@ -52,7 +52,7 @@ document.body.innerHTML = `
             <p id="mode-message">Long Break in 3 Pomos</p>
             </section>
 
-            <div id="timerButtonContainer">
+            <div id="timer-button-container">
                 <button id="timer-button">Start</button>
             </div>
             <audio id="alarm" src="./air-horn.mp3"></audio>
@@ -71,8 +71,8 @@ document.body.innerHTML = `
                 <input type="submit" id="add-task-btn" value="Add Task">
             </form>
 
-            <table id="taskTable">
-                <tbody id="tbodyID">
+            <table id="task-table">
+                <tbody id="task-table-body">
                     <tr>
                         <th>Task Name: </th>
                         <th>Estimated Pomos: </th> 
@@ -130,105 +130,103 @@ document.body.innerHTML = `
    
 </body>
 </html>
-
-
 `;
 
 jest.spyOn(window, 'alert').mockImplementation(() => { });
 
 test('Constructor Test', () => {
-    localStorage.clear();
-    const tasklist = new Tasklist();
-    const emptyArr = [];
-    const selectedArr = ['Default', '1', '-1'];
-    expect((tasklist.$tasks)).toEqual(emptyArr);
-    expect((tasklist.$selected)).toEqual(selectedArr);
+	localStorage.clear();
+	const tasklist = new Tasklist();
+	const emptyArr = [];
+	const selectedArr = ['Default', '1', '-1'];
+	expect((tasklist.$tasks)).toEqual(emptyArr);
+	expect((tasklist.$selected)).toEqual(selectedArr);
 });
 
 /*
 test('Basic Add Tasks', () => {
-    localStorage.clear();
-    const tasklist = new Tasklist();
-    const addedTaskName = [];
-    const addedTaskPomo = [];
-    populateTasks(addedTaskName, addedTaskPomo, 10, 4, tasklist);
-    checkArrEquals(tasklist, addedTaskName, addedTaskPomo, length);
+	localStorage.clear();
+	const tasklist = new Tasklist();
+	const addedTaskName = [];
+	const addedTaskPomo = [];
+	populateTasks(addedTaskName, addedTaskPomo, 10, 4, tasklist);
+	checkArrEquals(tasklist, addedTaskName, addedTaskPomo, length);
 });
 
 test('Add Duplicate Tasks', () => {
-    localStorage.clear();
-    const tasklist = new Tasklist();
-    expect(tasklist.$tasks.length).toBe(0);
-    const name = 'Go to the mountain';
-    const time = 30;
-    for (let i = 0; i < 5; i++) {
-        tasklist.addTask(name, time);
-    }
-    expect(tasklist.$tasks.length).toBe(1);
-    expect(tasklist.$tasks[0][0]).toBe(name);
-    expect(tasklist.$tasks[0][1]).toBe(time);
+	localStorage.clear();
+	const tasklist = new Tasklist();
+	expect(tasklist.$tasks.length).toBe(0);
+	const name = 'Go to the mountain';
+	const time = 30;
+	for (let i = 0; i < 5; i++) {
+		tasklist.addTask(name, time);
+	}
+	expect(tasklist.$tasks.length).toBe(1);
+	expect(tasklist.$tasks[0][0]).toBe(name);
+	expect(tasklist.$tasks[0][1]).toBe(time);
 });
 
 test('Remove one Task', () => {
-    localStorage.clear();
-    const tasklist = new Tasklist();
-    const addedTaskName = [];
-    const addedTaskPomo = [];
-    populateTasks(addedTaskName, addedTaskPomo, 3, 4, tasklist);
-    expect(tasklist.$tasks.length).toBe(addedTaskName.length);
+	localStorage.clear();
+	const tasklist = new Tasklist();
+	const addedTaskName = [];
+	const addedTaskPomo = [];
+	populateTasks(addedTaskName, addedTaskPomo, 3, 4, tasklist);
+	expect(tasklist.$tasks.length).toBe(addedTaskName.length);
 
-    const indexToRemove = Math.floor(Math.random() * addedTaskName.length);
-    expect(tasklist.$tasks[indexToRemove][0]).toBe(addedTaskName[indexToRemove]);
-    tasklist.removeTask(tasklist.$tasks[indexToRemove][0]);
-    addedTaskName.pop();
-    addedTaskPomo.pop();
+	const indexToRemove = Math.floor(Math.random() * addedTaskName.length);
+	expect(tasklist.$tasks[indexToRemove][0]).toBe(addedTaskName[indexToRemove]);
+	tasklist.removeTask(tasklist.$tasks[indexToRemove][0]);
+	addedTaskName.pop();
+	addedTaskPomo.pop();
 
-    expect(tasklist.$tasks.length).toBe(addedTaskName.length);
-    checkArrEquals(tasklist, addedTaskName, addedTaskPomo, length);
+	expect(tasklist.$tasks.length).toBe(addedTaskName.length);
+	checkArrEquals(tasklist, addedTaskName, addedTaskPomo, length);
 });
 
 test('Remove All Tasks', () => {
-    localStorage.clear();
-    const tasklist = new Tasklist();
-    const addedTaskName = [];
-    const addedTaskPomo = [];
-    populateTasks(addedTaskName, addedTaskPomo, 10, 4, tasklist);
-    expect(tasklist.$tasks.length).toBe(addedTaskName.length);
-    while (addedTaskName.length > length / 2) {
-        const indexToRemove = Math.floor(Math.random() * addedTaskName.length);
-        tasklist.removeTask(addedTaskName[indexToRemove]);
-        addedTaskName.splice(indexToRemove, 1);
-        addedTaskPomo.splice(indexToRemove, 1);
-    }
-    expect(tasklist.$tasks.length).toBe(addedTaskName.length);
-    checkArrEquals(tasklist, addedTaskName, addedTaskPomo, length);
+	localStorage.clear();
+	const tasklist = new Tasklist();
+	const addedTaskName = [];
+	const addedTaskPomo = [];
+	populateTasks(addedTaskName, addedTaskPomo, 10, 4, tasklist);
+	expect(tasklist.$tasks.length).toBe(addedTaskName.length);
+	while (addedTaskName.length > length / 2) {
+		const indexToRemove = Math.floor(Math.random() * addedTaskName.length);
+		tasklist.removeTask(addedTaskName[indexToRemove]);
+		addedTaskName.splice(indexToRemove, 1);
+		addedTaskPomo.splice(indexToRemove, 1);
+	}
+	expect(tasklist.$tasks.length).toBe(addedTaskName.length);
+	checkArrEquals(tasklist, addedTaskName, addedTaskPomo, length);
 
-    while (addedTaskName.length > 0) {
-        tasklist.removeTask(addedTaskName[0]);
-        addedTaskName.splice(0, 1);
-        addedTaskPomo.splice(0, 1);
-    }
-    expect(tasklist.$tasks.length).toBe(0);
+	while (addedTaskName.length > 0) {
+		tasklist.removeTask(addedTaskName[0]);
+		addedTaskName.splice(0, 1);
+		addedTaskPomo.splice(0, 1);
+	}
+	expect(tasklist.$tasks.length).toBe(0);
 });
 
 function populateTasks(nameArr, countArr, length, nameLength, tasklist) {
-    for (let j = 0; j < length; j++) {
-        let name = '';
-        const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*()-_=+`~,<.>/?;:\'"\\[]{}';
-        for (let i = 0; i < nameLength; i++) {
-            name += characters.charAt(Math.floor(Math.random() * characters.length));
-        }
-        nameArr.push(name);
-        const time = (Math.floor(Math.random() * 99) + 1).toString(10);
-        countArr.push(time);
-        tasklist.addTask(name, time);
-    }
+	for (let j = 0; j < length; j++) {
+		let name = '';
+		const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*()-_=+`~,<.>/?;:\'"\\[]{}';
+		for (let i = 0; i < nameLength; i++) {
+			name += characters.charAt(Math.floor(Math.random() * characters.length));
+		}
+		nameArr.push(name);
+		const time = (Math.floor(Math.random() * 99) + 1).toString(10);
+		countArr.push(time);
+		tasklist.addTask(name, time);
+	}
 }
 
 function checkArrEquals(tasklist, nameArr, countArr, length) {
-    for (let i = 0; i < length; i++) {
-        expect(tasklist.$tasks[i][0]).toBe(nameArr[i]);
-        expect(tasklist.$tasks[i][1]).toBe(countArr[i]);
-    }
+	for (let i = 0; i < length; i++) {
+		expect(tasklist.$tasks[i][0]).toBe(nameArr[i]);
+		expect(tasklist.$tasks[i][1]).toBe(countArr[i]);
+	}
 }
 */
