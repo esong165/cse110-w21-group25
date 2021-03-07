@@ -26,7 +26,7 @@ export default class Settings {
 	 */
 	getPomoLength() {
 		const obj = document.getElementById('pomo-length');
-		document.getElementById('time-remaining').innerHTML = obj.options[obj.selectedIndex].text;
+		window.app.timer.remaining = Number(obj.options[obj.selectedIndex].text.substr(0, 2)) * 60 * 1000;
 	}
 
 	/**
