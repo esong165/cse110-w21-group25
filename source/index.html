@@ -12,6 +12,7 @@
 	<header>
 		<h1 id="site-header">Pomodoro Timer</h1>
 	</header>
+
 	<main>
 		<nav id="task-bar">
 			<img src="images/home.png" id="home-button" class="taskbar-button" alt="Home" title="Home" />
@@ -63,7 +64,26 @@
 		</div>
 		<div id="stats">
 		</div>
-		<div id="settings">
+		<div id="settings" style="display:none">
+			<form>
+				Choose the length of the one pomo:
+				<select id="pomo-length">
+					<option>20:00</option>
+					<option>25:00</option>
+					<option>30:00</option>
+					<option>35:00</option>
+				</select>
+				<br />
+			</form>
+			<form>
+				Display seconds:
+				<select id="display-seconds">
+					<option>Yes</option>
+					<option>No</option>
+				</select>
+				<br />
+			</form>
+			<input type="button" id="confirm-settings" value="Confirm Selection!">
 		</div>
 		<div id="faq">
 			<h3>Where do I get started?</h3>
@@ -72,6 +92,7 @@
 				<li> Click on the task you would like to work on. </li>
 				<li> Start Timer!</li>
 			</ol>
+
 
 			<h3>What is a Pomodoro Timer?</h3>
 			<p>A Pomodoro timer is a time-management technique. One Pomodoro is a 25 min work session followed by a 5
@@ -85,6 +106,7 @@
 				In order to add a task, you only need to specify task name and estimated pomo #.
 				Once all tasks are added, select one to start with!</p>
 
+
 			<h3>How to see completed tasks?</h3>
 			<p>Visit the statistics tab on the page to view a list of completed tasks and other stats.</p>
 
@@ -93,6 +115,7 @@
 		</div>
 	</main>
 	<script src="./task-item.js" type="module"></script>
+	<script src="./settings.js" type="module"></script>
 	<script src="./timer.js" type="module"></script>
 	<script src="./tasklist.js" type="module"></script>
 	<script src="./main.js"></script>
