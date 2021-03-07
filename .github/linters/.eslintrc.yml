@@ -35,7 +35,6 @@ extends: standard
 #########
 rules: {
   "no-tabs": 0,
-  "no-undef": "off",
   "semi": ["error", "always"],
   "indent": ["error", "tab"],
   "space-before-function-paren": ["error", "never"],
