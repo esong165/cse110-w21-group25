@@ -20,26 +20,32 @@ export default class TaskItem extends HTMLElement {
 		const task = document.createElement('li');
 		task.setAttribute('class', 'task');
 		task.setAttribute('draggable', 'true');
+		task.style = 'list-style-type:none; ';
 
 		// Set name of task
 		const name = document.createElement('span');
 		name.innerHTML = '';
 		name.innerHTML += taskName;
+		name.style = 'display:none;';
 		task.appendChild(name);
 
 		// Set estimated pomodoros
 		const count = document.createElement('span');
 		count.innerHTML = '';
 		count.innerHTML += pomoCount;
+		count.style = 'display:none;';
 		task.appendChild(count);
-
 		// Set current pomodoro count
 		this.currPomos = currPomoCount;
 
 		// Select task button note: considering making this a radio option or making the text a clickable button
 		const selectTaskButton = document.createElement('button');
-		selectTaskButton.innerHTML = 'Select';
+		selectTaskButton.innerHTML = taskName;
 		task.appendChild(selectTaskButton);
+
+		const selectPomoButton = document.createElement('button');
+		selectPomoButton.innerHTML = pomoCount;
+		task.appendChild(selectPomoButton);
 
 		// Remove task button
 		const removeTaskButton = document.createElement('button');
@@ -48,17 +54,6 @@ export default class TaskItem extends HTMLElement {
 
 		// Add task to shadow DOM
 		shadow.appendChild(task);
-
-		/*
-		let style = document.createElement('style');
-
-		style.textContent = `
-			.task > button {}
-			visibility: visible;
-		`;
-
-		shadow.appendChild(style);
-		*/
 	}
 
 	drag(event) {
@@ -74,4 +69,5 @@ export default class TaskItem extends HTMLElement {
 		event.preventDefault();
 	}
 }
+
 customElements.define('task-item', TaskItem);

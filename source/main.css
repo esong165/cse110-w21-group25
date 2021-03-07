@@ -1,9 +1,196 @@
+body {
+	background-color: rgb(242, 197, 247); /* pomo, short: 184, 236, 184; long: 170, 210, 247; */
+	font-family: 'Open Sans', sans-serif;
+	padding-bottom: 0;
+}
+
 #site-header {
-  text-align: center;
+	text-align: center;
+	font-size: 300%;
+	margin-top: -20px;
+}
+
+html {
+	overflow-y: scroll;
+}
+
+.taskbar-button {
+	height: 50px;
+	width: 50px;
+}
+
+/* nav-buttons */
+
+#home-button {
+	padding: 20px;
+	outline: 0;
+}
+
+#stats-button {
+	padding: 20px;
+	outline: 0;
+}
+
+#settings-button {
+	padding: 20px;
+	outline: 0;
+}
+
+#task-list-button {
+	padding: 20px;
+	outline: 0;
+}
+
+#faq-button {
+	padding: 20px;
+	outline: 0;
+}
+
+/* task-bar */
+#task-bar {
+	text-align: center;
+	margin: 0 auto;
+	vertical-align: middle;
+	padding-top: 0;
+}
+
+/* timer */
+#current-task-container {
+	text-align: center;
+	margin-top: 30px;
+}
+
+#current-task {
+	display: inline-block;
+	font-size: 300%;
+	margin: 0;
+	text-align: center;
+}
+
+#time-remaining {
+	font-size: 750%;
+	margin-bottom: 10px;
+	margin-top: 10px;
+	text-align: center;
+}
+
+#mode-message {
+	text-align: center;
+	font-size: 150%;
+}
+
+#timer-button-container {
+	text-align: center;
+}
+
+#timer-button {
+	border-radius: 12px;
+	font-size: 170%;
+	padding: 2px, 2px, 8px, 8px;
+	width: 300px;
+	height: 60px;
+	outline: 0;
+}
+
+#timer-button:hover {
+	background-color: rgb(207, 207, 207);
+}
+
+/* task-list */
+#add-task-container {
+	text-align: center;
 }
 
 #task-list {
-  display: none;
+	display: none; /* Include some positioning */
+}
 
-  /* Include some positioning */
+#task-name {
+	text-align: center;
+}
+
+#new-task-name {
+	size: 20px;
+}
+
+#est-pomos {
+	text-align: center;
+}
+
+#new-task-count {
+	size: 20px;
+}
+
+#faq {
+	display: flex;
+	justify-content: center;
+}
+
+#faq {
+	margin: 0 auto;
+	max-width: 50%;
+}
+
+#faq div {
+	max-width: 100%;
+}
+
+#task-list {
+	display: none; /* Include some positioning */
+}
+
+#navButton {
+	text-align: center;
+	background-color: aquamarine;
+}
+
+#popup-button {
+	background-color: rgba(247, 108, 108, 0.932);
+	text-align: center;
+	display: inline-block;
+	font-size: 500%;
+	cursor: pointer;
+	padding: 20px 20px;
+}
+
+#done-button {
+	cursor: pointer;
+	display: inline-block;
+	font-size: 500%;
+	height: 40px;
+	margin: -5px;
+	outline: 0;
+	padding-left: 20px;
+	text-align: center;
+	width: 40px;
+}
+
+#popup-button:hover {
+	background-color: rgb(255, 0, 0);
+}
+
+#done-button:hover {
+	background-color: rgb(30, 255, 0);
+}
+
+#num-pomos {
+	display: none;
+	font-size: 300%;
+	text-align: center;
+}
+
+table,
+th,
+td {
+	border: 1px solid black;
+	width: 42%;
+	text-align: center;
+}
+
+.task-item {
+	list-style-type: none;
+}
+
+#tasks-container {
+	text-align: center;
 }
