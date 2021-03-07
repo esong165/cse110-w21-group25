@@ -46,7 +46,7 @@ rules: {
 # Overrides #
 #############
 overrides: [{
-  "files": [ "/cypress/*" ],
+  "files": [ "../../cypress/*" ],
   "rules": {
     "no-undef": "off"
   }
