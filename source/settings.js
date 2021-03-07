@@ -5,7 +5,7 @@ export default class Settings {
 	/**
 	 * Changes the current page to the settings page
 	 */
-	constructor() {
+	toSettings() {
 		document.getElementById('timer').style.display = 'none';
 		document.getElementById('task-list').style.display = 'none';
 		document.getElementById('stats').style.display = 'none';
@@ -18,7 +18,7 @@ export default class Settings {
 	 */
 	getTimerStyle() {
 		const obj = document.getElementById('display-seconds');
-		document.getElementById('identify').innerHTML = obj.options[obj.selectedIndex].text;
+		this.displaySeconds = obj.options[obj.selectedIndex].text;
 	}
 
 	/**
@@ -74,22 +74,26 @@ export default class Settings {
 	}
 }
 
-document.getElementById('settings-button').addEventListener('click', () => {
-	const a = new Settings();
+document.addEventListener('DOMContentLoaded', () => {
+	if (window.app === undefined) window.app = {};
+	window.app.settings = new Settings();
+	document.getElementById('settings-button').addEventListener('click', () => {
+		window.app.settings.toSettings();
+	});
 	document.getElementById('confirm-settings').addEventListener('click', () => {
-		a.getPomoLength();
-		a.getTimerStyle();
+		window.app.settings.getPomoLength();
+		window.app.settings.getTimerStyle();
 	});
 	document.getElementById('home-button').addEventListener('click', () => {
-		a.toHome();
+		window.app.settings.toHome();
 	});
 	document.getElementById('task-list-button').addEventListener('click', () => {
-		a.toTaskList();
+		window.app.settings.toTaskList();
 	});
 	document.getElementById('stats-button').addEventListener('click', () => {
-		a.toStats();
+		window.app.settings.toStats();
 	});
 	document.getElementById('faq-button').addEventListener('click', () => {
-		a.toFaq();
+		window.app.settings.toFaq();
 	});
 });

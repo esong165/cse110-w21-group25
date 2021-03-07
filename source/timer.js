@@ -30,7 +30,11 @@ export default class Timer {
 	 */
 	set remaining(time) {
 		this.$remaining = time;
-		document.getElementById('time-remaining').textContent = Timer.$format(time);
+		if (window.app.settings.displaySeconds === 'Yes') {
+			document.getElementById('time-remaining').textContent = Timer.$format(time);
+		} else {
+			document.getElementById('time-remaining').textContent = Timer.$formatShort(time);
+		}
 	}
 
 	/**
@@ -48,6 +52,14 @@ export default class Timer {
 			formatted = isoDate.substr(17, 5);
 		}
 		return formatted;
+	}
+
+	/**
+	 * Formats the given time to the form mm.
+	 * @param {Number} time - the time, in miliseconds, to format
+	 */
+	static $formatShort(time) {
+		return this.$format(time).substr(0, 2);
 	}
 
 	/**
