@@ -119,7 +119,11 @@ export default class Timer {
 			}
 		};
 		this.$status = this.Status.COUNTDOWN;
-		if (this.state !== this.State.POMO) document.getElementById(this.$buttonId).disabled = true;
+		if (this.state !== this.State.POMO) {
+			document.getElementById(this.$buttonId).disabled = true;
+			const breakType = this.state === this.State.SHORT_BREAK ? 'short' : 'long';
+			document.getElementById(this.$stateMessageId).textContent = `Taking a ${breakType} break.`;
+		}
 		this.$intervalId = setInterval(tick, 1000);
 		setTimeout(tick, 0);
 	}

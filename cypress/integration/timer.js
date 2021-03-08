@@ -21,7 +21,7 @@ describe('Timer tests', () => {
 		cy.get('#timer-button').should('be.enabled');
 		cy.wait(3000);
 		cy.get('#time-remaining').should('have.text', '00:01');
-		cy.get('#timer-state-message').should('have.text', 'Taking a short break.');
+		cy.get('#timer-state-message').should('have.text', 'Take a short break.');
 		cy.get('#timer-button').should('have.text', 'Start Short Break');
 		cy.get('#timer-button').should('be.enabled');
 		cy.get('#timer-button').click();
@@ -42,7 +42,7 @@ describe('Timer tests', () => {
 		cy.get('#timer-button').should('be.enabled');
 		cy.wait(3000);
 		cy.get('#time-remaining').should('have.text', '00:01');
-		cy.get('#timer-state-message').should('have.text', 'Taking a short break.');
+		cy.get('#timer-state-message').should('have.text', 'Take a short break.');
 		cy.get('#timer-button').should('have.text', 'Start Short Break');
 		cy.get('#timer-button').should('be.enabled');
 		cy.get('#timer-button').click();
@@ -63,7 +63,7 @@ describe('Timer tests', () => {
 		cy.get('#timer-button').should('be.enabled');
 		cy.wait(3000);
 		cy.get('#time-remaining').should('have.text', '00:01');
-		cy.get('#timer-state-message').should('have.text', 'Taking a short break.');
+		cy.get('#timer-state-message').should('have.text', 'Take a short break.');
 		cy.get('#timer-button').should('have.text', 'Start Short Break');
 		cy.get('#timer-button').should('be.enabled');
 		cy.get('#timer-button').click();
@@ -84,7 +84,7 @@ describe('Timer tests', () => {
 		cy.get('#timer-button').should('be.enabled');
 		cy.wait(3000);
 		cy.get('#time-remaining').should('have.text', '00:02');
-		cy.get('#timer-state-message').should('have.text', 'Taking a long break.');
+		cy.get('#timer-state-message').should('have.text', 'Take a long break.');
 		cy.get('#timer-button').should('have.text', 'Start Long Break');
 		cy.get('#timer-button').should('be.enabled');
 		cy.get('#timer-button').click();
