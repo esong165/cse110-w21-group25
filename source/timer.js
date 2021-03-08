@@ -16,7 +16,7 @@ export default class Timer {
 			this.State.POMO,
 			this.State.SHORT_BREAK,
 			this.State.POMO,
-			this.State.LONG_BREAK,
+			this.State.LONG_BREAK
 		]);
 		this.$cycle = 0;
 		this.$status = this.Status.PAUSED;
@@ -29,14 +29,14 @@ export default class Timer {
 	 * Gets the possible timer states.
 	 */
 	get State() {
-		return Object.freeze({ "POMO": 1, "SHORT_BREAK": 2, "LONG_BREAK": 3 });
+		return Object.freeze({ POMO: 1, SHORT_BREAK: 2, LONG_BREAK: 3 });
 	}
 
 	/**
 	 * Gets the possible timer statuses.
 	 */
 	get Status() {
-		return Object.freeze({ "PAUSED": 1, "COUNTDOWN": 2 });
+		return Object.freeze({ PAUSED: 1, COUNTDOWN: 2 });
 	}
 
 	/**
@@ -128,28 +128,28 @@ export default class Timer {
 		this.$status = this.Status.PAUSED;
 
 		switch (this.state) {
-			case this.State.POMO:
-				this.remaining = window.app.settings.pomoTime;
-				break;
-			case this.State.SHORT_BREAK:
-				this.remaining = window.app.settings.shortBreakTime;
-				break;
-			case this.State.LONG_BREAK:
-				this.remaining = window.app.settings.longBreakTime;
-				break;
+		case this.State.POMO:
+			this.remaining = window.app.settings.pomoTime;
+			break;
+		case this.State.SHORT_BREAK:
+			this.remaining = window.app.settings.shortBreakTime;
+			break;
+		case this.State.LONG_BREAK:
+			this.remaining = window.app.settings.longBreakTime;
+			break;
 		}
 
-		let button = document.getElementById(this.$buttonId);
+		const button = document.getElementById(this.$buttonId);
 		switch (this.state) {
-			case this.State.POMO:
-				button.textContent = 'Start Pomo';
-				break;
-			case this.State.SHORT_BREAK:
-				button.textContent = 'Start Short Break';
-				break;
-			case this.State.LONG_BREAK:
-				button.textContent = 'Start Long Break';
-				break;
+		case this.State.POMO:
+			button.textContent = 'Start Pomo';
+			break;
+		case this.State.SHORT_BREAK:
+			button.textContent = 'Start Short Break';
+			break;
+		case this.State.LONG_BREAK:
+			button.textContent = 'Start Long Break';
+			break;
 		}
 		document.getElementById(this.$buttonId).disabled = false;
 		document.getElementById('task-list-button').style.display = 'inline-block';
@@ -174,7 +174,7 @@ export default class Timer {
 	notifySettingsChanged() {
 		if (this.status === this.Status.COUNTDOWN) return;
 		// refresh remaining time format immediately in case it changed
-		this.remaining = this.remaining;
+		this.remaining = this.$remaining;
 		this.$initCycle();
 	}
 }
