@@ -106,7 +106,6 @@ export default class Timer {
 	$startCounter() {
 		if (this.$intervalId !== null) return;
 		const tick = () => {
-			this.remaining -= 1000;
 			if (this.remaining === 0) {
 				if (this.state === this.State.POMO) {
 					const currTaskId = document.getElementById('current-task').value;
@@ -115,12 +114,14 @@ export default class Timer {
 				this.$cycle = (this.$cycle + 1) % this.$CYCLES.length;
 				this.$initCycle();
 				document.getElementById('alarm').play();
+			} else {
+				this.remaining -= 1000;
 			}
 		};
 		this.$status = this.Status.COUNTDOWN;
 		if (this.state !== this.State.POMO) document.getElementById(this.$buttonId).disabled = true;
 		this.$intervalId = setInterval(tick, 1000);
-		tick();
+		setTimeout(tick, 0);
 	}
 
 	$initCycle() {
