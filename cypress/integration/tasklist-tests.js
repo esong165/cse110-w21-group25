@@ -19,6 +19,7 @@ describe('Tasklist Tests', () => {
 		cy.get('#new-task-name').clear().type('Simple Task');
 		cy.get('#new-task-count').clear().type('3');
 		cy.get('#add-task-btn').click();
+		cy.get('#tasks-container').children().should('have.length', 1);
 		cy.get('#tasks-container').children().eq(0).as('task');
 		cy.get('@task').then($el => { expect($el).to.have.id('_Simple Task'); });
 		cy.get('@task').shadow().children().first().children().eq(0).should('have.text', 'Simple Task');
@@ -71,23 +72,4 @@ describe('Tasklist Tests', () => {
 	   });
 	   cy.get('#current-task').should('have.text', 'Second Task');
 	});
-
-	/*
-	it('Updating currPomos of Selected Task', () => {
-		cy.get('#task-list-button').click();
-		cy.get('#new-task-name').clear().type('Long Task');
-		cy.get('#new-task-count').clear().type('6');
-		cy.get('#add-task-btn').click();
-		cy.get('#tasks-container').children().eq(0).shadow().children().eq(0).children().eq(2).click();
-		cy.get('#home-button').click();
-		cy.get('#timer-button').click();
-		cy.tick(25 * 60 * 1000);
-		cy.get('#task-list-button').click();
-		cy.get('#tasks-container').then($el => {
-			expect($el.get(0).$tasks[0][2]).to.eq(1);
-			expect($el.get(0).$selected[2]).to.eq(1);
-		});
-		cy.get('#tasks-container').children().eq(0).then($el => { expect($el.get(0).currPomos).to.eq(1) });
-	});
-	*/
 });
