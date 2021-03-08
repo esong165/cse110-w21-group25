@@ -134,7 +134,7 @@ export default class Timer {
 		const button = document.getElementById(this.$buttonId);
 		const stateMessage = document.getElementById(this.$stateMessageId);
 		switch (this.state) {
-		case this.State.POMO:
+		case this.State.POMO: {
 			this.remaining = window.app.settings.pomoTime;
 			button.textContent = 'Start Pomo';
 
@@ -155,13 +155,14 @@ export default class Timer {
 					}
 					break;
 				}
-			} while (i != this.$cycle);
+			} while (i !== this.$cycle);
 
 			if (i === this.$cycle) {
 				stateMessage.textContent = 'No long break in sight.';
 			}
 
 			break;
+		}
 		case this.State.SHORT_BREAK:
 			this.remaining = window.app.settings.shortBreakTime;
 			stateMessage.textContent = 'Take a short break.';
