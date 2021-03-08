@@ -8,14 +8,21 @@ export default class Timer {
 	 */
 	constructor(buttonId, clockId) {
 		this.remaining = window.app.settings.pomoTime;
-		this.$state = this.State.POMO;
+		this.$CYCLES = Object.freeze([
+			this.State.POMO,
+			this.State.SHORT_BREAK,
+			this.State.POMO,
+			this.State.SHORT_BREAK,
+			this.State.POMO,
+			this.State.SHORT_BREAK,
+			this.State.POMO,
+			this.State.LONG_BREAK,
+		]);
+		this.$cycle = 0;
 		this.$status = this.Status.PAUSED;
 		this.$intervalId = null;
 		this.$buttonId = buttonId;
 		this.$clockId = clockId;
-		this.$cycle = 0;
-		this.buttonClick.bind(this);
-		this.updateButton.bind(this);
 	}
 
 	/**
@@ -36,13 +43,13 @@ export default class Timer {
 	 * Gets the current state.
 	 */
 	get state() {
-		return this.$state;
+		return this.$CYCLES[this.$cycle];
 	}
 
 	/**
 	 * Gets the current status.
 	 */
-	get state() {
+	get status() {
 		return this.$status;
 	}
 
@@ -101,82 +108,74 @@ export default class Timer {
 					const currTaskId = document.getElementById('current-task').value;
 					document.getElementById('tasks-container').updateCurrPomos(currTaskId);
 				}
-				this.updateButton();
-				clearInterval(this.$intervalId);
-				this.$intervalId = null;
+				this.$cycle = (this.$cycle + 1) % this.$CYCLES.length;
+				this.$initCycle();
 				document.getElementById('alarm').play();
 			}
 		};
+		this.$status = this.Status.COUNTDOWN;
+		if (this.state !== this.State.POMO) document.getElementById(this.$buttonId).disabled = true;
 		this.$intervalId = setInterval(tick, 1000);
 		tick();
 	}
 
-	buttonClick() {
-		// Timer hasnt begun yet
-		if (this.$cycle === 0 && this.state === this.State.POMO) {
-			this.remaining = window.app.settings.pomoTime;
-			this.$startCounter();
-			document.getElementById(this.$buttonId).textContent = 'Fail Task';
-			this.$countingDown = true;
-			document.getElementById('task-list-button').disabled = true;
-			document.getElementById('task-list').style.display = 'none';
-			document.getElementById('task-list-button').innerHTML = 'Open Task List';
-		} else if (this.state !== this.State.POMO) {
-			if (this.remaining !== 0) {
-				clearInterval(this.$intervalId);
-				this.$intervalId = null;
-				this.remaining = window.app.settings.pomoTime;
-				document.getElementById(this.$buttonId).textContent = 'Start Pomo';
-				document.getElementById('task-list-button').disabled = false;
-			} else {
-				if (this.$cycle % 4 === 0) {
-					this.remaining = window.app.settings.longBreakTime;
-					this.$startCounter();
-					document.getElementById(this.$buttonId).disabled = true;
-				} else {
-					// Start short break
-					this.remaining = window.app.settings.shortBreakTime;
-					this.$startCounter();
-					document.getElementById(this.$buttonId).disabled = true;
-				}
-			}
-			this.$countingDown = false;
-		} else if (this.$countingDown === false) {
-			this.remaining = window.app.settings.pomoTime;
-			this.$startCounter();
-			this.$countingDown = true;
-			document.getElementById(this.$buttonId).textContent = 'Fail Task';
-			document.getElementById('task-list-button').disabled = true;
-			document.getElementById('task-list').style.display = 'none';
-			document.getElementById('task-list-button').innerHTML = 'Open Task List';
+	$initCycle() {
+		if (this.$intervalId !== null) {
+			clearInterval(this.$intervalId);
+			this.$intervalId = null;
 		}
+
+		this.$status = this.Status.PAUSED;
+
+		switch (this.state) {
+			case this.State.POMO:
+				this.remaining = window.app.settings.pomoTime;
+				break;
+			case this.State.SHORT_BREAK:
+				this.remaining = window.app.settings.shortBreakTime;
+				break;
+			case this.State.LONG_BREAK:
+				this.remaining = window.app.settings.longBreakTime;
+				break;
+		}
+
+		let button = document.getElementById(this.$buttonId);
+		switch (this.state) {
+			case this.State.POMO:
+				button.textContent = 'Start Pomo';
+				break;
+			case this.State.SHORT_BREAK:
+				button.textContent = 'Start Short Break';
+				break;
+			case this.State.LONG_BREAK:
+				button.textContent = 'Start Long Break';
+				break;
+		}
+		document.getElementById(this.$buttonId).disabled = false;
+		document.getElementById('task-list-button').style.display = 'inline-block';
+		document.getElementById('stats-button').style.display = 'inline-block';
 	}
 
-	updateButton() {
-		if (this.$remaining !== 0) {
-			if (this.$countingDown === false) {
-				document.getElementById(this.$buttonId).textContent = 'Start Pomo';
-			} else {
-				if (this.$cycle === 3) {
-					document.getElementById(this.$buttonId).textContent = 'Start Long Break';
-				} else {
-					document.getElementById(this.$buttonId).textContent = 'Start Short Break';
-				}
-				this.$cycle++;
+	buttonClick() {
+		if (this.status === this.Status.PAUSED) {
+			this.$startCounter();
+			this.$status = this.Status.COUNTDOWN;
+			if (this.state === this.State.POMO) {
+				document.getElementById(this.$buttonId).textContent = 'Cancel Pomo';
+				document.getElementById('task-list-button').style.display = 'none';
+				document.getElementById('stats-button').style.display = 'none';
 			}
-			document.getElementById(this.$buttonId).disabled = false;
-			document.getElementById('task-list-button').disabled = false;
+		} else {
+			// must be in pomo since the button is only clickable in countdown status during pomo
+			this.$initCycle();
 		}
 	}
 
 	notifySettingsChanged() {
-		if (this.status === this.Status.PAUSED) {
-			switch (this.state) {
-				case this.State.POMO:
-					this.remaining = window.app.settings.pomoTime;
-					break;
-			}
-		}
+		if (this.status === this.Status.COUNTDOWN) return;
+		// refresh remaining time format immediately in case it changed
+		this.remaining = this.remaining;
+		this.$initCycle();
 	}
 }
 

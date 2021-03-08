@@ -6,6 +6,7 @@ export default class Settings {
 		this.pomoTime = 25 * 60 * 1000;
 		this.shortBreakTime = 5 * 60 * 1000;
 		this.longBreakTime = 15 * 60 * 1000;
+		this.displaySeconds = true;
 	}
 
 	/**
