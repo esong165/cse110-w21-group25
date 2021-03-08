@@ -1,5 +1,6 @@
 describe('Tasklist Tests', () => {
 	beforeEach(() => {
+		cy.clock();
 		cy.visit('/source/index.html');
 		cy.clearLocalStorage();
 	});
@@ -80,7 +81,7 @@ describe('Tasklist Tests', () => {
 		cy.get('#tasks-container').children().eq(0).shadow().children().eq(0).children().eq(2).click();
 		cy.get('#home-button').click();
 		cy.get('#timer-button').click();
-		cy.clock().tick(25 * 60 * 1000);
+		cy.tick(25 * 60 * 1000 + 1);
 		cy.get('#task-list-button').click();
 		cy.get('#tasks-container').then($el => {
 			expect($el.get(0).$tasks[0][2]).to.eq(1);
