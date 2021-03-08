@@ -145,11 +145,8 @@ export default class Tasklist extends HTMLUListElement {
 		const task = document.getElementById(taskId);
 
 		// Update tasklist display
-		if (task != null) {
-			taskContainer.removeChild(task);
-		} else {
-			return;
-		}
+		if (task === null) return;
+		taskContainer.removeChild(task);
 
 		// Remove task from $tasks instance variable
 		this.$tasks = arrayRemove(this.$tasks, taskId.substring(1));
