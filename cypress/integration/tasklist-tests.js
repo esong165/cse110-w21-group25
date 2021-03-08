@@ -6,10 +6,10 @@ describe('Tasklist Tests', () => {
 
 	it('Defaults', () => {
 		cy.get('#tasks-container').then($el => {
-			expect($el.$tasks).should('have.length', 0);
-			expect($el.$selected[0]).to.eq('Default');
-			expect($el.$selected[1]).to.eq(1);
-			expect($el.$selected[2]).to.eq(-1);
+			expect($el.$tasks).to.be.empty;
+			expect($el.get(0).$selected[0]).to.eq('Default');
+			expect($el.get(0).$selected[1]).to.eq(1);
+			expect($el.get(0).$selected[2]).to.eq(-1);
 		});
 		cy.get('#current-task').should('have.text', 'Default');
 	});
@@ -34,9 +34,9 @@ describe('Tasklist Tests', () => {
 		cy.get('#add-task-btn').click();
 		cy.get('#tasks-container').children().eq(0).click({ force: true });
 		cy.get('#tasks-container').then($el => {
-			 expect($el.$selected[0]).to.eq('New Task'); 
-			 expect($el.$selected[1]).to.eq(1);
-			 expect($el.$selected[2]).to.eq(0);
+			 expect($el.get(0).$selected[0]).to.eq('New Task'); 
+			 expect($el.get(0).$selected[1]).to.eq(1);
+			 expect($el.get(0).$selected[2]).to.eq(0);
 		});
 		cy.get('#current-task').should('have.text', 'Simple Task');
 	});
@@ -46,8 +46,8 @@ describe('Tasklist Tests', () => {
 		cy.get('#new-task-name').clear().type('Task');
 		cy.get('#new-task-count').clear().type('3');
 		cy.get('#add-task-btn').click();
-		cy.get('#Task').children().eq(4).click();
-		cy.get('#tasks-container').should('have.length', 0);
+		cy.get('#tasks-container').children().eq(0).get(0).children().eq(4).click();
+		cy.get('#tasks-container').to.be.empty;
 	});
 
 	it('Remove Selected Task', () => {
