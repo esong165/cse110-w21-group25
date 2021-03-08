@@ -64,7 +64,7 @@ describe('Tasklist Tests', () => {
 		cy.get('#tasks-container').children().should('have.length', 1);
 		cy.get('#tasks-container').then($el => {
 			expect($el.get(0).$selected[0]).to.eq('Second Task'); 
-			expect($el.get(0).$selected[1]).to.eq(2);
+			expect($el.get(0).$selected[1]).to.eq('2');
 			expect($el.get(0).$selected[2]).to.eq(0);
 	   });
 	   cy.get('#current-task').should('have.text', 'Second Task');
