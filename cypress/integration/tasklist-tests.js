@@ -31,7 +31,7 @@ describe('Tasklist Tests', () => {
 		cy.get('#new-task-name').clear().type('New Task');
 		cy.get('#new-task-count').clear().type('1');
 		cy.get('#add-task-btn').click();
-		cy.get('#tasks-container').children().eq(0).shadow().children().eq(2).get(0).click();
+		cy.get('#tasks-container').children().eq(0).shadow().children().get(2).click();
 		cy.get('#tasks-container').then($el => {
 			expect($el.get(0).$selected[0]).to.eq('New Task');
 			expect($el.get(0).$selected[1]).to.eq('1');
@@ -45,7 +45,7 @@ describe('Tasklist Tests', () => {
 		cy.get('#new-task-name').clear().type('Task');
 		cy.get('#new-task-count').clear().type('3');
 		cy.get('#add-task-btn').click();
-		cy.get('#tasks-container').children().eq(0).shadow().children().eq(4).click();
+		cy.get('#tasks-container').children().eq(0).shadow().children().get(4).click();
 		cy.get('#tasks-container').then($el => { expect($el.get(0).$tasks.length).to.eq(0); });
 		cy.get('#tasks-container').should('have.length', 0);
 	});
@@ -58,8 +58,8 @@ describe('Tasklist Tests', () => {
 		cy.get('#new-task-name').clear().type('Second Task');
 		cy.get('#new-task-count').clear().type('2');
 		cy.get('#add-task-btn').click();
-		cy.get('#tasks-container').children().eq(0).shadow().children().eq(2).click();
-		cy.get('#tasks-container').children().eq(0).shadow().children().eq(4).click();
+		cy.get('#tasks-container').children().eq(0).shadow().children().get(2).click();
+		cy.get('#tasks-container').children().eq(0).shadow().children().get(4).click();
 		cy.get('#tasks-container').should('have.length', 1);
 		cy.get('#tasks-container').then($el => {
 			expect($el.$selected[0]).to.eq('Second Task'); 
