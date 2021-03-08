@@ -12,7 +12,6 @@
 	<header>
 		<h1 id="site-header">Pomodoro Timer</h1>
 	</header>
-
 	<main>
 		<nav id="task-bar">
 			<img src="images/home.png" id="home-button" class="taskbar-button" alt="Home" title="Home" />
@@ -26,14 +25,11 @@
 				<p id="current-task">Default Task</p>
 				<img id="done-button" src="images/done.png" alt="Finish Task" title="Finish Task">
 			</div>
-
 			<h3 id="num-pomos">1</h3>
-
 			<div id="timer-display">
 				<p id="time-remaining">25:00</p>
 				<p id="mode-message">Long Break in 3 Pomos</p>
 			</div>
-
 			<div id="timer-button-container">
 				<button id="timer-button">Start</button>
 			</div>
@@ -41,9 +37,7 @@
 		</div>
 		<div id="task-list">
 			<!-- <h3>Task Name:               Estimated pomodoros:</h3> -->
-
 			<ul id="tasks-container" is="task-list"></ul>
-
 			<form id="add-task-container">
 				<label id="task-name">Task name:</label>
 				<input type="text" id="new-task-name" maxlength="30">
@@ -51,7 +45,6 @@
 				<input type="number" id="new-task-count" value="1" min="1" max="99">
 				<input type="submit" id="add-task-btn" value="Add Task">
 			</form>
-
 			<table id="task-table">
 				<tbody id="task-table-body">
 					<tr>
@@ -93,19 +86,16 @@
 				<li> Start Timer!</li>
 			</ol>
 
-
 			<h3>What is a Pomodoro Timer?</h3>
 			<p>A Pomodoro timer is a time-management technique. One Pomodoro is a 25 min work session followed by a 5
 				min break.
 				On the 4th Pomodoro, there is a longer 15 min break. This technique keeps energy and motivation levels
 				high throughout the work schedule.</p>
 
-
 			<h3>What is the TaskList?</h3>
 			<p>This is the work schedule for the Pomodoro. Here we can add and remove tasks to do.
 				In order to add a task, you only need to specify task name and estimated pomo #.
 				Once all tasks are added, select one to start with!</p>
-
 
 			<h3>How to see completed tasks?</h3>
 			<p>Visit the statistics tab on the page to view a list of completed tasks and other stats.</p>
@@ -114,8 +104,8 @@
 			<p>Visit the settings tab to configure the timer to your liking.</p>
 		</div>
 	</main>
-	<script src="./task-item.js" type="module"></script>
 	<script src="./settings.js" type="module"></script>
+	<script src="./task-item.js" type="module"></script>
 	<script src="./timer.js" type="module"></script>
 	<script src="./tasklist.js" type="module"></script>
 	<script src="./main.js"></script>
