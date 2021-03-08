@@ -2,6 +2,12 @@
  * Settings Class
  */
 export default class Settings {
+	constructor() {
+		this.pomoTime = 25 * 60 * 1000;
+		this.shortBreakTime = 5 * 60 * 1000;
+		this.longBreakTime = 15 * 60 * 1000;
+	}
+
 	/**
 	 * Changes the current page to the settings page
 	 */
@@ -25,8 +31,9 @@ export default class Settings {
 	 * Changes the timer's intervals
 	 */
 	getPomoLength() {
-		const obj = document.getElementById('pomo-length');
-		window.app.timer.remaining = Number(obj.options[obj.selectedIndex].text.substr(0, 2)) * 60 * 1000;
+		const pomoLength = document.getElementById('pomo-length');
+		this.pomoTime = Number(pomoLength.options[pomoLength.selectedIndex].text.substr(0, 2)) * 60 * 1000;
+		window.app.timer.notifySettingsChanged();
 	}
 
 	/**

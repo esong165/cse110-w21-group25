@@ -3,18 +3,47 @@
  */
 export default class Timer {
 	/**
-	 * Constructs the timer with a default remaining time of 25 minutes.
+	 * Constructs the timer with a default remaining time configured in settings.
+	 * Requires `window.app.settings` to be loaded.
 	 */
 	constructor(buttonId, clockId) {
-		this.remaining = 25 * 60 * 1000;
+		this.remaining = window.app.settings.pomoTime;
+		this.$state = this.State.POMO;
+		this.$status = this.Status.PAUSED;
 		this.$intervalId = null;
-
-		this.buttonId = buttonId;
-		this.clockId = clockId;
-		this.cycleCount = 0;
-		this.onTask = false;
+		this.$buttonId = buttonId;
+		this.$clockId = clockId;
+		this.$cycle = 0;
 		this.buttonClick.bind(this);
 		this.updateButton.bind(this);
+	}
+
+	/**
+	 * Gets the possible timer states.
+	 */
+	get State() {
+		return Object.freeze({ "POMO": 1, "SHORT_BREAK": 2, "LONG_BREAK": 3 });
+	}
+
+	/**
+	 * Gets the possible timer statuses.
+	 */
+	get Status() {
+		return Object.freeze({ "PAUSED": 1, "COUNTDOWN": 2 });
+	}
+
+	/**
+	 * Gets the current state.
+	 */
+	get state() {
+		return this.$state;
+	}
+
+	/**
+	 * Gets the current status.
+	 */
+	get state() {
+		return this.$status;
 	}
 
 	/**
@@ -68,15 +97,14 @@ export default class Timer {
 		const tick = () => {
 			this.remaining -= 1000;
 			if (this.remaining === 0) {
-				if (this.onTask) {
-					// Update currPomos field of current task
-					const currTaskId = document.getElementById('current-task').innerHTML;
+				if (this.state === this.State.POMO) {
+					const currTaskId = document.getElementById('current-task').value;
 					document.getElementById('tasks-container').updateCurrPomos(currTaskId);
 				}
 				this.updateButton();
 				clearInterval(this.$intervalId);
 				this.$intervalId = null;
-				// document.getElementById('alarm').play();
+				document.getElementById('alarm').play();
 			}
 		};
 		this.$intervalId = setInterval(tick, 1000);
@@ -84,50 +112,40 @@ export default class Timer {
 	}
 
 	buttonClick() {
-		// Get the current time of the timer
-		const currentTime = document.getElementById(this.clockId).textContent;
-
 		// Timer hasnt begun yet
-		if (this.cycleCount === 0 && this.onTask === false) {
-			this.remaining = 25 * 60 * 1000;
+		if (this.$cycle === 0 && this.state === this.State.POMO) {
+			this.remaining = window.app.settings.pomoTime;
 			this.$startCounter();
-
-			// Need to id to the one in the html
-			document.getElementById(this.buttonId).textContent = 'Fail Task';
-
-			this.onTask = true;
+			document.getElementById(this.$buttonId).textContent = 'Fail Task';
+			this.$countingDown = true;
 			document.getElementById('task-list-button').disabled = true;
 			document.getElementById('task-list').style.display = 'none';
 			document.getElementById('task-list-button').innerHTML = 'Open Task List';
-		} else if (this.onTask === true) {
-			if (currentTime !== '00:00') {
-				// Reset pomodoro timer to work session length
+		} else if (this.state !== this.State.POMO) {
+			if (this.remaining !== 0) {
 				clearInterval(this.$intervalId);
 				this.$intervalId = null;
-				this.remaining = 25 * 60 * 1000;
-				document.getElementById(this.buttonId).textContent = 'Start Pomo';
+				this.remaining = window.app.settings.pomoTime;
+				document.getElementById(this.$buttonId).textContent = 'Start Pomo';
 				document.getElementById('task-list-button').disabled = false;
 			} else {
-				if (this.cycleCount % 4 === 0) {
-					// Start long break
-					this.remaining = 10 * 60 * 1000;
+				if (this.$cycle % 4 === 0) {
+					this.remaining = window.app.settings.longBreakTime;
 					this.$startCounter();
-					document.getElementById(this.buttonId).disabled = true;
+					document.getElementById(this.$buttonId).disabled = true;
 				} else {
 					// Start short break
-					this.remaining = 5 * 60 * 1000;
+					this.remaining = window.app.settings.shortBreakTime;
 					this.$startCounter();
-					document.getElementById(this.buttonId).disabled = true;
+					document.getElementById(this.$buttonId).disabled = true;
 				}
 			}
-
-			this.onTask = false;
-		} else if (this.onTask === false) {
-			// Start work session
-			this.remaining = 25 * 60 * 1000;
+			this.$countingDown = false;
+		} else if (this.$countingDown === false) {
+			this.remaining = window.app.settings.pomoTime;
 			this.$startCounter();
-			this.onTask = true;
-			document.getElementById(this.buttonId).textContent = 'Fail Task';
+			this.$countingDown = true;
+			document.getElementById(this.$buttonId).textContent = 'Fail Task';
 			document.getElementById('task-list-button').disabled = true;
 			document.getElementById('task-list').style.display = 'none';
 			document.getElementById('task-list-button').innerHTML = 'Open Task List';
@@ -135,22 +153,29 @@ export default class Timer {
 	}
 
 	updateButton() {
-		const currentTime = document.getElementById(this.clockId).textContent;
-
-		if (currentTime === '00:00') {
-			if (this.onTask === false) {
-				document.getElementById(this.buttonId).textContent = 'Start Pomo';
+		if (this.$remaining !== 0) {
+			if (this.$countingDown === false) {
+				document.getElementById(this.$buttonId).textContent = 'Start Pomo';
 			} else {
-				if (this.cycleCount % 3 === 0 && this.cycleCount !== 0) {
-					document.getElementById(this.buttonId).textContent = 'Start Long Break';
-					this.cycleCount = -1;
+				if (this.$cycle === 3) {
+					document.getElementById(this.$buttonId).textContent = 'Start Long Break';
 				} else {
-					document.getElementById(this.buttonId).textContent = 'Start Short Break';
+					document.getElementById(this.$buttonId).textContent = 'Start Short Break';
 				}
-				this.cycleCount++;
+				this.$cycle++;
 			}
-			document.getElementById(this.buttonId).disabled = false;
+			document.getElementById(this.$buttonId).disabled = false;
 			document.getElementById('task-list-button').disabled = false;
+		}
+	}
+
+	notifySettingsChanged() {
+		if (this.status === this.Status.PAUSED) {
+			switch (this.state) {
+				case this.State.POMO:
+					this.remaining = window.app.settings.pomoTime;
+					break;
+			}
 		}
 	}
 }
