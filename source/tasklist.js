@@ -54,7 +54,7 @@ export default class Tasklist extends HTMLUListElement {
 
 	/**
 	 * Gets the current selected task as an array.
-	 * @returns {Array} Array containing task name at position 0 and estimated count at position 1.
+	 * @returns {Array} Array containing task name at position 0, estimated count at position 1, and currPomos at position 2.
 	 */
 	getSelected() {
 		return this.$selected;
