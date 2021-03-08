@@ -144,6 +144,13 @@ export default class Tasklist extends HTMLUListElement {
 
 		const task = document.getElementById(taskId);
 
+		// Update tasklist display
+		if (task != null) {
+			taskContainer.removeChild(task);
+		} else {
+			return;
+		}
+
 		// Remove task from $tasks instance variable
 		this.$tasks = arrayRemove(this.$tasks, taskId.substring(1));
 
@@ -153,11 +160,6 @@ export default class Tasklist extends HTMLUListElement {
 			Justin Check how local storage works with select and see what's wrong with case
 			*/
 		if (JSON.stringify(this.$tasks) === '[{}]') this.$tasks = [];
-
-		// Update tasklist display
-		if (task != null) {
-			taskContainer.removeChild(task);
-		}
 
 		// If current task is the removed task, move to next task in tasklist or default task
 		if (currTaskId === taskId.substring(1)) {
