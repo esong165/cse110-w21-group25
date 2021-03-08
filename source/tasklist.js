@@ -37,13 +37,13 @@ export default class Tasklist extends HTMLUListElement {
 
 			/* Add select and remove buttons to each task fetched from localStorage
 				(Perhaps create new method doing this to be called here and in addTask()) */
+			currTask.shadowRoot.children[1].children[0].addEventListener('click',
+				function() { document.getElementById('tasks-container').selectTask(task[0]); });
+
+			currTask.shadowRoot.children[1].children[1].addEventListener('click',
+				function() { document.getElementById('tasks-container').selectTask(task[0]); });
+
 			currTask.shadowRoot.children[1].children[2].addEventListener('click',
-				function() { document.getElementById('tasks-container').selectTask(task[0]); });
-
-			currTask.shadowRoot.children[1].children[3].addEventListener('click',
-				function() { document.getElementById('tasks-container').selectTask(task[0]); });
-
-			currTask.shadowRoot.children[1].children[4].addEventListener('click',
 				function() { document.getElementById('tasks-container').removeTask(task[0]); });
 
 			document.getElementById('tasks-container').appendChild(currTask);
@@ -75,11 +75,14 @@ export default class Tasklist extends HTMLUListElement {
 		const task = new TaskItem(name, count, 0);
 		task.id = name;
 
-		/* Add select and remove buttons to the task
+		/* Add remove buttons to the task
+			Also adds spans that can be clicked to select the task
 			(Perhaps create new method doing this to be called here and in c-tor) */
-		task.shadowRoot.children[1].children[2].addEventListener('click',
+		task.shadowRoot.children[1].children[0].addEventListener('click',
 			function() { document.getElementById('tasks-container').selectTask(name); });
-		task.shadowRoot.children[1].children[3].addEventListener('click',
+		task.shadowRoot.children[1].children[1].addEventListener('click',
+			function() { document.getElementById('tasks-container').selectTask(name); });
+		task.shadowRoot.children[1].children[2].addEventListener('click',
 			function() { document.getElementById('tasks-container').removeTask(name); });
 
 		// Store task as array of array in local storage -- could refactor into separate method
@@ -116,9 +119,20 @@ export default class Tasklist extends HTMLUListElement {
 	 * @param {String} taskId - name of selected task.
 	 */
 	selectTask(taskId) {
+
+		resetBackGround();
 		const task = document.getElementById(taskId).shadowRoot.children[1];
+		
+		//highlighting the selected task
+		task.children[0].setAttribute('style',`width: 60%; background-color: rgb(191,191,191);
+		box-shadow: 20px 0px 0px 10px rgb(191,191,191), 0px 0px 0px 10px rgb(191,191,191);`);
+		
+
 		const name = task.children[0].innerHTML;
 		const pomos = task.children[1].innerHTML;
+
+		
+
 
 		// Update current task display
 		document.getElementById('current-task').innerHTML = name;
@@ -129,8 +143,9 @@ export default class Tasklist extends HTMLUListElement {
 
 		// Store selected task in local storage
 		localStorage.setItem('selectedTask', JSON.stringify(this.$selected));
-		// goes to timer page to see task set
-		home();
+		
+		// goes to timer page to see task set for now turn this off
+		//home();
 	}
 
 	/**
@@ -213,6 +228,16 @@ function home() {
 
 	const stats = document.getElementById('stats');
 	stats.style.display = 'none';
+}
+
+/**
+ * Helper function to set any highlighted task-item styling back to default.
+ */
+function resetBackGround(){
+	const taskList = document.getElementById('tasks-container').getElementsByTagName('task-item');
+	for (const task of taskList){
+		task.shadowRoot.children[1].children[0].setAttribute('style','width: 60%;');
+	}
 }
 
 /**

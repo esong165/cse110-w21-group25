@@ -16,78 +16,78 @@ export default class TaskItem extends HTMLElement {
 		// Initializes shadow DOM
 		const shadow = this.attachShadow({ mode: 'open' });
 
+		// styles the elements in TaskItem to look like a table
 		shadow.innerHTML = `
-		<style>
+	<style>
 	li {
-	width: 700px;
-	position: relative;
-	text-align: center;
-	margin-left: 7%;
-  	}
-  
-  li:before, li:after {
-	text-align: right;
-	display: block;
-  
-	border-bottom: 0;
-	width: 0%; 
-  }
-  
-  li:before {
-	text-align: left;
-	    
-  }
-  
-  li:after {
+		width: 700px;
+		position: relative;
+		text-align: center;
+		margin-left: 7%;
+	}
 	
-	position: absolute;
-	top: 0;
-	left: 48%;
-	margin-left: 1px;  
-
-  }
-  
+	li:before, li:after {
+		text-align: right;
+		display: block;
+		border-bottom: 0;
+		width: 0%; 
+	}
 	
-  span{
-  text-align: left;
+	li:before {
+		text-align: left;
+	}
 	
-	float: left;
-	margin-top: 27px;
-	
-	font-size: 210%
-  }
-
-  li img{
-	  text-align: left;
-	  float: left;
-	  height: 10px;
-	  margin-bottom: -1px;
-	  width: 100x; 
-	  height: 100px
-
+	li:after {
+		position: absolute;
+		top: 0;
+		left: 48%;
+		margin-left: 1px;  
 
 	}
-
-	span::hover{
-		background-color:green;
+	
+		
+	span{
+		text-align: left;
+		float: left;
+		margin-top: 25px;
+		font-size: 210%
 	}
-	button::hover{
-		background-color:blue;
-	}
 
+	li img{
+		text-align: left;
+		float: left;
+		margin-bottom: -20px;
+		width: 100x; 
+		height: 100px;
 
-</style>
-  `;
+		}
+
+	span:first-of-type:hover{
+			background-color: rgb(191,191,191);
+			box-shadow: 20px 0px 0px 10px rgb(191,191,191), 0px 0px 0px 10px rgb(191,191,191);
+		}
+
+	img:hover{
+			background-color: rgb(191,191,191);
+			
+		}
+	</style>
+  		`;
+
 		// Creates list object representing the task
 		const task = document.createElement('li');
 		task.setAttribute('class', 'task');
 		task.setAttribute('draggable', 'true');
+		task.setAttribute('color', 'true');
+		//removes bullet point from ul's li elements
 		task.style = 'list-style-type:none;';
 
+		//Select functionalilty now on pomoCount and taskname spans
 		// Set name of task
 		const name = document.createElement('span');
 		name.innerHTML = '';
 		name.innerHTML += taskName;
+		//sets task name witdth to be 60% of li
 		name.style = "width: 60%;";
 		task.appendChild(name);
 
@@ -95,27 +95,18 @@ export default class TaskItem extends HTMLElement {
 		const count = document.createElement('span');
 		count.innerHTML = '';
 		count.innerHTML += pomoCount;
+		//sets num pomos witdth to be 10% of li
 		count.style = 'width: 10%;';
 		task.appendChild(count);
 		// Set current pomodoro count
 		this.currPomos = currPomoCount;
 
-		// Select task button note: considering making this a radio option or making the text a clickable button
-		const selectTaskButton = document.createElement('button');
-		selectTaskButton.innerHTML = taskName;
-		selectTaskButton.style = 'display:none;';
-		task.appendChild(selectTaskButton);
-
-		const selectPomoButton = document.createElement('button');
-		selectPomoButton.innerHTML = pomoCount;
-		selectPomoButton.style = 'display:none;';
-		task.appendChild(selectPomoButton);
-
 		// Remove task button
 		const removeTaskButton = document.createElement('img');
+		//sets image of removeTaskButton
 		removeTaskButton.setAttribute('src', 'images/trashcan.png');
+		//currently the following line is probably uncessary
 		removeTaskButton.innerHTML = 'Remove';
-		removeTaskButton.style = ``;
 		task.appendChild(removeTaskButton);
 
 		// Add task to shadow DOM

@@ -22,6 +22,10 @@ html {
 	outline: 0;
 }
 
+.taskbar-button:hover{
+	background-color: lightgray;
+}
+
 /* nav-bar */
 #task-bar {
 	text-align: center;
@@ -63,9 +67,7 @@ html {
 	width: 40px;
 }
 
-#done-button:hover {
-	background-color: rgb(30, 255, 0);
-}
+
 
 #time-remaining {
 	font-size: 750%;
@@ -106,10 +108,6 @@ html {
 
 #task-list {
 	text-align: center;
-}
-
-.task-item {
-	list-style-type: none;
 }
 
 #tasks-container {
