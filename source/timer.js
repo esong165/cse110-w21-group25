@@ -5,8 +5,11 @@ export default class Timer {
 	/**
 	 * Constructs the timer with a default remaining time configured in settings.
 	 * Requires `window.app.settings` to be loaded.
+	 * @param {String} timeRemainingId - the ID of the current remaining time text
+	 * @param {String} buttonId - the ID of the timer button
+	 * @param {String} stateMessageId - the ID of the displayed state message
 	 */
-	constructor(buttonId, clockId) {
+	constructor(timeRemainingId, buttonId, stateMessageId) {
 		this.remaining = window.app.settings.pomoTime;
 		this.$CYCLES = Object.freeze([
 			this.State.POMO,
@@ -21,8 +24,9 @@ export default class Timer {
 		this.$cycle = 0;
 		this.$status = this.Status.PAUSED;
 		this.$intervalId = null;
+		this.$timeRemainingId = timeRemainingId;
 		this.$buttonId = buttonId;
-		this.$clockId = clockId;
+		this.$stateMessageId = stateMessageId;
 	}
 
 	/**
@@ -127,27 +131,45 @@ export default class Timer {
 
 		this.$status = this.Status.PAUSED;
 
+		const button = document.getElementById(this.$buttonId);
+		const stateMessage = document.getElementById(this.$stateMessageId);
 		switch (this.state) {
 		case this.State.POMO:
 			this.remaining = window.app.settings.pomoTime;
+			button.textContent = 'Start Pomo';
+
+			const cycles = this.$CYCLES.length;
+			let i = this.$cycle;
+			let pomoCount = 0;
+
+			do {
+				i = (i + 1) % cycles;
+				if (this.$CYCLES[i] === this.State.POMO) {
+					++pomoCount;
+				} else if (this.$CYCLES[i] === this.State.LONG_BREAK) {
+					if (i === (this.$cycle + 1) % cycles) {
+						stateMessage.textContent = 'Long break coming up!';
+					} else {
+						const pluralSuffix = pomoCount === 1 ? '' : 's';
+						stateMessage.textContent = `Long break in ${pomoCount} pomo${pluralSuffix}.`;
+					}
+					break;
+				}
+			} while (i != this.$cycle);
+
+			if (i === this.$cycle) {
+				stateMessage.textContent = 'No long break in sight.';
+			}
+
 			break;
 		case this.State.SHORT_BREAK:
 			this.remaining = window.app.settings.shortBreakTime;
-			break;
-		case this.State.LONG_BREAK:
-			this.remaining = window.app.settings.longBreakTime;
-			break;
-		}
-
-		const button = document.getElementById(this.$buttonId);
-		switch (this.state) {
-		case this.State.POMO:
-			button.textContent = 'Start Pomo';
-			break;
-		case this.State.SHORT_BREAK:
+			stateMessage.textContent = 'Take a short break.';
 			button.textContent = 'Start Short Break';
 			break;
 		case this.State.LONG_BREAK:
+			this.remaining = window.app.settings.longBreakTime;
+			stateMessage.textContent = 'Take a long break.';
 			button.textContent = 'Start Long Break';
 			break;
 		}
@@ -181,7 +203,7 @@ export default class Timer {
 
 document.addEventListener('DOMContentLoaded', () => {
 	if (window.app === undefined) window.app = {};
-	window.app.timer = new Timer('timer-button', 'time-remaining');
+	window.app.timer = new Timer('time-remaining', 'timer-button', 'timer-state-message');
 	document.getElementById('timer-button').addEventListener('click', () => {
 		window.app.timer.buttonClick();
 	});
