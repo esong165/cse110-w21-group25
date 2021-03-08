@@ -87,4 +87,5 @@ describe('Tasklist Tests', () => {
 			expect($el.get(0).$selected[2]).to.eq(1);
 		});
 		cy.get('#tasks-container').children().eq(0).then($el => { expect($el.get(0).currPomos).to.eq(1) });
+	});
 });
