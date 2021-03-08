@@ -26,6 +26,7 @@
 				<img id="done-button" src="images/done.png" alt="Finish Task" title="Finish Task">
 			</div>
 
+			<!-- Maybe delete num-pomos we do not plan to use it. For now is hidden -->
 			<h3 id="num-pomos">1</h3>
 
 			<div id="timer-display">
@@ -39,15 +40,17 @@
 			<audio id="alarm" src="./air-horn.mp3"></audio>
 		</div>
 		<div id="task-list">
+			<!-- table-label is hardcoded -->
 			<pre id="table-label" >Task Name:                    # Pomo's:        </pre>
 			
+			<!-- task-container structure stays the same does not resize on window size-->
 			<ul id="tasks-container" is="task-list"></ul>
 
 			<form id="add-task-container">
 				
 				<input type="text" placeholder="New Task Name" id="new-task-name" maxlength="30">
 				
-				<input type="number" id="new-task-count" value="1" min="1" max="99">
+				<input type="number" id="new-task-count" value="1" min="1" max="30">
 				<input type="submit" id="add-task-btn" value="+">
 			</form>
 
