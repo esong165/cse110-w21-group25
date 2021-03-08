@@ -6,7 +6,7 @@ describe('Tasklist Tests', () => {
 
 	it('Defaults', () => {
 		cy.get('#tasks-container').then($el => {
-			expect($el.$tasks).to.be.empty;
+			expect($el.get(0).$tasks.length).to.eq(0);
 			expect($el.get(0).$selected[0]).to.eq('Default');
 			expect($el.get(0).$selected[1]).to.eq(1);
 			expect($el.get(0).$selected[2]).to.eq(-1);
@@ -32,7 +32,7 @@ describe('Tasklist Tests', () => {
 		cy.get('#new-task-name').clear().type('New Task');
 		cy.get('#new-task-count').clear().type('1');
 		cy.get('#add-task-btn').click();
-		cy.get('#tasks-container').children().eq(0).click({ force: true });
+		cy.get('#tasks-container').children().eq(0).get(0).click();
 		cy.get('#tasks-container').then($el => {
 			 expect($el.get(0).$selected[0]).to.eq('New Task'); 
 			 expect($el.get(0).$selected[1]).to.eq(1);
