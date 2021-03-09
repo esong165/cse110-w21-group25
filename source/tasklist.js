@@ -48,6 +48,8 @@ export default class Tasklist extends HTMLUListElement {
 				function() { document.getElementById('tasks-container').removeTask(currTask.id); });
 
 			document.getElementById('tasks-container').appendChild(currTask);
+			
+			// Add drag/drop functionality
 			document.getElementById(currTask.id).setAttribute('ondragstart', 'drag(event);');
 			document.getElementById(currTask.id).setAttribute('ondragover', 'allowDrop(event);');
 			document.getElementById(currTask.id).setAttribute('ondrop', 'drop(event);');
@@ -80,7 +82,7 @@ export default class Tasklist extends HTMLUListElement {
 		task.shadowRoot.children[0].children[2].addEventListener('click',
 			function() { document.getElementById('tasks-container').selectTask(task.id); });
 		task.shadowRoot.children[0].children[3].addEventListener('click',
-			function() { document.getElementById('tasks-container').removeTask(task.id); });
+			function() { document.getElementById('tasks-container').selectTask(task.id); });
 		task.shadowRoot.children[0].children[4].addEventListener('click',
 			function() { document.getElementById('tasks-container').removeTask(task.id); });
 
