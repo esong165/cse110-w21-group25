@@ -132,6 +132,6 @@ document.addEventListener('DOMContentLoaded', () => {
 		const currTask = document.getElementById('tasks-container').getSelected();
 		if (currTask[0] === 'Default') return;
 		document.getElementById('tasks-container').removeTask(currTask[0].substring(1));
-		document.getElementById('stats-container').addStat(currTask[0], currTask[1], currTask[2]);
+		document.getElementById('stats-container').addStat(currTask[0].substring(1), currTask[1], currTask[2]);
 	});
 });
