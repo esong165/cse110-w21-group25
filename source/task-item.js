@@ -23,16 +23,14 @@ export default class TaskItem extends HTMLElement {
 		task.style = 'list-style-type:none;';
 
 		// Set name of task
-		const name = document.createElement('span');
-		name.innerHTML = '';
-		name.innerHTML += taskName;
+		const name = document.createElement('p');
+		name.textContent = taskName;
 		name.style = 'display:none;';
 		task.appendChild(name);
 
 		// Set estimated pomodoros
-		const count = document.createElement('span');
-		count.innerHTML = '';
-		count.innerHTML += pomoCount;
+		const count = document.createElement('p');
+		count.textContent = pomoCount;
 		count.style = 'display:none;';
 		task.appendChild(count);
 		// Set current pomodoro count
@@ -40,16 +38,16 @@ export default class TaskItem extends HTMLElement {
 
 		// Select task button note: considering making this a radio option or making the text a clickable button
 		const selectTaskButton = document.createElement('button');
-		selectTaskButton.innerHTML = taskName;
+		selectTaskButton.textContent = taskName;
 		task.appendChild(selectTaskButton);
 
 		const selectPomoButton = document.createElement('button');
-		selectPomoButton.innerHTML = pomoCount;
+		selectPomoButton.textContent = pomoCount;
 		task.appendChild(selectPomoButton);
 
 		// Remove task button
 		const removeTaskButton = document.createElement('button');
-		removeTaskButton.innerHTML = 'Remove';
+		removeTaskButton.textContent = 'Remove';
 		task.appendChild(removeTaskButton);
 
 		// Add task to shadow DOM

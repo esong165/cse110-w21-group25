@@ -27,8 +27,11 @@ export default class Tasklist extends HTMLUListElement {
 		}
 
 		// Update current task display
-		document.getElementById('current-task').innerHTML = this.$selected[0];
-		document.getElementById('num-pomos').innerHTML = this.$selected[1];
+		if (this.$selected[0] === 'Default') {
+			document.getElementById('current-task').textContent = 'Default';
+		} else {
+			document.getElementById('current-task').textContent = this.$selected[0].substring(1);
+		}
 
 		// Update tasklist display
 		for (const task of this.$tasks) {
@@ -108,7 +111,6 @@ export default class Tasklist extends HTMLUListElement {
 			alert('Task is already in tasklist.');
 			return;
 		}
-
 		localStorage.setItem('taskItemArr', JSON.stringify(taskItemArr));
 	}
 
@@ -118,15 +120,14 @@ export default class Tasklist extends HTMLUListElement {
 	 */
 	selectTask(taskId) {
 		const task = document.getElementById(taskId).shadowRoot.children[0];
-		const name = task.children[0].innerHTML;
-		const pomos = task.children[1].innerHTML;
+		const name = task.children[0].textContent;
+		const pomos = task.children[1].textContent;
 
 		// Update current task display
-		document.getElementById('current-task').innerHTML = name;
-		document.getElementById('num-pomos').innerHTML = pomos;
+		document.getElementById('current-task').textContent = name;
 
 		// Update $selected instance variable
-		this.$selected = [name, pomos, document.getElementById(taskId).currPomos];
+		this.$selected = ['_' + name, pomos, document.getElementById(taskId).currPomos];
 
 		// Store selected task in local storage
 		localStorage.setItem('selectedTask', JSON.stringify(this.$selected));
@@ -139,7 +140,7 @@ export default class Tasklist extends HTMLUListElement {
 	 * @param {String} taskId - name of task to be removed.
 	 */
 	removeTask(taskId) {
-		const currTaskId = document.getElementById('current-task').innerHTML;
+		const currTaskId = document.getElementById('current-task').textContent;
 		const taskContainer = document.getElementById('tasks-container');
 
 		const task = document.getElementById(taskId);
@@ -166,8 +167,7 @@ export default class Tasklist extends HTMLUListElement {
 				tasklist.selectTask(tasklist.firstChild.id);
 			} else {
 				// Update displays and $selected to defaults if there are no tasks left in list
-				document.getElementById('current-task').innerHTML = 'Default';
-				document.getElementById('num-pomos').innerHTML = '1';
+				document.getElementById('current-task').textContent = 'Default';
 				this.$selected = ['Default', '1', '-1'];
 			}
 		}

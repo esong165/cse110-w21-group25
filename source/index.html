@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
 	<meta charset="UTF-8" />
 	<title>Our Timer</title>
@@ -8,6 +9,7 @@
 	<link rel="preconnect" href="https://fonts.gstatic.com">
 	<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400&display=swap" rel="stylesheet">
 </head>
+
 <body>
 	<header>
 		<h1 id="site-header">Pomodoro Timer</h1>
@@ -25,7 +27,6 @@
 				<p id="current-task">Default Task</p>
 				<img id="done-button" src="images/done.png" alt="Finish Task" title="Finish Task">
 			</div>
-			<h3 id="num-pomos">1</h3>
 			<div id="timer-display">
 				<p id="time-remaining">25:00</p>
 				<p id="timer-state-message">Long break in 3 pomos.</p>
@@ -56,6 +57,9 @@
 			</table>
 		</div>
 		<div id="stats">
+			<ul id="stats-container" is="stat-list"></ul>
+			<p id="total-tasks"></p>
+			<p id="avg-pomos"></p> 
 		</div>
 		<div id="settings" style="display:none">
 			<form>
@@ -108,6 +112,7 @@
 	<script src="./task-item.js" type="module"></script>
 	<script src="./timer.js" type="module"></script>
 	<script src="./tasklist.js" type="module"></script>
+	<script src="./statlist.js" type="module"></script>
 	<script src="./main.js"></script>
 </body>
 </html>
