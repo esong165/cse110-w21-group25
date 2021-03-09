@@ -27,28 +27,31 @@ export default class Tasklist extends HTMLUListElement {
 		}
 
 		// Update current task display
-		document.getElementById('current-task').innerHTML = this.$selected[0];
+		if (this.$selected[0] === 'Default') {
+			document.getElementById('current-task').innerHTML = 'Default';
+		} else {
+			document.getElementById('current-task').innerHTML = this.$selected[0].substring(1);
+		}
 		document.getElementById('num-pomos').innerHTML = this.$selected[1];
 
 		// Update tasklist display
 		for (const task of this.$tasks) {
 			const currTask = new TaskItem(task[0], task[1], task[2]);
-			currTask.id = '_' + task[0];
+			currTask.id = task[0];
 
-			// Add select and remove buttons to each task fetched from localStorage
+			/* Add select and remove buttons to each task fetched from localStorage
+				(Perhaps create new method doing this to be called here and in addTask()) */
 			currTask.shadowRoot.children[0].children[2].addEventListener('click',
-				function() { document.getElementById('tasks-container').selectTask(currTask.id); });
+				function() { document.getElementById('tasks-container').selectTask(task[0]); });
 			currTask.shadowRoot.children[0].children[3].addEventListener('click',
-				function() { document.getElementById('tasks-container').selectTask(currTask.id); });
+				function() { document.getElementById('tasks-container').selectTask(task[0]); });
 			currTask.shadowRoot.children[0].children[4].addEventListener('click',
-				function() { document.getElementById('tasks-container').removeTask(currTask.id); });
+				function() { document.getElementById('tasks-container').removeTask(task[0]); });
 
 			document.getElementById('tasks-container').appendChild(currTask);
-
-			// Add drag/drop functionality
-			document.getElementById(currTask.id).setAttribute('ondragstart', 'drag(event);');
-			document.getElementById(currTask.id).setAttribute('ondragover', 'allowDrop(event);');
-			document.getElementById(currTask.id).setAttribute('ondrop', 'drop(event);');
+			document.getElementById(task[0]).setAttribute('ondragstart', 'drag(event);');
+			document.getElementById(task[0]).setAttribute('ondragover', 'allowDrop(event);');
+			document.getElementById(task[0]).setAttribute('ondrop', 'drop(event);');
 		}
 	}
 
@@ -72,15 +75,14 @@ export default class Tasklist extends HTMLUListElement {
 			return;
 		}
 		const task = new TaskItem(name, count, 0);
-		task.id = '_' + name;
+		task.id = name;
 
-		// Add select and remove buttons to the task
+		/* Add select and remove buttons to the task
+			(Perhaps create new method doing this to be called here and in c-tor) */
 		task.shadowRoot.children[0].children[2].addEventListener('click',
-			function() { document.getElementById('tasks-container').selectTask(task.id); });
+			function() { document.getElementById('tasks-container').selectTask(name); });
 		task.shadowRoot.children[0].children[3].addEventListener('click',
-			function() { document.getElementById('tasks-container').selectTask(task.id); });
-		task.shadowRoot.children[0].children[4].addEventListener('click',
-			function() { document.getElementById('tasks-container').removeTask(task.id); });
+			function() { document.getElementById('tasks-container').removeTask(name); });
 
 		// Store task as array of array in local storage -- could refactor into separate method
 		let taskItemArr = JSON.parse(localStorage.getItem('taskItemArr'));
@@ -94,21 +96,20 @@ export default class Tasklist extends HTMLUListElement {
 		taskAsArr.push(count);
 		taskAsArr.push(task.currPomos);
 
-		// Validity checking
+		// Validity checking (WIP)
 		if (!JSON.stringify(taskItemArr).includes(JSON.stringify(taskAsArr))) {
 			taskItemArr.push(taskAsArr);
 			this.$tasks.push([name, count, task.currPomos]);
 			this.appendChild(task);
-
-			// Add drag/drop functionality to task
-			document.getElementById(task.id).setAttribute('ondragstart', 'drag(event);');
-			document.getElementById(task.id).setAttribute('ondragover', 'allowDrop(event);');
-			document.getElementById(task.id).setAttribute('ondrop', 'drop(event);');
+			document.getElementById(name).setAttribute('ondragstart', 'drag(event);');
+			document.getElementById(name).setAttribute('ondragover', 'allowDrop(event);');
+			document.getElementById(name).setAttribute('ondrop', 'drop(event);');
 		} else {
 			alert('Task is already in tasklist.');
 			return;
 		}
 
+		// This could probably just go in the if block above
 		localStorage.setItem('taskItemArr', JSON.stringify(taskItemArr));
 	}
 
@@ -126,7 +127,7 @@ export default class Tasklist extends HTMLUListElement {
 		document.getElementById('num-pomos').innerHTML = pomos;
 
 		// Update $selected instance variable
-		this.$selected = [name, pomos, document.getElementById(taskId).currPomos];
+		this.$selected = ['_' + name, pomos, document.getElementById(taskId).currPomos];
 
 		// Store selected task in local storage
 		localStorage.setItem('selectedTask', JSON.stringify(this.$selected));
@@ -145,7 +146,7 @@ export default class Tasklist extends HTMLUListElement {
 		const task = document.getElementById(taskId);
 
 		// Remove task from $tasks instance variable
-		this.$tasks = arrayRemove(this.$tasks, taskId.substring(1));
+		this.$tasks = arrayRemove(this.$tasks, taskId);
 
 		/* Edge case check for a bug I could not figure out -- without this line,
 			sometimes a task enters the tasklist with undefined, undefined --
@@ -160,11 +161,10 @@ export default class Tasklist extends HTMLUListElement {
 		}
 
 		// If current task is the removed task, move to next task in tasklist or default task
-		if (currTaskId === taskId.substring(1)) {
+		if (currTaskId === taskId) {
 			// Select the next task if there are any left in list
 			if (taskContainer.hasChildNodes()) {
-				const tasklist = document.getElementById('tasks-container');
-				tasklist.selectTask(tasklist.firstChild.id);
+				document.getElementById('tasks-container').selectTask(this.$tasks[0][0]);
 			} else {
 				// Update displays and $selected to defaults if there are no tasks left in list
 				document.getElementById('current-task').innerHTML = 'Default';
@@ -178,18 +178,10 @@ export default class Tasklist extends HTMLUListElement {
 		localStorage.setItem('selectedTask', JSON.stringify(this.$selected));
 	}
 
-	/**
-	 * Increments the currPomos field of a task once a Pomodoro session ends.
-	 * @param {String} taskId - ID of the task item being updated
-	 */
 	updateCurrPomos(taskId) {
 		const currTaskItem = document.getElementById(taskId);
-
-		// If task exists, increment its currPomos field
 		if (currTaskItem !== null) {
 			currTaskItem.currPomos++;
-
-			// Update currPomos field in $tasks and localStorage accordingly
 			for (let i = 0; i < this.$tasks.length; i++) {
 				if (this.$tasks[i][0] === taskId) {
 					this.$tasks[i][2]++;
@@ -197,8 +189,6 @@ export default class Tasklist extends HTMLUListElement {
 					break;
 				}
 			}
-
-			// Update currPomos field in $selected and localStorage accordingly
 			this.$selected[2]++;
 			localStorage.setItem('selectedTask', JSON.stringify(this.$selected));
 		}
