@@ -48,7 +48,7 @@ export default class Tasklist extends HTMLUListElement {
 				function() { document.getElementById('tasks-container').removeTask(currTask.id); });
 
 			document.getElementById('tasks-container').appendChild(currTask);
-			
+
 			// Add drag/drop functionality
 			document.getElementById(currTask.id).setAttribute('ondragstart', 'drag(event);');
 			document.getElementById(currTask.id).setAttribute('ondragover', 'allowDrop(event);');
