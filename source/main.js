@@ -1,6 +1,7 @@
 // Run on DOM load
 document.addEventListener('DOMContentLoaded', () => {
 	const datalist = document.getElementById('tasks-container');
+	const statlist = document.getElementById('total-tasks');
 
 	/**
 	 * Sets all taskbar icons to not selected and all style.displays to none.
@@ -127,8 +128,9 @@ document.addEventListener('DOMContentLoaded', () => {
 	// "Finish Task" functionality for tasklist
 	const doneButton = document.getElementById('done-button');
 	doneButton.addEventListener('click', function () {
-		const currTask = document.getElementById('current-task').innerHTML;
-		if (currTask === 'Default') return; // Come back to this in case user wants to have a task named "Default"
-		document.getElementById('tasks-container').removeTask(currTask);
+		const currTask = document.getElementById('tasks-container').getSelected();
+		if (currTask[0] === 'Default') return;
+		document.getElementById('tasks-container').removeTask(currTask[0]);
+		document.getElementById('stats-container').addStat(currTask[0], currTask[1], currTask[2]);
 	});
 });

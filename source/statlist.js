@@ -8,23 +8,33 @@ export default class Statlist extends HTMLUListElement {
 		this.avgPomos = 0;
 		this.$stats = [];
 
-		document.getElementById('avg-pomos').innerHTML = avgPomos;
-		document.getElementById('total-tasks').innerHTML = totalTasks;
-
 		const statItemArr = JSON.parse(localStorage.getItem('statItemArr'));
 		if (statItemArr !== null) {
 			this.$stats = statItemArr;
 		}
 
 		for (const stat of this.$stats) {
-			const current = new StatItem(stat[0], stat[1]);
-
-			document.getElementById('stat-container').prepend(current);
+			const current = new StatItem(stat[0], stat[1], stat[2]);
+			this.totalTasks++;
+			this.totalPomos += stat[2];
+			document.getElementById('stats-container').prepend(current);
 		}
+
+		if(this.totalPomos === 0) {
+			this.avgPomos = 0;
+		} else {
+			this.avgPomos = this.totalTasks / this.totalPomos;
+		}
+
+		document.getElementById('avg-pomos').innerHTML = 'Average pomodoros per task: ' + this.avgPomos;
+		document.getElementById('total-tasks').innerHTML = 'Total tasks completed: ' + this.totalTasks;
 	}
 
-	addStat(name, count) {
-		const stat = new StatItem(name, count);
+	addStat(name, expected, count) {
+		if (count === -1) {
+			return;
+		}
+		const stat = new StatItem(name, expected, count);
 		stat.id = name;
 
 		let statItemArr = JSON.parse(localStorage.getItem('statItemArr'));
@@ -34,25 +44,36 @@ export default class Statlist extends HTMLUListElement {
 
 		const statArray = [];
 		statArray.push(name);
+		statArray.push(expected);
 		statArray.push(count);
 		this.totalTasks++;
 		this.totalPomos += count;
-		this.avgPomos = this.totalTasks / this.totalPomos;
+		if(this.totalPomos === 0) {
+			this.avgPomos = 0;
+		} else {
+			this.avgPomos = this.totalTasks / this.totalPomos;
+		}
 
+		/*
 		if (!JSON.stringify(statItemArr).includes(JSON.stringify(statArray))) {
 			statItemArr.push(statArray);
-			this.$stats.push([name, count]);
+			this.$stats.push([name, expected, count]);
 			this.prepend(stat);
 		} else {
 			return;
 		}
+		*/
 
-		document.getElementById('avg-pomos').innerHTML = avgPomos;
-		document.getElementById('total-tasks').innerHTML = totalTasks;
+		statItemArr.push(statArray);
+		this.$stats.push([name, expected, count]);
+		this.prepend(stat);
+
+		document.getElementById('avg-pomos').innerHTML = 'Average pomodoros per task: ' + this.avgPomos;
+		document.getElementById('total-tasks').innerHTML = 'Total tasks completed: ' + this.totalTasks;
 		localStorage.setItem('statItemArr', JSON.stringify(statItemArr));
-		localStorage.setItem('totalTasks', JSON.stringify(totalTasks));
-		localStorage.setItem('totalPomos', JSON.stringify(totalPomos));
-		localStorage.setItem('avgPomos', JSON.stringify(avgPomos));
+		localStorage.setItem('totalTasks', JSON.stringify(this.totalTasks));
+		localStorage.setItem('totalPomos', JSON.stringify(this.totalPomos));
+		localStorage.setItem('avgPomos', JSON.stringify(this.avgPomos));
 	}
 }
 customElements.define('stat-list', Statlist, { extends: 'ul' });

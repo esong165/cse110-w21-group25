@@ -65,7 +65,7 @@
 				</tbody>
 			</table>
 		</div>
-		<div id="stats">
+		<!-- <div id="stats">
 			<tbody id="avg-stats">
 				<tr>
 					<th>Total Tasks: </th>
@@ -78,6 +78,11 @@
 
 				</tr>
 			</tbody>
+		</div> -->
+		<div id="stats">
+			<ul id="stats-container" is="stat-list"></ul>
+			<p id="total-tasks"></p>
+			<p id="avg-pomos"></p> 
 		</div>
 		<div id="settings">
 		</div>
@@ -111,6 +116,7 @@
 	<script src="./task-item.js" type="module"></script>
 	<script src="./timer.js" type="module"></script>
 	<script src="./tasklist.js" type="module"></script>
+	<script src="./statlist.js" type="module"></script>
 	<script src="./main.js"></script>
 </body>
 

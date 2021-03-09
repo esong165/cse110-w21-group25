@@ -3,7 +3,7 @@ export default class StatItem extends HTMLElement {
 	/*
 	* construct stat item
 	*/
-	constructor(taskName, pomoCount) {
+	constructor(taskName, expectedCount, pomoCount) {
 		super();
 
 		const shadow = this.attachShadow({ mode: 'open' });
@@ -11,14 +11,16 @@ export default class StatItem extends HTMLElement {
 		const stat = document.createElement('li');
 		stat.setAttribute('class', 'task');
 
-		const name = document.createElement('span');
-		name.innerHTML = '';
-		name.innerHTML += taskName;
+		const name = document.createElement('p');
+		name.innerHTML = taskName;
 		stat.appendChild(name);
 
-		const count = document.createElement('span');
-		count.innerHTML = '';
-		count.innerHTML += pomoCount;
+		const expected = document.createElement('p');
+		expected.innerHTML = expectedCount;
+		stat.appendChild(expected);
+
+		const count = document.createElement('p');
+		count.innerHTML = pomoCount;
 		stat.appendChild(count);
 
 		shadow.prepend(stat);
