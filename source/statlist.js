@@ -35,7 +35,7 @@ export default class Statlist extends HTMLUListElement {
 			return;
 		}
 		const stat = new StatItem(name, expected, count);
-		stat.id = name;
+		stat.id = '~' + name;
 
 		let statItemArr = JSON.parse(localStorage.getItem('statItemArr'));
 		if (statItemArr == null) {
@@ -53,16 +53,6 @@ export default class Statlist extends HTMLUListElement {
 		} else {
 			this.avgPomos = this.totalTasks / this.totalPomos;
 		}
-
-		/*
-		if (!JSON.stringify(statItemArr).includes(JSON.stringify(statArray))) {
-			statItemArr.push(statArray);
-			this.$stats.push([name, expected, count]);
-			this.prepend(stat);
-		} else {
-			return;
-		}
-		*/
 
 		statItemArr.push(statArray);
 		this.$stats.push([name, expected, count]);
