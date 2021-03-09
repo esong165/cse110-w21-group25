@@ -108,7 +108,7 @@ export default class Timer {
 		const tick = () => {
 			if (this.remaining === 0) {
 				if (this.state === this.State.POMO) {
-					const currTaskId = document.getElementById('current-task').value;
+					const currTaskId = document.getElementById('tasks-container').getSelected()[0];
 					document.getElementById('tasks-container').updateCurrPomos(currTaskId);
 				}
 				this.$cycle = (this.$cycle + 1) % this.$CYCLES.length;
