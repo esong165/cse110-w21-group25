@@ -48,7 +48,7 @@ export default class Statlist extends HTMLUListElement {
 		}
 
 		document.getElementById('avg-pomos').innerHTML = avgPomos;
-		document.getElementById('total-tasks').innerHTML = totalTasks;''
+		document.getElementById('total-tasks').innerHTML = totalTasks;
 		localStorage.setItem('statItemArr', JSON.stringify(statItemArr));
 		localStorage.setItem('totalTasks', JSON.stringify(totalTasks));
 		localStorage.setItem('totalPomos', JSON.stringify(totalPomos));
