@@ -57,7 +57,7 @@ export default class Tasklist extends HTMLUListElement {
 
 	/**
 	 * Gets the current selected task as an array.
-	 * @returns {Array} Array containing task name at position 0 and estimated count at position 1.
+	 * @returns {Array} Array containing task name at position 0, estimated count at position 1, and currPomos at position 2.
 	 */
 	getSelected() {
 		return this.$selected;
@@ -145,6 +145,10 @@ export default class Tasklist extends HTMLUListElement {
 
 		const task = document.getElementById(taskId);
 
+		// Update tasklist display
+		if (task === null) return;
+		taskContainer.removeChild(task);
+
 		// Remove task from $tasks instance variable
 		this.$tasks = arrayRemove(this.$tasks, taskId.substring(1));
 
@@ -154,11 +158,6 @@ export default class Tasklist extends HTMLUListElement {
 			Justin Check how local storage works with select and see what's wrong with case
 			*/
 		if (JSON.stringify(this.$tasks) === '[{}]') this.$tasks = [];
-
-		// Update tasklist display
-		if (task != null) {
-			taskContainer.removeChild(task);
-		}
 
 		// If current task is the removed task, move to next task in tasklist or default task
 		if (currTaskId === taskId.substring(1)) {
