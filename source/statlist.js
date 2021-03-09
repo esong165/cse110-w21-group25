@@ -20,7 +20,7 @@ export default class Statlist extends HTMLUListElement {
 			document.getElementById('stats-container').prepend(current);
 		}
 
-		if(this.totalPomos === 0) {
+		if (this.totalPomos === 0) {
 			this.avgPomos = 0;
 		} else {
 			this.avgPomos = this.totalTasks / this.totalPomos;
@@ -48,7 +48,7 @@ export default class Statlist extends HTMLUListElement {
 		statArray.push(count);
 		this.totalTasks++;
 		this.totalPomos += count;
-		if(this.totalPomos === 0) {
+		if (this.totalPomos === 0) {
 			this.avgPomos = 0;
 		} else {
 			this.avgPomos = this.totalTasks / this.totalPomos;
