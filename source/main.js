@@ -115,7 +115,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 	// "Add task" functionality for tasklist
 	const addTaskButton = document.getElementById('add-task-container');
-	addTaskButton.addEventListener('submit', function(event) {
+	addTaskButton.addEventListener('submit', function (event) {
 		event.preventDefault();
 		const newName = document.getElementById('new-task-name');
 		const newCount = document.getElementById('new-task-count');
@@ -126,7 +126,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 	// "Finish Task" functionality for tasklist
 	const doneButton = document.getElementById('done-button');
-	doneButton.addEventListener('click', function() {
+	doneButton.addEventListener('click', function () {
 		const currTask = document.getElementById('current-task').innerHTML;
 		if (currTask === 'Default') return; // Come back to this in case user wants to have a task named "Default"
 		document.getElementById('tasks-container').removeTask(currTask);
