@@ -1,7 +1,6 @@
 import StatItem from './stat-item.js';
 
 export default class Statlist extends HTMLUListElement {
-
 	constructor() {
 		super();
 		this.totalTasks = 0;
@@ -9,8 +8,8 @@ export default class Statlist extends HTMLUListElement {
 		this.avgPomos = 0;
 		this.$stats = [];
 
-		document.getElementById("avg-pomos").innerHTML = avgPomos;
-		document.getElementById("total-tasks").innerHTML = totalTasks;
+		document.getElementById('avg-pomos').innerHTML = avgPomos;
+		document.getElementById('total-tasks').innerHTML = totalTasks;
 
 		const statItemArr = JSON.parse(localStorage.getItem('statItemArr'));
 		if (statItemArr !== null) {
@@ -48,8 +47,8 @@ export default class Statlist extends HTMLUListElement {
 			return;
 		}
 
-		document.getElementById("avg-pomos").innerHTML = avgPomos;
-		document.getElementById("total-tasks").innerHTML = totalTasks;
+		document.getElementById('avg-pomos').innerHTML = avgPomos;
+		document.getElementById('total-tasks').innerHTML = totalTasks;''
 		localStorage.setItem('statItemArr', JSON.stringify(statItemArr));
 		localStorage.setItem('totalTasks', JSON.stringify(totalTasks));
 		localStorage.setItem('totalPomos', JSON.stringify(totalPomos));
