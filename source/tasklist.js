@@ -32,7 +32,6 @@ export default class Tasklist extends HTMLUListElement {
 		} else {
 			document.getElementById('current-task').innerHTML = this.$selected[0].substring(1);
 		}
-		document.getElementById('num-pomos').innerHTML = this.$selected[1];
 
 		// Update tasklist display
 		for (const task of this.$tasks) {
@@ -126,7 +125,6 @@ export default class Tasklist extends HTMLUListElement {
 
 		// Update current task display
 		document.getElementById('current-task').innerHTML = name;
-		document.getElementById('num-pomos').innerHTML = pomos;
 
 		// Update $selected instance variable
 		this.$selected = ['_' + name, pomos, document.getElementById(taskId).currPomos];
@@ -171,7 +169,6 @@ export default class Tasklist extends HTMLUListElement {
 			} else {
 				// Update displays and $selected to defaults if there are no tasks left in list
 				document.getElementById('current-task').innerHTML = 'Default';
-				document.getElementById('num-pomos').innerHTML = '1';
 				this.$selected = ['Default', '1', '-1'];
 			}
 		}
