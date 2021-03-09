@@ -48,11 +48,7 @@ export default class Statlist extends HTMLUListElement {
 		statArray.push(count);
 		this.totalTasks++;
 		this.totalPomos += count;
-		if (this.totalPomos === 0) {
-			this.avgPomos = 0;
-		} else {
-			this.avgPomos = this.totalPomos / this.totalTasks;
-		}
+		this.avgPomos = this.totalPomos / this.totalTasks;
 
 		statItemArr.push(statArray);
 		this.$stats.push([name, expected, count]);
