@@ -11,15 +11,15 @@ export default class StatItem extends HTMLElement {
 		const stat = document.createElement('li');
 		stat.setAttribute('class', 'task');
 
-		const name = document.createElement('p');
+		const name = document.createElement('span');
 		name.innerHTML = taskName;
 		stat.appendChild(name);
 
-		const expected = document.createElement('p');
+		const expected = document.createElement('span');
 		expected.innerHTML = expectedCount;
 		stat.appendChild(expected);
 
-		const count = document.createElement('p');
+		const count = document.createElement('span');
 		count.innerHTML = pomoCount;
 		stat.appendChild(count);
 

@@ -23,14 +23,14 @@ export default class TaskItem extends HTMLElement {
 		task.style = 'list-style-type:none;';
 
 		// Set name of task
-		const name = document.createElement('p');
+		const name = document.createElement('span');
 		name.innerHTML = '';
 		name.innerHTML += taskName;
 		name.style = 'display:none;';
 		task.appendChild(name);
 
 		// Set estimated pomodoros
-		const count = document.createElement('p');
+		const count = document.createElement('span');
 		count.innerHTML = '';
 		count.innerHTML += pomoCount;
 		count.style = 'display:none;';
