@@ -38,16 +38,16 @@ export default class TaskItem extends HTMLElement {
 
 		// Select task button note: considering making this a radio option or making the text a clickable button
 		const selectTaskButton = document.createElement('button');
-		selectTaskButton.innerHTML = taskName;
+		selectTaskButton.textContent = taskName;
 		task.appendChild(selectTaskButton);
 
 		const selectPomoButton = document.createElement('button');
-		selectPomoButton.innerHTML = pomoCount;
+		selectPomoButton.textContent = pomoCount;
 		task.appendChild(selectPomoButton);
 
 		// Remove task button
 		const removeTaskButton = document.createElement('button');
-		removeTaskButton.innerHTML = 'Remove';
+		removeTaskButton.textContent = 'Remove';
 		task.appendChild(removeTaskButton);
 
 		// Add task to shadow DOM
