@@ -127,10 +127,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
 	// "Finish Task" functionality for tasklist
 	const doneButton = document.getElementById('done-button');
+  
 	doneButton.addEventListener('click', function () {
 		const currTask = document.getElementById('tasks-container').getSelected();
 		if (currTask[0] === 'Default') return;
-		document.getElementById('tasks-container').removeTask(currTask[0]);
+		document.getElementById('tasks-container').removeTask('_' + currTask[0]);
 		document.getElementById('stats-container').addStat(currTask[0], currTask[1], currTask[2]);
 	});
 });

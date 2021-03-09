@@ -29,24 +29,19 @@
 				<p id="current-task">Default Task</p>
 				<img id="done-button" src="images/done.png" alt="Finish Task" title="Finish Task">
 			</div>
-
 			<h3 id="num-pomos">1</h3>
-
 			<div id="timer-display">
 				<p id="time-remaining">25:00</p>
-				<p id="mode-message">Long Break in 3 Pomos</p>
+				<p id="timer-state-message">Long break in 3 pomos.</p>
 			</div>
-
 			<div id="timer-button-container">
-				<button id="timer-button">Start</button>
+				<button id="timer-button">Start Pomo</button>
 			</div>
 			<audio id="alarm" src="./air-horn.mp3"></audio>
 		</div>
 		<div id="task-list">
 			<!-- <h3>Task Name:               Estimated pomodoros:</h3> -->
-
 			<ul id="tasks-container" is="task-list"></ul>
-
 			<form id="add-task-container">
 				<label id="task-name">Task name:</label>
 				<input type="text" id="new-task-name" maxlength="30">
@@ -54,7 +49,6 @@
 				<input type="number" id="new-task-count" value="1" min="1" max="99">
 				<input type="submit" id="add-task-btn" value="Add Task">
 			</form>
-
 			<table id="task-table">
 				<tbody id="task-table-body">
 					<tr>
@@ -84,7 +78,26 @@
 			<p id="total-tasks"></p>
 			<p id="avg-pomos"></p> 
 		</div>
-		<div id="settings">
+		<div id="settings" style="display:none">
+			<form>
+				Choose the length of the one pomo:
+				<select id="pomo-length">
+					<option>20:00</option>
+					<option>25:00</option>
+					<option>30:00</option>
+					<option>35:00</option>
+				</select>
+				<br />
+			</form>
+			<form>
+				Display seconds:
+				<select id="display-seconds">
+					<option>Yes</option>
+					<option>No</option>
+				</select>
+				<br />
+			</form>
+			<input type="button" id="confirm-settings" value="Confirm Selection!">
 		</div>
 		<div id="faq">
 			<h3>Where do I get started?</h3>
@@ -100,7 +113,6 @@
 				On the 4th Pomodoro, there is a longer 15 min break. This technique keeps energy and motivation levels
 				high throughout the work schedule.</p>
 
-
 			<h3>What is the TaskList?</h3>
 			<p>This is the work schedule for the Pomodoro. Here we can add and remove tasks to do.
 				In order to add a task, you only need to specify task name and estimated pomo #.
@@ -113,6 +125,7 @@
 			<p>Visit the settings tab to configure the timer to your liking.</p>
 		</div>
 	</main>
+	<script src="./settings.js" type="module"></script>
 	<script src="./task-item.js" type="module"></script>
 	<script src="./timer.js" type="module"></script>
 	<script src="./tasklist.js" type="module"></script>
