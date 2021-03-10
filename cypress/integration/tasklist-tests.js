@@ -18,7 +18,7 @@ describe('Tasklist Tests', () => {
 		cy.get('#task-list-button').click();
 		cy.get('#new-task-name').clear().type('Simple Task');
 		cy.get('#new-task-count').clear().type('3');
-		cy.get('#add-task-btn').click();
+		cy.get('#add-task-button').click();
 		cy.get('#tasks-container').children().should('have.length', 1);
 		cy.get('#tasks-container').children().eq(0).as('task');
 		cy.get('@task').then($el => { expect($el).to.have.id('_Simple Task'); });
@@ -31,7 +31,7 @@ describe('Tasklist Tests', () => {
 		cy.get('#task-list-button').click();
 		cy.get('#new-task-name').clear().type('New Task');
 		cy.get('#new-task-count').clear().type('1');
-		cy.get('#add-task-btn').click();
+		cy.get('#add-task-button').click();
 		cy.get('#tasks-container').children().eq(0).shadow().children().eq(1).children().eq(0).click();
 		cy.get('#tasks-container').then($el => {
 			expect($el.get(0).$selected[0]).to.eq('_New Task');
@@ -45,7 +45,7 @@ describe('Tasklist Tests', () => {
 		cy.get('#task-list-button').click();
 		cy.get('#new-task-name').clear().type('Task');
 		cy.get('#new-task-count').clear().type('3');
-		cy.get('#add-task-btn').click();
+		cy.get('#add-task-button').click();
 		cy.get('#tasks-container').children().eq(0).shadow().children().eq(1).children().eq(2).click();
 		cy.get('#tasks-container').then($el => { expect($el.get(0).$tasks.length).to.eq(0); });
 		cy.get('#tasks-container').children().should('have.length', 0);
@@ -57,10 +57,10 @@ describe('Tasklist Tests', () => {
 		cy.get('#task-list-button').click();
 		cy.get('#new-task-name').clear().type('First Task');
 		cy.get('#new-task-count').clear().type('3');
-		cy.get('#add-task-btn').click();
+		cy.get('#add-task-button').click();
 		cy.get('#new-task-name').clear().type('Second Task');
 		cy.get('#new-task-count').clear().type('2');
-		cy.get('#add-task-btn').click();
+		cy.get('#add-task-button').click();
 		cy.get('#tasks-container').children().eq(0).shadow().children().eq(1).children().eq(0).click();
 		cy.get('#task-list-button').click();
 		cy.get('#tasks-container').children().eq(0).shadow().children().eq(1).children().eq(2).click();

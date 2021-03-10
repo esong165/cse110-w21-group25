@@ -25,7 +25,7 @@ export default class Tasklist extends HTMLUListElement {
 		if (selectedArr !== null) {
 			this.$selected = selectedArr;
 		}
-				// Update current task display
+		// Update current task display
 		if (this.$selected[0] === 'Default') {
 			document.getElementById('current-task').textContent = 'Default';
 		} else {
