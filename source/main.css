@@ -235,10 +235,11 @@ html {
 }
 
 #select-settings > select {
-	width:60px; 
-	height: 60px;
+	width: 6ch;
+	height: 3ch;
 	margin-top: 20px;
-	margin-left: 130px;
+	margin-left: 110px;
+	font-size: 30px;
 }
 
 #select-settings p {
@@ -249,10 +250,47 @@ html {
 	display: inline-block;
 }
 
-input[type=checkbox] {
-	width: 60px; 
-	height: 60px;
-	display: inline-block;
+#display-seconds-label {
 	margin-top: 20px;
 	margin-left: 265px;
+}
+
+.toggle {
+	--width: 65px;
+	--height: calc(var(--width) * 0.45);
+	--radius: calc(var(--height) / 2);
+	cursor: pointer;
+	display: inline-block;
+}
+
+.toggle-handle {
+	display: none;
+}
+
+.toggle-slider {
+	width: var(--width);
+	height: var(--height);
+	position: relative;
+	border-radius: var(--radius);
+	background: #ddd;
+	transition: background-color 0.15s;
+}
+
+.toggle-slider::after {
+	width: var(--height);
+	height: var(--height);
+	content: '';
+	position: absolute;
+	background-color: #eee;
+	border-radius: var(--radius);
+	box-shadow: 0 0 10px #0004;
+	transition: transform 0.15s;
+}
+
+.toggle-handle:checked + .toggle-slider {
+	background-color: #3cf;
+}
+
+.toggle-handle:checked + .toggle-slider::after {
+	transform: translateX(calc(var(--width) - var(--height)));
 }
