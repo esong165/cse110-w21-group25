@@ -22,8 +22,8 @@ describe('Tasklist Tests', () => {
 		cy.get('#tasks-container').children().should('have.length', 1);
 		cy.get('#tasks-container').children().eq(0).as('task');
 		cy.get('@task').then($el => { expect($el).to.have.id('_Simple Task'); });
-		cy.get('@task').shadow().children().first().children().eq(0).should('have.text', 'Simple Task');
-		cy.get('@task').shadow().children().first().children().eq(1).should('have.text', '3');
+		cy.get('@task').shadow().children().eq(1).children().eq(0).should('have.text', 'Simple Task');
+		cy.get('@task').shadow().children().eq(1).children().eq(1).should('have.text', '3');
 		cy.get('@task').then($el => { expect($el.get(0).currPomos).to.eq(0); });
 	});
 
@@ -32,7 +32,7 @@ describe('Tasklist Tests', () => {
 		cy.get('#new-task-name').clear().type('New Task');
 		cy.get('#new-task-count').clear().type('1');
 		cy.get('#add-task-btn').click();
-		cy.get('#tasks-container').children().eq(0).shadow().children().eq(0).children().eq(2).click();
+		cy.get('#tasks-container').children().eq(0).shadow().children().eq(1).children().eq(2).click();
 		cy.get('#tasks-container').then($el => {
 			expect($el.get(0).$selected[0]).to.eq('_New Task');
 			expect($el.get(0).$selected[1]).to.eq('1');
@@ -46,7 +46,7 @@ describe('Tasklist Tests', () => {
 		cy.get('#new-task-name').clear().type('Task');
 		cy.get('#new-task-count').clear().type('3');
 		cy.get('#add-task-btn').click();
-		cy.get('#tasks-container').children().eq(0).shadow().children().eq(0).children().eq(4).click();
+		cy.get('#tasks-container').children().eq(0).shadow().children().eq(1).children().eq(4).click();
 		cy.get('#tasks-container').then($el => { expect($el.get(0).$tasks.length).to.eq(0); });
 		cy.get('#tasks-container').children().should('have.length', 0);
 		cy.get('#home-button').click();
@@ -61,9 +61,9 @@ describe('Tasklist Tests', () => {
 		cy.get('#new-task-name').clear().type('Second Task');
 		cy.get('#new-task-count').clear().type('2');
 		cy.get('#add-task-btn').click();
-		cy.get('#tasks-container').children().eq(0).shadow().children().eq(0).children().eq(2).click();
+		cy.get('#tasks-container').children().eq(0).shadow().children().eq(1).children().eq(2).click();
 		cy.get('#task-list-button').click();
-		cy.get('#tasks-container').children().eq(0).shadow().children().eq(0).children().eq(4).click();
+		cy.get('#tasks-container').children().eq(0).shadow().children().eq(1).children().eq(4).click();
 		cy.get('#tasks-container').children().should('have.length', 1);
 		cy.get('#tasks-container').then($el => {
 			expect($el.get(0).$selected[0]).to.eq('_Second Task'); 

@@ -57,7 +57,7 @@ export default class StatItem extends HTMLElement {
 		const stat = document.createElement('li');
 		stat.setAttribute('class', 'task');
 		stat.setAttribute('color', 'true');
-		//removes bullet point from ul's li elements
+		// Remove bullet point from ul's li elements
 		stat.style = 'list-style-type:none;';
 
 		const name = document.createElement('p');

@@ -92,7 +92,8 @@ document.addEventListener('DOMContentLoaded', () => {
 		window.app.settings.getTimerStyle();
 
 		// Update timer seconds display
-		window.app.timer.remaining = window.app.timer.remaining;
+		const remainingTime = window.app.timer.remaining;
+		window.app.timer.remaining = remainingTime;
 	});
 	document.getElementById('home-button').addEventListener('click', () => {
 		window.app.settings.toHome();

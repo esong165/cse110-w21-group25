@@ -49,7 +49,7 @@ html {
 	margin: 0;
 	text-align: center;
 	max-width: 450px;
-    word-wrap: break-word;
+	word-wrap: break-word;
 }
 
 /* In case we want to use num-pomos */

@@ -48,10 +48,9 @@ export default class Tasklist extends HTMLUListElement {
 
 			currTask.shadowRoot.children[1].children[2].addEventListener('mouseover',
 				function(event) { event.target.setAttribute('src', 'images/trashcan_black.png'); });
-
 			currTask.shadowRoot.children[1].children[2].addEventListener('mouseout',
 				function(event) { event.target.setAttribute('src', 'images/trashcan.png'); });
-			
+
 			document.getElementById('tasks-container').appendChild(currTask);
 
 			// Add drag/drop functionality
@@ -76,15 +75,15 @@ export default class Tasklist extends HTMLUListElement {
 	 */
 	addTask(name, count) {
 		// Validity checking
-		if (name.trim() === '' ) {
+		if (name.trim() === '') {
 			alert('Please enter a valid task name.');
 			return;
 		}
-		if (count === '' ) {
+		if (count === '') {
 			alert('Please enter a valid pomo count.');
 			return;
 		}
-		
+
 		const task = new TaskItem(name, count, 0);
 		task.id = '_' + name;
 
@@ -130,14 +129,13 @@ export default class Tasklist extends HTMLUListElement {
 	 * @param {String} taskId - name of selected task.
 	 */
 	selectTask(taskId) {
-
 		resetBackGround();
 		const task = document.getElementById(taskId).shadowRoot.children[1];
-		
-		//highlighting the selected task
-		task.children[0].setAttribute('style',`width: 60%; background-color: rgb(191,191,191);
-		box-shadow: 70px 0px 0px 10px rgb(191,191,191), 0px 0px 0px 10px rgb(191,191,191);`);
-	
+
+		// Highlight the selected task
+		task.children[0].setAttribute('style', `width: 60%; background-color: rgb(191,191,191);
+			box-shadow: 70px 0px 0px 10px rgb(191,191,191), 0px 0px 0px 10px rgb(191,191,191);`);
+
 		const name = task.children[0].textContent;
 		const pomos = task.children[1].textContent;
 
@@ -149,7 +147,6 @@ export default class Tasklist extends HTMLUListElement {
 
 		// Store selected task in local storage
 		localStorage.setItem('selectedTask', JSON.stringify(this.$selected));
-
 	}
 
 	/**
@@ -226,10 +223,10 @@ customElements.define('task-list', Tasklist, { extends: 'ul' });
 /**
  * Helper function to set any highlighted task-item styling back to default.
  */
-function resetBackGround(){
+function resetBackGround() {
 	const taskList = document.getElementById('tasks-container').getElementsByTagName('task-item');
-	for (const task of taskList){
-		task.shadowRoot.children[1].children[0].setAttribute('style','width: 60%;');
+	for (const task of taskList) {
+		task.shadowRoot.children[1].children[0].setAttribute('style', 'width: 60%;');
 	}
 }
 

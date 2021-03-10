@@ -18,57 +18,57 @@ export default class TaskItem extends HTMLElement {
 
 		// styles the elements in TaskItem to look like a table
 		shadow.innerHTML = `
-	<style>
-	li {
-		width: 700px;
-		position: relative;
-		text-align: center;
-		margin-left: 7%;
-	}
-	
-	li:before, li:after {
-		text-align: right;
-		display: block;
-		border-bottom: 0;
-		width: 0%; 
-	}
-	
-	li:before {
-		text-align: left;
-	}
-	
-	li:after {
-		position: absolute;
-		top: 0;
-		left: 48%;
-		margin-left: 1px;  
-
-	}
+		<style>
+		li {
+			width: 700px;
+			position: relative;
+			text-align: center;
+			margin-left: 7%;
+		}
 		
-	p{
-		text-align: left;
-		float: left;
-		margin-top: 25px;
-		font-size: 210%;
-		max-width: 450px;
-    	word-wrap: break-word;
-	}
-
-	li img{
-		text-align: left;
-		float: left;
-		margin-bottom: -20px;
-		width: 100x; 
-		height: 100px;
+		li:before, li:after {
+			text-align: right;
+			display: block;
+			border-bottom: 0;
+			width: 0%; 
+		}
+		
+		li:before {
+			text-align: left;
+		}
+		
+		li:after {
+			position: absolute;
+			top: 0;
+			left: 48%;
+			margin-left: 1px;  
 
 		}
-
-	p:first-of-type:hover{
-			background-color: rgb(191,191,191);
-			box-shadow: 70px 0px 0px 10px rgb(191,191,191), 0px 0px 0px 10px rgb(191,191,191);
+			
+		p{
+			text-align: left;
+			float: left;
+			margin-top: 25px;
+			font-size: 210%;
+			max-width: 450px;
+			word-wrap: break-word;
 		}
 
-	</style>
+		li img{
+			text-align: left;
+			float: left;
+			margin-bottom: -20px;
+			width: 100x; 
+			height: 100px;
+
+			}
+
+		p:first-of-type:hover{
+				background-color: rgb(191,191,191);
+				box-shadow: 70px 0px 0px 10px rgb(191,191,191), 0px 0px 0px 10px rgb(191,191,191);
+			}
+
+		</style>
   		`;
 
 		// Creates list object representing the task
@@ -76,10 +76,9 @@ export default class TaskItem extends HTMLElement {
 		task.setAttribute('class', 'task');
 		task.setAttribute('draggable', 'true');
 		task.setAttribute('color', 'true');
-		//removes bullet point from ul's li elements
+		// Remove bullet point from ul's li elements
 		task.style = 'list-style-type:none;';
 
-		//Select functionalilty now on pomoCount and taskname spans
 		// Set name of task
 		const name = document.createElement('p');
 		name.textContent = taskName;
@@ -96,10 +95,8 @@ export default class TaskItem extends HTMLElement {
 
 		// Remove task button
 		const removeTaskButton = document.createElement('img');
-		//sets image of removeTaskButton
+		// Set image of removeTaskButton
 		removeTaskButton.setAttribute('src', 'images/trashcan.png');
-		//currently the following line is probably uncessary
-		removeTaskButton.innerHTML = 'Remove';
 		task.appendChild(removeTaskButton);
 
 		// Add task to shadow DOM
