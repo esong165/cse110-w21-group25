@@ -41,7 +41,6 @@ export default class Statlist extends HTMLUListElement {
 	 * @param {String} name - Name of the completed task.
 	 * @param {Number} expected - Estimated pomodoro count for the task.
 	 * @param {Number} count - Actual pomodoros used to complete the task.
-	 * @returns 
 	 */
 	addStat(name, expected, count) {
 		if (count === -1) {
