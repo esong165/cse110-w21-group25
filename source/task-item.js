@@ -67,7 +67,7 @@ export default class TaskItem extends HTMLElement {
 				box-shadow: 0px 0px 0px 10px rgb(191,191,191);
 			}
 			</style>
-  		`;
+		`;
 
 		// Creates list object representing the task
 		const task = document.createElement('li');

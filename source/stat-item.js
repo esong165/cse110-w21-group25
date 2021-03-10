@@ -1,8 +1,14 @@
-
+/**
+ * A class representing a stat item.
+ */
 export default class StatItem extends HTMLElement {
-	/*
-	* construct stat item
-	*/
+
+	/**
+	 * Constructs a stat item using the input task name, expected pomodoro count, and actual pomodoro count.
+	 * @param {String} taskName - Name of completed task.
+	 * @param {Number} expectedCount - Estimated pomodoro count for the task.
+	 * @param {Number} pomoCount - Actual pomodoros used to complete the task.
+	 */
 	constructor(taskName, expectedCount, pomoCount) {
 		super();
 
@@ -16,26 +22,25 @@ export default class StatItem extends HTMLElement {
 				text-align: center;
 				margin-left: 7%;
 			}
-			
+
 			li:before, li:after {
 				text-align: right;
 				display: block;
 				border-bottom: 0;
-				width: 0%; 
+				width: 0%;
 			}
-			
+
 			li:before {
 				text-align: left;
 			}
-			
+
 			li:after {
 				position: absolute;
 				top: 0;
 				left: 48%;
-				margin-left: 1px;  
-
+				margin-left: 1px;
 			}
-				
+
 			p {
 				text-align: left;
 				float: left;
@@ -49,7 +54,7 @@ export default class StatItem extends HTMLElement {
 				margin-left: 70px;
 			}
 			</style>
-  		`;
+		`;
 
 		const stat = document.createElement('li');
 		stat.setAttribute('class', 'task');

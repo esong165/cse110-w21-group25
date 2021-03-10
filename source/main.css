@@ -102,8 +102,8 @@ html {
 }
 
 #table-name-label {
-	display: inline-block; 
-	margin-right: 170px ;
+	display: inline-block;
+	margin-right: 170px;
 }
 
 #table-pomo-label {
@@ -126,13 +126,11 @@ html {
 	display: table;
 	text-align: center;
 	margin: 0 auto;
-	
 }
 
 #new-task-name {
-	width: 420px; 
+	width: 420px;
 	height: 50px;
-	
 	margin-right: 30px;
 	margin-left: 60px;
 	padding-top: 10px;
@@ -141,7 +139,7 @@ html {
 }
 
 #new-task-count {
-	width: 40px; 
+	width: 40px;
 	height: 50px;
 	padding-top: 10px;
 	font-size: 210%;
@@ -173,8 +171,8 @@ html {
 /* stats */
 #stats {
 	text-align: center;
-	
 }
+
 #overall-stats {
 	min-width: 750px;
 	width: 750px;
@@ -182,7 +180,6 @@ html {
 	margin: 0 auto;
 	font-size: 210%;
 	font-family: 'Open Sans', sans-serif;
-	
 }
 
 #stats-container {
@@ -203,7 +200,7 @@ html {
 }
 
 #stats-table-name-label {
-	display: inline-block; 
+	display: inline-block;
 	margin-left: 20px;
 	margin-right: 280px;
 }
@@ -223,7 +220,6 @@ html {
 }
 
 /*settings*/
-
 #settings {
 	min-width: 750px;
 	width: 750px;
@@ -232,12 +228,13 @@ html {
 	font-size: 210%;
 	font-family: 'Open Sans', sans-serif;
 }
-#settings form label.sideBySideField{
+
+#settings form label.sideBySideField {
 	display: inline-block;
 	margin-right: 100px;
 }
 
-#select-settings > select { 
+#select-settings > select {
 	width:60px; 
 	height: 60px;
 	margin-top: 20px;
@@ -252,7 +249,7 @@ html {
 	display: inline-block;
 }
 
-input[type=checkbox] { 
+input[type=checkbox] {
 	width: 60px; 
 	height: 60px;
 	display: inline-block;
