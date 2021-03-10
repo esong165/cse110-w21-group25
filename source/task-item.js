@@ -44,9 +44,8 @@ export default class TaskItem extends HTMLElement {
 		margin-left: 1px;  
 
 	}
-	
 		
-	span{
+	p{
 		text-align: left;
 		float: left;
 		margin-top: 25px;
@@ -62,7 +61,7 @@ export default class TaskItem extends HTMLElement {
 
 		}
 
-	span:first-of-type:hover{
+	p:first-of-type:hover{
 			background-color: rgb(191,191,191);
 			box-shadow: 20px 0px 0px 10px rgb(191,191,191), 0px 0px 0px 10px rgb(191,191,191);
 		}
@@ -84,18 +83,14 @@ export default class TaskItem extends HTMLElement {
 
 		//Select functionalilty now on pomoCount and taskname spans
 		// Set name of task
-		const name = document.createElement('span');
-		name.innerHTML = '';
-		name.innerHTML += taskName;
-		//sets task name witdth to be 60% of li
-		name.style = "width: 60%;";
+		const name = document.createElement('p');
+		name.textContent = taskName;
+		name.style = 'width: 60%;';
 		task.appendChild(name);
 
 		// Set estimated pomodoros
-		const count = document.createElement('span');
-		count.innerHTML = '';
-		count.innerHTML += pomoCount;
-		//sets num pomos witdth to be 10% of li
+		const count = document.createElement('p');
+		count.textContent = pomoCount;
 		count.style = 'width: 10%;';
 		task.appendChild(count);
 		// Set current pomodoro count
@@ -113,15 +108,49 @@ export default class TaskItem extends HTMLElement {
 		shadow.appendChild(task);
 	}
 
+	/**
+	 * Gets the dragged task's id and prepares it to be transferred to the dropped task.
+	 * @param {Event} event - Event of task item being dragged.
+	 */
 	drag(event) {
-		console.log('drag');
+		// Sets dragged task's ID as data to be transferred
+		event.dataTransfer.setData('text/plain', event.target.id);
 	}
 
+	/**
+	 * Moves the dragged task to the position of the dropped task and updates all positions accordingly.
+	 * @param {Event} event - Event of some task being dropped onto another task.
+	 */
 	drop(event) {
+		// Enables dropping on this task item
 		event.preventDefault();
-		console.log('drop');
+
+		const draggedTask = document.getElementById(event.dataTransfer.getData('text/plain'));
+		const droppedTask = document.getElementById(event.target.id);
+		const draggedPos = Array.from(document.getElementById('tasks-container').childNodes)
+			.indexOf(document.getElementById(draggedTask.id));
+		const droppedPos = Array.from(document.getElementById('tasks-container').childNodes)
+			.indexOf(document.getElementById(droppedTask.id));
+		const tasklist = document.getElementById('tasks-container');
+
+		// Insert task before or at the task being dropped on, depending on their relative positions
+		if (draggedPos > droppedPos) {
+			droppedTask.parentNode.insertBefore(draggedTask, droppedTask);
+		} else if (draggedPos < droppedPos) {
+			droppedTask.parentNode.insertBefore(draggedTask, droppedTask.nextSibling);
+		}
+
+		// Update $tasks and localStorage positions
+		const removedTask = tasklist.$tasks[draggedPos];
+		tasklist.$tasks.splice(draggedPos, 1);
+		tasklist.$tasks.splice(droppedPos, 0, removedTask);
+		localStorage.setItem('taskItemArr', JSON.stringify(tasklist.$tasks));
 	}
 
+	/**
+	 * Allows a task to be dropped onto another task.
+	 * @param {Event} event - Event of mouse hovering over a task while holding a dragged item.
+	 */
 	allowDrop(event) {
 		event.preventDefault();
 	}

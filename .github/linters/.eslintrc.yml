@@ -30,6 +30,7 @@ parser: babel-eslint
 # Extends #
 ###########
 extends: standard
+
 #########
 # Rules #
 #########
