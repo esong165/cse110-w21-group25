@@ -17,10 +17,12 @@
 	<main>
 		<nav id="task-bar">
 			<img src="images/home.png" id="home-button" class="taskbar-button" alt="Home" title="Home" />
-			<img src="images/tasklist.png" id="task-list-button" class="taskbar-button" alt="Task List" title="Task List" />
+			<img src="images/tasklist.png" id="task-list-button" class="taskbar-button" alt="Task List"
+				title="Task List" />
 			<img src="images/stats.png" id="stats-button" class="taskbar-button" alt="Statistics" title="Statistics" />
 			<img src="images/faq.png" id="faq-button" class="taskbar-button" alt="FAQ" title="FAQ" />
-			<img src="images/settings.png" id="settings-button" class="taskbar-button" alt="Settings" title="Settings" />
+			<img src="images/settings.png" id="settings-button" class="taskbar-button" alt="Settings"
+				title="Settings" />
 		</nav>
 		<div id="timer">
 			<div id="current-task-container">
@@ -59,7 +61,7 @@
 		<div id="stats">
 			<ul id="stats-container" is="stat-list"></ul>
 			<p id="total-tasks"></p>
-			<p id="avg-pomos"></p> 
+			<p id="avg-pomos"></p>
 		</div>
 		<div id="settings" style="display:none">
 			<form>
@@ -92,20 +94,29 @@
 
 			<h3>What is a Pomodoro Timer?</h3>
 			<p>A Pomodoro timer is a time-management technique. One Pomodoro is a 25 min work session followed by a 5
-				min break.
+				min break. You can change the length of a pomodoro work session in the settings tab.
 				On the 4th Pomodoro, there is a longer 15 min break. This technique keeps energy and motivation levels
 				high throughout the work schedule.</p>
 
 			<h3>What is the TaskList?</h3>
 			<p>This is the work schedule for the Pomodoro. Here we can add and remove tasks to do.
 				In order to add a task, you only need to specify task name and estimated pomo #.
-				Once all tasks are added, select one to start with!</p>
+				Once all tasks are added, select one to start with! You can drag and drop tasks to align with
+				whatever priority you want. </p>
 
 			<h3>How to see completed tasks?</h3>
 			<p>Visit the statistics tab on the page to view a list of completed tasks and other stats.</p>
 
 			<h3> How to customize the timer? </h3>
 			<p>Visit the settings tab to configure the timer to your liking.</p>
+
+
+			<h3> Why are some functions disabled while the timer is running? </h3>
+			<p>To ensure max productivity, we disable some functions so that you don't get distracted. If you complete a 
+				task while the timer is running, the highest priority task will be assigned to you, no need to access the 
+				task list to change tasks. 
+			</p>
+
 		</div>
 	</main>
 	<script src="./settings.js" type="module"></script>
@@ -115,4 +126,5 @@
 	<script src="./statlist.js" type="module"></script>
 	<script src="./main.js"></script>
 </body>
+
 </html>
