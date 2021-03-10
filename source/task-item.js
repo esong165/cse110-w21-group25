@@ -16,38 +16,89 @@ export default class TaskItem extends HTMLElement {
 		// Initializes shadow DOM
 		const shadow = this.attachShadow({ mode: 'open' });
 
+		// styles the elements in TaskItem to look like a table
+		shadow.innerHTML = `
+			<style>
+			li {
+				width: 700px;
+				position: relative;
+				text-align: center;
+				margin-left: 7%;
+			}
+			
+			li:before, li:after {
+				text-align: right;
+				display: block;
+				border-bottom: 0;
+				width: 0%; 
+			}
+			
+			li:before {
+				text-align: left;
+			}
+			
+			li:after {
+				position: absolute;
+				top: 0;
+				left: 48%;
+				margin-left: 1px;  
+
+			}
+				
+			p {
+				text-align: left;
+				float: left;
+				margin-top: 25px;
+				font-size: 210%;
+				max-width: 470px;
+				word-wrap: break-word;
+			}
+
+			li img {
+				text-align: left;
+				float: left;
+				margin-bottom: -20px;
+				width: 100x; 
+				height: 100px;
+			}
+
+			div:hover > p {
+				background-color: rgb(191,191,191);
+				box-shadow: 0px 0px 0px 10px rgb(191,191,191);
+			}
+			</style>
+		`;
+
 		// Creates list object representing the task
 		const task = document.createElement('li');
 		task.setAttribute('class', 'task');
 		task.setAttribute('draggable', 'true');
+		task.setAttribute('color', 'true');
+		// Remove bullet point from ul's li elements
 		task.style = 'list-style-type:none;';
+
+		const select = document.createElement('div');
 
 		// Set name of task
 		const name = document.createElement('p');
 		name.textContent = taskName;
-		name.style = 'display:none;';
-		task.appendChild(name);
+		name.style = 'width: 60%;';
+		select.appendChild(name);
 
 		// Set estimated pomodoros
 		const count = document.createElement('p');
 		count.textContent = pomoCount;
-		count.style = 'display:none;';
-		task.appendChild(count);
+		count.style = 'width: 10%; padding-left: 50px;';
+		select.appendChild(count);
+
+		task.appendChild(select);
+
 		// Set current pomodoro count
 		this.currPomos = currPomoCount;
 
-		// Select task button note: considering making this a radio option or making the text a clickable button
-		const selectTaskButton = document.createElement('button');
-		selectTaskButton.textContent = taskName;
-		task.appendChild(selectTaskButton);
-
-		const selectPomoButton = document.createElement('button');
-		selectPomoButton.textContent = pomoCount;
-		task.appendChild(selectPomoButton);
-
 		// Remove task button
-		const removeTaskButton = document.createElement('button');
-		removeTaskButton.textContent = 'Remove';
+		const removeTaskButton = document.createElement('img');
+		removeTaskButton.setAttribute('src', 'images/trashcan.png');
 		task.appendChild(removeTaskButton);
 
 		// Add task to shadow DOM

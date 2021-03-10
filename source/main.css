@@ -2,6 +2,7 @@ body {
 	background-color: rgb(242, 197, 247); /* pomo, short: 184, 236, 184; long: 170, 210, 247; */
 	font-family: 'Open Sans', sans-serif;
 	padding-bottom: 0;
+	min-width: 950px;
 }
 
 #site-header {
@@ -14,44 +15,23 @@ html {
 	overflow-y: scroll;
 }
 
+/* nav-buttons */
 .taskbar-button {
 	height: 50px;
 	width: 50px;
-}
-
-/* nav-buttons */
-
-#home-button {
 	padding: 20px;
-	outline: 0;
+
 }
 
-#stats-button {
-	padding: 20px;
-	outline: 0;
+.taskbar-button:hover {
+	border: 1px solid;
+	border-radius: 10px;
+	margin: -1px;
 }
 
-#settings-button {
-	padding: 20px;
-	outline: 0;
-}
-
-#task-list-button {
-	padding: 20px;
-	outline: 0;
-}
-
-#faq-button {
-	padding: 20px;
-	outline: 0;
-}
-
-/* task-bar */
+/* nav-bar */
 #task-bar {
 	text-align: center;
-	margin: 0 auto;
-	vertical-align: middle;
-	padding-top: 0;
 }
 
 /* timer */
@@ -65,6 +45,20 @@ html {
 	font-size: 300%;
 	margin: 0;
 	text-align: center;
+	max-width: 450px;
+	word-wrap: break-word;
+}
+
+#done-button {
+	cursor: pointer;
+	display: inline-block;
+	font-size: 500%;
+	height: 40px;
+	margin: -5px;
+	outline: 0;
+	padding-left: 20px;
+	text-align: center;
+	width: 40px;
 }
 
 #time-remaining {
@@ -97,100 +91,168 @@ html {
 }
 
 /* task-list */
-#add-task-container {
+#table-label {
+	width: 10px;
 	text-align: center;
+	display: inline;
+	margin: 0 auto;
+	font-size: 210%;
+	font-family: 'Open Sans', sans-serif;
+	font-weight: bold;
+}
+
+#table-name-label {
+	display: inline-block;
+	margin-right: 170px;
+}
+
+#table-pomo-label {
+	display: inline-block;
 }
 
 #task-list {
-	display: none; /* Include some positioning */
+	text-align: center;
 }
 
-#task-name {
+#tasks-container {
+	width: 10px;
 	text-align: center;
+	display: table;
+	margin: 0 auto;
+}
+
+#add-task-container {
+	width: 700px;
+	display: table;
+	text-align: center;
+	margin: 0 auto;
 }
 
 #new-task-name {
+	width: 420px;
+	height: 50px;
+	margin-right: 30px;
+	margin-left: 60px;
+	padding-top: 10px;
+	font-size: 210%;
 	size: 20px;
-}
-
-#est-pomos {
-	text-align: center;
 }
 
 #new-task-count {
+	width: 40px;
+	height: 50px;
+	padding-top: 10px;
+	font-size: 210%;
+	text-align: right;
 	size: 20px;
 }
 
+#add-task-button {
+	height: 60px;
+	width: 70px;
+	font-size: 300%;
+	font-weight: bold;
+	color: black;
+	background-color: rgb(242, 197, 247);
+	border-radius: 15px;
+	border: 3px solid black;
+	margin-left: 50px;
+	outline: none;
+}
+
+/* faq */
 #faq {
 	display: flex;
 	justify-content: center;
-}
-
-#faq {
 	margin: 0 auto;
 	max-width: 50%;
 }
 
-#faq div {
-	max-width: 100%;
-}
-
-#task-list {
-	display: none; /* Include some positioning */
-}
-
-#navButton {
+/* stats */
+#stats {
 	text-align: center;
-	background-color: aquamarine;
 }
 
-#popup-button {
-	background-color: rgba(247, 108, 108, 0.932);
+#overall-stats {
+	min-width: 750px;
+	width: 750px;
+	text-align: left;
+	margin: 0 auto;
+	font-size: 210%;
+	font-family: 'Open Sans', sans-serif;
+}
+
+#stats-container {
+	width: 10px;
 	text-align: center;
+	display: table;
+	margin: 0 auto;
+}
+
+#stats-table-label {
+	width: 10px;
+	text-align: center;
+	display: inline;
+	margin: 0 auto;
+	font-size: 210%;
+	font-family: 'Open Sans', sans-serif;
+	font-weight: bold;
+}
+
+#stats-table-name-label {
 	display: inline-block;
-	font-size: 500%;
-	cursor: pointer;
-	padding: 20px 20px;
+	margin-left: 20px;
+	margin-right: 280px;
 }
 
-#done-button {
-	cursor: pointer;
+#stats-pomo-label {
+	margin-left: 475px;
+	margin-bottom: -30px;
+}
+
+#stats-exp-label {
 	display: inline-block;
-	font-size: 500%;
-	height: 40px;
-	margin: -5px;
-	outline: 0;
-	padding-left: 20px;
-	text-align: center;
-	width: 40px;
 }
 
-#popup-button:hover {
-	background-color: rgb(255, 0, 0);
+#stats-actual-label {
+	display: inline-block;
+	margin-left: 60px;
 }
 
-#done-button:hover {
-	background-color: rgb(30, 255, 0);
+/*settings*/
+#settings {
+	min-width: 750px;
+	width: 750px;
+	text-align: left;
+	margin: 0 auto;
+	font-size: 210%;
+	font-family: 'Open Sans', sans-serif;
 }
 
-#num-pomos {
-	display: none;
-	font-size: 300%;
-	text-align: center;
+#settings form label.sideBySideField {
+	display: inline-block;
+	margin-right: 100px;
 }
 
-table,
-th,
-td {
-	border: 1px solid black;
-	width: 42%;
-	text-align: center;
+#select-settings > select {
+	width:60px; 
+	height: 60px;
+	margin-top: 20px;
+	margin-left: 130px;
 }
 
-.task-item {
-	list-style-type: none;
+#select-settings p {
+	display: inline-block;
 }
 
-#tasks-container {
-	text-align: center;
+#check-settings p {
+	display: inline-block;
+}
+
+input[type=checkbox] {
+	width: 60px; 
+	height: 60px;
+	display: inline-block;
+	margin-top: 20px;
+	margin-left: 265px;
 }

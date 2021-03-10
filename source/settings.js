@@ -24,8 +24,8 @@ export default class Settings {
 	 * Changes the settings of the appearance of the timer
 	 */
 	getTimerStyle() {
-		const obj = document.getElementById('display-seconds');
-		this.displaySeconds = obj.options[obj.selectedIndex].text === 'Yes';
+		this.displaySeconds = document.getElementById('display-seconds').checked;
+		window.app.timer.notifySettingsChanged();
 	}
 
 	/**

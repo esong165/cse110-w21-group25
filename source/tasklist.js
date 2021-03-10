@@ -25,7 +25,6 @@ export default class Tasklist extends HTMLUListElement {
 		if (selectedArr !== null) {
 			this.$selected = selectedArr;
 		}
-
 		// Update current task display
 		if (this.$selected[0] === 'Default') {
 			document.getElementById('current-task').textContent = 'Default';
@@ -39,12 +38,15 @@ export default class Tasklist extends HTMLUListElement {
 			currTask.id = '_' + task[0];
 
 			// Add select and remove buttons to each task fetched from localStorage
-			currTask.shadowRoot.children[0].children[2].addEventListener('click',
+			currTask.shadowRoot.children[1].children[0].addEventListener('click',
 				function() { document.getElementById('tasks-container').selectTask(currTask.id); });
-			currTask.shadowRoot.children[0].children[3].addEventListener('click',
-				function() { document.getElementById('tasks-container').selectTask(currTask.id); });
-			currTask.shadowRoot.children[0].children[4].addEventListener('click',
+			currTask.shadowRoot.children[1].children[1].addEventListener('click',
 				function() { document.getElementById('tasks-container').removeTask(currTask.id); });
+
+			currTask.shadowRoot.children[1].children[1].addEventListener('mouseover',
+				function(event) { event.target.setAttribute('src', 'images/trashcan_black.png'); });
+			currTask.shadowRoot.children[1].children[1].addEventListener('mouseout',
+				function(event) { event.target.setAttribute('src', 'images/trashcan.png'); });
 
 			document.getElementById('tasks-container').appendChild(currTask);
 
@@ -52,6 +54,9 @@ export default class Tasklist extends HTMLUListElement {
 			document.getElementById(currTask.id).setAttribute('ondragstart', 'drag(event);');
 			document.getElementById(currTask.id).setAttribute('ondragover', 'allowDrop(event);');
 			document.getElementById(currTask.id).setAttribute('ondrop', 'drop(event);');
+		}
+		if (this.$selected[0] !== 'Default') {
+			document.getElementById('tasks-container').selectTask(this.$selected[0]);
 		}
 	}
 
@@ -74,18 +79,27 @@ export default class Tasklist extends HTMLUListElement {
 			alert('Please enter a valid task name.');
 			return;
 		}
+		if (count === '') {
+			alert('Please enter a valid pomo count.');
+			return;
+		}
+
 		const task = new TaskItem(name, count, 0);
 		task.id = '_' + name;
 
 		// Add select and remove buttons to the task
-		task.shadowRoot.children[0].children[2].addEventListener('click',
+		task.shadowRoot.children[1].children[0].addEventListener('click',
 			function() { document.getElementById('tasks-container').selectTask(task.id); });
-		task.shadowRoot.children[0].children[3].addEventListener('click',
-			function() { document.getElementById('tasks-container').selectTask(task.id); });
-		task.shadowRoot.children[0].children[4].addEventListener('click',
+		task.shadowRoot.children[1].children[1].addEventListener('click',
 			function() { document.getElementById('tasks-container').removeTask(task.id); });
 
-		// Store task as array of array in local storage -- could refactor into separate method
+		// Remove icon "highlights" on hover
+		task.shadowRoot.children[1].children[1].addEventListener('mouseover',
+			function(event) { event.target.setAttribute('src', 'images/trashcan_black.png'); });
+		task.shadowRoot.children[1].children[1].addEventListener('mouseout',
+			function(event) { event.target.setAttribute('src', 'images/trashcan.png'); });
+
+		// Store task as array of array in local storage
 		let taskItemArr = JSON.parse(localStorage.getItem('taskItemArr'));
 		if (taskItemArr == null) {
 			taskItemArr = [];
@@ -119,20 +133,23 @@ export default class Tasklist extends HTMLUListElement {
 	 * @param {String} taskId - name of selected task.
 	 */
 	selectTask(taskId) {
-		const task = document.getElementById(taskId).shadowRoot.children[0];
-		const name = task.children[0].textContent;
-		const pomos = task.children[1].textContent;
+		resetBackGround();
+		const task = document.getElementById(taskId).shadowRoot.children[1];
+		// Highlight the selected task
+		task.children[0].children[0].setAttribute('style', `width: 90%; background-color: rgb(191,191,191);
+			box-shadow: 0px 0px 0px 10px rgb(191,191,191);`);
+		task.children[0].children[1].setAttribute('style', `width: 10%; background-color: rgb(191,191,191);
+			box-shadow: 0px 0px 0px 10px rgb(191,191,191);`);
+		const name = task.children[0].children[0].textContent;
+		const pomos = task.children[0].children[1].textContent;
 
 		// Update current task display
 		document.getElementById('current-task').textContent = name;
 
 		// Update $selected instance variable
 		this.$selected = ['_' + name, pomos, document.getElementById(taskId).currPomos];
-
 		// Store selected task in local storage
 		localStorage.setItem('selectedTask', JSON.stringify(this.$selected));
-		// goes to timer page to see task set
-		home();
 	}
 
 	/**
@@ -206,24 +223,15 @@ export default class Tasklist extends HTMLUListElement {
 
 customElements.define('task-list', Tasklist, { extends: 'ul' });
 
-function home() {
-	/* add listeners or something to change color for timer */
-	/* hides non timer elements and makes timer elements visible */
-
-	const home = document.getElementById('timer');
-	home.style.display = 'block';
-
-	const tasklist = document.getElementById('task-list');
-	tasklist.style.display = 'none';
-
-	const faq = document.getElementById('faq');
-	faq.style.display = 'none';
-
-	const settings = document.getElementById('settings');
-	settings.style.display = 'none';
-
-	const stats = document.getElementById('stats');
-	stats.style.display = 'none';
+/**
+ * Helper function to set any highlighted task-item styling back to default.
+ */
+function resetBackGround() {
+	const taskList = document.getElementById('tasks-container').getElementsByTagName('task-item');
+	for (const task of taskList) {
+		task.shadowRoot.children[1].children[0].children[0].setAttribute('style', 'width: 90%;');
+		task.shadowRoot.children[1].children[0].children[1].setAttribute('style', 'width: 10%;');
+	}
 }
 
 /**
