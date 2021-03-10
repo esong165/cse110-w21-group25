@@ -48,7 +48,7 @@ document.addEventListener('DOMContentLoaded', () => {
 		// Changes Color of selected button. Default is home
 		const home = document.getElementById('timer');
 		home.style.display = 'block';
-		homeButtonSelect.setAttribute('style',"background:lightgray;");
+		homeButtonSelect.setAttribute('style',"border:3px solid; border-radius: 10px; margin: -3px;");
 
 	// If tasklist icon clicked on
 	const taskListButton = document.getElementById('task-list-button');
@@ -60,7 +60,7 @@ document.addEventListener('DOMContentLoaded', () => {
 		/* Changes Color of selected button. */
 		const tasklistButtonSelect = document.getElementById('task-list-button');
 		tasklistButtonSelect.setAttribute('src', 'images/tasklist2.png');
-		tasklistButtonSelect.setAttribute('style',"background:lightgray;");
+		tasklistButtonSelect.setAttribute('style',"border:3px solid; border-radius: 10px; margin: -3px;");
 		// shows tasklist
 		const tasklist = document.getElementById('task-list');
 		tasklist.style.display = 'block';
@@ -76,7 +76,7 @@ document.addEventListener('DOMContentLoaded', () => {
 		/* Changes Color of selected button. */
 		const homeButtonSelect = document.getElementById('home-button');
 		homeButtonSelect.setAttribute('src', 'images/home2.png');
-		homeButtonSelect.setAttribute('style',"background:lightgray;");
+		homeButtonSelect.setAttribute('style',"border:3px solid; border-radius: 10px; margin: -3px;");
 		// shows timer
 		const home = document.getElementById('timer');
 		home.style.display = 'block';
@@ -91,7 +91,7 @@ document.addEventListener('DOMContentLoaded', () => {
 		/* Changes Color of selected button. */
 		const statsButtonSelect = document.getElementById('stats-button');
 		statsButtonSelect.setAttribute('src', 'images/stats2.png');
-		statsButtonSelect.setAttribute('style',"background:lightgray;");
+		statsButtonSelect.setAttribute('style',"border:3px solid; border-radius: 10px; margin: -3px;");
 		// shows settings
 		const stats = document.getElementById('stats');
 		stats.style.display = 'block';
@@ -105,7 +105,7 @@ document.addEventListener('DOMContentLoaded', () => {
 		/* Changes Color of selected button. */
 		const faqButtonSelect = document.getElementById('faq-button');
 		faqButtonSelect.setAttribute('src', 'images/faq2.png');
-		faqButtonSelect.setAttribute('style',"background:lightgray;");
+		faqButtonSelect.setAttribute('style',"border:3px solid; border-radius: 10px; margin: -3px;");
 		// shows settings
 		const faq = document.getElementById('faq');
 		faq.style.display = 'block';
@@ -119,7 +119,7 @@ document.addEventListener('DOMContentLoaded', () => {
 		/* Changes Color of selected button. */
 		const settingsButtonSelect = document.getElementById('settings-button');
 		settingsButtonSelect.setAttribute('src', 'images/settings2.png');
-		settingsButtonSelect.setAttribute('style',"background:lightgray;");
+		settingsButtonSelect.setAttribute('style',"border:3px solid; border-radius: 10px; margin: -3px;");
 		// shows settings
 		const settings = document.getElementById('settings');
 		settings.style.display = 'block';

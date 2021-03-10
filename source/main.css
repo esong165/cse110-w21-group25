@@ -19,16 +19,18 @@ html {
 	height: 50px;
 	width: 50px;
 	padding: 20px;
-	outline: 0;
+
 }
 
 .taskbar-button:hover{
-	background-color: lightgray;
+	border:1px solid; border-radius: 10px;
+	margin: -1px;
 }
 
 /* nav-bar */
 #task-bar {
 	text-align: center;
+
 	/* margin: 0 auto;
 	vertical-align: middle;
 	padding-top: 0; */
