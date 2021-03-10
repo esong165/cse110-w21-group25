@@ -88,8 +88,10 @@ document.addEventListener('DOMContentLoaded', () => {
 	document.getElementById('settings-button').addEventListener('click', () => {
 		window.app.settings.toSettings();
 	});
-	document.getElementById('confirm-settings').addEventListener('click', () => {
+	document.getElementById('pomo-length').addEventListener('input', () => {
 		window.app.settings.getPomoLength();
+	});
+	document.getElementById('display-seconds').addEventListener('input', () => {
 		window.app.settings.getTimerStyle();
 	});
 	document.getElementById('home-button').addEventListener('click', () => {
