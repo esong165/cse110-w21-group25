@@ -25,8 +25,7 @@ export default class Tasklist extends HTMLUListElement {
 		if (selectedArr !== null) {
 			this.$selected = selectedArr;
 		}
-
-		// Update current task display
+				// Update current task display
 		if (this.$selected[0] === 'Default') {
 			document.getElementById('current-task').textContent = 'Default';
 		} else {
@@ -42,13 +41,13 @@ export default class Tasklist extends HTMLUListElement {
 			currTask.shadowRoot.children[1].children[0].addEventListener('click',
 				function() { document.getElementById('tasks-container').selectTask(currTask.id); });
 			currTask.shadowRoot.children[1].children[1].addEventListener('click',
-				function() { document.getElementById('tasks-container').selectTask(currTask.id); });
-			currTask.shadowRoot.children[1].children[2].addEventListener('click',
 				function() { document.getElementById('tasks-container').removeTask(currTask.id); });
+			// currTask.shadowRoot.children[1].children[2].addEventListener('click',
+			// 	function() { document.getElementById('tasks-container').removeTask(currTask.id); });
 
-			currTask.shadowRoot.children[1].children[2].addEventListener('mouseover',
+			currTask.shadowRoot.children[1].children[1].addEventListener('mouseover',
 				function(event) { event.target.setAttribute('src', 'images/trashcan_black.png'); });
-			currTask.shadowRoot.children[1].children[2].addEventListener('mouseout',
+			currTask.shadowRoot.children[1].children[1].addEventListener('mouseout',
 				function(event) { event.target.setAttribute('src', 'images/trashcan.png'); });
 
 			document.getElementById('tasks-container').appendChild(currTask);
@@ -57,6 +56,9 @@ export default class Tasklist extends HTMLUListElement {
 			document.getElementById(currTask.id).setAttribute('ondragstart', 'drag(event);');
 			document.getElementById(currTask.id).setAttribute('ondragover', 'allowDrop(event);');
 			document.getElementById(currTask.id).setAttribute('ondrop', 'drop(event);');
+		}
+		if (this.$selected[0] !== 'Default') {
+			document.getElementById('tasks-container').selectTask(this.$selected[0]);
 		}
 	}
 
@@ -91,11 +93,11 @@ export default class Tasklist extends HTMLUListElement {
 		task.shadowRoot.children[1].children[0].addEventListener('click',
 			function() { document.getElementById('tasks-container').selectTask(task.id); });
 		task.shadowRoot.children[1].children[1].addEventListener('click',
-			function() { document.getElementById('tasks-container').selectTask(task.id); });
-		task.shadowRoot.children[1].children[2].addEventListener('click',
 			function() { document.getElementById('tasks-container').removeTask(task.id); });
+		// task.shadowRoot.children[1].children[2].addEventListener('click',
+		// 	function() { document.getElementById('tasks-container').removeTask(task.id); });
 
-		// Store task as array of array in local storage -- could refactor into separate method
+		// Store task as array of array in local storage
 		let taskItemArr = JSON.parse(localStorage.getItem('taskItemArr'));
 		if (taskItemArr == null) {
 			taskItemArr = [];
@@ -131,20 +133,19 @@ export default class Tasklist extends HTMLUListElement {
 	selectTask(taskId) {
 		resetBackGround();
 		const task = document.getElementById(taskId).shadowRoot.children[1];
-
 		// Highlight the selected task
-		task.children[0].setAttribute('style', `width: 60%; background-color: rgb(191,191,191);
-			box-shadow: 70px 0px 0px 10px rgb(191,191,191), 0px 0px 0px 10px rgb(191,191,191);`);
-
-		const name = task.children[0].textContent;
-		const pomos = task.children[1].textContent;
+		task.children[0].children[0].setAttribute('style', `width: 90%; background-color: rgb(191,191,191);
+			box-shadow: 0px 0px 0px 10px rgb(191,191,191);`);
+		task.children[0].children[1].setAttribute('style', `width: 10%; background-color: rgb(191,191,191);
+			box-shadow: 0px 0px 0px 10px rgb(191,191,191);`);
+		const name = task.children[0].children[0].textContent;
+		const pomos = task.children[0].children[1].textContent;
 
 		// Update current task display
 		document.getElementById('current-task').textContent = name;
 
 		// Update $selected instance variable
 		this.$selected = ['_' + name, pomos, document.getElementById(taskId).currPomos];
-
 		// Store selected task in local storage
 		localStorage.setItem('selectedTask', JSON.stringify(this.$selected));
 	}
@@ -226,7 +227,8 @@ customElements.define('task-list', Tasklist, { extends: 'ul' });
 function resetBackGround() {
 	const taskList = document.getElementById('tasks-container').getElementsByTagName('task-item');
 	for (const task of taskList) {
-		task.shadowRoot.children[1].children[0].setAttribute('style', 'width: 60%;');
+		task.shadowRoot.children[1].children[0].children[0].setAttribute('style', 'width: 90%;');
+		task.shadowRoot.children[1].children[0].children[1].setAttribute('style', 'width: 10%;');
 	}
 }
 

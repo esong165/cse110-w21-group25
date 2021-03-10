@@ -37,59 +37,46 @@
 			<audio id="alarm" src="./air-horn.mp3"></audio>
 		</div>
 		<div id="task-list">
-			<!-- table-label is hardcoded -->
 			<div id="table-label">
-				<h3 id="table-name-label" >Task Name:</h3>
-				<h3 id="table-pomo-label"> # Pomo's: </h3>
+				<h3 id="table-name-label">Task Name:</h3>
+				<h3 id="table-pomo-label"># Pomo's:</h3>
 			</div>
-			
-			
 			<!-- task-container structure stays the same does not resize on window size-->
 			<ul id="tasks-container" is="task-list"></ul>
 			<form id="add-task-container" autocomplete="off">
-				
 				<input type="text" placeholder="New Task Name" id="new-task-name" maxlength="50">
-				
 				<input type="number" id="new-task-count" value="1" min="1" max="30">
-				<input type="submit" id="add-task-btn" value="+">
+				<input type="submit" id="add-task-button" value="+">
 			</form>
-
-			
-
-
 		</div>
 		<div id="stats">
 			<div id="overall-stats">
 				<h3 style="font-weight: bold;">Statistics:</h3>
 				<p id="total-tasks"></p>
-				<p id="avg-pomos"></p> 
+				<p id="avg-pomos"></p>
 			</div>
-			
 			<div id="stats-table-label">
 				<h3 id="stats-pomo-label"># Pomo's</h3>
-				<h3 id="stats-table-name-label" >Task Name:</h3>
-				<h3 id="stats-exp-label"> Exp: </h3>
-				<h3 id="stats-actual-label"> Actual: </h3>
+				<h3 id="stats-table-name-label">Task Name:</h3>
+				<h3 id="stats-exp-label">Exp:</h3>
+				<h3 id="stats-actual-label">Actual:</h3>
 			</div>
-				<ul id="stats-container" is="stat-list"></ul>
-			
-
+			<ul id="stats-container" is="stat-list"></ul>
 		</div>
 		<div id="settings" style="display:none">
 		<form>
 			<div id="select-settings">
-				<label> Choose the length pomo: </label>		
-					<select id="pomo-length">
-						<option>20:00</option>
-						<option>25:00</option>
-						<option>30:00</option>
-						<option>35:00</option>
-					</select>
+				<label>Choose the length pomo:</label>		
+				<select id="pomo-length">
+					<option>20:00</option>
+					<option>25:00</option>
+					<option>30:00</option>
+					<option>35:00</option>
+				</select>
 			</div>
-			
 			<div id="check-settings">
-				<p> Display seconds: </p>
-					<input id="display-seconds" type="checkbox" checked="true">
+				<p>Display seconds:</p>
+				<input id="display-seconds" type="checkbox" checked="true">
 			</div>
 		</form>
 			<input type="button" id="confirm-settings" value="Apply Changes">
@@ -97,26 +84,22 @@
 		<div id="faq">
 			<h3>Where do I get started?</h3>
 			<ol>
-				<li> Click on the Task List tab to add tasks. Specify task name and estimated pomo #. </li>
-				<li> Click on the task you would like to work on. </li>
-				<li> Start Timer!</li>
+				<li>Click on the Task List tab to add tasks. Specify task name and estimated pomo #.</li>
+				<li>Click on the task you would like to work on.</li>
+				<li>Start Timer!</li>
 			</ol>
-
 			<h3>What is a Pomodoro Timer?</h3>
 			<p>A Pomodoro timer is a time-management technique. One Pomodoro is a 25 min work session followed by a 5
 				min break.
 				On the 4th Pomodoro, there is a longer 15 min break. This technique keeps energy and motivation levels
 				high throughout the work schedule.</p>
-
 			<h3>What is the TaskList?</h3>
 			<p>This is the work schedule for the Pomodoro. Here we can add and remove tasks to do.
 				In order to add a task, you only need to specify task name and estimated pomo #.
 				Once all tasks are added, select one to start with!</p>
-
 			<h3>How to see completed tasks?</h3>
 			<p>Visit the statistics tab on the page to view a list of completed tasks and other stats.</p>
-
-			<h3> How to customize the timer? </h3>
+			<h3>How to customize the timer?</h3>
 			<p>Visit the settings tab to configure the timer to your liking.</p>
 		</div>
 	</main>

@@ -136,13 +136,13 @@ document.addEventListener('DOMContentLoaded', () => {
 		newCount.value = 1;
 	});
 
-	const addTaskButton = document.getElementById('add-task-btn');
+	const addTaskButton = document.getElementById('add-task-button');
 	addTaskButton.addEventListener('mouseover', function(event) {
 		event.preventDefault();
 		event.target.style.color = 'white';
 		event.target.style.backgroundColor = 'black';
-	}
-	);
+	});
+
 	addTaskButton.addEventListener('mouseout', function(event) {
 		event.preventDefault();
 		event.target.style.color = 'black';

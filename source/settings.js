@@ -25,6 +25,7 @@ export default class Settings {
 	 */
 	getTimerStyle() {
 		this.displaySeconds = document.getElementById('display-seconds').checked;
+		window.app.timer.notifySettingsChanged();
 	}
 
 	/**
@@ -90,10 +91,6 @@ document.addEventListener('DOMContentLoaded', () => {
 	document.getElementById('confirm-settings').addEventListener('click', () => {
 		window.app.settings.getPomoLength();
 		window.app.settings.getTimerStyle();
-
-		// Update timer seconds display
-		const remainingTime = window.app.timer.remaining;
-		window.app.timer.remaining = remainingTime;
 	});
 	document.getElementById('home-button').addEventListener('click', () => {
 		window.app.settings.toHome();

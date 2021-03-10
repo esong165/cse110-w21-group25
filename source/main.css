@@ -23,18 +23,15 @@ html {
 
 }
 
-.taskbar-button:hover{
-	border:1px solid; border-radius: 10px;
+.taskbar-button:hover {
+	border: 1px solid;
+	border-radius: 10px;
 	margin: -1px;
 }
 
 /* nav-bar */
 #task-bar {
 	text-align: center;
-
-	/* margin: 0 auto;
-	vertical-align: middle;
-	padding-top: 0; */
 }
 
 /* timer */
@@ -52,14 +49,6 @@ html {
 	word-wrap: break-word;
 }
 
-/* In case we want to use num-pomos */
-#num-pomos {
-	display: none;
-	/* font-size: 300%;
-	text-align: center;
-	*/
-}
-
 #done-button {
 	cursor: pointer;
 	display: inline-block;
@@ -71,8 +60,6 @@ html {
 	text-align: center;
 	width: 40px;
 }
-
-
 
 #time-remaining {
 	font-size: 750%;
@@ -104,7 +91,7 @@ html {
 }
 
 /* task-list */
-#table-label{
+#table-label {
 	width: 10px;
 	text-align: center;
 	display: inline;
@@ -114,12 +101,12 @@ html {
 	font-weight: bold;
 }
 
-#table-name-label{
+#table-name-label {
 	display: inline-block; 
 	margin-right: 170px ;
 }
 
-#table-pomo-label{
+#table-pomo-label {
 	display: inline-block;
 }
 
@@ -135,14 +122,6 @@ html {
 }
 
 #add-task-container {
-	/*
-	text-align: center;
-	padding-top: 5%;
-	padding-bottom: 10%;
-	min-width: 700px;
-	margin: 0 auto;
-	*/
-	
 	width: 700px;
 	display: table;
 	text-align: center;
@@ -170,7 +149,7 @@ html {
 	size: 20px;
 }
 
-#add-task-btn {
+#add-task-button {
 	height: 60px;
 	width: 70px;
 	font-size: 300%;
@@ -191,16 +170,12 @@ html {
 	max-width: 50%;
 }
 
-#faq div {
-	max-width: 100%;
-}
-
 /* stats */
-#stats{
+#stats {
 	text-align: center;
 	
 }
-#overall-stats{
+#overall-stats {
 	min-width: 750px;
 	width: 750px;
 	text-align: left;
@@ -210,14 +185,14 @@ html {
 	
 }
 
-#stats-container{
+#stats-container {
 	width: 10px;
 	text-align: center;
 	display: table;
 	margin: 0 auto;
 }
 
-#stats-table-label{
+#stats-table-label {
 	width: 10px;
 	text-align: center;
 	display: inline;
@@ -227,30 +202,29 @@ html {
 	font-weight: bold;
 }
 
-#stats-table-name-label{
+#stats-table-name-label {
 	display: inline-block; 
 	margin-left: 20px;
 	margin-right: 280px;
 }
 
-#stats-pomo-label{
-	
-	margin-left: 475px ;
+#stats-pomo-label {
+	margin-left: 475px;
 	margin-bottom: -30px;
 }
 
-#stats-exp-label{
+#stats-exp-label {
 	display: inline-block;
 }
 
-#stats-actual-label{
+#stats-actual-label {
 	display: inline-block;
 	margin-left: 60px;
 }
 
 /*settings*/
 
-#settings{
+#settings {
 	min-width: 750px;
 	width: 750px;
 	text-align: left;
@@ -263,7 +237,7 @@ html {
 	margin-right: 100px;
 }
 
-#select-settings > select{ 
+#select-settings > select { 
 	width:60px; 
 	height: 60px;
 	margin-top: 20px;
@@ -278,7 +252,7 @@ html {
 	display: inline-block;
 }
 
-input[type=checkbox]{ 
+input[type=checkbox] { 
 	width: 60px; 
 	height: 60px;
 	display: inline-block;

@@ -9,49 +9,46 @@ export default class StatItem extends HTMLElement {
 		const shadow = this.attachShadow({ mode: 'open' });
 
 		shadow.innerHTML = `
-	<style>
-	li {
-		width: 900px;
-		position: relative;
-		text-align: center;
-		margin-left: 7%;
-	}
-	
-	li:before, li:after {
-		text-align: right;
-		display: block;
-		border-bottom: 0;
-		width: 0%; 
-	}
-	
-	li:before {
-		text-align: left;
-	}
-	
-	li:after {
-		position: absolute;
-		top: 0;
-		left: 48%;
-		margin-left: 1px;  
+			<style>
+			li {
+				width: 900px;
+				position: relative;
+				text-align: center;
+				margin-left: 7%;
+			}
+			
+			li:before, li:after {
+				text-align: right;
+				display: block;
+				border-bottom: 0;
+				width: 0%; 
+			}
+			
+			li:before {
+				text-align: left;
+			}
+			
+			li:after {
+				position: absolute;
+				top: 0;
+				left: 48%;
+				margin-left: 1px;  
 
-	}
-		
-	p{
-		text-align: left;
-		float: left;
-		margin-top: 25px;
-		font-size: 210%;
-		max-width: 451px;
-    	word-wrap: break-word;
-		
-	}
+			}
+				
+			p {
+				text-align: left;
+				float: left;
+				margin-top: 25px;
+				font-size: 210%;
+				max-width: 451px;
+				word-wrap: break-word;
+			}
 
-	p + p{
-		margin-left: 70px;
-	}
-	
-
-	</style>
+			p + p {
+				margin-left: 70px;
+			}
+			</style>
   		`;
 
 		const stat = document.createElement('li');
@@ -67,12 +64,12 @@ export default class StatItem extends HTMLElement {
 
 		const expected = document.createElement('p');
 		expected.textContent = expectedCount;
-		expected.style = 'width: 10%; ';
+		expected.style = 'width: 10%;';
 		stat.appendChild(expected);
 
 		const count = document.createElement('p');
 		count.textContent = pomoCount;
-		count.style = 'width: 10%; ';
+		count.style = 'width: 10%;';
 		stat.appendChild(count);
 
 		shadow.prepend(stat);
