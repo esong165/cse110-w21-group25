@@ -21,4 +21,9 @@ Hold sprint 2 retrospective in adherence to Agile ceremonies
 * Short on time -- still need significant work to finish on time
 * Lack of testing -- needed to sacrifice testing in favor of faster merges
 
+## Screenshots
+
+![Radar](../retro_artifacts/Sprint-2-Radar.png)
+![MSG](../retro_artifacts/Sprint-2-MSG.png)
+
 **End time:** 4:00 PM
