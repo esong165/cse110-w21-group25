@@ -127,8 +127,8 @@ document.addEventListener('DOMContentLoaded', () => {
 	});
 
 	// "Add task" functionality for tasklist
-	const addTaskButton = document.getElementById('add-task-container');
-	addTaskButton.addEventListener('submit', function(event) {
+	const addTaskForm = document.getElementById('add-task-container');
+	addTaskForm.addEventListener('submit', function(event) {
 		event.preventDefault();
 		const newName = document.getElementById('new-task-name');
 		const newCount = document.getElementById('new-task-count');
@@ -136,6 +136,22 @@ document.addEventListener('DOMContentLoaded', () => {
 		newName.value = '';
 		newCount.value = 1;
 	});
+
+	const addTaskButton = document.getElementById('add-task-btn');
+	addTaskButton.addEventListener('mouseover', function(event) {
+		event.preventDefault();
+		event.target.style.color = 'white';
+		event.target.style.backgroundColor = 'black';
+	}
+	);
+	addTaskButton.addEventListener('mouseout', function(event) {
+		event.preventDefault();
+		event.target.style.color = 'black';
+		event.target.style.backgroundColor = 'rgb(242, 197, 247)';
+		
+	}
+	);
+
 
 	// "Finish Task" functionality for tasklist
 	const doneButton = document.getElementById('done-button');
@@ -147,5 +163,11 @@ document.addEventListener('DOMContentLoaded', () => {
 		document.getElementById('stats-container').addStat(currTask[0].substring(1), currTask[1], currTask[2]);
 	});
 
+	doneButton.addEventListener('mouseover', function(event) {
+		event.target.setAttribute('src', 'images/done.png');
+	});
+	doneButton.addEventListener('mouseout', function(event) {
+		event.target.setAttribute('src', 'images/done2.png');
+	});
 
 });

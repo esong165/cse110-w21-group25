@@ -24,8 +24,7 @@ export default class Settings {
 	 * Changes the settings of the appearance of the timer
 	 */
 	getTimerStyle() {
-		const obj = document.getElementById('display-seconds');
-		this.displaySeconds = obj.options[obj.selectedIndex].text === 'Yes';
+		this.displaySeconds = document.getElementById('display-seconds').checked;
 	}
 
 	/**
@@ -91,6 +90,9 @@ document.addEventListener('DOMContentLoaded', () => {
 	document.getElementById('confirm-settings').addEventListener('click', () => {
 		window.app.settings.getPomoLength();
 		window.app.settings.getTimerStyle();
+
+		// Update timer seconds display
+		window.app.timer.remaining = window.app.timer.remaining;
 	});
 	document.getElementById('home-button').addEventListener('click', () => {
 		window.app.settings.toHome();

@@ -25,7 +25,7 @@
 		<div id="timer">
 			<div id="current-task-container">
 				<p id="current-task">Default Task</p>
-				<img id="done-button" src="images/done.png" alt="Finish Task" title="Finish Task">
+				<img id="done-button" src="images/done2.png" alt="Finish Task" title="Finish Task">
 			</div>
 			<div id="timer-display">
 				<p id="time-remaining">25:00</p>
@@ -38,13 +38,17 @@
 		</div>
 		<div id="task-list">
 			<!-- table-label is hardcoded -->
-			<pre id="table-label" >Task Name:                    # Pomo's:        </pre>
+			<div id="table-label">
+				<h3 id="table-name-label" >Task Name:</h3>
+				<h3 id="table-pomo-label"> # Pomo's: </h3>
+			</div>
+			
 			
 			<!-- task-container structure stays the same does not resize on window size-->
 			<ul id="tasks-container" is="task-list"></ul>
-			<form id="add-task-container">
+			<form id="add-task-container" autocomplete="off">
 				
-				<input type="text" placeholder="New Task Name" id="new-task-name" maxlength="30">
+				<input type="text" placeholder="New Task Name" id="new-task-name" maxlength="50">
 				
 				<input type="number" id="new-task-count" value="1" min="1" max="30">
 				<input type="submit" id="add-task-btn" value="+">
@@ -55,30 +59,40 @@
 
 		</div>
 		<div id="stats">
-			<ul id="stats-container" is="stat-list"></ul>
-			<p id="total-tasks"></p>
-			<p id="avg-pomos"></p> 
+			<div id="overall-stats">
+				<h3 style="font-weight: bold;">Statistics:</h3>
+				<p id="total-tasks"></p>
+				<p id="avg-pomos"></p> 
+			</div>
+			
+			<div id="stats-table-label">
+				<h3 id="stats-pomo-label"># Pomo's</h3>
+				<h3 id="stats-table-name-label" >Task Name:</h3>
+				<h3 id="stats-exp-label"> Exp: </h3>
+				<h3 id="stats-actual-label"> Actual: </h3>
+			</div>
+				<ul id="stats-container" is="stat-list"></ul>
+			
+
 		</div>
 		<div id="settings" style="display:none">
-			<form>
-				Choose the length of the one pomo:
-				<select id="pomo-length">
-					<option>20:00</option>
-					<option>25:00</option>
-					<option>30:00</option>
-					<option>35:00</option>
-				</select>
-				<br />
-			</form>
-			<form>
-				Display seconds:
-				<select id="display-seconds">
-					<option>Yes</option>
-					<option>No</option>
-				</select>
-				<br />
-			</form>
-			<input type="button" id="confirm-settings" value="Confirm Selection!">
+		<form>
+			<div id="select-settings">
+				<label> Choose the length pomo: </label>		
+					<select id="pomo-length">
+						<option>20:00</option>
+						<option>25:00</option>
+						<option>30:00</option>
+						<option>35:00</option>
+					</select>
+			</div>
+			
+			<div id="check-settings">
+				<p> Display seconds: </p>
+					<input id="display-seconds" type="checkbox" checked="true">
+			</div>
+		</form>
+			<input type="button" id="confirm-settings" value="Apply Changes">
 		</div>
 		<div id="faq">
 			<h3>Where do I get started?</h3>

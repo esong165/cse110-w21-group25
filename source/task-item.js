@@ -49,7 +49,9 @@ export default class TaskItem extends HTMLElement {
 		text-align: left;
 		float: left;
 		margin-top: 25px;
-		font-size: 210%
+		font-size: 210%;
+		max-width: 450px;
+    	word-wrap: break-word;
 	}
 
 	li img{
@@ -63,13 +65,9 @@ export default class TaskItem extends HTMLElement {
 
 	p:first-of-type:hover{
 			background-color: rgb(191,191,191);
-			box-shadow: 20px 0px 0px 10px rgb(191,191,191), 0px 0px 0px 10px rgb(191,191,191);
+			box-shadow: 70px 0px 0px 10px rgb(191,191,191), 0px 0px 0px 10px rgb(191,191,191);
 		}
 
-	img:hover{
-			background-color: rgb(191,191,191);
-			
-		}
 	</style>
   		`;
 
@@ -91,7 +89,7 @@ export default class TaskItem extends HTMLElement {
 		// Set estimated pomodoros
 		const count = document.createElement('p');
 		count.textContent = pomoCount;
-		count.style = 'width: 10%;';
+		count.style = 'width: 10%; padding-left: 50px;';
 		task.appendChild(count);
 		// Set current pomodoro count
 		this.currPomos = currPomoCount;
