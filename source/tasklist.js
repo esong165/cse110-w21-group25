@@ -42,8 +42,6 @@ export default class Tasklist extends HTMLUListElement {
 				function() { document.getElementById('tasks-container').selectTask(currTask.id); });
 			currTask.shadowRoot.children[1].children[1].addEventListener('click',
 				function() { document.getElementById('tasks-container').removeTask(currTask.id); });
-			// currTask.shadowRoot.children[1].children[2].addEventListener('click',
-			// 	function() { document.getElementById('tasks-container').removeTask(currTask.id); });
 
 			currTask.shadowRoot.children[1].children[1].addEventListener('mouseover',
 				function(event) { event.target.setAttribute('src', 'images/trashcan_black.png'); });
@@ -94,8 +92,12 @@ export default class Tasklist extends HTMLUListElement {
 			function() { document.getElementById('tasks-container').selectTask(task.id); });
 		task.shadowRoot.children[1].children[1].addEventListener('click',
 			function() { document.getElementById('tasks-container').removeTask(task.id); });
-		// task.shadowRoot.children[1].children[2].addEventListener('click',
-		// 	function() { document.getElementById('tasks-container').removeTask(task.id); });
+
+		// Remove icon "highlights" on hover
+		task.shadowRoot.children[1].children[1].addEventListener('mouseover',
+			function(event) { event.target.setAttribute('src', 'images/trashcan_black.png'); });
+		task.shadowRoot.children[1].children[1].addEventListener('mouseout',
+			function(event) { event.target.setAttribute('src', 'images/trashcan.png'); });
 
 		// Store task as array of array in local storage
 		let taskItemArr = JSON.parse(localStorage.getItem('taskItemArr'));
