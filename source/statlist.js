@@ -1,6 +1,12 @@
 import StatItem from './stat-item.js';
 
+/**
+ * A class representing a list of stats.
+ */
 export default class Statlist extends HTMLUListElement {
+	/**
+	 * Constructs a Statlist with default or localStorage values.
+	 */
 	constructor() {
 		super();
 		this.totalTasks = 0;
@@ -30,6 +36,13 @@ export default class Statlist extends HTMLUListElement {
 		document.getElementById('total-tasks').innerHTML = 'Total tasks completed: ' + this.totalTasks;
 	}
 
+	/**
+	 * Add a stat item with the given name, expected pomodoro count, and actual pomodoro count to the statlist.
+	 * @param {String} name - Name of the completed task.
+	 * @param {Number} expected - Estimated pomodoro count for the task.
+	 * @param {Number} count - Actual pomodoros used to complete the task.
+	 * @returns 
+	 */
 	addStat(name, expected, count) {
 		if (count === -1) {
 			return;

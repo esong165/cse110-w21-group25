@@ -2,10 +2,9 @@
  * A class representing a stat item.
  */
 export default class StatItem extends HTMLElement {
-
 	/**
 	 * Constructs a stat item using the input task name, expected pomodoro count, and actual pomodoro count.
-	 * @param {String} taskName - Name of completed task.
+	 * @param {String} taskName - Name of the completed task.
 	 * @param {Number} expectedCount - Estimated pomodoro count for the task.
 	 * @param {Number} pomoCount - Actual pomodoros used to complete the task.
 	 */
