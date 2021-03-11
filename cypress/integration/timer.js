@@ -2,9 +2,9 @@ describe('Timer tests', () => {
 	beforeEach(() => {
 		cy.visit('/source/index.html');
 		cy.window().should(window => {
-			window.app.settings.pomoTime = 3000;
-			window.app.settings.shortBreakTime = 1000;
-			window.app.settings.longBreakTime = 2000;
+			window.app.settings.pomoDuration = 3000;
+			window.app.settings.shortBreakDuration = 1000;
+			window.app.settings.longBreakDuration = 2000;
 			window.app.timer.notifySettingsChanged();
 		})
 	});
