@@ -65,25 +65,34 @@
 			</div>
 			<ul id="stats-container" is="stat-list"></ul>
 		</div>
-		<div id="settings" style="display:none">
-			<form>
-				<div id="select-settings">
-					<label>Choose the length pomo:</label>		
-					<select id="pomo-length">
-						<option>20:00</option>
-						<option>25:00</option>
-						<option>30:00</option>
-						<option>35:00</option>
-					</select>
-				</div>
-				<div id="check-settings">
-					<p>Display seconds:</p>
-					<label id="display-seconds-label" class="toggle" for="display-seconds">
-						<input id="display-seconds" class="toggle-handle" type="checkbox" checked="">
-						<div class="toggle-slider"></div>
-					</label>
-				</div>
-			</form>
+		<div id="settings">
+			<label for="pomo-duration">Pomodoro Duration</label>
+			<select id="pomo-duration" class="settings-option">
+				<option value="15">15:00</option>
+				<option value="20">20:00</option>
+				<option value="25" selected="">25:00</option>
+				<option value="30">30:00</option>
+				<option value="45">45:00</option>
+			</select>
+			<label for="short-break-duration">Short Break Duration</label>
+			<select id="short-break-duration" class="settings-option">
+				<option value="5" selected="">5:00</option>
+				<option value="10">10:00</option>
+				<option value="15">15:00</option>
+			</select>
+			<label for="long-break-duration">Long Break Duration</label>
+			<select id="long-break-duration" class="settings-option">
+				<option value="10">10:00</option>
+				<option value="15" selected="">15:00</option>
+				<option value="20">20:00</option>
+				<option value="30">30:00</option>
+				<option value="45">45:00</option>
+			</select>
+			<label for="show-seconds-label">Show Seconds</label>
+			<label id="show-seconds-label" class="toggle settings-option" for="show-seconds">
+				<input id="show-seconds" class="toggle-handle" type="checkbox" checked="">
+				<div class="toggle-slider"></div>
+			</label>
 		</div>
 		<div id="faq">
 			<h3>Where do I get started?</h3>

@@ -10,7 +10,7 @@ export default class Timer {
 	 * @param {String} stateMessageId - the ID of the displayed state message
 	 */
 	constructor(timeRemainingId, buttonId, stateMessageId) {
-		this.remaining = window.app.settings.pomoTime;
+		this.remaining = window.app.settings.pomoDuration;
 		this.$CYCLES = Object.freeze([
 			this.State.POMO,
 			this.State.SHORT_BREAK,
@@ -140,7 +140,7 @@ export default class Timer {
 		const stateMessage = document.getElementById(this.$stateMessageId);
 		switch (this.state) {
 		case this.State.POMO: {
-			this.remaining = window.app.settings.pomoTime;
+			this.remaining = window.app.settings.pomoDuration;
 			button.textContent = 'Start Pomo';
 
 			const cycles = this.$CYCLES.length;
@@ -169,12 +169,12 @@ export default class Timer {
 			break;
 		}
 		case this.State.SHORT_BREAK:
-			this.remaining = window.app.settings.shortBreakTime;
+			this.remaining = window.app.settings.shortBreakDuration;
 			stateMessage.textContent = 'Take a short break.';
 			button.textContent = 'Start Short Break';
 			break;
 		case this.State.LONG_BREAK:
-			this.remaining = window.app.settings.longBreakTime;
+			this.remaining = window.app.settings.longBreakDuration;
 			stateMessage.textContent = 'Take a long break.';
 			button.textContent = 'Start Long Break';
 			break;
@@ -210,6 +210,10 @@ export default class Timer {
 document.addEventListener('DOMContentLoaded', () => {
 	if (window.app === undefined) window.app = {};
 	window.app.timer = new Timer('time-remaining', 'timer-button', 'timer-state-message');
+	window.app.settings.updatePomoDuration();
+	window.app.settings.updateShortBreakDuration();
+	window.app.settings.updateLongBreakDuration();
+	window.app.settings.updateShowSeconds();
 	document.getElementById('timer-button').addEventListener('click', () => {
 		window.app.timer.buttonClick();
 	});

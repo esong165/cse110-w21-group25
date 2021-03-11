@@ -3,9 +3,9 @@
  */
 export default class Settings {
 	constructor() {
-		this.pomoTime = 25 * 60 * 1000;
-		this.shortBreakTime = 5 * 60 * 1000;
-		this.longBreakTime = 15 * 60 * 1000;
+		this.pomoDuration = 25 * 60 * 1000;
+		this.shortBreakDuration = 5 * 60 * 1000;
+		this.longBreakDuration = 15 * 60 * 1000;
 		this.displaySeconds = true;
 	}
 
@@ -17,23 +17,38 @@ export default class Settings {
 		document.getElementById('task-list').style.display = 'none';
 		document.getElementById('stats').style.display = 'none';
 		document.getElementById('faq').style.display = 'none';
-		document.getElementById('settings').style.display = 'block';
+		document.getElementById('settings').style.display = 'grid';
 	}
 
 	/**
-	 * Changes the settings of the appearance of the timer
+	 * Updates the duration of a single pomo.
 	 */
-	getTimerStyle() {
-		this.displaySeconds = document.getElementById('display-seconds').checked;
+	updatePomoDuration() {
+		this.pomoDuration = Number(document.getElementById('pomo-duration').value) * 60 * 1000;
 		window.app.timer.notifySettingsChanged();
 	}
 
 	/**
-	 * Changes the timer's intervals
+	 * Updates the duration of a short break.
 	 */
-	getPomoLength() {
-		const pomoLength = document.getElementById('pomo-length');
-		this.pomoTime = Number(pomoLength.options[pomoLength.selectedIndex].text.substr(0, 2)) * 60 * 1000;
+	updateShortBreakDuration() {
+		this.shortBreakDuration = Number(document.getElementById('short-break-duration').value) * 60 * 1000;
+		window.app.timer.notifySettingsChanged();
+	}
+
+	/**
+	 * Updates the duration of a long break.
+	 */
+	updateLongBreakDuration() {
+		this.longBreakDuration = Number(document.getElementById('long-break-duration').value) * 60 * 1000;
+		window.app.timer.notifySettingsChanged();
+	}
+
+	/**
+	 * Updates the timer display style between showing seconds and not.
+	 */
+	updateShowSeconds() {
+		this.displaySeconds = document.getElementById('show-seconds').checked;
 		window.app.timer.notifySettingsChanged();
 	}
 
@@ -88,11 +103,17 @@ document.addEventListener('DOMContentLoaded', () => {
 	document.getElementById('settings-button').addEventListener('click', () => {
 		window.app.settings.toSettings();
 	});
-	document.getElementById('pomo-length').addEventListener('input', () => {
-		window.app.settings.getPomoLength();
+	document.getElementById('pomo-duration').addEventListener('input', () => {
+		window.app.settings.updatePomoDuration();
 	});
-	document.getElementById('display-seconds').addEventListener('input', () => {
-		window.app.settings.getTimerStyle();
+	document.getElementById('short-break-duration').addEventListener('input', () => {
+		window.app.settings.updateShortBreakDuration();
+	});
+	document.getElementById('long-break-duration').addEventListener('input', () => {
+		window.app.settings.updateLongBreakDuration();
+	});
+	document.getElementById('show-seconds').addEventListener('input', () => {
+		window.app.settings.updateShowSeconds();
 	});
 	document.getElementById('home-button').addEventListener('click', () => {
 		window.app.settings.toHome();
