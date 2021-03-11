@@ -3,16 +3,13 @@ body {
 	font-family: 'Open Sans', sans-serif;
 	padding-bottom: 0;
 	min-width: 950px;
+	overflow-y: scroll;
 }
 
 #site-header {
 	text-align: center;
 	font-size: 300%;
 	margin-top: -20px;
-}
-
-html {
-	overflow-y: scroll;
 }
 
 /* nav-buttons */
@@ -221,38 +218,28 @@ html {
 
 /*settings*/
 #settings {
-	min-width: 750px;
-	width: 750px;
-	text-align: left;
-	margin: 0 auto;
+	min-width: 550px;
+	width: 550px;
+	height: fit-content;
+	margin: 40px auto 0;
 	font-size: 210%;
 	font-family: 'Open Sans', sans-serif;
+	display: grid;
+	grid-template-rows: auto auto;
+	grid-template-columns: 1fr min-content;
+	row-gap: 30px;
+	column-gap: 30px;
+	align-items: center;
 }
 
-#settings form label.sideBySideField {
-	display: inline-block;
-	margin-right: 100px;
+#settings > .settings-option {
+	justify-self: center;
 }
 
-#select-settings > select {
-	width: 6ch;
+#settings > select {
+	width: auto;
 	height: 3ch;
-	margin-top: 20px;
-	margin-left: 110px;
 	font-size: 30px;
-}
-
-#select-settings p {
-	display: inline-block;
-}
-
-#check-settings p {
-	display: inline-block;
-}
-
-#display-seconds-label {
-	margin-top: 20px;
-	margin-left: 265px;
 }
 
 .toggle {
