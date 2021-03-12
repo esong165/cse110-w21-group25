@@ -127,7 +127,7 @@ describe('Tasklist Tests', () => {
 		cy.get('#new-task-name').clear().type('Duplicate Task');
 		cy.get('#new-task-count').clear().type('1');
 		cy.get('#add-task-button').click();
-		cy.on('window:alert', $el => { expect($el).to.contains('Task is already in tasklist.'); });
+		cy.on('window:alert', $el => { expect($el).to.eq('Task is already in tasklist.'); });
 	});
 
 	it('Incorrect Task Name', () => {
@@ -135,7 +135,7 @@ describe('Tasklist Tests', () => {
 		cy.get('#new-task-name').clear();
 		cy.get('#new-task-count').clear().type('1');
 		cy.get('#add-task-button').click();
-		cy.get('window:alert', $el => { expect($el).to.contains('Please enter a valid task name.'); });
+		cy.get('window:alert', $el => { expect($el).to.eq('Please enter a valid task name.'); });
 	});
 
 	it('Incorrect Pomo Count', () => {
