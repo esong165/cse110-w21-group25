@@ -83,17 +83,17 @@ describe('Tasklist Tests', () => {
 		cy.get('#new-task-name').clear().type('A Task');
 		cy.get('#new-task-count').clear().type('1');
 		cy.get('#add-task-button').click();
-		cy.get('#tasks-container').children().eq(0).then($el => { expect($el.currPomos).to.eq(0) });
+		cy.get('#tasks-container').children().eq(0).then($el => { expect($el.get(0).currPomos).to.eq(0) });
 		cy.get('#tasks-container').children().eq(0).shadow().children().eq(1).children().eq(0).children().eq(0).click();
 		cy.get('#home-button').click();
 		cy.get('#timer-button').click();
 		cy.wait(3000);
-		cy.get('#tasks-container').children().eq(0).then($el => { expect($el.currPomos).to.eq(1) });
+		cy.get('#tasks-container').children().eq(0).then($el => { expect($el.get(0).currPomos).to.eq(1) });
 		cy.get('#timer-button').click();
 		cy.wait(1000);
 		cy.get('#timer-button').click();
 		cy.wait(3000);
-		cy.get('#tasks-container').children().eq(0).then($el => { expect($el.currPomos).to.eq(2) });
+		cy.get('#tasks-container').children().eq(0).then($el => { expect($el.get(0).currPomos).to.eq(2) });
 	});
 
 	it('LocalStorage Access On Reload', () => {
@@ -106,9 +106,9 @@ describe('Tasklist Tests', () => {
 
 		cy.get('#tasks-container').children().should('have.length', 1);
 		cy.get('#tasks-container').children().eq(0).as('task');
-		cy.get('@task').then($el => { expect($el).to.have.id('_Simple Task'); });
-		cy.get('@task').shadow().children().eq(1).children().eq(0).children().eq(0).should('have.text', 'Simple Task');
-		cy.get('@task').shadow().children().eq(1).children().eq(0).children().eq(1).should('have.text', '3');
+		cy.get('@task').then($el => { expect($el).to.have.id('_Small Task'); });
+		cy.get('@task').shadow().children().eq(1).children().eq(0).children().eq(0).should('have.text', 'Small Task');
+		cy.get('@task').shadow().children().eq(1).children().eq(0).children().eq(1).should('have.text', '2');
 		cy.get('@task').then($el => { expect($el.get(0).currPomos).to.eq(0); });
 
 		cy.get('#tasks-container').then($el => {
