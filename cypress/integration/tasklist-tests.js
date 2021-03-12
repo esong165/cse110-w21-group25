@@ -135,7 +135,7 @@ describe('Tasklist Tests', () => {
 		cy.get('#new-task-name').clear();
 		cy.get('#new-task-count').clear().type('1');
 		cy.get('#add-task-button').click();
-		cy.get('window:alert', $el => { expect($el).to.eq('Please enter a valid task name.'); });
+		cy.on('window:alert', $el => { expect($el).to.eq('Please enter a valid task name.'); });
 	});
 
 	it('Incorrect Pomo Count', () => {
@@ -149,6 +149,6 @@ describe('Tasklist Tests', () => {
 		cy.get('input:invalid').then($el => { expect($el[0].validationMessage).to.eq('Value must be greater than or equal to 1.'); });
 		cy.get('#new-task-count').clear();
 		cy.get('#add-task-button').click();
-		cy.get('window:alert', $el => { expect($el).to.contains('Please enter a valid pomo count.'); });
+		cy.on('window:alert', $el => { expect($el).to.contains('Please enter a valid pomo count.'); });
 	});
 });
