@@ -6,7 +6,7 @@ describe('Timer tests', () => {
 			window.app.settings.shortBreakDuration = 1000;
 			window.app.settings.longBreakDuration = 2000;
 			window.app.timer.notifySettingsChanged();
-		})
+		});
 	});
 
 	it('Full timer cycle', () => {
