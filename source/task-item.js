@@ -20,7 +20,6 @@ export default class TaskItem extends HTMLElement {
 		link.setAttribute('href', 'taskItemPomo.css');
 		shadow.appendChild(link);
 		// styles the elements in TaskItem to look like a table
-		
 
 		// Creates list object representing the task
 		const task = document.createElement('li');

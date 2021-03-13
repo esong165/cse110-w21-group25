@@ -38,16 +38,12 @@ document.addEventListener('DOMContentLoaded', () => {
 		statsButtonStart.setAttribute('style', '');
 		settingsButtonStart.setAttribute('style', '');
 		faqButtonStart.setAttribute('style', '');
-
-		
-
 	}
 	/**
 	 * hides tasklist and stats when timer is in pomo phase.
 	 */
-	function hideTasklistStats(){
-		if(window.app.timer.state === window.app.timer.State.POMO  && window.app.timer.status != window.app.timer.Status.PAUSED)
-		{
+	function hideTasklistStats() {
+		if (window.app.timer.state === window.app.timer.State.POMO && window.app.timer.status !== window.app.timer.Status.PAUSED) {
 			document.getElementById('task-list-button').style.display = 'none';
 			document.getElementById('stats-button').style.display = 'none';
 		}
@@ -95,7 +91,6 @@ document.addEventListener('DOMContentLoaded', () => {
 		// shows timer
 		const home = document.getElementById('timer');
 		home.style.display = 'block';
-		
 	});
 
 	// If stats icon clicked on
@@ -163,7 +158,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
 	addTaskButton.addEventListener('mouseout', function(event) {
 		event.preventDefault();
-		const taskContainer = document.getElementById('tasks-container');
 		event.target.style.color = 'black';
 		event.target.style.backgroundColor = document.body.style.backgroundColor;
 	});

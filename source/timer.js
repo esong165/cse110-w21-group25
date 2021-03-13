@@ -27,7 +27,6 @@ export default class Timer {
 		this.$timeRemainingId = timeRemainingId;
 		this.$buttonId = buttonId;
 		this.$stateMessageId = stateMessageId;
-		
 	}
 
 	/**
@@ -142,7 +141,7 @@ export default class Timer {
 		const taskContainer = document.getElementById('tasks-container');
 		switch (this.state) {
 		case this.State.POMO: {
-			document.body.style.backgroundColor = "rgb(204, 255, 204)";
+			document.body.style.backgroundColor = 'rgb(204, 255, 204)';
 			taskContainer.color = 'rgb(187, 240, 187)';
 			changeSelectedColor('taskItemPomo.css');
 
@@ -175,7 +174,7 @@ export default class Timer {
 			break;
 		}
 		case this.State.SHORT_BREAK:
-			document.body.style.backgroundColor = "rgb(245, 196, 242)";
+			document.body.style.backgroundColor = 'rgb(245, 196, 242)';
 			taskContainer.color = 'rgb(232, 174, 228)';
 			changeSelectedColor('taskItemSBreak.css');
 			this.remaining = window.app.settings.shortBreakDuration;
@@ -183,7 +182,7 @@ export default class Timer {
 			button.textContent = 'Start Short Break';
 			break;
 		case this.State.LONG_BREAK:
-			document.body.style.backgroundColor = "rgb(209, 236, 255)";
+			document.body.style.backgroundColor = 'rgb(209, 236, 255)';
 			taskContainer.color = 'rgb(185, 206, 235)';
 			changeSelectedColor('taskItemLBreak.css');
 			this.remaining = window.app.settings.longBreakDuration;
@@ -231,12 +230,12 @@ document.addEventListener('DOMContentLoaded', () => {
 	});
 });
 
-function changeSelectedColor(sheet){
+function changeSelectedColor(sheet) {
 	const currTask = document.getElementById('tasks-container').selected;
 	const taskItems = document.getElementById('tasks-container').getElementsByTagName('task-item');
 	if (currTask[0] === 'Default') return;
 	document.getElementById('tasks-container').selectTask(currTask[0]);
-	for (let i=0; i < taskItems.length; ++i){
+	for (let i = 0; i < taskItems.length; ++i) {
 		taskItems[i].shadowRoot.children[0].setAttribute('href', sheet);
 	}
-} 
+}
