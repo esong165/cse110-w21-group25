@@ -1,5 +1,5 @@
 body {
-	background-color: rgb(163, 211, 163); /* pomo 174, 224, 174  short: 242, 197, 247; long: 185, 232, 237 */
+	background-color: rgb(204, 255, 204); /* pomo 174, 224, 174  short: 242, 197, 247; long: 185, 232, 237 */
 
 
 	font-family: 'Open Sans', sans-serif;
@@ -157,7 +157,7 @@ body {
 	border: 3px solid black;
 	outline: none;
 	color: black;
-	background-color: rgb(242, 197, 247);
+	background-color: rgb(204, 255, 204);
 }
 
 /* faq */

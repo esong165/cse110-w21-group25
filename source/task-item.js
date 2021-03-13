@@ -15,59 +15,12 @@ export default class TaskItem extends HTMLElement {
 
 		// Initializes shadow DOM
 		const shadow = this.attachShadow({ mode: 'open' });
-
+		const link = document.createElement('link');
+		link.setAttribute('rel', 'stylesheet');
+		link.setAttribute('href', 'taskItemPomo.css');
+		shadow.appendChild(link);
 		// styles the elements in TaskItem to look like a table
-		shadow.innerHTML = `
-			<style>
-			li {
-				width: 700px;
-				position: relative;
-				text-align: center;
-				margin-left: 7%;
-			}
-			
-			li:before, li:after {
-				text-align: right;
-				display: block;
-				border-bottom: 0;
-				width: 0%; 
-			}
-			
-			li:before {
-				text-align: left;
-			}
-			
-			li:after {
-				position: absolute;
-				top: 0;
-				left: 48%;
-				margin-left: 1px;  
-
-			}
-				
-			p {
-				text-align: left;
-				float: left;
-				margin-top: 25px;
-				font-size: 210%;
-				max-width: 470px;
-				word-wrap: break-word;
-			}
-
-			li img {
-				text-align: left;
-				float: left;
-				margin-bottom: -20px;
-				width: 100x; 
-				height: 100px;
-			}
-
-			div:hover > p {
-				background-color: rgb(191,191,191);
-				box-shadow: 0px 0px 0px 10px rgb(191,191,191);
-			}
-			</style>
-		`;
+		
 
 		// Creates list object representing the task
 		const task = document.createElement('li');

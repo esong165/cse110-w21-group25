@@ -163,8 +163,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
 	addTaskButton.addEventListener('mouseout', function(event) {
 		event.preventDefault();
+		const taskContainer = document.getElementById('tasks-container');
 		event.target.style.color = 'black';
-		event.target.style.backgroundColor = 'rgb(242, 197, 247)';
+		event.target.style.backgroundColor = document.body.style.backgroundColor;
 	});
 
 	// "Finish Task" functionality for tasklist

@@ -144,7 +144,7 @@ export default class Timer {
 		case this.State.POMO: {
 			document.body.style.backgroundColor = "rgb(204, 255, 204)";
 			taskContainer.color = 'rgb(187, 240, 187)';
-			changeSelectedColor();
+			changeSelectedColor('taskItemPomo.css');
 
 			this.remaining = window.app.settings.pomoDuration;
 			button.textContent = 'Start Pomo';
@@ -177,7 +177,7 @@ export default class Timer {
 		case this.State.SHORT_BREAK:
 			document.body.style.backgroundColor = "rgb(245, 196, 242)";
 			taskContainer.color = 'rgb(232, 174, 228)';
-			changeSelectedColor();
+			changeSelectedColor('taskItemSBreak.css');
 			this.remaining = window.app.settings.shortBreakDuration;
 			stateMessage.textContent = 'Take a short break.';
 			button.textContent = 'Start Short Break';
@@ -185,7 +185,7 @@ export default class Timer {
 		case this.State.LONG_BREAK:
 			document.body.style.backgroundColor = "rgb(209, 236, 255)";
 			taskContainer.color = 'rgb(185, 206, 235)';
-			changeSelectedColor();
+			changeSelectedColor('taskItemLBreak.css');
 			this.remaining = window.app.settings.longBreakDuration;
 			stateMessage.textContent = 'Take a long break.';
 			button.textContent = 'Start Long Break';
@@ -231,8 +231,12 @@ document.addEventListener('DOMContentLoaded', () => {
 	});
 });
 
-function changeSelectedColor(){
+function changeSelectedColor(sheet){
 	const currTask = document.getElementById('tasks-container').selected;
+	const taskItems = document.getElementById('tasks-container').getElementsByTagName('task-item');
 	if (currTask[0] === 'Default') return;
 	document.getElementById('tasks-container').selectTask(currTask[0]);
+	for (let i=0; i < taskItems.length; ++i){
+		taskItems[i].shadowRoot.children[0].setAttribute('href', sheet);
+	}
 } 
