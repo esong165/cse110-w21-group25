@@ -69,10 +69,17 @@ export default class Tasklist extends HTMLUListElement {
 		return this.$selected;
 	}
 
+	/**
+	 * Gets the current selected task color.
+	 * @returns {String} Color in rgb(r,g,b) format of selected task color
+	 */
 	get color() {
 		return this.$color;
 	}
-
+	/**
+	 * sets the current selected task color.
+	 * @param {String} backgroundColor is the updated selected task color.
+	 */
 	set color(backgroundColor) {
 		this.$color = backgroundColor;
 	}
@@ -150,9 +157,9 @@ export default class Tasklist extends HTMLUListElement {
 			'; box-shadow: 0px 0px 0px 10px ' + taskContainer.color + ';');
 		task.children[0].children[1].setAttribute('style', 'width: 10%; background-color: ' + taskContainer.color +
 			'; box-shadow: 0px 0px 0px 10px ' + taskContainer.color + ';');
+		
 		const name = task.children[0].children[0].textContent;
 		const pomos = task.children[0].children[1].textContent;
-
 		// Update current task display
 		document.getElementById('current-task').textContent = name;
 
