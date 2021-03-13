@@ -38,10 +38,24 @@ document.addEventListener('DOMContentLoaded', () => {
 		statsButtonStart.setAttribute('style', '');
 		settingsButtonStart.setAttribute('style', '');
 		faqButtonStart.setAttribute('style', '');
+
+		
+
+	}
+	/**
+	 * hides tasklist and stats when timer is in pomo phase.
+	 */
+	function hideTasklistStats(){
+		if(window.app.timer.state === window.app.timer.State.POMO  && window.app.timer.status != window.app.timer.Status.PAUSED)
+		{
+			document.getElementById('task-list-button').style.display = 'none';
+			document.getElementById('stats-button').style.display = 'none';
+		}
 	}
 
 	/* initial load home page */
 	setAllNone();
+
 	const homeButtonSelect = document.getElementById('home-button');
 	homeButtonSelect.setAttribute('src', 'images/home2.png');
 
@@ -73,6 +87,7 @@ document.addEventListener('DOMContentLoaded', () => {
 		/* hides non timer elements and makes timer elements visible */
 
 		setAllNone();
+		hideTasklistStats();
 		/* Changes Color of selected button. */
 		const homeButtonSelect = document.getElementById('home-button');
 		homeButtonSelect.setAttribute('src', 'images/home2.png');
@@ -80,6 +95,7 @@ document.addEventListener('DOMContentLoaded', () => {
 		// shows timer
 		const home = document.getElementById('timer');
 		home.style.display = 'block';
+		
 	});
 
 	// If stats icon clicked on
@@ -102,6 +118,7 @@ document.addEventListener('DOMContentLoaded', () => {
 		/* hides non stats elements and makes stats elements visible */
 
 		setAllNone();
+		hideTasklistStats();
 		/* Changes Color of selected button. */
 		const faqButtonSelect = document.getElementById('faq-button');
 		faqButtonSelect.setAttribute('src', 'images/faq2.png');
@@ -116,6 +133,7 @@ document.addEventListener('DOMContentLoaded', () => {
 		/* hides non stats elements and makes stats elements visible */
 
 		setAllNone();
+		hideTasklistStats();
 		/* Changes Color of selected button. */
 		const settingsButtonSelect = document.getElementById('settings-button');
 		settingsButtonSelect.setAttribute('src', 'images/settings2.png');
