@@ -26,4 +26,3 @@ How can we indicate that a task is being hovered over and can be selected by a u
       - When a task is selected, it gets highlighted a darker shade of the background color
           - Blue -> darker blue, purple -> darker purple, green -> darker green
       - When hovered over, the task being hovered also changes color to a darker color to show that it can be clicked on
-      
