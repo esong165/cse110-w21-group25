@@ -27,6 +27,7 @@ export default class Timer {
 		this.$timeRemainingId = timeRemainingId;
 		this.$buttonId = buttonId;
 		this.$stateMessageId = stateMessageId;
+		
 	}
 
 	/**
@@ -108,7 +109,7 @@ export default class Timer {
 		const tick = () => {
 			if (this.remaining === 0) {
 				if (this.state === this.State.POMO) {
-					const currTaskId = document.getElementById('tasks-container').getSelected()[0];
+					const currTaskId = document.getElementById('tasks-container').selected[0];
 					document.getElementById('tasks-container').updateCurrPomos(currTaskId);
 				}
 				this.$cycle = (this.$cycle + 1) % this.$CYCLES.length;
@@ -138,8 +139,13 @@ export default class Timer {
 
 		const button = document.getElementById(this.$buttonId);
 		const stateMessage = document.getElementById(this.$stateMessageId);
+		const taskContainer = document.getElementById('tasks-container');
 		switch (this.state) {
 		case this.State.POMO: {
+			document.body.style.backgroundColor = "rgb(204, 255, 204)";
+			taskContainer.color = 'rgb(187, 240, 187)';
+			changeSelectedColor();
+
 			this.remaining = window.app.settings.pomoDuration;
 			button.textContent = 'Start Pomo';
 
@@ -169,11 +175,17 @@ export default class Timer {
 			break;
 		}
 		case this.State.SHORT_BREAK:
+			document.body.style.backgroundColor = "rgb(245, 196, 242)";
+			taskContainer.color = 'rgb(232, 174, 228)';
+			changeSelectedColor();
 			this.remaining = window.app.settings.shortBreakDuration;
 			stateMessage.textContent = 'Take a short break.';
 			button.textContent = 'Start Short Break';
 			break;
 		case this.State.LONG_BREAK:
+			document.body.style.backgroundColor = "rgb(209, 236, 255)";
+			taskContainer.color = 'rgb(185, 206, 235)';
+			changeSelectedColor();
 			this.remaining = window.app.settings.longBreakDuration;
 			stateMessage.textContent = 'Take a long break.';
 			button.textContent = 'Start Long Break';
@@ -218,3 +230,9 @@ document.addEventListener('DOMContentLoaded', () => {
 		window.app.timer.buttonClick();
 	});
 });
+
+function changeSelectedColor(){
+	const currTask = document.getElementById('tasks-container').selected;
+	if (currTask[0] === 'Default') return;
+	document.getElementById('tasks-container').selectTask(currTask[0]);
+} 

@@ -1,5 +1,7 @@
 body {
-	background-color: rgb(242, 197, 247); /* pomo, short: 184, 236, 184; long: 170, 210, 247; */
+	background-color: rgb(163, 211, 163); /* pomo 174, 224, 174  short: 242, 197, 247; long: 185, 232, 237 */
+
+
 	font-family: 'Open Sans', sans-serif;
 	padding-bottom: 0;
 	min-width: 950px;
@@ -166,6 +168,14 @@ body {
 	max-width: 50%;
 }
 
+#faq h3 {
+	font-size: 210%;
+	font-family: 'Open Sans', sans-serif;
+}
+#faq p, li {
+	font-size: 130%;
+	font-family: 'Open Sans', sans-serif;
+}
 /* stats */
 #stats {
 	text-align: center;

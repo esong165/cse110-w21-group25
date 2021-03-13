@@ -15,6 +15,7 @@ export default class Tasklist extends HTMLUListElement {
 		// Initialize $tasks and $selected to default values
 		this.$tasks = [];
 		this.$selected = ['Default', '1', '-1'];
+		this.$color = 'rgb(174, 224, 174)';
 
 		// Get values from localStorage and updating $tasks and $selected if these are not null
 		const taskItemArr = JSON.parse(localStorage.getItem('taskItemArr'));
@@ -64,8 +65,14 @@ export default class Tasklist extends HTMLUListElement {
 	 * Gets the current selected task as an array.
 	 * @returns {Array} Array containing task name at position 0, estimated count at position 1, and currPomos at position 2.
 	 */
-	getSelected() {
+	get selected() {
 		return this.$selected;
+	}
+	get color(){
+		return this.$color;
+	}
+	set color(backgroundColor){
+		this.$color = backgroundColor;
 	}
 
 	/**
@@ -135,11 +142,12 @@ export default class Tasklist extends HTMLUListElement {
 	selectTask(taskId) {
 		resetBackGround();
 		const task = document.getElementById(taskId).shadowRoot.children[1];
+		const taskContainer = document.getElementById('tasks-container');
 		// Highlight the selected task
-		task.children[0].children[0].setAttribute('style', `width: 90%; background-color: rgb(191,191,191);
-			box-shadow: 0px 0px 0px 10px rgb(191,191,191);`);
-		task.children[0].children[1].setAttribute('style', `width: 10%; background-color: rgb(191,191,191);
-			box-shadow: 0px 0px 0px 10px rgb(191,191,191);`);
+		task.children[0].children[0].setAttribute('style', `width: 90%; background-color: ` + taskContainer.color + `;
+			box-shadow: 0px 0px 0px 10px ` + taskContainer.color + `;`);
+		task.children[0].children[1].setAttribute('style', `width: 10%; background-color: ` + taskContainer.color + `;
+			box-shadow: 0px 0px 0px 10px ` + taskContainer.color + `;`);
 		const name = task.children[0].children[0].textContent;
 		const pomos = task.children[0].children[1].textContent;
 

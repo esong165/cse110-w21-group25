@@ -171,7 +171,7 @@ document.addEventListener('DOMContentLoaded', () => {
 	const doneButton = document.getElementById('done-button');
 
 	doneButton.addEventListener('click', function() {
-		const currTask = document.getElementById('tasks-container').getSelected();
+		const currTask = document.getElementById('tasks-container').selected;
 		if (currTask[0] === 'Default') return;
 		document.getElementById('tasks-container').removeTask(currTask[0]);
 		document.getElementById('stats-container').addStat(currTask[0].substring(1), currTask[1], currTask[2]);
