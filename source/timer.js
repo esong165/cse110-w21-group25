@@ -141,7 +141,7 @@ export default class Timer {
 		const taskContainer = document.getElementById('tasks-container');
 		switch (this.state) {
 		case this.State.POMO: {
-			//changes the background-color, selected/hover task-item color
+			// Change the background-color, selected/hover task-item color
 			document.body.style.backgroundColor = 'rgb(204, 255, 204)';
 			taskContainer.color = 'rgb(187, 240, 187)';
 			changeSelectedColor('taskItemPomo.css');
@@ -171,11 +171,10 @@ export default class Timer {
 			if (i === this.$cycle) {
 				stateMessage.textContent = 'No long break in sight.';
 			}
-
 			break;
 		}
 		case this.State.SHORT_BREAK:
-			//changes the background-color, selected/hover task-item color
+			// Change the background-color, selected/hover task-item color
 			document.body.style.backgroundColor = 'rgb(245, 196, 242)';
 			taskContainer.color = 'rgb(232, 174, 228)';
 			changeSelectedColor('taskItemSBreak.css');
@@ -185,7 +184,7 @@ export default class Timer {
 			button.textContent = 'Start Short Break';
 			break;
 		case this.State.LONG_BREAK:
-			//changes the background-color, selected/hover task-item color
+			// Change the background-color, selected/hover task-item color
 			document.body.style.backgroundColor = 'rgb(209, 236, 255)';
 			taskContainer.color = 'rgb(185, 206, 235)';
 			changeSelectedColor('taskItemLBreak.css');
@@ -210,14 +209,14 @@ export default class Timer {
 				document.getElementById('stats-button').style.display = 'none';
 			}
 		} else {
-			// must be in pomo since the button is only clickable in countdown status during pomo
+			// Must be in pomo since the button is only clickable in countdown status during pomo
 			this.$initCycle();
 		}
 	}
 
 	notifySettingsChanged() {
 		if (this.status === this.Status.COUNTDOWN) return;
-		// refresh remaining time format immediately in case it changed
+		// Refresh remaining time format immediately in case it changed
 		this.remaining = this.$remaining;
 		this.$initCycle();
 	}
@@ -237,17 +236,17 @@ document.addEventListener('DOMContentLoaded', () => {
 
 /**
 * Helper function that updates the hover and selected colors of task-items in task list.
-* @param {String} stylesheet - the correct stylesheet for the current background-color
+* @param {String} sheet - the correct stylesheet for the current background-color
 */
 function changeSelectedColor(sheet) {
 	const currTask = document.getElementById('tasks-container').selected;
 	const taskItems = document.getElementById('tasks-container').getElementsByTagName('task-item');
-	
-	//updates selected task highlight color
+
+	// Update selected task highlight color
 	if (currTask[0] === 'Default') return;
 	document.getElementById('tasks-container').selectTask(currTask[0]);
 
-	//updates all task-items with correct hover color
+	// Update all task-items with correct hover color
 	for (let i = 0; i < taskItems.length; ++i) {
 		taskItems[i].shadowRoot.children[0].setAttribute('href', sheet);
 	}
