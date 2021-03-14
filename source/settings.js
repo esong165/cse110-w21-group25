@@ -53,13 +53,13 @@ export default class Settings {
 		window.app.timer.notifySettingsChanged();
 	}
 
-
+	/**
+	 * Updates the volume settings of the horn
+	 */
 	updateVolume() {
-		
-		let volumeWhole = document.getElementById('volume-slider').value;
+		const volumeWhole = document.getElementById('volume-slider').value;
 		this.volume = volumeWhole / 100;
 		document.getElementById('alarm').volume = this.volume;
-
 	}
 
 	/**
