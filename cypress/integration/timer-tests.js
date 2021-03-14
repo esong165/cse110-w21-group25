@@ -95,11 +95,11 @@ describe('Timer tests', () => {
 		cy.get('#timer-button').click();
 		cy.wait(1000);
 		cy.get('@Notification').should('have.been.calledWithNew')
-			.and('have.been.calledWithExactly', 'Time\'s up! Start your short break now.');
+			.and('have.been.calledWithExactly', 'Time\'s up! Start your short break now.', { tag: 'timer' });
 		cy.get('#timer-button').click();
 		cy.wait(1000);
 		cy.get('@Notification').should('have.been.calledWithNew')
-			.and('have.been.calledWithExactly', 'Time\'s up! Start your work session now.');
+			.and('have.been.calledWithExactly', 'Time\'s up! Start your work session now.', { tag: 'timer' });
 		cy.window().should(window => {
 			window.app.timer.$cycle = 6;
 			window.app.timer.notifySettingsChanged();
@@ -107,27 +107,27 @@ describe('Timer tests', () => {
 		cy.get('#timer-button').click();
 		cy.wait(1000);
 		cy.get('@Notification').should('have.been.calledWithNew')
-			.and('have.been.calledWithExactly', 'Time\'s up! Start your long break now.');
+			.and('have.been.calledWithExactly', 'Time\'s up! Start your long break now.', { tag: 'timer' });
 		cy.get('#timer-button').click();
 		cy.wait(1000);
 		cy.get('@Notification').should('have.been.calledWithNew')
-			.and('have.been.calledWithExactly', 'Time\'s up! Start your work session now.');
+			.and('have.been.calledWithExactly', 'Time\'s up! Start your work session now.', { tag: 'timer' });
 	});
 
 	it('Test asking for permission, shows notification if permission is granted', () => {
 		cy.visit('/source/index.html', {
 			onBeforeLoad(window) {
 				cy.stub(window.Notification, 'permission', 'unknown');
-				cy.stub(win.Notification, 'requestPermission').resolves('granted').as('ask');
+				cy.stub(window.Notification, 'requestPermission').resolves('granted').as('ask');
 				cy.stub(window, 'Notification').as('Notification');
 			}
 		});
 		cy.window().should(window => {
-			window.app.settings.pomoDuration = 1000;
+			window.app.settings.pomoDuration = 2000;
 			window.app.timer.notifySettingsChanged();
 		});
 		cy.get('#timer-button').click();
-		cy.wait(1000);
+		cy.wait(2000);
 		cy.get('@ask').should('have.been.calledOnce')
 			.and('have.been.calledBefore', cy.get('@Notification'));
 	});
@@ -136,7 +136,7 @@ describe('Timer tests', () => {
 		cy.visit('/source/index.html', {
 			onBeforeLoad(window) {
 				cy.stub(window.Notification, 'permission', 'denied');
-				cy.stub(win.Notification, 'requestPermission').resolves('denied').as('ask');
+				cy.stub(window.Notification, 'requestPermission').resolves('denied').as('ask');
 				cy.stub(window, 'Notification').as('Notification');
 			}
 		});

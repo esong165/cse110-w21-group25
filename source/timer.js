@@ -1,4 +1,4 @@
-/*eslint no-unused-vars: ["error", { "argsIgnorePattern": "^message$" }]*/
+/* eslint no-unused-vars: ["error", { "argsIgnorePattern": "^notification$" }] */
 
 /**
  * All things timer.
@@ -224,7 +224,7 @@ export default class Timer {
 			message += 'work session now.';
 		}
 		if (!('Notification' in window)) {
-			alert('This browser does not support desktop notification.', {tag: 'timer'});
+			alert('This browser does not support desktop notification.', { tag: 'timer' });
 		} else if (Notification.permission === 'granted') {
 			const notification = new Notification(message, { tag: 'timer' });
 		} else if (Notification.permission !== 'denied') {
