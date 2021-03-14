@@ -144,6 +144,8 @@ export default class Tasklist extends HTMLUListElement {
 		const task = new TaskItem(name, count, 0);
 		task.id = '_' + name;
 
+		task.setAttribute('class', document.getElementById('tasks-container').colorClassName);
+
 		// Add select and remove buttons to the task
 		task.shadowRoot.children[1].children[0].addEventListener('click',
 			function() { document.getElementById('tasks-container').selectTask(task.id); });
