@@ -18,7 +18,7 @@ export default class TaskItem extends HTMLElement {
 		// styles the elements in TaskItem to look like a table
 		const link = document.createElement('link');
 		link.setAttribute('rel', 'stylesheet');
-		link.setAttribute('href', 'taskItemPomo.css');
+		link.setAttribute('href', 'task-item-style.css');
 		shadow.appendChild(link);
 
 		// Creates list object representing the task
@@ -30,6 +30,7 @@ export default class TaskItem extends HTMLElement {
 		task.style = 'list-style-type:none;';
 
 		const select = document.createElement('div');
+		select.setAttribute('class', 'pomo');
 
 		// Set name of task
 		const name = document.createElement('p');
