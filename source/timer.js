@@ -1,3 +1,5 @@
+/* eslint no-unused-vars: 0 */ // Turns off no-unused-vars for this file, as notifications violate this rule
+
 /**
  * All things timer.
  */
@@ -212,20 +214,19 @@ export default class Timer {
 	 */
 	notifyUser() {
 		let notifMessage = 'Time\'s up! Start your ';
-		if (this.state == 1) {
+		if (this.state === 1) {
 			notifMessage += 'break now.';
-		}
-		else {
+		} else {
 			notifMessage += 'work session now.';
 		}
 		if (!('Notification' in window)) {
 			alert('This browser does not support desktop notification');
 		} else if (Notification.permission === 'granted') {
-			var notification = new Notification(notifMessage, {tag: 'timer'});
+			let notification = new Notification(notifMessage, { tag: 'timer' });
 		} else if (Notification.permission !== 'denied') {
-			Notification.requestPermission().then(function (permission) {
+			Notification.requestPermission().then(function(permission) {
 				if (permission === 'granted') {
-					var notification = new Notification(notifMessage);
+					let notification = new Notification(notifMessage);
 				}
 			});
 		}
