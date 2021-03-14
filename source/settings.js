@@ -53,25 +53,6 @@ export default class Settings {
 	}
 
 	/**
-	 * Updates the alarm sound when timer reaches zero
-	 */
-	updateAlarmSound() {
-		const alarmSoundValue = Number(document.getElementById('alarm-sound').value);
-		const alarmSound = document.getElementById('alarm');
-		if (alarmSoundValue === 1) {
-			alarmSound.src = 'sounds/air-horn.mp3';
-		} else if (alarmSoundValue === 2) {
-			alarmSound.src = 'sounds/siren.mp3';
-		} else if (alarmSoundValue === 3) {
-			alarmSound.src = 'sounds/beeping.mp3';
-		} else if (alarmSoundValue === 4) {
-			alarmSound.src = 'sounds/clock-alarm.mp3';
-		} else if (alarmSoundValue === 5) {
-			alarmSound.src = 'sounds/bell.mp3';
-		}
-	}
-
-	/**
 	 * When the user clicks the return home button
 	 */
 	toHome() {
@@ -133,9 +114,6 @@ document.addEventListener('DOMContentLoaded', () => {
 	});
 	document.getElementById('show-seconds').addEventListener('input', () => {
 		window.app.settings.updateShowSeconds();
-	});
-	document.getElementById('alarm-sound').addEventListener('input', () => {
-		window.app.settings.updateAlarmSound();
 	});
 	document.getElementById('home-button').addEventListener('click', () => {
 		window.app.settings.toHome();
