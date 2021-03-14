@@ -1,4 +1,4 @@
-/* eslint no-unused-vars: 0 */ // Turns off no-unused-vars for this file, as notifications violate this rule
+/*eslint no-unused-vars: ["error", { "argsIgnorePattern": "^message$" }]*/
 
 /**
  * All things timer.
@@ -213,20 +213,24 @@ export default class Timer {
 	 * Notifies the user of their next task when the timer ends if the user has enabled notifications.
 	 */
 	notifyUser() {
-		let notifMessage = 'Time\'s up! Start your ';
-		if (this.state === 1) {
-			notifMessage += 'break now.';
+		let message = 'Time\'s up! Start your ';
+		if (this.state === this.State.POMO) {
+			if (this.$CYCLES[(this.$cycle + 1) % this.$CYCLES.length] === this.State.LONG_BREAK) {
+				message += 'long break now.';
+			} else {
+				message += 'short break now.';
+			}
 		} else {
-			notifMessage += 'work session now.';
+			message += 'work session now.';
 		}
 		if (!('Notification' in window)) {
-			alert('This browser does not support desktop notification');
+			alert('This browser does not support desktop notification.', {tag: 'timer'});
 		} else if (Notification.permission === 'granted') {
-			const notification = new Notification(notifMessage, { tag: 'timer' });
+			const notification = new Notification(message, { tag: 'timer' });
 		} else if (Notification.permission !== 'denied') {
 			Notification.requestPermission().then(function(permission) {
 				if (permission === 'granted') {
-					const notification = new Notification(notifMessage);
+					const notification = new Notification(message, { tag: 'timer' });
 				}
 			});
 		}
