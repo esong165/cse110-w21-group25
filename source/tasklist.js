@@ -16,7 +16,7 @@ export default class Tasklist extends HTMLUListElement {
 		this.$tasks = [];
 		this.$selected = ['Default', '1', '-1'];
 		this.$color = 'rgb(174, 224, 174)';
-
+		this.colorClassName = 'pomo';
 		// Get values from localStorage and updating $tasks and $selected if these are not null
 		const taskItemArr = JSON.parse(localStorage.getItem('taskItemArr'));
 		const selectedArr = JSON.parse(localStorage.getItem('selectedTask'));
@@ -83,6 +83,46 @@ export default class Tasklist extends HTMLUListElement {
 	 */
 	set color(backgroundColor) {
 		this.$color = backgroundColor;
+	}
+
+	/**
+	 * Gets the current selected task colorClassName.
+	 * @returns {String} styleSheet is the class name  for selected task color
+	 */
+	 get colorClassName() {
+		return this.$colorClassName;
+	}
+	/**
+	 * sets the current selected task colorClassName.
+	 * @param {String} colorClassName - the class name for updated selected task color.
+	 */
+	set colorClassName(className) {
+		this.$colorClassName = className;
+	}
+
+	/**
+	* Helper function that updates the hover and selected colors of task-items in task list.
+	* @param {String} stylesheet - the correct stylesheet for the current background-color
+	*/
+	changeSelectedColor(className) {
+		const taskContainer = document.getElementById('tasks-container');
+		const currTask = taskContainer.selected;
+		const taskItems = taskContainer.getElementsByTagName('task-item');
+		const addTaskButton = document.getElementById('add-task-button');
+
+		taskContainer.styleSheet = className;
+
+		//updates selected task highlight color
+		if (currTask[0] === 'Default') return;
+		document.getElementById('tasks-container').selectTask(currTask[0]);
+
+		//updates all task-items with correct hover color
+		for (let i = 0; i < taskItems.length; ++i) {
+			taskItems[i].shadowRoot.children[1].children[0].setAttribute('class', className);
+		}
+		
+		//updates addTaskButton color
+		addTaskButton.style.backgroundColor = document.body.style.backgroundColor;
 	}
 
 	/**
