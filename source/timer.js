@@ -144,7 +144,7 @@ export default class Timer {
 			// Change the background-color, selected/hover task-item color
 			document.body.style.backgroundColor = 'rgb(204, 255, 204)';
 			taskContainer.color = 'rgb(187, 240, 187)';
-			changeSelectedColor('taskItemPomo.css');
+			document.getElementById('tasks-container').changeSelectedColor('pomo');
 
 			this.remaining = window.app.settings.pomoDuration;
 			button.textContent = 'Start Pomo';
@@ -177,7 +177,7 @@ export default class Timer {
 			// Change the background-color, selected/hover task-item color
 			document.body.style.backgroundColor = 'rgb(245, 196, 242)';
 			taskContainer.color = 'rgb(232, 174, 228)';
-			changeSelectedColor('taskItemSBreak.css');
+			document.getElementById('tasks-container').changeSelectedColor('short-break');
 
 			this.remaining = window.app.settings.shortBreakDuration;
 			stateMessage.textContent = 'Take a short break.';
@@ -187,7 +187,7 @@ export default class Timer {
 			// Change the background-color, selected/hover task-item color
 			document.body.style.backgroundColor = 'rgb(209, 236, 255)';
 			taskContainer.color = 'rgb(185, 206, 235)';
-			changeSelectedColor('taskItemLBreak.css');
+			document.getElementById('tasks-container').changeSelectedColor('long-break');
 
 			this.remaining = window.app.settings.longBreakDuration;
 			stateMessage.textContent = 'Take a long break.';
@@ -234,20 +234,3 @@ document.addEventListener('DOMContentLoaded', () => {
 	});
 });
 
-/**
-* Helper function that updates the hover and selected colors of task-items in task list.
-* @param {String} sheet - the correct stylesheet for the current background-color
-*/
-function changeSelectedColor(sheet) {
-	const currTask = document.getElementById('tasks-container').selected;
-	const taskItems = document.getElementById('tasks-container').getElementsByTagName('task-item');
-
-	// Update selected task highlight color
-	if (currTask[0] === 'Default') return;
-	document.getElementById('tasks-container').selectTask(currTask[0]);
-
-	// Update all task-items with correct hover color
-	for (let i = 0; i < taskItems.length; ++i) {
-		taskItems[i].shadowRoot.children[0].setAttribute('href', sheet);
-	}
-}
