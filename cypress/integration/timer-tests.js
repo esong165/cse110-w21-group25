@@ -87,13 +87,13 @@ describe('Timer tests', () => {
 			}
 		});
 		cy.window().should(window => {
-			window.app.settings.pomoDuration = 1000;
+			window.app.settings.pomoDuration = 3000;
 			window.app.settings.shortBreakDuration = 1000;
-			window.app.settings.longBreakDuration = 1000;
+			window.app.settings.longBreakDuration = 2000;
 			window.app.timer.notifySettingsChanged();
 		});
 		cy.get('#timer-button').click();
-		cy.wait(1000);
+		cy.wait(3000);
 		cy.get('@Notification').should('have.been.calledWithNew')
 			.and('have.been.calledWithExactly', 'Time\'s up! Start your short break now.', { tag: 'timer' });
 		cy.get('#timer-button').click();
@@ -105,11 +105,11 @@ describe('Timer tests', () => {
 			window.app.timer.notifySettingsChanged();
 		});
 		cy.get('#timer-button').click();
-		cy.wait(1000);
+		cy.wait(3000);
 		cy.get('@Notification').should('have.been.calledWithNew')
 			.and('have.been.calledWithExactly', 'Time\'s up! Start your long break now.', { tag: 'timer' });
 		cy.get('#timer-button').click();
-		cy.wait(1000);
+		cy.wait(2000);
 		cy.get('@Notification').should('have.been.calledWithNew')
 			.and('have.been.calledWithExactly', 'Time\'s up! Start your work session now.', { tag: 'timer' });
 	});

@@ -1,4 +1,4 @@
-/* eslint no-unused-vars: ["error", { "argsIgnorePattern": "^notification$" }] */
+/* eslint no-unused-vars: ["error", { "varsIgnorePattern": "^notification$" }] */
 
 /**
  * All things timer.
