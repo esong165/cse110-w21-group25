@@ -37,7 +37,7 @@
 			<div id="timer-button-container">
 				<button id="timer-button">Start Pomo</button>
 			</div>
-			<audio id="alarm" src="./air-horn.mp3"></audio>
+			<audio id="alarm" src="sounds/air-horn.mp3"></audio>
 		</div>
 		<div id="task-list">
 			<div id="table-label">
@@ -74,6 +74,14 @@
 				<option value="25" selected="">25:00</option>
 				<option value="30">30:00</option>
 				<option value="45">45:00</option>
+			</select>
+			<label for="alarm-sound">Alarm Sound</label>
+			<select id="alarm-sound" class="settings-option">
+				<option value="1" selected="">Air Horn</option>
+				<option value="2">Siren</option>
+				<option value="3">Beeping</option>
+				<option value="4">Clock Alarm</option>
+				<option value="5">Bell</option>
 			</select>
 			<label for="short-break-duration">Short Break Duration</label>
 			<select id="short-break-duration" class="settings-option">
