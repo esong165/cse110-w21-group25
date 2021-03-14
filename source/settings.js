@@ -56,8 +56,8 @@ export default class Settings {
 	 * Updates the alarm sound when timer reaches zero
 	 */
 	updateAlarmSound() {
-		let alarmSoundValue = Number(document.getElementById('alarm-sound').value);
-		let alarmSound = document.getElementById('alarm');
+		const alarmSoundValue = Number(document.getElementById('alarm-sound').value);
+		const alarmSound = document.getElementById('alarm');
 		if (alarmSoundValue === 1) {
 			alarmSound.src = 'sounds/air-horn.mp3';
 		} else if (alarmSoundValue === 2) {
@@ -136,7 +136,7 @@ document.addEventListener('DOMContentLoaded', () => {
 	});
 	document.getElementById('alarm-sound').addEventListener('input', () => {
 		window.app.settings.updateAlarmSound();
-	})
+	});
 	document.getElementById('home-button').addEventListener('click', () => {
 		window.app.settings.toHome();
 	});
