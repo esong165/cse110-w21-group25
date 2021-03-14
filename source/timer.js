@@ -222,11 +222,11 @@ export default class Timer {
 		if (!('Notification' in window)) {
 			alert('This browser does not support desktop notification');
 		} else if (Notification.permission === 'granted') {
-			let notification = new Notification(notifMessage, { tag: 'timer' });
+			const notification = new Notification(notifMessage, { tag: 'timer' });
 		} else if (Notification.permission !== 'denied') {
 			Notification.requestPermission().then(function(permission) {
 				if (permission === 'granted') {
-					let notification = new Notification(notifMessage);
+					const notification = new Notification(notifMessage);
 				}
 			});
 		}
