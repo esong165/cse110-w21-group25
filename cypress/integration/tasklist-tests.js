@@ -122,10 +122,10 @@ describe('Tasklist Tests', () => {
 	it('Add Duplicate Task', () => {
 		cy.get('#task-list-button').click();
 		cy.get('#new-task-name').clear().type('Duplicate Task');
-		cy.get('#new-task-count').clear().type('1');
+		cy.get('#new-task-count').clear().type('4');
 		cy.get('#add-task-button').click();
 		cy.get('#new-task-name').clear().type('Duplicate Task');
-		cy.get('#new-task-count').clear().type('1');
+		cy.get('#new-task-count').clear().type('4');
 		const stub = cy.stub();
 		cy.on('window:alert', stub);
 		cy.get('#add-task-button').click().then(() => {
