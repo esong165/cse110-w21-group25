@@ -1,7 +1,3 @@
-
-/**
- * @jest-environment jsdom
- */
 import Tasklist from './tasklist.js';
 
 document.body.innerHTML = `
