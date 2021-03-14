@@ -107,6 +107,7 @@ export default class Timer {
 		if (this.$intervalId !== null) return;
 		const tick = () => {
 			if (this.remaining === 0) {
+				this.notifyUser();
 				if (this.state === this.State.POMO) {
 					const currTaskId = document.getElementById('tasks-container').getSelected()[0];
 					document.getElementById('tasks-container').updateCurrPomos(currTaskId);
@@ -204,6 +205,30 @@ export default class Timer {
 		// refresh remaining time format immediately in case it changed
 		this.remaining = this.$remaining;
 		this.$initCycle();
+	}
+
+	/**
+	 * Notifies the user of their next task when the timer ends if the user has enabled notifications.
+	 */
+	notifyUser() {
+		let notifMessage = 'Time\'s up! Start your ';
+		if (this.state == 1) {
+			notifMessage += 'break now.';
+		}
+		else {
+			notifMessage += 'work session now.';
+		}
+		if (!('Notification' in window)) {
+			alert('This browser does not support desktop notification');
+		} else if (Notification.permission === 'granted') {
+			var notification = new Notification(notifMessage, {tag: 'timer'});
+		} else if (Notification.permission !== 'denied') {
+			Notification.requestPermission().then(function (permission) {
+				if (permission === 'granted') {
+					var notification = new Notification(notifMessage);
+				}
+			});
+		}
 	}
 }
 
