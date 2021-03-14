@@ -1,4 +1,4 @@
-# Changing Color When Selected
+# Changing Icon When Selected
 
 ## Context and Problem Statement
 
