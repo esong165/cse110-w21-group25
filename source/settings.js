@@ -7,6 +7,7 @@ export default class Settings {
 		this.shortBreakDuration = 5 * 60 * 1000;
 		this.longBreakDuration = 15 * 60 * 1000;
 		this.displaySeconds = true;
+		this.volume = 1;
 	}
 
 	/**
@@ -50,6 +51,15 @@ export default class Settings {
 	updateShowSeconds() {
 		this.displaySeconds = document.getElementById('show-seconds').checked;
 		window.app.timer.notifySettingsChanged();
+	}
+
+
+	updateVolume() {
+		
+		let volumeWhole = document.getElementById('volume-slider').value;
+		this.volume = volumeWhole / 100;
+		document.getElementById('alarm').volume = this.volume;
+
 	}
 
 	/**
@@ -114,6 +124,9 @@ document.addEventListener('DOMContentLoaded', () => {
 	});
 	document.getElementById('show-seconds').addEventListener('input', () => {
 		window.app.settings.updateShowSeconds();
+	});
+	document.getElementById('volume-slider').addEventListener('input', () => {
+		window.app.settings.updateVolume();
 	});
 	document.getElementById('home-button').addEventListener('click', () => {
 		window.app.settings.toHome();
