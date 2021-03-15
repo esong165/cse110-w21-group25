@@ -7,6 +7,7 @@ export default class Settings {
 		this.shortBreakDuration = 5 * 60 * 1000;
 		this.longBreakDuration = 15 * 60 * 1000;
 		this.displaySeconds = true;
+		this.volume = 1;
 	}
 
 	/**
