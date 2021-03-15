@@ -131,6 +131,7 @@ nav{
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
+	padding-bottom: 50px;
 }
 
 #new-task-name {

@@ -18,7 +18,7 @@ export default class TaskItem extends HTMLElement {
 		// styles the elements in TaskItem to look like a table
 		const link = document.createElement('link');
 		link.setAttribute('rel', 'stylesheet');
-		link.setAttribute('href', 'task-item-style.css');
+		link.setAttribute('href', 'task-item.css');
 		shadow.appendChild(link);
 
 		// Creates list object representing the task

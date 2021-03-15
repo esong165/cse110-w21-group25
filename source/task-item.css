@@ -42,19 +42,22 @@ li img {
 	height: 100px;
 }
 
-.pomo p:hover > p{
+div.pomo:hover p {
 	background-color: rgb(187, 240, 187);
 	box-shadow: 0px 0px 0px 10px rgb(187, 240, 187);
+	
 }
 
-.long-break p:hover > p{
+div.long-break:hover p {
 	background-color: rgb(185, 206, 235);
 	box-shadow: 0px 0px 0px 10px rgb(185, 206, 235);
+	
 }
 
-.short-break p:hover > p{
+div.short-break:hover p {
 	background-color: rgb(232, 174, 228);
 	box-shadow: 0px 0px 0px 10px rgb(232, 174, 228);
+	
 }
 
 

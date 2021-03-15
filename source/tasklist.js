@@ -16,7 +16,7 @@ export default class Tasklist extends HTMLUListElement {
 		this.$tasks = [];
 		this.$selected = ['Choose Task', '1', '-1'];
 		this.$color = 'rgb(174, 224, 174)';
-		this.colorClassName = 'pomo';
+		this.$colorClassName = 'pomo';
 		// Get values from localStorage and updating $tasks and $selected if these are not null
 		const taskItemArr = JSON.parse(localStorage.getItem('taskItemArr'));
 		const selectedArr = JSON.parse(localStorage.getItem('selectedTask'));
@@ -111,8 +111,9 @@ export default class Tasklist extends HTMLUListElement {
 		const currTask = taskContainer.selected;
 		const taskItems = taskContainer.getElementsByTagName('task-item');
 		const addTaskButton = document.getElementById('add-task-button');
-
-		taskContainer.styleSheet = className;
+		
+		//sets the correct 
+		taskContainer.colorClassName = className;
 
 		//updates selected task highlight color
 		if (currTask[0] === 'Choose Task') return;
@@ -146,7 +147,7 @@ export default class Tasklist extends HTMLUListElement {
 		const task = new TaskItem(name, count, 0);
 		task.id = '_' + name;
 
-		task.setAttribute('class', document.getElementById('tasks-container').colorClassName);
+		task.shadowRoot.children[1].children[0].setAttribute('class', document.getElementById('tasks-container').colorClassName);
 
 		// Add select and remove buttons to the task
 		task.shadowRoot.children[1].children[0].addEventListener('click',
