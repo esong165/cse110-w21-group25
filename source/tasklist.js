@@ -113,7 +113,7 @@ export default class Tasklist extends HTMLUListElement {
 		const taskItems = taskContainer.getElementsByTagName('task-item');
 		const addTaskButton = document.getElementById('add-task-button');
 
-		//	sets the correct 
+		//	sets the correct
 		taskContainer.colorClassName = className;
 
 		//	updates selected task highlight color
