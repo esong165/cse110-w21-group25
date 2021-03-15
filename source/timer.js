@@ -1,4 +1,4 @@
-/* eslint no-unused-vars: ["error", { "varsIgnorePattern": "^notification$" }] */
+/* eslint no-unused-vars: ["error", { "varsIgnorePattern": "^_" }] */
 
 /**
  * All things timer.
@@ -109,13 +109,13 @@ export default class Timer {
 		if (this.$intervalId !== null) return;
 		const tick = () => {
 			if (this.remaining === 0) {
-				this.notifyUser();
 				if (this.state === this.State.POMO) {
 					const currTaskId = document.getElementById('tasks-container').getSelected()[0];
 					document.getElementById('tasks-container').updateCurrPomos(currTaskId);
 				}
 				this.$cycle = (this.$cycle + 1) % this.$CYCLES.length;
 				this.$initCycle();
+				this.notifyUser();
 				document.getElementById('alarm').play();
 			} else {
 				this.remaining -= 1000;
@@ -215,22 +215,20 @@ export default class Timer {
 	notifyUser() {
 		let message = 'Time\'s up! Start your ';
 		if (this.state === this.State.POMO) {
-			if (this.$CYCLES[(this.$cycle + 1) % this.$CYCLES.length] === this.State.LONG_BREAK) {
-				message += 'long break now.';
-			} else {
-				message += 'short break now.';
-			}
-		} else {
 			message += 'work session now.';
+		} else if (this.state === this.State.SHORT_BREAK) {
+			message += 'short break now.';
+		} else {
+			message += 'long break now.';
 		}
 		if (!('Notification' in window)) {
-			alert('This browser does not support desktop notification.', { tag: 'timer' });
+			alert('This browser does not support desktop notification.');
 		} else if (Notification.permission === 'granted') {
-			const notification = new Notification(message, { tag: 'timer' });
+			const _notification = new Notification(message, { tag: 'timer' });
 		} else if (Notification.permission !== 'denied') {
 			Notification.requestPermission().then(function(permission) {
 				if (permission === 'granted') {
-					const notification = new Notification(message, { tag: 'timer' });
+					const _notification = new Notification(message, { tag: 'timer' });
 				}
 			});
 		}

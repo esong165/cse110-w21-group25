@@ -1,6 +1,6 @@
 describe('Notification Tests', () => {
-    it('Notification support', () => {
-        cy.visit('/source/index.html');
+	it('Notification support', () => {
+		cy.visit('/source/index.html');
 		cy.window().should('have.property', 'Notification').should('be.a', 'function');
 	});
 
@@ -78,7 +78,7 @@ describe('Notification Tests', () => {
 		cy.visit('/source/index.html', {
 			onBeforeLoad(window) {
 				cy.stub(window.Notification, 'permission', 'denied');
-				cy.stub(window.Notification, 'requestPermission').resolves('denied').as('ask');
+				cy.stub(window.Notification, 'requestPermission').resolves('denied');
 				cy.stub(window, 'Notification').as('Notification');
 			}
 		});
