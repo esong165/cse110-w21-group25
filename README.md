@@ -40,4 +40,4 @@ Currently, the app is deployed via GitHub Pages to [https://cirillo.tech](https:
 The page colors change between green, blue, and pink while on a work session, short break, and long break respectively.
 During a work session, the tasklist and stats pages are hidden from the user to eliminate unnecessary features that could serve as distractions.
 When the timer countdown reaches 0, the app will play a sound and send a notification to the user if notifications are enabled.
-When a user is done with a task, they can hit the checkmark (done) button to complete the task and send it to stats. 
+When a user is done with a task, they can hit the checkmark (done) button to complete the task and send it to stats.
