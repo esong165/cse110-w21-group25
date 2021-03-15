@@ -9,20 +9,22 @@ body {
 #site-header {
 	text-align: center;
 	font-size: 300%;
-	margin-top: -20px;
+	margin-top: 20px;
 }
 
 /* nav-buttons */
-.taskbar-button {
-	height: 50px;
-	width: 50px;
-	padding: 20px;
-
+nav{
 	user-select: none;
 	-moz-user-select: none;
 	-webkit-user-drag: none;
 	-webkit-user-select: none;
 	-ms-user-select: none;
+}
+
+.taskbar-button {
+	height: 50px;
+	width: 50px;
+	padding: 20px;
 }
 
 .taskbar-button:hover {
@@ -217,7 +219,7 @@ body {
 }
 
 #stats-exp-label {
-	display: inline-block;
+	display: inline-block;	
 }
 
 #stats-actual-label {

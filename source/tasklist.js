@@ -14,7 +14,7 @@ export default class Tasklist extends HTMLUListElement {
 
 		// Initialize $tasks and $selected to default values
 		this.$tasks = [];
-		this.$selected = ['Default', '1', '-1'];
+		this.$selected = ['Choose Task', '1', '-1'];
 		this.$color = 'rgb(174, 224, 174)';
 		this.colorClassName = 'pomo';
 		// Get values from localStorage and updating $tasks and $selected if these are not null
@@ -27,9 +27,11 @@ export default class Tasklist extends HTMLUListElement {
 			this.$selected = selectedArr;
 		}
 		// Update current task display
-		if (this.$selected[0] === 'Default') {
-			document.getElementById('current-task').textContent = 'Default';
+		if (this.$selected[0] === 'Choose Task') {
+			document.getElementById('done-button').style.display = 'none';
+			document.getElementById('current-task').textContent = 'Choose Task';
 		} else {
+			document.getElementById('done-button').style.display = 'inline-block';
 			document.getElementById('current-task').textContent = this.$selected[0].substring(1);
 		}
 
@@ -56,7 +58,7 @@ export default class Tasklist extends HTMLUListElement {
 			document.getElementById(currTask.id).setAttribute('ondragover', 'allowDrop(event);');
 			document.getElementById(currTask.id).setAttribute('ondrop', 'drop(event);');
 		}
-		if (this.$selected[0] !== 'Default') {
+		if (this.$selected[0] !== 'Choose Task') {
 			document.getElementById('tasks-container').selectTask(this.$selected[0]);
 		}
 	}
@@ -113,7 +115,7 @@ export default class Tasklist extends HTMLUListElement {
 		taskContainer.styleSheet = className;
 
 		//updates selected task highlight color
-		if (currTask[0] === 'Default') return;
+		if (currTask[0] === 'Choose Task') return;
 		document.getElementById('tasks-container').selectTask(currTask[0]);
 
 		//updates all task-items with correct hover color
@@ -210,6 +212,9 @@ export default class Tasklist extends HTMLUListElement {
 		this.$selected = ['_' + name, pomos, document.getElementById(taskId).currPomos];
 		// Store selected task in local storage
 		localStorage.setItem('selectedTask', JSON.stringify(this.$selected));
+
+		//enable done button
+		document.getElementById('done-button').style.display = 'inline-block';
 	}
 
 	/**
@@ -244,8 +249,9 @@ export default class Tasklist extends HTMLUListElement {
 				tasklist.selectTask(tasklist.firstChild.id);
 			} else {
 				// Update displays and $selected to defaults if there are no tasks left in list
-				document.getElementById('current-task').textContent = 'Default';
-				this.$selected = ['Default', '1', '-1'];
+				document.getElementById('current-task').textContent = 'Choose Task';
+				this.$selected = ['Choose Task', '1', '-1'];
+				document.getElementById('done-button').style.display = 'none';
 			}
 		}
 
