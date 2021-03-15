@@ -1,3 +1,5 @@
+/* eslint no-unused-vars: ["error", { "varsIgnorePattern": "^_" }] */
+
 /**
  * All things timer.
  */
@@ -113,6 +115,7 @@ export default class Timer {
 				}
 				this.$cycle = (this.$cycle + 1) % this.$CYCLES.length;
 				this.$initCycle();
+				this.notifyUser();
 				document.getElementById('alarm').play();
 			} else {
 				this.remaining -= 1000;
@@ -219,6 +222,31 @@ export default class Timer {
 		// Refresh remaining time format immediately in case it changed
 		this.remaining = this.$remaining;
 		this.$initCycle();
+	}
+
+	/**
+	 * Notifies the user of their next task when the timer ends if the user has enabled notifications.
+	 */
+	notifyUser() {
+		let message = 'Time\'s up! Start your ';
+		if (this.state === this.State.POMO) {
+			message += 'work session now.';
+		} else if (this.state === this.State.SHORT_BREAK) {
+			message += 'short break now.';
+		} else {
+			message += 'long break now.';
+		}
+		if (!('Notification' in window)) {
+			alert('This browser does not support desktop notification.');
+		} else if (Notification.permission === 'granted') {
+			const _notification = new Notification(message, { tag: 'timer' });
+		} else if (Notification.permission !== 'denied') {
+			Notification.requestPermission().then(function(permission) {
+				if (permission === 'granted') {
+					const _notification = new Notification(message, { tag: 'timer' });
+				}
+			});
+		}
 	}
 }
 
