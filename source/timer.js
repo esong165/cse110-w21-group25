@@ -233,4 +233,3 @@ document.addEventListener('DOMContentLoaded', () => {
 		window.app.timer.buttonClick();
 	});
 });
-

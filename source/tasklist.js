@@ -89,14 +89,15 @@ export default class Tasklist extends HTMLUListElement {
 
 	/**
 	 * Gets the current selected task colorClassName.
-	 * @returns {String} styleSheet is the class name  for selected task color
+	 * @returns {String} colorClassName - is the class name  for selected task color
 	 */
 	 get colorClassName() {
 		return this.$colorClassName;
 	}
+
 	/**
 	 * sets the current selected task colorClassName.
-	 * @param {String} colorClassName - the class name for updated selected task color.
+	 * @param {String} className - the class name for updated selected task color.
 	 */
 	set colorClassName(className) {
 		this.$colorClassName = className;
@@ -104,7 +105,7 @@ export default class Tasklist extends HTMLUListElement {
 
 	/**
 	* Helper function that updates the hover and selected colors of task-items in task list.
-	* @param {String} stylesheet - the correct stylesheet for the current background-color
+	* @param {String} className - the correct stylesheet for the current background-color
 	*/
 	changeSelectedColor(className) {
 		const taskContainer = document.getElementById('tasks-container');
@@ -112,14 +113,14 @@ export default class Tasklist extends HTMLUListElement {
 		const taskItems = taskContainer.getElementsByTagName('task-item');
 		const addTaskButton = document.getElementById('add-task-button');
 		
-		//sets the correct 
+		//	sets the correct 
 		taskContainer.colorClassName = className;
 
-		//updates selected task highlight color
+		//	updates selected task highlight color
 		if (currTask[0] === 'Choose Task') return;
 		document.getElementById('tasks-container').selectTask(currTask[0]);
 
-		//updates all task-items with correct hover color
+		//	updates all task-items with correct hover color
 		for (let i = 0; i < taskItems.length; ++i) {
 			taskItems[i].shadowRoot.children[1].children[0].setAttribute('class', className);
 		}
@@ -199,10 +200,10 @@ export default class Tasklist extends HTMLUListElement {
 		const task = document.getElementById(taskId).shadowRoot.children[1];
 		const taskContainer = document.getElementById('tasks-container');
 		// Highlight the selected task
-		task.children[0].children[0].setAttribute('style', 'width: 90%; background-color: ' + taskContainer.color +
-			'; box-shadow: 0px 0px 0px 10px ' + taskContainer.color + ';');
-		task.children[0].children[1].setAttribute('style', 'width: 10%; background-color: ' + taskContainer.color +
-			'; box-shadow: 0px 0px 0px 10px ' + taskContainer.color + ';');
+		task.children[0].children[0].setAttribute('style', `width: 90%; background-color: ${taskContainer.color}
+			; box-shadow: 0px 0px 0px 10px ${taskContainer.color};`);
+		task.children[0].children[1].setAttribute('style', `width: 10%; background-color: ${taskContainer.color}
+		; box-shadow: 0px 0px 0px 10px ${taskContainer.color};`);
 
 		const name = task.children[0].children[0].textContent;
 		const pomos = task.children[0].children[1].textContent;
