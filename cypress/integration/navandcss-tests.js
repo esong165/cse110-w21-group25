@@ -4,20 +4,20 @@ describe('Notification Tests', () => {
         cy.visit('/source/index.html');
         cy.get('#bodyId').then(function($e1) {
             expect($e1).to.have.attr('background-color', 'rgb(204, 255, 204)')
-        })
-    }) 
+        });
+    }); 
 
     it('Test css background on short break', () => {
         cy.visit('/source/index.html');
         cy.window().should(window => {
             window.app.timer.remaining = 1000;
-        })
+        });
         cy.get('#timer-button').click();
 		cy.wait(1000);
         cy.get('#bodyId').then(function($e1) {
             expect($e1).to.have.attr('background-color', 'rgb(245, 196, 242)')
-        })
-    }) 
+        });
+    });
 
     it('Test css background on long break', () => {
         cy.visit('/source/index.html');
@@ -53,10 +53,11 @@ describe('Notification Tests', () => {
             cy.get('#timer-button').click();
             cy.wait(1000);
 		});
+    
         cy.get('#bodyId').then(function($e1) {
             expect($e1).to.have.attr('background-color', 'rgb(209, 236, 255)')
-        })
-    }) 
+        });
+    }); 
     
     //Test highlight of task when select or when hover. 
     //Test stats and tasklist disabled when timer on. test color. test nav bar buttons when clicked. 
