@@ -91,7 +91,7 @@ export default class Tasklist extends HTMLUListElement {
 	 * Gets the current selected task colorClassName.
 	 * @returns {String} colorClassName - is the class name  for selected task color
 	 */
-	 get colorClassName() {
+	get colorClassName() {
 		return this.$colorClassName;
 	}
 
@@ -112,7 +112,7 @@ export default class Tasklist extends HTMLUListElement {
 		const currTask = taskContainer.selected;
 		const taskItems = taskContainer.getElementsByTagName('task-item');
 		const addTaskButton = document.getElementById('add-task-button');
-		
+
 		//	sets the correct 
 		taskContainer.colorClassName = className;
 
@@ -124,8 +124,8 @@ export default class Tasklist extends HTMLUListElement {
 		for (let i = 0; i < taskItems.length; ++i) {
 			taskItems[i].shadowRoot.children[1].children[0].setAttribute('class', className);
 		}
-		
-		//updates addTaskButton color
+
+		//	updates addTaskButton color
 		addTaskButton.style.backgroundColor = document.body.style.backgroundColor;
 	}
 
@@ -215,7 +215,7 @@ export default class Tasklist extends HTMLUListElement {
 		// Store selected task in local storage
 		localStorage.setItem('selectedTask', JSON.stringify(this.$selected));
 
-		//enable done button
+		// enable done button
 		document.getElementById('done-button').style.display = 'inline-block';
 	}
 

@@ -1,7 +1,7 @@
 /**
  * Settings Class
  */
- export default class Settings {
+export default class Settings {
 	constructor() {
 		this.pomoDuration = 25 * 60 * 1000;
 		this.shortBreakDuration = 5 * 60 * 1000;

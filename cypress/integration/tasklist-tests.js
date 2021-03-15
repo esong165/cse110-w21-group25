@@ -12,11 +12,11 @@ describe('Tasklist Tests', () => {
 	it('Defaults', () => {
 		cy.get('#tasks-container').then($el => {
 			expect($el.get(0).$tasks.length).to.eq(0);
-			expect($el.get(0).$selected[0]).to.eq('Default');
+			expect($el.get(0).$selected[0]).to.eq('Choose Task');
 			expect($el.get(0).$selected[1]).to.eq('1');
 			expect($el.get(0).$selected[2]).to.eq('-1');
 		});
-		cy.get('#current-task').should('have.text', 'Default');
+		cy.get('#current-task').should('have.text', 'Choose Task');
 	});
 
 	it('Add A Task', () => {
@@ -55,7 +55,7 @@ describe('Tasklist Tests', () => {
 		cy.get('#tasks-container').then($el => { expect($el.get(0).$tasks.length).to.eq(0); });
 		cy.get('#tasks-container').children().should('have.length', 0);
 		cy.get('#home-button').click();
-		cy.get('#current-task').should('have.text', 'Default');
+		cy.get('#current-task').should('have.text', 'Choose Task');
 	});
 
 	it('Remove Selected Task', () => {

@@ -39,7 +39,7 @@ document.addEventListener('DOMContentLoaded', () => {
 		settingsButtonStart.setAttribute('style', '');
 		faqButtonStart.setAttribute('style', '');
 	}
-	
+
 	/**
 	 * hides tasklist and stats when timer is in pomo phase.
 	 */
