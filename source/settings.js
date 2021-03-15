@@ -58,9 +58,9 @@ export default class Settings {
 	 */
 	updateAlarmSound() {
 		document.getElementById('alarm').src = document.getElementById('alarm-sound').value;
-  }
+	}
 
-  /**
+	/**
 	 * Updates the volume settings of the horn
 	 */
 	updateVolume() {
