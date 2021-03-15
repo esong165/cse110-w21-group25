@@ -224,13 +224,13 @@ export default class Timer {
 			message += 'work session now.';
 		}
 		if (!('Notification' in window)) {
-			alert('This browser does not support desktop notification.', { tag: 'timer' });
+			// alert('This browser does not support desktop notification.', { tag: 'timer' });
 		} else if (Notification.permission === 'granted') {
-			const notification = new Notification(message, { tag: 'timer' });
+			// const notification = new Notification(message, { tag: 'timer' });
 		} else if (Notification.permission !== 'denied') {
 			Notification.requestPermission().then(function(permission) {
 				if (permission === 'granted') {
-					const notification = new Notification(message, { tag: 'timer' });
+					// const notification = new Notification(message, { tag: 'timer' });
 				}
 			});
 		}
