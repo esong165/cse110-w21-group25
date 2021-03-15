@@ -10,7 +10,9 @@ Traditionally, a work session (or Pomodoro) is 25 minutes long, and is followed 
 
 ## Why this app?
 
-Our app seeks to provide an enhanced Pomodoro Timer experience which builds on the original technique while staying true to its core philosophies.
+**TL;DR:** [Cirillo.tech](https://cirillo.tech) uses an intuitive minimalist design which adds useful quality-of-life features while adhering to the Pomodoro Technique's guiding principles.
+
+Our app seeks to provide an enhanced Pomodoro Timer which builds on the original technique while staying true to its core philosophies.
 
 Cirillo created the Pomodoro Technique as a way to help himself stay focused while studying. Accordingly, the timer's primary purpose is to alleviate the anxiety that a user may feel when confronted with a large, daunting task.
 In Cirillo's original design, he emphasizes a low-tech, mechanical approach to create physical stimuli that can help a user with flow and focus.
@@ -19,7 +21,17 @@ To simulate the philosophy behind the technique, we require the user to manually
 The countdown of the timer display is a representation of the "ticking" of a real kitchen timer, which creates a visual (rather than aural) cue to externalize desire to complete the task.
 Finally, the notification and audible alarm sound create visual and aural stimuli which helps the user subconsciously internalize that their current work/break session is over.
 
-(WIP)
+Our app also captures some of the subtler aspects of the Pomodoro Technique.
+
+First, the user should only be stopping work when the timer alarm sounds; in accordance with this mentality, whenever a user decides a task is completed, the selected task is automatically updated to the first/highest remaining task in the tasklist, creating a smooth transition between the end of one task and the start of a new one.
+The user may also rearrange the tasks via drag and drop to arrange them as the user wishes.
+In doing this, we hope to keep the user's sense of flow and focus intact throughout the entire work session, as the sudden loss of a meaningful objective or a requirement to manually select the next task can serve as distractions.
+
+Next, a user should be focusing on their work throughout the entire Pomodoro session. This means that if the work session is interrupted, then that Pomodoro is lost and must not be recorded as a successful session.
+To represent this, while a work session is in progress, a user may choose to "Cancel Pomo", which stops the timer and resets the work session. We feel that this is an intuitive way to handle distractions, as the user can clearly see that the session is not being paused, but rather "cancelled" and reset.
+
+Finally, the Pomodoro Technique is intended to be simple to both learn and use. To this end, our app favors a minimalist design that shows only the information which is immediately relevant to the user. Many buttons are represented pictorally to minimize clutter, and during a work session the tasklist and stats pages are disabled and hidden away to minimize distraction.
+By keeping our interface as unobtrusive as possible, we hope to keep our app easy to learn and understand while maintaining key features and quality-of-life enhancements that facilitate a Pomodoro Technique experience in line with Cirillo's original philosophies.
 
 ## Getting Started
 
