@@ -209,22 +209,23 @@ nav{
 
 #stats-table-name-label {
 	display: inline-block;
-	margin-left: 20px;
-	margin-right: 280px;
+	margin-left: 70px;
+	margin-right: 260px;
 }
 
+/*
 #stats-pomo-label {
 	margin-left: 475px;
 	margin-bottom: -30px;
 }
-
+*/
 #stats-exp-label {
 	display: inline-block;	
 }
 
 #stats-actual-label {
 	display: inline-block;
-	margin-left: 60px;
+	margin-left: 30px;
 }
 
 /*settings*/
