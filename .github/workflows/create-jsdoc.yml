@@ -16,8 +16,7 @@ jobs:
       # Builds JSDoc in md form
       - name: Build docs
         run: |
-            npm install
-            npm install jsdoc-to-markdown
+            npm install --save-dev jsdoc-to-markdown
             jsdoc2md source/*.js > ./docs/JSDoc.md
       
       # Uploads JSDoc to Wiki page
