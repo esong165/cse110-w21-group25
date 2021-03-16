@@ -116,17 +116,23 @@ export default class Tasklist extends HTMLUListElement {
 		// sets the correct class name
 		taskContainer.colorClassName = className;
 
-		// updates selected task highlight color
-		if (currTask[0] === 'No Current Task') return;
-		document.getElementById('tasks-container').selectTask(currTask[0]);
-
-		// updates all task-items with correct hover color
-		for (let i = 0; i < taskItems.length; ++i) {
-			taskItems[i].shadowRoot.children[1].children[0].setAttribute('class', className);
-		}
-
 		// updates addTaskButton color
 		addTaskButton.style.backgroundColor = document.body.style.backgroundColor;
+
+		// updates all task-items with correct hover color
+		if(taskContainer.hasChildNodes()) {
+			for (let i = 0; i < taskItems.length; ++i) {
+				taskItems[i].shadowRoot.children[1].children[0].setAttribute('class', className);
+			}
+		}
+
+		// updates selected task highlight color
+		if (currTask[0] === 'No Current Task' ) return;
+		document.getElementById('tasks-container').selectTask(currTask[0]);
+
+
+
+
 	}
 
 	/**
