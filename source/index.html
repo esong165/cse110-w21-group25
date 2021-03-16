@@ -37,7 +37,7 @@
 			<div id="timer-button-container">
 				<button id="timer-button">Start Pomo</button>
 			</div>
-			<audio id="alarm" src="./air-horn.mp3"></audio>
+			<audio id="alarm" src="sounds/beeping.mp3"></audio>
 		</div>
 		<div id="task-list">
 			<div id="table-label">
@@ -94,6 +94,14 @@
 				<input id="show-seconds" class="toggle-handle" type="checkbox" checked="">
 				<div class="toggle-slider"></div>
 			</label>
+			<label for="alarm-sound">Timer Alarm</label>
+			<select id="alarm-sound" class="settings-option">
+				<option value="sounds/air-horn.mp3">Air Horn</option>
+				<option value="sounds/siren.mp3">Siren</option>
+				<option value="sounds/beeping.mp3" selected="">Beeping</option>
+				<option value="sounds/clock-alarm.mp3">Alarm</option>
+				<option value="sounds/bell.mp3">Bell</option>
+			</select>
 			<label for="volume-slider">Volume
 			</label>
 			<input id="volume-slider" name="volume-slider" type="range" min="0" max="100" value="100">
@@ -128,6 +136,14 @@
 			<ul>
 				<li><a href="https://icons-for-free.com/clock+minute+time+timer+watch+icon-1320086045717163975/">Timer
 						Favicon</a></li>
+			</ul>
+			<h3>Where did you get the alarm sounds?</h3>
+			<ul>
+				<li><a>The Air Horn sound is from Lab 5 - Party Horn</a></li>
+				<li><a href="https://soundbible.com/1355-Warning-Siren.html">Siren sound by snottyboy</a></li>
+				<li><a href="https://soundbible.com/1766-Fire-Pager.html">Beeping sound by jason</a></li>
+				<li><a href="https://soundbible.com/1787-Annoying-Alarm-Clock.html">Clock Alarm sound by UncleKornicob</a></li>
+				<li><a href="https://soundbible.com/1746-Ship-Bell.html">Bell sound by Mike Koenig</a></li>
 			</ul>
 		</div>
 	</main>
