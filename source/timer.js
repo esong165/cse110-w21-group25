@@ -170,13 +170,13 @@ export default class Timer {
 						const pluralSuffix = pomoCount === 1 ? '' : 's';
 						stateMessage.textContent = `Long break in ${pomoCount} pomo${pluralSuffix}.`;
 					}
-          break;
-        }
+					break;
+				}
 			} while (i !== this.$cycle);
 
-      if (i === this.$cycle) {
-        stateMessage.textContent = 'No long break in sight.';
-      }
+			if (i === this.$cycle) {
+				stateMessage.textContent = 'No long break in sight.';
+			}
 			break;
 		}
 		case this.State.SHORT_BREAK:
@@ -244,7 +244,7 @@ export default class Timer {
 		} else if (Notification.permission === 'granted') {
 			const _notification = new Notification(message, { tag: 'timer' });
 		} else if (Notification.permission !== 'denied') {
-			Notification.requestPermission().then(function (permission) {
+			Notification.requestPermission().then(function(permission) {
 				if (permission === 'granted') {
 					const _notification = new Notification(message, { tag: 'timer' });
 				}
