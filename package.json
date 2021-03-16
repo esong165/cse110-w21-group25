@@ -1,7 +1,7 @@
 {
 
 	"scripts": {
-		"docs": "npx jsdoc2md --files source/* > ./docs/JSDoc.md",
+		"docs": "npx jsdoc2md source/tasklist.js > ./docs/JSDoc.md",
 		"test": "node --experimental-vm-modules ./node_modules/.bin/jest",
 		"start": "node server.js"
 	},
