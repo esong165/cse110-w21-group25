@@ -37,6 +37,7 @@ export default class Statlist extends HTMLUListElement {
 
 		this.clearHistory.bind(this);
 	}
+
 	/**
 	 * Clears the stat page resetting the list and average pomos/pomos-taken
 	 * @param none
@@ -46,17 +47,18 @@ export default class Statlist extends HTMLUListElement {
 		this.totalPomos = 0;
 		this.avgPomos = 0;
 		this.$stats = [];
-		//resets all the variables in local storage
+		//	resets all the variables in local storage
 		localStorage.setItem('statItemArr', JSON.stringify(this.$stats));
 		localStorage.setItem('totalTasks', JSON.stringify(this.totalTasks));
 		localStorage.setItem('totalPomos', JSON.stringify(this.totalPomos));
 		localStorage.setItem('avgPomos', JSON.stringify(this.avgPomos));
 
-		//updates the elements on the page
-		document.getElementById('stats-container').innerHTML = "";
+		//	updates the elements on the page
+		document.getElementById('stats-container').innerHTML = '';
 		document.getElementById('avg-pomos').innerHTML = 'Average pomodoros per task: ' + this.avgPomos;
 		document.getElementById('total-tasks').innerHTML = 'Total tasks completed: ' + this.totalTasks;
 	}
+
 	/**
 	 * Add a stat item with the completed task's name, expected pomodoro count, and actual pomodoro count to the statlist.
 	 * @param {String} name - Name of the completed task.
@@ -98,8 +100,7 @@ export default class Statlist extends HTMLUListElement {
 customElements.define('stat-list', Statlist, { extends: 'ul' });
 
 document.addEventListener('DOMContentLoaded', () => {
-	
 	document.getElementById('clear-button').addEventListener('click', () => {
-		document.getElementById("stats-container").clearHistory();
+		document.getElementById('stats-container').clearHistory();
 	});
 });
