@@ -1,7 +1,7 @@
 {
 
 	"scripts": {
-		"docs": "npm run jsdoc2md source/*.js > ./docs/JSDoc.md",
+		"docs": "npm install jsdoc-to-markdown && npm run jsdoc2md source/*.js > ./docs/JSDoc.md",
 		"test": "node --experimental-vm-modules ./node_modules/.bin/jest",
 		"start": "node server.js"
 	},
