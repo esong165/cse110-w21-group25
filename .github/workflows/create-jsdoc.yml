@@ -17,7 +17,7 @@ jobs:
       - name: Build docs
         run: |
             npm install jsdoc-to-markdown
-            jnpm run docs > ./docs/JSDoc.md
+            npm run docs > ./docs/JSDoc.md
       
       # Uploads JSDoc to Wiki page
       - name: Upload JSDoc to Wiki
