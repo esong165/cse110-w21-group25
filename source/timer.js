@@ -75,6 +75,10 @@ export default class Timer {
 		document.getElementById('time-remaining').textContent = window.app.settings.displaySeconds
 			? Timer.$format(time)
 			: Timer.$formatShort(time);
+		document.title = 'Cirillo - ' + window.app.settings.displaySeconds
+			? 'Cirillo - ' + Timer.$format(time) + ' left'
+			: 'Cirillo - ' + Timer.$formatShort(time) + ' left';
+
 	}
 
 	/**
@@ -142,45 +146,45 @@ export default class Timer {
 		const button = document.getElementById(this.$buttonId);
 		const stateMessage = document.getElementById(this.$stateMessageId);
 		switch (this.state) {
-		case this.State.POMO: {
-			this.remaining = window.app.settings.pomoDuration;
-			button.textContent = 'Start Pomo';
+			case this.State.POMO: {
+				this.remaining = window.app.settings.pomoDuration;
+				button.textContent = 'Start Pomo';
 
-			const cycles = this.$CYCLES.length;
-			let i = this.$cycle;
-			let pomoCount = 0;
+				const cycles = this.$CYCLES.length;
+				let i = this.$cycle;
+				let pomoCount = 0;
 
-			do {
-				i = (i + 1) % cycles;
-				if (this.$CYCLES[i] === this.State.POMO) {
-					++pomoCount;
-				} else if (this.$CYCLES[i] === this.State.LONG_BREAK) {
-					if (i === (this.$cycle + 1) % cycles) {
-						stateMessage.textContent = 'Long break coming up!';
-					} else {
-						const pluralSuffix = pomoCount === 1 ? '' : 's';
-						stateMessage.textContent = `Long break in ${pomoCount} pomo${pluralSuffix}.`;
+				do {
+					i = (i + 1) % cycles;
+					if (this.$CYCLES[i] === this.State.POMO) {
+						++pomoCount;
+					} else if (this.$CYCLES[i] === this.State.LONG_BREAK) {
+						if (i === (this.$cycle + 1) % cycles) {
+							stateMessage.textContent = 'Long break coming up!';
+						} else {
+							const pluralSuffix = pomoCount === 1 ? '' : 's';
+							stateMessage.textContent = `Long break in ${pomoCount} pomo${pluralSuffix}.`;
+						}
+						break;
 					}
-					break;
+				} while (i !== this.$cycle);
+
+				if (i === this.$cycle) {
+					stateMessage.textContent = 'No long break in sight.';
 				}
-			} while (i !== this.$cycle);
 
-			if (i === this.$cycle) {
-				stateMessage.textContent = 'No long break in sight.';
+				break;
 			}
-
-			break;
-		}
-		case this.State.SHORT_BREAK:
-			this.remaining = window.app.settings.shortBreakDuration;
-			stateMessage.textContent = 'Take a short break.';
-			button.textContent = 'Start Short Break';
-			break;
-		case this.State.LONG_BREAK:
-			this.remaining = window.app.settings.longBreakDuration;
-			stateMessage.textContent = 'Take a long break.';
-			button.textContent = 'Start Long Break';
-			break;
+			case this.State.SHORT_BREAK:
+				this.remaining = window.app.settings.shortBreakDuration;
+				stateMessage.textContent = 'Take a short break.';
+				button.textContent = 'Start Short Break';
+				break;
+			case this.State.LONG_BREAK:
+				this.remaining = window.app.settings.longBreakDuration;
+				stateMessage.textContent = 'Take a long break.';
+				button.textContent = 'Start Long Break';
+				break;
 		}
 		document.getElementById(this.$buttonId).disabled = false;
 		document.getElementById('task-list-button').style.display = 'inline-block';
@@ -226,7 +230,7 @@ export default class Timer {
 		} else if (Notification.permission === 'granted') {
 			const _notification = new Notification(message, { tag: 'timer' });
 		} else if (Notification.permission !== 'denied') {
-			Notification.requestPermission().then(function(permission) {
+			Notification.requestPermission().then(function (permission) {
 				if (permission === 'granted') {
 					const _notification = new Notification(message, { tag: 'timer' });
 				}
