@@ -18,7 +18,7 @@ jobs:
         run: |
             npm install
             npm install jsdoc-to-markdown
-            node jsdoc2md source/*.js > docs/JSDoc.md
+            npx jsdoc2md source/*.js > docs/JSDoc.md
       
       # Uploads JSDoc to Wiki page
       - name: Upload JSDoc to Wiki
