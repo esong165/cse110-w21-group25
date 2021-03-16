@@ -40,8 +40,19 @@ document.addEventListener('DOMContentLoaded', () => {
 		faqButtonStart.setAttribute('style', '');
 	}
 
-	/* initial load home page */
+	/**
+	 * hides tasklist and stats when timer is in pomo phase
+	 */
+	function hideTasklistStats() {
+		if (window.app.timer.state === window.app.timer.State.POMO && window.app.timer.status !== window.app.timer.Status.PAUSED) {
+			document.getElementById('task-list-button').style.display = 'none';
+			document.getElementById('stats-button').style.display = 'none';
+		}
+	}
+
+	// initial load home page
 	setAllNone();
+
 	const homeButtonSelect = document.getElementById('home-button');
 	homeButtonSelect.setAttribute('src', 'images/home2.png');
 
@@ -53,11 +64,11 @@ document.addEventListener('DOMContentLoaded', () => {
 	// If tasklist icon clicked on
 	const taskListButton = document.getElementById('task-list-button');
 	taskListButton.addEventListener('click', function tasklist() {
-		/* hides non tasklist elements and makes tasklist elements visible */
-		/* see if we have to do anything to make new tasklist items show appropriately */
+		// hides non tasklist elements and makes tasklist elements visible
+		// see if we have to do anything to make new tasklist items show appropriately
 
 		setAllNone();
-		/* Changes Color of selected button. */
+		// Changes Color of selected button
 		const tasklistButtonSelect = document.getElementById('task-list-button');
 		tasklistButtonSelect.setAttribute('src', 'images/tasklist2.png');
 		tasklistButtonSelect.setAttribute('style', 'border:3px solid; border-radius: 10px; margin: -3px;');
@@ -69,11 +80,11 @@ document.addEventListener('DOMContentLoaded', () => {
 	// If home icon clicked on
 	const homeButton = document.getElementById('home-button');
 	homeButton.addEventListener('click', function home() {
-		/* add listeners or something to change color for timer */
-		/* hides non timer elements and makes timer elements visible */
+		// hides non timer elements and makes timer elements visible
 
 		setAllNone();
-		/* Changes Color of selected button. */
+		hideTasklistStats();
+		// Changes Color of selected button
 		const homeButtonSelect = document.getElementById('home-button');
 		homeButtonSelect.setAttribute('src', 'images/home2.png');
 		homeButtonSelect.setAttribute('style', 'border:3px solid; border-radius: 10px; margin: -3px;');
@@ -85,38 +96,42 @@ document.addEventListener('DOMContentLoaded', () => {
 	// If stats icon clicked on
 	const statsButton = document.getElementById('stats-button');
 	statsButton.addEventListener('click', function stats() {
-		/* hides non stats elements and makes stats elements visible */
+		// hides non stats elements and makes stats elements visible
 
 		setAllNone();
-		/* Changes Color of selected button. */
+		// Changes Color of selected button.
 		const statsButtonSelect = document.getElementById('stats-button');
 		statsButtonSelect.setAttribute('src', 'images/stats2.png');
 		statsButtonSelect.setAttribute('style', 'border:3px solid; border-radius: 10px; margin: -3px;');
-		// shows settings
+		// shows stats
 		const stats = document.getElementById('stats');
 		stats.style.display = 'block';
 	});
 
+	// If faq icon clicked on
 	const faqButton = document.getElementById('faq-button');
 	faqButton.addEventListener('click', function faq() {
-		/* hides non stats elements and makes stats elements visible */
+		// hides non faq elements and makes faq elements visible
 
 		setAllNone();
-		/* Changes Color of selected button. */
+		hideTasklistStats();
+		// Changes Color of selected button
 		const faqButtonSelect = document.getElementById('faq-button');
 		faqButtonSelect.setAttribute('src', 'images/faq2.png');
 		faqButtonSelect.setAttribute('style', 'border:3px solid; border-radius: 10px; margin: -3px;');
-		// shows settings
+		// shows faq
 		const faq = document.getElementById('faq');
 		faq.style.display = 'block';
 	});
 
+	// If settings icon clicked on
 	const settingsButton = document.getElementById('settings-button');
 	settingsButton.addEventListener('click', function settings() {
-		/* hides non stats elements and makes stats elements visible */
+		// hides non settings elements and makes settings elements visible
 
 		setAllNone();
-		/* Changes Color of selected button. */
+		hideTasklistStats();
+		// Changes Color of selected button
 		const settingsButtonSelect = document.getElementById('settings-button');
 		settingsButtonSelect.setAttribute('src', 'images/settings2.png');
 		settingsButtonSelect.setAttribute('style', 'border:3px solid; border-radius: 10px; margin: -3px;');
@@ -136,6 +151,7 @@ document.addEventListener('DOMContentLoaded', () => {
 		newCount.value = 1;
 	});
 
+	// changes style of add task button when hover
 	const addTaskButton = document.getElementById('add-task-button');
 	addTaskButton.addEventListener('mouseover', function(event) {
 		event.preventDefault();
@@ -143,24 +159,28 @@ document.addEventListener('DOMContentLoaded', () => {
 		event.target.style.backgroundColor = 'black';
 	});
 
+	// changes style of add task button when not hovering
 	addTaskButton.addEventListener('mouseout', function(event) {
 		event.preventDefault();
 		event.target.style.color = 'black';
-		event.target.style.backgroundColor = 'rgb(242, 197, 247)';
+		event.target.style.backgroundColor = document.body.style.backgroundColor;
 	});
 
 	// "Finish Task" functionality for tasklist
 	const doneButton = document.getElementById('done-button');
-
 	doneButton.addEventListener('click', function() {
-		const currTask = document.getElementById('tasks-container').getSelected();
+		const currTask = document.getElementById('tasks-container').selected;
 		if (currTask[0] === 'Default') return;
 		document.getElementById('tasks-container').removeTask(currTask[0]);
 		document.getElementById('stats-container').addStat(currTask[0].substring(1), currTask[1], currTask[2]);
 	});
+
+	// changes style of done button when hover
 	doneButton.addEventListener('mouseover', function(event) {
 		event.target.setAttribute('src', 'images/done.png');
 	});
+
+	// changes style of done button when not hovering
 	doneButton.addEventListener('mouseout', function(event) {
 		event.target.setAttribute('src', 'images/done2.png');
 	});
