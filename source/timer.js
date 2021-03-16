@@ -78,7 +78,6 @@ export default class Timer {
 		document.title = 'Cirillo - ' + window.app.settings.displaySeconds
 			? 'Cirillo - ' + Timer.$format(time) + ' left'
 			: 'Cirillo - ' + Timer.$formatShort(time) + ' left';
-
 	}
 
 	/**
