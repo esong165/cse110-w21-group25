@@ -75,6 +75,9 @@ export default class Timer {
 		document.getElementById('time-remaining').textContent = window.app.settings.displaySeconds
 			? Timer.$format(time)
 			: Timer.$formatShort(time);
+		document.title = 'Cirillo - ' + window.app.settings.displaySeconds
+			? 'Cirillo - ' + Timer.$format(time) + ' left'
+			: 'Cirillo - ' + Timer.$formatShort(time) + ' left';
 	}
 
 	/**
