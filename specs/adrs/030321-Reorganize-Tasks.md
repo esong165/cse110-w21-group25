@@ -3,7 +3,7 @@
 ## Context and Problem Statement
 
 We want to decide how a user would be able to organize tasks.
-How should a user be move tasks after inputting them?
+How should a user be able to move tasks after inputting them?
 
 ## Considered Options
 
