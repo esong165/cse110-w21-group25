@@ -109,10 +109,10 @@ describe('Notification Tests', () => {
 
         cy.get('#task-list-button').click()
         cy.get('#task-list-button').should('have.attr', 'src').and('equal', 'images/tasklist2.png');
-        cy.get('#timer').should('have.css', 'display').and('equal', 'none');
         cy.get('#task-list').should('have.css', 'display').and('equal', 'block');
-        cy.get('#stats').should('have.css', 'display').and('equal', 'none');
         cy.get('#faq').should('have.css', 'display').and('equal', 'none');
+        cy.get('#timer').should('have.css', 'display').and('equal', 'none');
+        cy.get('#stats').should('have.css', 'display').and('equal', 'none');
         cy.get('#settings').should('have.css', 'display').and('equal', 'none');
     });
 
@@ -121,11 +121,11 @@ describe('Notification Tests', () => {
 
         cy.get('#stats-button').click()
         cy.get('#stats-button').should('have.attr', 'src').and('equal', 'images/stats2.png');
-        cy.get('#timer').should('have.css', 'display').and('equal', 'none');
-        cy.get('#task-list').should('have.css', 'display').and('equal', 'none');
         cy.get('#stats').should('have.css', 'display').and('equal', 'block');
         cy.get('#faq').should('have.css', 'display').and('equal', 'none');
         cy.get('#settings').should('have.css', 'display').and('equal', 'none');
+        cy.get('#timer').should('have.css', 'display').and('equal', 'none');
+        cy.get('#task-list').should('have.css', 'display').and('equal', 'none');
     });
 
     // Test to make sure correct page is being displayed when faq-button clicked and button is dark
@@ -133,11 +133,11 @@ describe('Notification Tests', () => {
 
         cy.get('#faq-button').click()
         cy.get('#faq-button').should('have.attr', 'src').and('equal', 'images/faq2.png');
-        cy.get('#timer').should('have.css', 'display').and('equal', 'none');
-        cy.get('#task-list').should('have.css', 'display').and('equal', 'none');
-        cy.get('#stats').should('have.css', 'display').and('equal', 'none');
         cy.get('#faq').should('have.css', 'display').and('equal', 'block');
         cy.get('#settings').should('have.css', 'display').and('equal', 'none');
+        cy.get('#timer').should('have.css', 'display').and('equal', 'none');
+        cy.get('#stats').should('have.css', 'display').and('equal', 'none');
+        cy.get('#task-list').should('have.css', 'display').and('equal', 'none');
     });
 
     // Test to make sure correct page is being displayed when settings-button clicked and button is dark
@@ -145,11 +145,11 @@ describe('Notification Tests', () => {
 
         cy.get('#settings-button').click()
         cy.get('#settings-button').should('have.attr', 'src').and('equal', 'images/settings2.png');
+        cy.get('#settings').should('have.css', 'display').and('equal', 'grid');
         cy.get('#timer').should('have.css', 'display').and('equal', 'none');
         cy.get('#task-list').should('have.css', 'display').and('equal', 'none');
-        cy.get('#stats').should('have.css', 'display').and('equal', 'none');
         cy.get('#faq').should('have.css', 'display').and('equal', 'none');
-        cy.get('#settings').should('have.css', 'display').and('equal', 'grid');
+        cy.get('#stats').should('have.css', 'display').and('equal', 'none');
     });
 
     // Test to make sure done button and add task button work
