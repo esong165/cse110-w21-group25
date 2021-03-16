@@ -26,8 +26,8 @@ jobs:
           find . -maxdepth 1 ! -name 'source' ! -name '.git' ! -name 'CNAME' -exec rm -rf {} \;
           find source -maxdepth 1 -exec mv {} . \;
           find . -name '*.test.js' -type f -delete
-          git config --global user.email 'DuckDuckWhaleUCSD@github.com'
-          git config --global user.name 'DuckDuckWhaleUCSD'
+          git config --global user.email ${{ secrets.EMAIL }}
+          git config --global user.name ${{ secrets.USERNAME }}
           git add -A
           git commit -m 'Deploy: remove tests and deploy to GitHub'
           git push -f origin main:gh-pages

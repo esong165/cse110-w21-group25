@@ -1,7 +1,7 @@
 # Display During Pomo
 
-Update: Decision updated to display everything, with a navigation bar for the tasklist/stats/timer pages and a separate button for settings.
-ADR for this decision [here](./022421-Invisible-Icons-Vs-Nav-Bar.md).
+Update: Decision updated to also show settings, FAQ in work session, as the FAQ tells the user how the app works and a user may want to change the seconds display.
+Relevant ADR [here](./022421-Icons-Vs-Nav-Bar.md).
 
 ## Context and Problem Statement
 

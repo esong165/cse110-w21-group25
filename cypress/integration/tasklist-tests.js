@@ -118,4 +118,46 @@ describe('Tasklist Tests', () => {
 		});
 		cy.get('#current-task').should('have.text', 'Small Task');
 	});
+
+	it('Add Duplicate Task', () => {
+		cy.get('#task-list-button').click();
+		cy.get('#new-task-name').clear().type('Duplicate Task');
+		cy.get('#new-task-count').clear().type('4');
+		cy.get('#add-task-button').click();
+		cy.get('#new-task-name').clear().type('Duplicate Task');
+		cy.get('#new-task-count').clear().type('4');
+		const stub = cy.stub();
+		cy.on('window:alert', stub);
+		cy.get('#add-task-button').click().then(() => {
+			expect(stub.getCall(0)).to.be.calledWith('Task is already in tasklist.');
+		});
+	});
+
+	it('Incorrect Task Name', () => {
+		cy.get('#task-list-button').click();
+		cy.get('#new-task-name').clear();
+		cy.get('#new-task-count').clear().type('1');
+		const stub = cy.stub();
+		cy.on('window:alert', stub);
+		cy.get('#add-task-button').click().then(() => {
+			expect(stub.getCall(0)).to.be.calledWith('Please enter a valid task name.');
+		});
+	});
+
+	it('Incorrect Pomo Count', () => {
+		cy.get('#task-list-button').click();
+		cy.get('#new-task-name').clear().type('task');
+		cy.get('#new-task-count').clear().type('31');
+		cy.get('#add-task-button').click();
+		cy.get('input:invalid').then($el => { expect($el[0].validationMessage).to.eq('Value must be less than or equal to 30.'); });
+		cy.get('#new-task-count').clear().type('0');
+		cy.get('#add-task-button').click();
+		cy.get('input:invalid').then($el => { expect($el[0].validationMessage).to.eq('Value must be greater than or equal to 1.'); });
+		cy.get('#new-task-count').clear();
+		const stub = cy.stub();
+		cy.on('window:alert', stub);
+		cy.get('#add-task-button').click().then(() => {
+			expect(stub.getCall(0)).to.be.calledWith('Please enter a valid pomo count.');
+		});
+	});
 });
