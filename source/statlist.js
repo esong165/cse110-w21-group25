@@ -29,7 +29,7 @@ export default class Statlist extends HTMLUListElement {
 		if (this.totalTasks === 0) {
 			this.avgPomos = 0;
 		} else {
-			this.avgPomos = this.totalPomos / this.totalTasks;
+			this.avgPomos = Math.round(100*(this.totalPomos / this.totalTasks)) / 100;
 		}
 
 		document.getElementById('avg-pomos').innerHTML = 'Average pomodoros per task: ' + this.avgPomos;
@@ -83,7 +83,7 @@ export default class Statlist extends HTMLUListElement {
 		statArray.push(count);
 		this.totalTasks++;
 		this.totalPomos += count;
-		this.avgPomos = this.totalPomos / this.totalTasks;
+		this.avgPomos = Math.round(100*(this.totalPomos / this.totalTasks)) / 100;;
 
 		statItemArr.push(statArray);
 		this.$stats.push([name, expected, count]);
