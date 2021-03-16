@@ -11,23 +11,23 @@
 	<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400&display=swap" rel="stylesheet">
 </head>
 
-<body id="bodyId">
+<body id="body-id">
 	<header>
 		<h1 id="site-header">Cirillo</h1>
 	</header>
 	<main>
 		<nav id="task-bar" draggable="false">
-			<img src="images/home.png" id="home-button" class="taskbar-button" alt="Home" title="Home" />
-			<img src="images/tasklist.png" id="task-list-button" class="taskbar-button" alt="Task List"
+			<img draggable="false" src="images/home.png" id="home-button" class="taskbar-button" alt="Home" title="Home" />
+			<img draggable="false" src="images/tasklist.png" id="task-list-button" class="taskbar-button" alt="Task List" 
 				title="Task List" />
-			<img src="images/stats.png" id="stats-button" class="taskbar-button" alt="Statistics" title="Statistics" />
-			<img src="images/faq.png" id="faq-button" class="taskbar-button" alt="FAQ" title="FAQ" />
-			<img src="images/settings.png" id="settings-button" class="taskbar-button" alt="Settings"
+			<img draggable="false" src="images/stats.png" id="stats-button" class="taskbar-button" alt="Statistics" title="Statistics" />
+			<img draggable="false" src="images/faq.png" id="faq-button" class="taskbar-button" alt="FAQ" title="FAQ" />
+			<img draggable="false" src="images/settings.png" id="settings-button" class="taskbar-button" alt="Settings"
 				title="Settings" />
 		</nav>
 		<div id="timer">
 			<div id="current-task-container">
-				<p id="current-task">Choose Task</p>
+				<p id="current-task">No Current Task</p>
 				<img id="done-button" src="images/done2.png" alt="Finish Task" title="Finish Task">
 			</div>
 			<div id="timer-display">
@@ -37,7 +37,7 @@
 			<div id="timer-button-container">
 				<button id="timer-button">Start Pomo</button>
 			</div>
-			<audio id="alarm" src="./air-horn.mp3"></audio>
+			<audio id="alarm" src="sounds/beeping.mp3"></audio>
 		</div>
 		<div id="task-list">
 			<div id="table-label">
@@ -94,6 +94,14 @@
 				<input id="show-seconds" class="toggle-handle" type="checkbox" checked="">
 				<div class="toggle-slider"></div>
 			</label>
+			<label for="alarm-sound">Timer Alarm</label>
+			<select id="alarm-sound" class="settings-option">
+				<option value="sounds/air-horn.mp3">Air Horn</option>
+				<option value="sounds/siren.mp3">Siren</option>
+				<option value="sounds/beeping.mp3" selected="">Beeping</option>
+				<option value="sounds/clock-alarm.mp3">Alarm</option>
+				<option value="sounds/bell.mp3">Bell</option>
+			</select>
 			<label for="volume-slider">Volume
 			</label>
 			<input id="volume-slider" name="volume-slider" type="range" min="0" max="100" value="100">
@@ -138,7 +146,7 @@
 				changes to blue.</p>
 			<h3>Where did the icons used on this webpage come from?</h3>
 			<ul>
-				<li>Timer Icon (on browser tab) made by <a href="https://icons-for-free.com/clock+minute+time+timer+watch+icon-1320086045717163975/">Chanut is Industries</a> from <a href="https://icons-for-free.com" title="Creative Commons">www.creativecommons.org</a></li>
+				<li>Timer Icon (on browser tab) made by <a href="https://icons-for-free.com/clock+minute+time+timer+watch+icon-1320086045717163975/">Chanut is Industries</a> from <a href="https://icons-for-free.com" title="Creative Commons">icons-for-free.com</a></li>
 				<li>Dark Home Icon made by <a href="https://www.freepik.com" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/free-icon/home_1946436?term=home&page=1&position=4&page=1&position=4&related_id=1946436&origin=search" title="Flaticon">www.flaticon.com</a></li>
 				<li>Light Home Icon made by <a href="https://www.freepik.com" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/free-icon/home_1946488?term=home&related_id=1946488" title="Freepik">Freepik</a> </li>
 				<li>Dark Tasklist Icon made by <a href="https://www.flaticon.com/authors/google" title="Google">Google</a> from <a href="https://www.flaticon.com/free-icon/list_565700?term=list&page=1&position=60&page=1&position=60&related_id=565700&origin=search	" title="Flaticon">www.flaticon.com</a></li>
@@ -147,8 +155,16 @@
 				<li>Light Stats and Dark Stats Icon (Dark Stats Icon was made by editing the Light Stats Icon) made by <a href="https://www.flaticon.com/authors/kirill-kazachek" title="Kirill Kazachek">Kirill Kazachek</a> from <a href="https://br.freepik.com/icones-gratis/estatisticas_914441.htm" title="Flaticon">www.flaticon.com</a></li>
 				<li>Dark FAQ Icon made by <a href="https://www.flaticon.com/authors/pixel-perfect" title="Pixel perfect">Pixel perfect</a> from <a href="https://www.flaticon.com/free-icon/faq_3388992?term=faq&page=1&position=15&page=1&position=15&related_id=3388992&origin=search" title="Flaticon">www.flaticon.com</a></li>
 				<li>Light FAQ Icon made by <a href="https://www.flaticon.com/authors/pixel-perfect" title="Pixel perfect">Pixel perfect</a> from <a href="https://www.flaticon.com/free-icon/information_906794?term=faq&page=1&position=6&page=1&position=6&related_id=906794&origin=search" title="Flaticon">www.flaticon.com</a></li>
-				<li>Trashcan Icon made by <a href="https://www.iconfinder.com/icons/3178360/garbage_recycle_bin_trash_delete_icon" title="Deemak Daksina">Deemak Daksina</a> from <a href="https://www.iconfinder.com/" title="IconFinder">www.iconfinder.com</a></li>
-				<li>Done Button Icon made by <a href="https://www.iconfinder.com/icons/3335641/accept_agree_check_done_right_ui_ux_valid_icon" title="iconnut">Iconnut</a> from <a href="https://www.iconfinder.com/" title="IconFinder">www.iconfinder.com</a></li>
+				<li>Light Trashcan and Dark Trashcan (Dark Trashcan Icon was made by editing the Light Trashcan Icon) Icon made by <a href="https://www.iconfinder.com/icons/3178360/garbage_recycle_bin_trash_delete_icon" title="Deemak Daksina">Deemak Daksina</a> from <a href="https://www.iconfinder.com/" title="IconFinder">www.iconfinder.com</a></li>
+				<li>Dark Done Button Icon and Light Done Button (Light Done button made from Dark Done Button Icon) made by <a href="https://www.iconfinder.com/icons/3335641/accept_agree_check_done_right_ui_ux_valid_icon" title="iconnut">Iconnut</a> from <a href="https://www.iconfinder.com/" title="IconFinder">www.iconfinder.com</a></li>
+			</ul>
+			<h3>Where did you get the alarm sounds?</h3>
+			<ul>
+				<li><a>The Air Horn sound is from Lab 5 - Party Horn</a></li>
+				<li><a href="https://soundbible.com/1355-Warning-Siren.html">Siren sound by snottyboy</a></li>
+				<li><a href="https://soundbible.com/1766-Fire-Pager.html">Beeping sound by jason</a></li>
+				<li><a href="https://soundbible.com/1787-Annoying-Alarm-Clock.html">Clock Alarm sound by UncleKornicob</a></li>
+				<li><a href="https://soundbible.com/1746-Ship-Bell.html">Bell sound by Mike Koenig</a></li>
 			</ul>
 		</div>
 	</main>

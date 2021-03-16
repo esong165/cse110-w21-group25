@@ -14,7 +14,7 @@ export default class Tasklist extends HTMLUListElement {
 
 		// Initialize $tasks and $selected to default values
 		this.$tasks = [];
-		this.$selected = ['Choose Task', '1', '-1'];
+		this.$selected = ['No Current Task', '1', '-1'];
 		this.$color = 'rgb(174, 224, 174)';
 		this.$colorClassName = 'pomo';
 		// Get values from localStorage and updating $tasks and $selected if these are not null
@@ -27,9 +27,9 @@ export default class Tasklist extends HTMLUListElement {
 			this.$selected = selectedArr;
 		}
 		// Update current task display
-		if (this.$selected[0] === 'Choose Task') {
+		if (this.$selected[0] === 'No Current Task') {
 			document.getElementById('done-button').style.display = 'none';
-			document.getElementById('current-task').textContent = 'Choose Task';
+			document.getElementById('current-task').textContent = 'No Current Task';
 		} else {
 			document.getElementById('done-button').style.display = 'inline-block';
 			document.getElementById('current-task').textContent = this.$selected[0].substring(1);
@@ -58,7 +58,7 @@ export default class Tasklist extends HTMLUListElement {
 			document.getElementById(currTask.id).setAttribute('ondragover', 'allowDrop(event);');
 			document.getElementById(currTask.id).setAttribute('ondrop', 'drop(event);');
 		}
-		if (this.$selected[0] !== 'Choose Task') {
+		if (this.$selected[0] !== 'No Current Task') {
 			document.getElementById('tasks-container').selectTask(this.$selected[0]);
 		}
 	}
@@ -105,7 +105,7 @@ export default class Tasklist extends HTMLUListElement {
 
 	/**
 	* Helper function that updates the hover and selected colors of task-items in task list.
-	* @param {String} className - the correct stylesheet for the current background-color
+	* @param {String} className - the correct classname for the current background-color
 	*/
 	changeSelectedColor(className) {
 		const taskContainer = document.getElementById('tasks-container');
@@ -113,20 +113,22 @@ export default class Tasklist extends HTMLUListElement {
 		const taskItems = taskContainer.getElementsByTagName('task-item');
 		const addTaskButton = document.getElementById('add-task-button');
 
-		//	sets the correct
+		// sets the correct class name
 		taskContainer.colorClassName = className;
 
-		//	updates selected task highlight color
-		if (currTask[0] === 'Choose Task') return;
-		document.getElementById('tasks-container').selectTask(currTask[0]);
+		// updates addTaskButton color
+		addTaskButton.style.backgroundColor = document.body.style.backgroundColor;
 
-		//	updates all task-items with correct hover color
-		for (let i = 0; i < taskItems.length; ++i) {
-			taskItems[i].shadowRoot.children[1].children[0].setAttribute('class', className);
+		// updates all task-items with correct hover color
+		if (taskContainer.hasChildNodes()) {
+			for (let i = 0; i < taskItems.length; ++i) {
+				taskItems[i].shadowRoot.children[1].children[0].setAttribute('class', className);
+			}
 		}
 
-		//	updates addTaskButton color
-		addTaskButton.style.backgroundColor = document.body.style.backgroundColor;
+		// updates selected task highlight color
+		if (currTask[0] === 'No Current Task') return;
+		document.getElementById('tasks-container').selectTask(currTask[0]);
 	}
 
 	/**
@@ -200,10 +202,10 @@ export default class Tasklist extends HTMLUListElement {
 		const task = document.getElementById(taskId).shadowRoot.children[1];
 		const taskContainer = document.getElementById('tasks-container');
 		// Highlight the selected task
-		task.children[0].children[0].setAttribute('style', `width: 90%; background-color: ${taskContainer.color}`
-		+ `; box-shadow: 0px 0px 0px 10px ${taskContainer.color};`);
-		task.children[0].children[1].setAttribute('style', `width: 10%; background-color: ${taskContainer.color}`
-		+ `; box-shadow: 0px 0px 0px 10px ${taskContainer.color};`);
+		task.children[0].children[0].setAttribute('style', `width: 90%; background-color: ${taskContainer.color}` +
+		`; box-shadow: 0px 0px 0px 10px ${taskContainer.color};`);
+		task.children[0].children[1].setAttribute('style', `width: 10%; background-color: ${taskContainer.color}` +
+		`; box-shadow: 0px 0px 0px 10px ${taskContainer.color};`);
 
 		const name = task.children[0].children[0].textContent;
 		const pomos = task.children[0].children[1].textContent;
@@ -251,8 +253,8 @@ export default class Tasklist extends HTMLUListElement {
 				tasklist.selectTask(tasklist.firstChild.id);
 			} else {
 				// Update displays and $selected to defaults if there are no tasks left in list
-				document.getElementById('current-task').textContent = 'Choose Task';
-				this.$selected = ['Choose Task', '1', '-1'];
+				document.getElementById('current-task').textContent = 'No Current Task';
+				this.$selected = ['No Current Task', '1', '-1'];
 				document.getElementById('done-button').style.display = 'none';
 			}
 		}

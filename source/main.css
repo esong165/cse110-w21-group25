@@ -13,12 +13,8 @@ body {
 }
 
 /* nav-buttons */
-nav{
+nav {
 	user-select: none;
-	-moz-user-select: none;
-	-webkit-user-drag: none;
-	-webkit-user-select: none;
-	-ms-user-select: none;
 }
 
 .taskbar-button {
@@ -173,10 +169,12 @@ nav{
 	font-size: 210%;
 	font-family: 'Open Sans', sans-serif;
 }
+
 #faq p, li {
 	font-size: 130%;
 	font-family: 'Open Sans', sans-serif;
 }
+
 /* stats */
 #stats {
 	text-align: center;
@@ -214,14 +212,8 @@ nav{
 	margin-right: 260px;
 }
 
-/*
-#stats-pomo-label {
-	margin-left: 475px;
-	margin-bottom: -30px;
-}
-*/
 #stats-exp-label {
-	display: inline-block;	
+	display: inline-block;
 }
 
 #stats-actual-label {

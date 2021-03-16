@@ -22,7 +22,6 @@ li:after {
 	top: 0;
 	left: 48%;
 	margin-left: 1px;  
-
 }
 	
 p {
@@ -45,19 +44,14 @@ li img {
 div.pomo:hover p {
 	background-color: rgb(187, 240, 187);
 	box-shadow: 0px 0px 0px 10px rgb(187, 240, 187);
-	
 }
 
 div.long-break:hover p {
 	background-color: rgb(185, 206, 235);
 	box-shadow: 0px 0px 0px 10px rgb(185, 206, 235);
-	
 }
 
 div.short-break:hover p {
 	background-color: rgb(232, 174, 228);
 	box-shadow: 0px 0px 0px 10px rgb(232, 174, 228);
-	
 }
-
-

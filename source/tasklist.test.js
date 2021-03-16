@@ -105,7 +105,7 @@ test('Constructor Test', () => {
 	localStorage.clear();
 	const tasklist = new Tasklist();
 	const emptyArr = [];
-	const selectedArr = ['Choose Task', '1', '-1'];
+	const selectedArr = ['No Current Task', '1', '-1'];
 	expect((tasklist.$tasks)).toEqual(emptyArr);
 	expect((tasklist.$selected)).toEqual(selectedArr);
 });

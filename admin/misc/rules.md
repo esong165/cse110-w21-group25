@@ -41,13 +41,13 @@ This element of the team working agreement is the list of rules/agreements or th
   - If you run into issues completing your task, it is your duty to ask for help from the rest of the group.
 - Respond to Slack regularly (within 12 hours).
 - If you cannot attend meetings, give prior notice (at least 1 day in advance, with your reason) and create notes for what you did that week.
-- Be respectful and accepting of your team members. 
+- Be respectful and accepting of your team members.
 
 
 ### 5) Conflict Resolution
 
-Each team should have an agreed-upon approach to addressing issues that may arise. 
-For example, if a team member is not meeting deadlines, the team agrees to do X [specific action decided by the team] 
+Each team should have an agreed-upon approach to addressing issues that may arise.
+For example, if a team member is not meeting deadlines, the team agrees to do X [specific action decided by the team]
 to address the problem before bringing the issue to a TA or professor.
 If the issue is with one person: send them a message on Slack.
 If the issue involves multiple people/above issue persists: bring up the issue in a meeting.
