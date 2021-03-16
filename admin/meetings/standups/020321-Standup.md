@@ -20,18 +20,4 @@
 - **Upcoming tasks:** same as above
 - **Blocks:** internship interviews and other classes
 
-## Yuchen Jing
-- **Progress:** no progress today and non-expected until Saturday
-- **Upcoming tasks:** forming the system diagram and think about principles
-- **Blocks:** lab 5
-
-## Sujan Rai
-- **Progress:** None!
-- **Upcoming tasks:** Need to team up @Neel Ayyagari
-- **Blocks:** Lab5 and et al.
-
-## Justin Nguyen
-- **Progress:** Made most of C4 Systems Diagram, made 1 user persona, and edited user flow chart.
-- **Upcoming tasks:** @Yuchen Jing check out my C4 diagram. Next meeting discuss the prototype UI flowchart.
-@Neel Ayyagari or someone good at javascript, look at C4 level 4 and see if it can be done in code.
-- **Blocks:** Lab5, cse 101 hw, midterms, existen. dread
+Missing: Andrew, Neel, Justin, Yuchen, Sujan
