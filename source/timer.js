@@ -198,8 +198,8 @@ export default class Timer {
 			break;
 		}
 		document.getElementById(this.$buttonId).disabled = false;
-		document.getElementById('task-list-button').style.display = 'inline-block';
-		document.getElementById('stats-button').style.display = 'inline-block';
+		document.getElementById('task-list-button').style.display = 'inline';
+		document.getElementById('stats-button').style.display = 'inline';
 	}
 
 	buttonClick() {
