@@ -1,7 +1,7 @@
 {
 
 	"scripts": {
-		"docs": "jsdoc2md -rf $1 > ./docs/JSDoc.md",
+		"docs": "jsdoc2md -rf ./source > ./docs/JSDoc.md",
 		"test": "node --experimental-vm-modules ./node_modules/.bin/jest",
 		"start": "node server.js"
 	},
