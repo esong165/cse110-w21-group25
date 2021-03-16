@@ -68,50 +68,6 @@ export default class Settings {
 		this.volume = volumeWhole / 100;
 		document.getElementById('alarm').volume = this.volume;
 	}
-
-	/**
-	 * When the user clicks the return home button
-	 */
-	toHome() {
-		document.getElementById('timer').style.display = 'block';
-		document.getElementById('task-list').style.display = 'none';
-		document.getElementById('stats').style.display = 'none';
-		document.getElementById('faq').style.display = 'none';
-		document.getElementById('settings').style.display = 'none';
-	}
-
-	/**
-	 * When the user clicks the return home button
-	 */
-	toTaskList() {
-		document.getElementById('timer').style.display = 'none';
-		document.getElementById('task-list').style.display = 'block';
-		document.getElementById('stats').style.display = 'none';
-		document.getElementById('faq').style.display = 'none';
-		document.getElementById('settings').style.display = 'none';
-	}
-
-	/**
-	 * When the user clicks the return home button
-	 */
-	toStats() {
-		document.getElementById('timer').style.display = 'none';
-		document.getElementById('task-list').style.display = 'none';
-		document.getElementById('stats').style.display = 'block';
-		document.getElementById('faq').style.display = 'none';
-		document.getElementById('settings').style.display = 'none';
-	}
-
-	/**
-	 * When the user clicks the return home button
-	 */
-	toFaq() {
-		document.getElementById('timer').style.display = 'none';
-		document.getElementById('task-list').style.display = 'none';
-		document.getElementById('stats').style.display = 'none';
-		document.getElementById('faq').style.display = 'block';
-		document.getElementById('settings').style.display = 'none';
-	}
 }
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -137,17 +93,5 @@ document.addEventListener('DOMContentLoaded', () => {
 	});
 	document.getElementById('volume-slider').addEventListener('input', () => {
 		window.app.settings.updateVolume();
-	});
-	document.getElementById('home-button').addEventListener('click', () => {
-		window.app.settings.toHome();
-	});
-	document.getElementById('task-list-button').addEventListener('click', () => {
-		window.app.settings.toTaskList();
-	});
-	document.getElementById('stats-button').addEventListener('click', () => {
-		window.app.settings.toStats();
-	});
-	document.getElementById('faq-button').addEventListener('click', () => {
-		window.app.settings.toFaq();
 	});
 });

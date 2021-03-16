@@ -50,7 +50,7 @@ export default class StatItem extends HTMLElement {
 			}
 
 			p + p {
-				margin-left: 70px;
+				margin-left: 100px;
 			}
 			</style>
 		`;

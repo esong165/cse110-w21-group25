@@ -14,8 +14,9 @@ export default class Tasklist extends HTMLUListElement {
 
 		// Initialize $tasks and $selected to default values
 		this.$tasks = [];
-		this.$selected = ['Default', '1', '-1'];
-
+		this.$selected = ['No Current Task', '1', '-1'];
+		this.$color = 'rgb(174, 224, 174)';
+		this.$colorClassName = 'pomo';
 		// Get values from localStorage and updating $tasks and $selected if these are not null
 		const taskItemArr = JSON.parse(localStorage.getItem('taskItemArr'));
 		const selectedArr = JSON.parse(localStorage.getItem('selectedTask'));
@@ -26,9 +27,11 @@ export default class Tasklist extends HTMLUListElement {
 			this.$selected = selectedArr;
 		}
 		// Update current task display
-		if (this.$selected[0] === 'Default') {
-			document.getElementById('current-task').textContent = 'Default';
+		if (this.$selected[0] === 'No Current Task') {
+			document.getElementById('done-button').style.display = 'none';
+			document.getElementById('current-task').textContent = 'No Current Task';
 		} else {
+			document.getElementById('done-button').style.display = 'inline-block';
 			document.getElementById('current-task').textContent = this.$selected[0].substring(1);
 		}
 
@@ -55,7 +58,7 @@ export default class Tasklist extends HTMLUListElement {
 			document.getElementById(currTask.id).setAttribute('ondragover', 'allowDrop(event);');
 			document.getElementById(currTask.id).setAttribute('ondrop', 'drop(event);');
 		}
-		if (this.$selected[0] !== 'Default') {
+		if (this.$selected[0] !== 'No Current Task') {
 			document.getElementById('tasks-container').selectTask(this.$selected[0]);
 		}
 	}
@@ -64,8 +67,68 @@ export default class Tasklist extends HTMLUListElement {
 	 * Gets the current selected task as an array.
 	 * @returns {Array} Array containing task name at position 0, estimated count at position 1, and currPomos at position 2.
 	 */
-	getSelected() {
+	get selected() {
 		return this.$selected;
+	}
+
+	/**
+	 * Gets the current selected task color.
+	 * @returns {String} Color in rgb(r,g,b) format of selected task color
+	 */
+	get color() {
+		return this.$color;
+	}
+
+	/**
+	 * sets the current selected task color.
+	 * @param {String} backgroundColor - the updated selected task color.
+	 */
+	set color(backgroundColor) {
+		this.$color = backgroundColor;
+	}
+
+	/**
+	 * Gets the current selected task colorClassName.
+	 * @returns {String} colorClassName - is the class name  for selected task color
+	 */
+	get colorClassName() {
+		return this.$colorClassName;
+	}
+
+	/**
+	 * sets the current selected task colorClassName.
+	 * @param {String} className - the class name for updated selected task color.
+	 */
+	set colorClassName(className) {
+		this.$colorClassName = className;
+	}
+
+	/**
+	* Helper function that updates the hover and selected colors of task-items in task list.
+	* @param {String} className - the correct classname for the current background-color
+	*/
+	changeSelectedColor(className) {
+		const taskContainer = document.getElementById('tasks-container');
+		const currTask = taskContainer.selected;
+		const taskItems = taskContainer.getElementsByTagName('task-item');
+		const addTaskButton = document.getElementById('add-task-button');
+
+		// sets the correct class name
+		taskContainer.colorClassName = className;
+
+		// updates addTaskButton color
+		addTaskButton.style.backgroundColor = document.body.style.backgroundColor;
+
+		// updates all task-items with correct hover color
+		if (taskContainer.hasChildNodes()) {
+			for (let i = 0; i < taskItems.length; ++i) {
+				taskItems[i].shadowRoot.children[1].children[0].setAttribute('class', className);
+			}
+		}
+
+		// updates selected task highlight color
+		if (currTask[0] === 'No Current Task') return;
+		document.getElementById('tasks-container').selectTask(currTask[0]);
 	}
 
 	/**
@@ -86,6 +149,8 @@ export default class Tasklist extends HTMLUListElement {
 
 		const task = new TaskItem(name, count, 0);
 		task.id = '_' + name;
+
+		task.shadowRoot.children[1].children[0].setAttribute('class', document.getElementById('tasks-container').colorClassName);
 
 		// Add select and remove buttons to the task
 		task.shadowRoot.children[1].children[0].addEventListener('click',
@@ -135,14 +200,15 @@ export default class Tasklist extends HTMLUListElement {
 	selectTask(taskId) {
 		resetBackGround();
 		const task = document.getElementById(taskId).shadowRoot.children[1];
+		const taskContainer = document.getElementById('tasks-container');
 		// Highlight the selected task
-		task.children[0].children[0].setAttribute('style', `width: 90%; background-color: rgb(191,191,191);
-			box-shadow: 0px 0px 0px 10px rgb(191,191,191);`);
-		task.children[0].children[1].setAttribute('style', `width: 10%; background-color: rgb(191,191,191);
-			box-shadow: 0px 0px 0px 10px rgb(191,191,191);`);
+		task.children[0].children[0].setAttribute('style', `width: 90%; background-color: ${taskContainer.color}` +
+		`; box-shadow: 0px 0px 0px 10px ${taskContainer.color};`);
+		task.children[0].children[1].setAttribute('style', `width: 10%; background-color: ${taskContainer.color}` +
+		`; box-shadow: 0px 0px 0px 10px ${taskContainer.color};`);
+
 		const name = task.children[0].children[0].textContent;
 		const pomos = task.children[0].children[1].textContent;
-
 		// Update current task display
 		document.getElementById('current-task').textContent = name;
 
@@ -150,6 +216,9 @@ export default class Tasklist extends HTMLUListElement {
 		this.$selected = ['_' + name, pomos, document.getElementById(taskId).currPomos];
 		// Store selected task in local storage
 		localStorage.setItem('selectedTask', JSON.stringify(this.$selected));
+
+		// enable done button
+		document.getElementById('done-button').style.display = 'inline-block';
 	}
 
 	/**
@@ -184,8 +253,9 @@ export default class Tasklist extends HTMLUListElement {
 				tasklist.selectTask(tasklist.firstChild.id);
 			} else {
 				// Update displays and $selected to defaults if there are no tasks left in list
-				document.getElementById('current-task').textContent = 'Default';
-				this.$selected = ['Default', '1', '-1'];
+				document.getElementById('current-task').textContent = 'No Current Task';
+				this.$selected = ['No Current Task', '1', '-1'];
+				document.getElementById('done-button').style.display = 'none';
 			}
 		}
 

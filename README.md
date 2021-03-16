@@ -31,6 +31,9 @@ Next, a user should be focusing on their work throughout the entire Pomodoro ses
 To represent this, while a work session is in progress, a user may choose to "Cancel Pomo", which stops the timer and resets the work session. We feel that this is an intuitive way to handle distractions, as the user can clearly see that the session is not being paused, but rather "cancelled" and reset.
 
 Finally, the Pomodoro Technique is intended to be simple to both learn and use. To this end, our app favors a minimalist design that shows only the information which is immediately relevant to the user. Many buttons are represented pictorally to minimize clutter, and during a work session the tasklist and stats pages are disabled and hidden away to minimize distraction.
+
+Our app also supports users who may wish for a more manual Pomodoro Timer experience, as Cirillo had originally intended. For users who may wish to follow a more classic approach, they may manually log their tasks and number of pomodoros spent on a task; in this use case, our app would simply serve the "kitchen timer" functionality of acting as a countdown timer.
+
 By keeping our interface as unobtrusive as possible, we hope to keep our app easy to learn and understand while maintaining key features and quality-of-life enhancements that facilitate a Pomodoro Technique experience in line with Cirillo's original philosophies.
 
 ## Getting Started
