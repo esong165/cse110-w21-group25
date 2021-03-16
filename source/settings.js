@@ -54,6 +54,13 @@ export default class Settings {
 	}
 
 	/**
+	 * Updates the alarm sound
+	 */
+	updateAlarmSound() {
+		document.getElementById('alarm').src = document.getElementById('alarm-sound').value;
+	}
+
+	/**
 	 * Updates the volume settings of the horn
 	 */
 	updateVolume() {
@@ -80,6 +87,9 @@ document.addEventListener('DOMContentLoaded', () => {
 	});
 	document.getElementById('show-seconds').addEventListener('input', () => {
 		window.app.settings.updateShowSeconds();
+	});
+	document.getElementById('alarm-sound').addEventListener('input', () => {
+		window.app.settings.updateAlarmSound();
 	});
 	document.getElementById('volume-slider').addEventListener('input', () => {
 		window.app.settings.updateVolume();
