@@ -49,6 +49,15 @@ If you have any questions about specific implementation or CI/CD decisions, plea
 
 If you would like to see more documentation on our codebase/pipeline or learn more about or team members, feel free to check out our wiki!
 
+### Documentation:
+All documentation is in the JSDoc format and can be found in the [wiki](https://github.com/esong165/cse110-w21-group25/wiki/JSDoc).
+
+### Team Intro:
+A brief introduction of our team can be found in the [wiki](https://github.com/esong165/cse110-w21-group25/wiki/GET-BIG-GET-HUGE).
+
+### CI/CD Pipeline:
+A thorough description and walkthrough of our CI/CD pipeline can be found in the [wiki](https://github.com/esong165/cse110-w21-group25/wiki/Final-Pipeline).
+
 ## State of the App
 
 Currently, the app is deployed via GitHub Pages to [https://cirillo.tech](https://cirillo.tech). The page has 5 "tabs", which can be accessed through the navigation bar: the home/timer page, tasklist page, stats page, FAQ page, and settings page.
@@ -57,6 +66,6 @@ During a work session, the tasklist and stats pages are hidden from the user to 
 When the timer countdown reaches 0, the app will play a sound and send a notification to the user if notifications are enabled.
 When a user is done with a task, they can hit the checkmark (done) button to complete the task and send it to stats.
 
-## Documentation
 
-All documentation is in the JSDoc format and can be found in the [wiki](https://github.com/esong165/cse110-w21-group25/wiki/JSDoc).
+
+
