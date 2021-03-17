@@ -29,9 +29,32 @@ export default class Statlist extends HTMLUListElement {
 		if (this.totalTasks === 0) {
 			this.avgPomos = 0;
 		} else {
-			this.avgPomos = this.totalPomos / this.totalTasks;
+			this.avgPomos = Math.round(100 * (this.totalPomos / this.totalTasks)) / 100;
 		}
 
+		document.getElementById('avg-pomos').innerHTML = 'Average pomodoros per task: ' + this.avgPomos;
+		document.getElementById('total-tasks').innerHTML = 'Total tasks completed: ' + this.totalTasks;
+
+		this.clearHistory.bind(this);
+	}
+
+	/**
+	 * Clears the stat page resetting the list and average pomos/pomos-taken
+	 * @param none
+	 */
+	clearHistory() {
+		this.totalTasks = 0;
+		this.totalPomos = 0;
+		this.avgPomos = 0;
+		this.$stats = [];
+		//	resets all the variables in local storage
+		localStorage.setItem('statItemArr', JSON.stringify(this.$stats));
+		localStorage.setItem('totalTasks', JSON.stringify(this.totalTasks));
+		localStorage.setItem('totalPomos', JSON.stringify(this.totalPomos));
+		localStorage.setItem('avgPomos', JSON.stringify(this.avgPomos));
+
+		//	updates the elements on the page
+		document.getElementById('stats-container').innerHTML = '';
 		document.getElementById('avg-pomos').innerHTML = 'Average pomodoros per task: ' + this.avgPomos;
 		document.getElementById('total-tasks').innerHTML = 'Total tasks completed: ' + this.totalTasks;
 	}
@@ -60,7 +83,7 @@ export default class Statlist extends HTMLUListElement {
 		statArray.push(count);
 		this.totalTasks++;
 		this.totalPomos += count;
-		this.avgPomos = this.totalPomos / this.totalTasks;
+		this.avgPomos = Math.round(100 * (this.totalPomos / this.totalTasks)) / 100;
 
 		statItemArr.push(statArray);
 		this.$stats.push([name, expected, count]);
@@ -75,3 +98,9 @@ export default class Statlist extends HTMLUListElement {
 	}
 }
 customElements.define('stat-list', Statlist, { extends: 'ul' });
+
+document.addEventListener('DOMContentLoaded', () => {
+	document.getElementById('clear-button').addEventListener('click', () => {
+		document.getElementById('stats-container').clearHistory();
+	});
+});
