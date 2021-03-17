@@ -48,10 +48,12 @@ describe('Notification Tests', () => {
         }
         cy.get('#body-id').should('have.css', 'background-color').and('equal', 'rgb(209, 236, 255)');
         cy.get('#task-list-button').click();
-        cy.get('#tasks-container').children().eq(0).shadow().children().eq(1).children().eq(0).children().eq(0)
-        .should('have.css', 'background-color').and('equal', 'rgb(185, 206, 235)');
-        cy.get('#tasks-container').children().eq(0).shadow().children().eq(1).children().eq(0).children().eq(0)
-        .trigger('mouseover').should('have.css', 'background-color').and('equal', 'rgb(185, 206, 235)');
+        cy.get('#tasks-container')
+            .children().eq(0).shadow().children().eq(1).children().eq(0).children().eq(0)
+            .should('have.css', 'background-color').and('equal', 'rgb(185, 206, 235)');
+        cy.get('#tasks-container')
+            .children().eq(0).shadow().children().eq(1).children().eq(0).children().eq(0)
+            .trigger('mouseover').should('have.css', 'background-color').and('equal', 'rgb(185, 206, 235)');
     }); 
 
     // Test stats and tasklist disabled when timer on. test color. test nav bar buttons when clicked.
