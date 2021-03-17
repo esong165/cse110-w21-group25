@@ -59,12 +59,11 @@ describe('Notification Tests', () => {
 
     // Test stats and tasklist disabled when timer on. test color. test nav bar buttons when clicked. 
     it('Make sure all nav buttons works on load',  () => {
-
-        cy.get('#home-button').should('have.css', 'display').and('equal', 'inline');
-        cy.get('#task-list-button').should('have.css', 'display').and('equal', 'inline');
-        cy.get('#stats-button').should('have.css', 'display').and('equal', 'inline');
-        cy.get('#faq-button').should('have.css', 'display').and('equal', 'inline');
         cy.get('#settings-button').should('have.css', 'display').and('equal', 'inline');
+        cy.get('#faq-button').should('have.css', 'display').and('equal', 'inline');
+        cy.get('#stats-button').should('have.css', 'display').and('equal', 'inline');
+        cy.get('#task-list-button').should('have.css', 'display').and('equal', 'inline');
+        cy.get('#home-button').should('have.css', 'display').and('equal', 'inline');
     });
 
     // Test to make sure correct nav buttons are hidden
