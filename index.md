@@ -59,5 +59,5 @@ I like to listen to music while I lay in my bed whenever I have time.
 
 ### Sujan Rai - [https://github.com/sujanrai4/](https://github.com/sujanrai4/)
 
-I'm Sujan. I am a 4th year Computer Engineering major. 
+I'm Sujan. I am a 4th year Computer Engineering major.
 I love to explore the nature in my free time. I love running, or exercising outdoor in general.
