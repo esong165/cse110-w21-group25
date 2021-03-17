@@ -11,17 +11,6 @@ export default class Settings {
 	}
 
 	/**
-	 * Changes the current page to the settings page
-	 */
-	toSettings() {
-		document.getElementById('timer').style.display = 'none';
-		document.getElementById('task-list').style.display = 'none';
-		document.getElementById('stats').style.display = 'none';
-		document.getElementById('faq').style.display = 'none';
-		document.getElementById('settings').style.display = 'grid';
-	}
-
-	/**
 	 * Updates the duration of a single pomo.
 	 */
 	updatePomoDuration() {
@@ -91,9 +80,6 @@ export default class Settings {
 document.addEventListener('DOMContentLoaded', () => {
 	if (window.app === undefined) window.app = {};
 	window.app.settings = new Settings();
-	document.getElementById('settings-button').addEventListener('click', () => {
-		window.app.settings.toSettings();
-	});
 	document.getElementById('pomo-duration').addEventListener('input', () => {
 		window.app.settings.updatePomoDuration();
 	});
