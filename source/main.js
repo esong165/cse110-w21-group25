@@ -137,7 +137,7 @@ document.addEventListener('DOMContentLoaded', () => {
 		settingsButtonSelect.setAttribute('style', 'border:3px solid; border-radius: 10px; margin: -3px;');
 		// shows settings
 		const settings = document.getElementById('settings');
-		settings.style.display = 'block';
+		settings.style.display = 'grid';
 	});
 
 	// "Add task" functionality for tasklist
