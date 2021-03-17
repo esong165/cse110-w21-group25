@@ -42,17 +42,25 @@ describe('Settings Tests', () => {
 		cy.get('#alarm').should('have.prop', 'volume', 1);
 
 		cy.get('#time-remaining').should('have.text', '25:00');
-		startAndWait(3300);
-		cy.get('#time-remaining').should('have.text', '5:00');
+		cy.window().should(window => {
+			window.app.settings.pomoDuration = 2000;
+			window.app.timer.notifySettingsChanged();
+		});
+		startAndWait(2300);
+		cy.get('#time-remaining').should('have.text', '05:00');
+		cy.window().should(window => {
+			window.app.settings.shortBreakDuration = 1000;
+			window.app.timer.notifySettingsChanged();
+		});
 		startAndWait(1300);
 
-		startAndWait(3300);
+		startAndWait(2300);
 		startAndWait(1300);
 
-		startAndWait(3300);
+		startAndWait(2300);
 		startAndWait(1300);
 
-		startAndWait(3300);
+		startAndWait(2300);
 		cy.get('#time-remaining').should('have.text', '15:00');
 	});
 });
