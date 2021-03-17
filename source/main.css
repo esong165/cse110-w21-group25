@@ -237,6 +237,10 @@ nav {
 	align-items: center;
 }
 
+#reset-settings {
+	font-size: 70%;
+}
+
 #settings > .settings-option {
 	justify-self: center;
 }

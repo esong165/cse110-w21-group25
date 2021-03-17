@@ -57,6 +57,24 @@ export default class Settings {
 		this.volume = volumeWhole / 100;
 		document.getElementById('alarm').volume = this.volume;
 	}
+
+	/**
+	 * Reset all settings to default.
+	 */
+	reset() {
+		document.getElementById('pomo-duration').selectedIndex = 2;
+		this.updatePomoDuration();
+		document.getElementById('short-break-duration').selectedIndex = 0;
+		this.updateShortBreakDuration();
+		document.getElementById('long-break-duration').selectedIndex = 1;
+		this.updateLongBreakDuration();
+		document.getElementById('show-seconds').checked = true;
+		this.updateShowSeconds();
+		document.getElementById('alarm-sound').selectedIndex = 2;
+		this.updateAlarmSound();
+		document.getElementById('volume-slider').value = '100';
+		this.updateVolume();
+	}
 }
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -79,5 +97,8 @@ document.addEventListener('DOMContentLoaded', () => {
 	});
 	document.getElementById('volume-slider').addEventListener('input', () => {
 		window.app.settings.updateVolume();
+	});
+	document.getElementById('reset-settings').addEventListener('click', () => {
+		window.app.settings.reset();
 	});
 });
