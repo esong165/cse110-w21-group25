@@ -1,6 +1,5 @@
 // Test css background color properties, when short break, long break, pomo
 describe('Notification Tests', () => {
-
     // Before each test, access the website, create a task, and return to home page
     beforeEach(() => {
         cy.visit('/source/index.html');
@@ -16,10 +15,12 @@ describe('Notification Tests', () => {
     it('Test css background on pomo', () => {
         cy.get('#body-id').should('have.css', 'background-color').and('equal', 'rgb(204, 255, 204)');
         cy.get('#task-list-button').click();
-        cy.get('#tasks-container').children().eq(0).shadow().children().eq(1).children().eq(0).children().eq(0)
-        .should('have.css', 'background-color').and('equal', 'rgb(187, 240, 187)');
-        cy.get('#tasks-container').children().eq(0).shadow().children().eq(1).children().eq(0).children().eq(0)
-        .trigger('mouseover').should('have.css', 'background-color').and('equal', 'rgb(187, 240, 187)');
+        cy.get('#tasks-container')
+            .children().eq(0).shadow().children().eq(1).children().eq(0).children().eq(0)
+            .should('have.css', 'background-color').and('equal', 'rgb(187, 240, 187)');
+        cy.get('#tasks-container')
+            .children().eq(0).shadow().children().eq(1).children().eq(0).children().eq(0)
+            .trigger('mouseover').should('have.css', 'background-color').and('equal', 'rgb(187, 240, 187)');
     });
 
     // Short Break background should be pink and check if tasklist highlighting is working
@@ -31,10 +32,12 @@ describe('Notification Tests', () => {
         cy.wait(1001);
         cy.get('#body-id').should('have.css', 'background-color').and('equal', 'rgb(245, 196, 242)');
         cy.get('#task-list-button').click();
-        cy.get('#tasks-container').children().eq(0).shadow().children().eq(1).children().eq(0).children().eq(0)
-        .should('have.css', 'background-color').and('equal', 'rgb(232, 174, 228)');
-        cy.get('#tasks-container').children().eq(0).shadow().children().eq(1).children().eq(0).children().eq(0)
-        .trigger('mouseover').should('have.css', 'background-color').and('equal', 'rgb(232, 174, 228)');
+        cy.get('#tasks-container')
+            .children().eq(0).shadow().children().eq(1).children().eq(0).children().eq(0)
+            .should('have.css', 'background-color').and('equal', 'rgb(232, 174, 228)');
+        cy.get('#tasks-container')
+            .children().eq(0).shadow().children().eq(1).children().eq(0).children().eq(0)
+            .trigger('mouseover').should('have.css', 'background-color').and('equal', 'rgb(232, 174, 228)');
     });
 
     // Long Break background should be blue and check if tasklist highlighting is working
@@ -54,7 +57,7 @@ describe('Notification Tests', () => {
         cy.get('#tasks-container')
             .children().eq(0).shadow().children().eq(1).children().eq(0).children().eq(0)
             .trigger('mouseover').should('have.css', 'background-color').and('equal', 'rgb(185, 206, 235)');
-    }); 
+    });
 
     // Test stats and tasklist disabled when timer on. test color. test nav bar buttons when clicked.
     it('Make sure all nav buttons works on load', () => {
@@ -85,7 +88,6 @@ describe('Notification Tests', () => {
         cy.get('#stats-button').should('have.css', 'display').and('equal', 'inline');
         cy.get('#faq-button').should('have.css', 'display').and('equal', 'inline');
         cy.get('#settings-button').should('have.css', 'display').and('equal', 'inline');
-
     });
 
     // Test to make sure correct page is being displayed when home-button clicked and button is dark
@@ -146,10 +148,14 @@ describe('Notification Tests', () => {
     // Test to make sure done button and add task button work
     it('Test for highlighting for done and add task', () => {
         cy.get('#task-list-button').click();
-        cy.get('#add-task-button').trigger('mouseover').should('have.css', 'background-color')
-        .and('equal', 'rgb(0, 0, 0)');
-        cy.get('#add-task-button').trigger('mouseover').should('have.css', 'color')
-        .and('equal', 'rgb(255, 255, 255)');
+        cy.get('#add-task-button')
+            .trigger('mouseover')
+            .should('have.css', 'background-color')
+            .and('equal', 'rgb(0, 0, 0)');
+        cy.get('#add-task-button')
+            .trigger('mouseover')
+            .should('have.css', 'color')
+            .and('equal', 'rgb(255, 255, 255)');
         cy.get('#home-button').click();
         cy.get('#done-button').trigger('mouseover').should('have.attr', 'src').and('equal', 'images/done.png');
     });
