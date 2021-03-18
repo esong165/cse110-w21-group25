@@ -47,7 +47,14 @@ The wiki should have at least one page in it, and the repo should have a `docs` 
 For some starting resources, feel free to consult our system diagrams and interface mocks at `specs/system_diagram` and `specs/interface` respectively, and take a look at the `Pomodoro Timer` and `Backlog` project boards for a map of our current and planned tasks respectively.
 If you have any questions about specific implementation or CI/CD decisions, please refer to `specs/adrs` for the decisions and reasoning for any major choices we have made.
 
-If you would like to see more documentation on our codebase/pipeline or learn more about or team members, feel free to check out our wiki!
+### Documentation
+All documentation is in the JSDoc format and can be found in the [wiki](https://github.com/esong165/cse110-w21-group25/wiki/JSDoc).
+
+### Team Intro
+A brief introduction of our team can be found in the [wiki](https://github.com/esong165/cse110-w21-group25/wiki/GET-BIG-GET-HUGE).
+
+### CI/CD Pipeline
+A thorough description and walkthrough of our CI/CD pipeline can be found in the [wiki](https://github.com/esong165/cse110-w21-group25/wiki/Final-Pipeline).
 
 ## State of the App
 
