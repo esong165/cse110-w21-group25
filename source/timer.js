@@ -140,7 +140,7 @@ export default class Timer {
 	}
 
 	/**
-	 * Changes the timer color and duration based on whether the timer is in a work mode, short break mode, 
+	 * Changes the timer color and duration based on whether the timer is in a work mode, short break mode,
 	 * or a long break mode.
 	 */
 	$initCycle() {
@@ -215,6 +215,7 @@ export default class Timer {
 		document.getElementById('task-list-button').style.display = 'inline';
 		document.getElementById('stats-button').style.display = 'inline';
 	}
+
 	/**
 	 * Starts the timer when the user clicks/taps the button
 	 */
@@ -232,6 +233,7 @@ export default class Timer {
 			this.$initCycle();
 		}
 	}
+	
 	/**
 	 * If a change in the settings occurs, both remaining and initCycle are immediately called.
 	 */
