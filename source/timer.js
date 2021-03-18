@@ -67,7 +67,7 @@ export default class Timer {
 	}
 
 	/**
-	 * Sets the remaining time.
+	 * Sets the remaining time. Also modifies the title of the page to display the remaining time.
 	 * @param {Number} time - the remaining time, in miliseconds
 	 */
 	set remaining(time) {
@@ -134,6 +134,10 @@ export default class Timer {
 		setTimeout(tick, 0);
 	}
 
+	/**
+	 * Changes the timer color and duration based on whether the timer is in a work mode, short break, 
+	 * long break, and if the timer is paused. 
+	 */
 	$initCycle() {
 		if (this.$intervalId !== null) {
 			clearInterval(this.$intervalId);
@@ -179,6 +183,7 @@ export default class Timer {
 			}
 			break;
 		}
+		// short break mode
 		case this.State.SHORT_BREAK:
 			// Change the background-color, selected/hover task-item color
 			document.body.style.backgroundColor = 'rgb(245, 196, 242)';
@@ -189,6 +194,7 @@ export default class Timer {
 			stateMessage.textContent = 'Take a short break.';
 			button.textContent = 'Start Short Break';
 			break;
+		// long break mode
 		case this.State.LONG_BREAK:
 			// Change the background-color, selected/hover task-item color
 			document.body.style.backgroundColor = 'rgb(209, 236, 255)';
@@ -204,7 +210,9 @@ export default class Timer {
 		document.getElementById('task-list-button').style.display = 'inline';
 		document.getElementById('stats-button').style.display = 'inline';
 	}
-
+	/**
+	 * Starts the timer when the user clicks/taps the button
+	 */
 	buttonClick() {
 		if (this.status === this.Status.PAUSED) {
 			this.$startCounter();
@@ -219,7 +227,9 @@ export default class Timer {
 			this.$initCycle();
 		}
 	}
-
+	/**
+	 * If a change in the settings occurs, both remaining and initCycle are immediately called.
+	 */
 	notifySettingsChanged() {
 		if (this.status === this.Status.COUNTDOWN) return;
 		// Refresh remaining time format immediately in case it changed
