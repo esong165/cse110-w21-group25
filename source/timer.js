@@ -33,6 +33,7 @@ export default class Timer {
 
 	/**
 	 * Gets the possible timer states.
+	 * @returns {number} state of timer
 	 */
 	get State() {
 		return Object.freeze({ POMO: 1, SHORT_BREAK: 2, LONG_BREAK: 3 });
@@ -40,6 +41,7 @@ export default class Timer {
 
 	/**
 	 * Gets the possible timer statuses.
+	 * @returns {number} status of timer
 	 */
 	get Status() {
 		return Object.freeze({ PAUSED: 1, COUNTDOWN: 2 });
@@ -47,6 +49,7 @@ export default class Timer {
 
 	/**
 	 * Gets the current state.
+	 * @returns state
 	 */
 	get state() {
 		return this.$CYCLES[this.$cycle];
@@ -54,6 +57,7 @@ export default class Timer {
 
 	/**
 	 * Gets the current status.
+	 * @returns current status
 	 */
 	get status() {
 		return this.$status;
@@ -61,6 +65,7 @@ export default class Timer {
 
 	/**
 	 * Gets the remaining time.
+	 * @returns {number} remaining time in miliseconds
 	 */
 	get remaining() {
 		return this.$remaining;
