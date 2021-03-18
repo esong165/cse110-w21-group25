@@ -33,6 +33,7 @@ export default class Timer {
 
 	/**
 	 * Gets the possible timer states.
+	 * @returns {Object} state of timer
 	 */
 	get State() {
 		return Object.freeze({ POMO: 1, SHORT_BREAK: 2, LONG_BREAK: 3 });
@@ -40,6 +41,7 @@ export default class Timer {
 
 	/**
 	 * Gets the possible timer statuses.
+	 * @returns {number} status of timer
 	 */
 	get Status() {
 		return Object.freeze({ PAUSED: 1, COUNTDOWN: 2 });
@@ -47,6 +49,7 @@ export default class Timer {
 
 	/**
 	 * Gets the current state.
+	 * @returns {Object} state of timer
 	 */
 	get state() {
 		return this.$CYCLES[this.$cycle];
@@ -54,6 +57,7 @@ export default class Timer {
 
 	/**
 	 * Gets the current status.
+	 * @returns {Object} current status
 	 */
 	get status() {
 		return this.$status;
@@ -61,14 +65,15 @@ export default class Timer {
 
 	/**
 	 * Gets the remaining time.
+	 * @returns {number} remaining time in miliseconds
 	 */
 	get remaining() {
 		return this.$remaining;
 	}
 
 	/**
-	 * Sets the remaining time.
-	 * @param {Number} time - the remaining time, in miliseconds
+	 * Sets the remaining time. Also modifies the title of the page to display the remaining time.
+	 * @param {number} time - the remaining time, in milliseconds
 	 */
 	set remaining(time) {
 		this.$remaining = time;
@@ -134,6 +139,10 @@ export default class Timer {
 		setTimeout(tick, 0);
 	}
 
+	/**
+	 * Changes the timer color and duration based on whether the timer is in a work mode, short break mode,
+	 * or a long break mode.
+	 */
 	$initCycle() {
 		if (this.$intervalId !== null) {
 			clearInterval(this.$intervalId);
@@ -179,6 +188,7 @@ export default class Timer {
 			}
 			break;
 		}
+		// short break mode
 		case this.State.SHORT_BREAK:
 			// Change the background-color, selected/hover task-item color
 			document.body.style.backgroundColor = 'rgb(245, 196, 242)';
@@ -189,6 +199,7 @@ export default class Timer {
 			stateMessage.textContent = 'Take a short break.';
 			button.textContent = 'Start Short Break';
 			break;
+		// long break mode
 		case this.State.LONG_BREAK:
 			// Change the background-color, selected/hover task-item color
 			document.body.style.backgroundColor = 'rgb(209, 236, 255)';
@@ -205,6 +216,9 @@ export default class Timer {
 		document.getElementById('stats-button').style.display = 'inline';
 	}
 
+	/**
+	 * Starts the timer when the user clicks/taps the button
+	 */
 	buttonClick() {
 		if (this.status === this.Status.PAUSED) {
 			this.$startCounter();
@@ -220,6 +234,9 @@ export default class Timer {
 		}
 	}
 
+	/**
+	 * If a change in the settings occurs, both remaining and initCycle are immediately called.
+	 */
 	notifySettingsChanged() {
 		if (this.status === this.Status.COUNTDOWN) return;
 		// Refresh remaining time format immediately in case it changed
