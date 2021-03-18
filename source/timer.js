@@ -233,7 +233,7 @@ export default class Timer {
 			this.$initCycle();
 		}
 	}
-	
+
 	/**
 	 * If a change in the settings occurs, both remaining and initCycle are immediately called.
 	 */
