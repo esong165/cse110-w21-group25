@@ -73,7 +73,7 @@ export default class Timer {
 
 	/**
 	 * Sets the remaining time. Also modifies the title of the page to display the remaining time.
-	 * @param {Number} time - the remaining time, in miliseconds
+	 * @param {Number} time - the remaining time, in milliseconds
 	 */
 	set remaining(time) {
 		this.$remaining = time;
