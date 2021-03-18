@@ -135,7 +135,7 @@ export default class Timer {
 	}
 
 	/**
-	 * Changes the timer color and duration based on whether the timer is in a work mode, short break, 
+	 * Changes the timer color and duration based on whether the timer is in a work mode, short break mode, 
 	 * or a long break mode.
 	 */
 	$initCycle() {
