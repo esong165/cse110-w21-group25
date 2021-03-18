@@ -98,7 +98,7 @@ export default class Timer {
 	}
 
 	/**
-	 * Formats the given time to the form mm.
+	 * Formats the given time to the form mm from mm:ss.
 	 * @param {Number} time - the time, in miliseconds, to format
 	 */
 	static $formatShort(time) {
