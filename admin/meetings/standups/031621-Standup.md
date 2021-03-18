@@ -15,7 +15,7 @@
 - **Upcoming tasks:** Videos and lil more QA testing
 - **Blocks:** Finals and interviews
 
-## Ainesh Arumugam
+## Neel Ayyagari
 - **Progress:** Helped finish the final design, wrote tests, fixed issues and bugs with design,  and helped create the final videos for our project
 - **Upcoming tasks:** whatever needs a little fixing before our deadline
 - **Blocks:** Finals and interviews
