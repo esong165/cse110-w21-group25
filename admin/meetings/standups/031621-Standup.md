@@ -10,4 +10,15 @@
 - **Upcoming tasks:** Will probably do very little work from wed-fri, unless necessary. style clear history bar
 - **Blocks:** finals :((((
 
-Missing: Jaslina, Tom, Sujan, Yuchen, Neel, Ainesh, Andrew
+## Ainesh Arumugam
+- **Progress:** Approved a few PRs as well as fixed the README up a bit
+- **Upcoming tasks:** Videos and lil more QA testing
+- **Blocks:** Finals and interviews
+
+## Ainesh Arumugam
+- **Progress:** Helped finish the final design, wrote tests, fixed issues and bugs with design,  and helped create the final videos for our project
+- **Upcoming tasks:** whatever needs a little fixing before our deadline
+- **Blocks:** Finals and interviews
+
+
+Missing: Jaslina, Tom, Sujan, Yuchen, Andrew
