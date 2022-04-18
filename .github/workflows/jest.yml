@@ -4,7 +4,7 @@ name: Run Jest
 on: push
 jobs:
   build:
-    runs-on: self-hosted
+    runs-on: ubuntu-latest
     steps:
       # Checks out code
     - uses: actions/checkout@v2
